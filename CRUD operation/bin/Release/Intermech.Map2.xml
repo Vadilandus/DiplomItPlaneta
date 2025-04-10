@@ -1,0 +1,787 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Map2</name>
+    </assembly>
+    <members>
+        <member name="P:Intermech.Map.MapRedNoteText.Fragment.Text">
+            <summary>текст фрагмента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNoteText.Fragment.FontName">
+            <summary>имя уникального фонта</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNoteText.Fragment.Image">
+            <summary>графика формулы</summary>
+        </member>
+        <member name="T:Intermech.Map.MapRedNoteText.CreateFormulaImages">
+            <summary>получить коллекцию формула -- изображение формулы</summary>
+            <param name="font">используемый фонт</param>
+            <param name="textColor">цвет формулы</param>
+            <param name="backgroundColor">цвет подложки</param>
+            <param name="dictImage">коллекция формула--> изображение формулы </param>
+            <param name="dictImageSize">коллекция формула--> реальный размер изображения</param>
+            <returns>есть ли формулы</returns>
+        </member>
+        <member name="E:Intermech.Map.MapRedNoteText.OnCreateFormulaImages">
+            <summary>Событие создание коллекции формула -- изображение формулы</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNoteText._dictImage">
+            <summary>коллекция: формула--> изображение формулы </summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNoteText._dictImageSize">
+            <summary>коллекция: формула-->  реальный размер изображения</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedNoteText.ClearImages">
+            <summary>очистка графики формул</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedNoteText.GetImageData(System.String)">
+            <summary>получить из коллекции элемент</summary>
+            <param name="formula">изображение формулы</param>
+            <returns>изображение формулы , реальный размер изображения</returns>
+        </member>
+        <member name="M:Intermech.Map.RichTextBoxControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Intermech.Map.RichTextBoxControl.FindEndIndexChars(System.String)">
+            <summary>конец ввода две пустые строки</summary>
+            <param name="str">проверяемая строка</param>
+            <returns>положение конца строки, иначе -1</returns>
+        </member>
+        <member name="F:Intermech.Map.RichTextBoxControl.TypeCharacterMapForm">
+            <summary>тип класса CharacterMap.CharacterMapForm</summary>
+        </member>
+        <member name="T:Intermech.Map.IMapRelativePosition">
+            <summary>пересчёт положения объектов относительно элемента в документе</summary>
+        </member>
+        <member name="P:Intermech.Map.IMapRelativePosition.Relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="P:Intermech.Map.IMapRelativePosition.RelativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.IMapRelativePosition.BasePoint">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="T:Intermech.Map.IMapRelative">
+            <summary>положения объектов относительно элемента в документе</summary>
+        </member>
+        <member name="M:Intermech.Map.IMapRelative.GetId(System.Drawing.PointF)">
+            <summary>получить по точке в документе найти ID элемента состовляющего документ</summary>
+            <param name="point">по точке в документе </param>
+            <returns>ID элемента в документе на который указывает точка</returns>
+        </member>
+        <member name="M:Intermech.Map.IMapRelative.GetCurrentPageId">
+            <summary>получить ID текущей страницы в документе</summary>
+            <returns>ID текущей страницы в документе</returns>
+        </member>
+        <member name="M:Intermech.Map.IMapRelative.GetBasePoint(System.String)">
+            <summary>получить базовую точку элемента </summary>
+            <param name="id">ID элемента в документе</param>
+            <returns>базовая точка</returns>
+        </member>
+        <member name="M:Intermech.Map.IMapRelative.GetBasePointMM(System.String)">
+            <summary>получить базовую точку элемента в мм </summary>
+            <param name="id">ID элемента в документе</param>
+            <returns>базовая точка в мм</returns>
+        </member>
+        <member name="M:Intermech.Map.IMapRelative.GetVisible(System.String)">
+            <summary> видим ли графику к указанному элементу </summary>
+            <param name="id">ID элемента в документе</param>
+            <returns>true, если элемент видим</returns>
+        </member>
+        <member name="M:Intermech.Map.IMapRelative.CheckElementId(System.String)">
+            <summary> проверить сущетвование элемента в документе</summary>
+            <param name="id">ID элемента в документе</param>
+            <returns>true, если элемент существует</returns>
+        </member>
+        <member name="M:Intermech.Map.IMapRelative.GetPage(System.String)">
+            <summary>
+            Получение страницы в документе для указанного элемента
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Map.IMapRelative.GetPageId(System.String)">
+            <summary>
+            Получение ID страницы в документе для указанного элемента
+            </summary>
+            <param name="id">ID элемента в документе</param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Map.IMapTime">
+            <summary>дата создания и последнего изменения примитива  </summary>
+        </member>
+        <member name="P:Intermech.Map.IMapTime.CreateTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.IMapTime.ModificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="T:Intermech.Map.IMapToolTipText">
+            <summary>сведения о примитиве для TipText</summary>
+        </member>
+        <member name="M:Intermech.Map.IMapToolTipText.GenerateToolTipText">
+            <summary>сформировать сведения о примитиве</summary>
+            <returns>сведения о примитиве</returns>
+        </member>
+        <member name="P:Intermech.Map.IMapToolTipText.ToolTipText">
+            <summary>сведения о примитиве</summary>
+        </member>
+        <member name="M:Intermech.Map.IMapTool.DoKeyDown">
+            <summary>действия когда клавиша клавиатуры нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.IMapTool.DoMouseDown">
+            <summary>действия когда клавиша мыши нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.IMapTool.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.IMapTool.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="E:Intermech.Map.MapControl.onCreateControl">
+            <summary>Событие создание Control для редактирования из указанного типа</summary>
+        </member>
+        <member name="M:Intermech.Map.MapDocument.ComputeBounds(Intermech.Map.IMapCollection,Intermech.Map.MapView)">
+            <summary>Получить минимальный прямоугольник, который включает границы всех объектов в коллекции.</summary>
+            <param name="coll">коллекция  объектов</param>
+            <param name="view">Может быть null</param>
+            <returns>минимальный прямоугольник</returns>
+        </member>
+        <member name="P:Intermech.Map.MapDocument.Size">
+            <summary>размеры документа</summary>
+        </member>
+        <member name="M:Intermech.Map.MapGeneralNode.LayoutChildren(Intermech.Map.MapObject)">
+            <summary>
+            Расставить дочерние элементы
+            </summary>
+            <param name="childchanged">Измененный child (не используется)</param>
+        </member>
+        <member name="M:Intermech.Map.MapLayer.RaiseChanged(System.Int32,System.Int32,System.Object,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)">
+            <summary>
+            
+            </summary>
+            <param name="hint"></param>
+            <param name="subhint"></param>
+            <param name="obj"></param>
+            <param name="oldI"></param>
+            <param name="oldVal"></param>
+            <param name="oldRect"></param>
+            <param name="newI"></param>
+            <param name="newVal"></param>
+            <param name="newRect"></param>
+        </member>
+        <member name="M:Intermech.Map.MapLayerCollection.RaiseChanged(System.Int32,System.Int32,System.Object,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)">
+            <summary>
+            
+            </summary>
+            <param name="hint"></param>
+            <param name="subhint"></param>
+            <param name="obj"></param>
+            <param name="oldI"></param>
+            <param name="oldVal"></param>
+            <param name="oldRect"></param>
+            <param name="newI"></param>
+            <param name="newVal"></param>
+            <param name="newRect"></param>
+        </member>
+        <member name="M:Intermech.Map.MapObject.SetRectangleSpotLocation(System.Drawing.RectangleF,System.Int32,System.Drawing.PointF)">
+            <summary>
+            Сдвинуть прямоугольник так, чтобы точка, соответствующая spot, была в указанной точке
+            </summary>
+            <param name="r">Исходный прямоугольник</param>
+            <param name="spot">Идентификатор места (левый верх, центр и т.п.)</param>
+            <param name="p">Точка, в которой должно быть указанное место прямоугольника</param>
+            <returns>Сдвинутый прямоугольник</returns>
+        </member>
+        <member name="M:Intermech.Map.MapObject.SpotOpposite(System.Int32)">
+            <summary>
+            Вернуть код противоположной точки
+            </summary>
+            <param name="spot">Код точки</param>
+            <returns>Код противоположной точки</returns>
+        </member>
+        <member name="P:Intermech.Map.MapObject.SkipsUndoManager">
+            <summary>  пропускать ли запись в UndoManager? true- пропускать </summary>
+        </member>
+        <member name="M:Intermech.Map.MapOverview.ViewChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Handle basic changes to the observed view's DocPosition or DocScale,
+            or when the observed view's Document got swapped for a different document.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Intermech.Map.MapRedCircle">
+            <summary>окружность для RedLines с пересчёт положения объектов относительно элемента в документе</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedCircle._relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedCircle._relativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedCircle._baseOffsetId">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedCircle._offset">
+            <summary>смещение от базовой точки элемента к базовой точки этого MapObject</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedCircle.Relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedCircle.RelativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedCircle.BasePoint">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedCircle.CheckOffsetThis">
+            <summary>проверить поменялась ли базовая точка элемента</summary>
+            <returns>true - если смещение базовой точки поменялось</returns>
+        </member>
+        <member name="M:Intermech.Map.MapRedCircle.OffsetThis(System.Drawing.SizeF)">
+            <summary>сместить объект в указанную сторону </summary>
+            <param name="offset">смещение базовой точки</param>
+        </member>
+        <member name="F:Intermech.Map.MapRedCircle._createTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedCircle._modificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedCircle.CreateTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedCircle.ModificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedCircle.GenerateToolTipText">
+            <summary>сформировать сведения о примитиве</summary>
+            <returns>сведения о примитиве</returns>
+        </member>
+        <member name="P:Intermech.Map.MapRedCircle.ToolTipText">
+            <summary>сведения о примитиве </summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedCircle.ContainsPoint(System.Drawing.PointF)">
+            <summary>проверка:  точка попала внутрь объекта ?</summary>
+            <param name="p">проверяемая точка</param>
+            <returns>true -точка попала внутрь объекта</returns>
+        </member>
+        <member name="M:Intermech.Map.MapRedCircle.NearestIntersectionOnArc(System.Drawing.RectangleF,System.Drawing.PointF,System.Drawing.PointF,System.Drawing.PointF@,System.Single,System.Single)">
+            <summary>Самое близкое Пересечение На Дуге</summary>
+            <param name="rect"></param>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="result"></param>
+            <param name="startAngle"></param>
+            <param name="sweepAngle"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Map.MapRedEllipse">
+            <summary>эллипс для RedLines с пересчёт положения объектов относительно элемента в документе</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedEllipse._relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedEllipse._relativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedEllipse._baseOffsetId">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedEllipse._offset">
+            <summary>смещение от базовой точки элемента к базовой точки этого MapObject</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedEllipse.Relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedEllipse.RelativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedEllipse.BasePoint">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedEllipse.CheckOffsetThis">
+            <summary>проверить поменялась ли базовая точка элемента</summary>
+            <returns>true - если смещение базовой точки поменялось</returns>
+        </member>
+        <member name="M:Intermech.Map.MapRedEllipse.OffsetThis(System.Drawing.SizeF)">
+            <summary>сместить объект в указанную сторону </summary>
+            <param name="offset">смещение базовой точки</param>
+        </member>
+        <member name="F:Intermech.Map.MapRedEllipse._createTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedEllipse._modificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedEllipse.CreateTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedEllipse.ModificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedEllipse.GenerateToolTipText">
+            <summary>сформировать сведения о примитиве</summary>
+            <returns>сведения о примитиве</returns>
+        </member>
+        <member name="P:Intermech.Map.MapRedEllipse.ToolTipText">
+            <summary>сведения о примитиве </summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedEllipse.ContainsPoint(System.Drawing.PointF)">
+            <summary>проверка:  точка попала внутрь объекта ?</summary>
+            <param name="p">проверяемая точка</param>
+            <returns>true -точка попала внутрь объекта</returns>
+        </member>
+        <member name="M:Intermech.Map.MapRedEllipse.NearestIntersectionOnArc(System.Drawing.RectangleF,System.Drawing.PointF,System.Drawing.PointF,System.Drawing.PointF@,System.Single,System.Single)">
+            <summary>Самое близкое Пересечение На Дуге</summary>
+            <param name="rect"></param>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="result"></param>
+            <param name="startAngle"></param>
+            <param name="sweepAngle"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Map.IRedNoteStyle">
+            <summary>стили коментариев</summary>
+        </member>
+        <member name="F:Intermech.Map.IRedNoteStyle.None">
+            <summary>без рамки</summary>
+        </member>
+        <member name="F:Intermech.Map.IRedNoteStyle.Box">
+            <summary>рамка без фасок</summary>
+        </member>
+        <member name="F:Intermech.Map.IRedNoteStyle.BoxFacet">
+            <summary>рамка с фаской</summary>
+        </member>
+        <member name="F:Intermech.Map.IRedNoteStyle.BoxBluntPoint">
+            <summary>рамка с закруглением</summary>
+        </member>
+        <member name="F:Intermech.Map.IRedNoteStyle.OldStyle">
+            <summary>старый стиль</summary>
+        </member>
+        <member name="T:Intermech.Map.IRedArrowStyle">
+            <summary>стили стрелки</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._relativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._baseOffsetId">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.TextColor">
+            <summary>цвет текста</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.Brush">
+            <summary>цвет заливки пометки</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._facet">
+            <summary>размер фаски</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.Facet">
+            <summary>размер фаски</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._fontSize">
+            <summary>размер шрифта</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.FontSize">
+            <summary>размер шрифта</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._fontName">
+            <summary>имя шрифта</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.FontName">
+            <summary>имя шрифта</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._noteStyle">
+            <summary>стиль фаски</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.NoteStyle">
+            <summary>стиль фаски</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._arrowSize">
+            <summary>размер стрелки</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.ArrowSize">
+            <summary>размер стрелки</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._noteArrow">
+            <summary>стиль стрелки</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.NoteArrow">
+            <summary>стиль стрелки</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._label">
+            <summary>объект содержащий текст</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote.TypeMapAttrMemoEdit">
+            <summary>тип класса Intermech.Redline.MapAttrMemoEdit</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.Relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.RelativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.BasePoint">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedNote.CheckOffsetThis">
+            <summary>проверить поменялась ли базовая точка элемента</summary>
+            <returns>true - если смещение базовой точки поменялось</returns>
+        </member>
+        <member name="M:Intermech.Map.MapRedNote.OffsetThis(System.Drawing.SizeF)">
+            <summary>сместить объект в указанную сторону </summary>
+            <param name="offset">смещение базовой точки</param>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.NoteLocation">
+            <summary></summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.NoteSize">
+            <summary></summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.Text">
+            <summary>текст </summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._createTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedNote._modificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.CreateTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.ModificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedNote.ContainsPoint(System.Drawing.PointF)">
+            <summary>проверка:  точка попала внутрь объекта ?</summary>
+            <param name="p">проверяемая точка</param>
+            <returns>true -точка попала внутрь объекта</returns>
+        </member>
+        <member name="M:Intermech.Map.MapRedNote.GenerateToolTipText">
+            <summary>сформировать сведения о примитиве</summary>
+            <returns>сведения о примитиве</returns>
+        </member>
+        <member name="P:Intermech.Map.MapRedNote.ToolTipText">
+            <summary>сведения о примитиве </summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedNote.ComputeStroke(System.Drawing.RectangleF)">
+            <summary>линия коментария</summary>
+        </member>
+        <member name="T:Intermech.Map.MapRedPencil">
+            <summary>ломаная рисования для RedLines с пересчёт положения объектов относительно элемента в документе</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedPencil._relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedPencil._relativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedPencil._baseOffsetId">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedPencil.Relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedPencil.RelativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedPencil.BasePoint">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedPencil._createTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedPencil._modificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedPencil.CreateTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedPencil.ModificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedPencil.GenerateToolTipText">
+            <summary>сформировать сведения о примитиве</summary>
+            <returns>сведения о примитиве</returns>
+        </member>
+        <member name="P:Intermech.Map.MapRedPencil.ToolTipText">
+            <summary>сведения о примитиве </summary>
+        </member>
+        <member name="T:Intermech.Map.MapRedRectangle">
+            <summary>прямоугольник для RedLines с пересчёт положения объектов относительно элемента в документе</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedRectangle._relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedRectangle._relativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedRectangle._baseOffsetId">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedRectangle._offset">
+            <summary>смещение от базовой точки элемента к базовой точки этого MapObject</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedRectangle.Relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedRectangle.RelativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedRectangle.BasePoint">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedRectangle.CheckOffsetThis">
+            <summary>проверить поменялась ли базовая точка элемента</summary>
+            <returns>true - если смещение базовой точки поменялось</returns>
+        </member>
+        <member name="M:Intermech.Map.MapRedRectangle.OffsetThis(System.Drawing.SizeF)">
+            <summary>сместить объект в указанную сторону </summary>
+            <param name="offset">смещение базовой точки</param>
+        </member>
+        <member name="F:Intermech.Map.MapRedRectangle._createTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedRectangle._modificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedRectangle.CreateTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedRectangle.ModificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedRectangle.GenerateToolTipText">
+            <summary>сформировать сведения о примитиве</summary>
+            <returns>сведения о примитиве</returns>
+        </member>
+        <member name="P:Intermech.Map.MapRedRectangle.ToolTipText">
+            <summary>сведения о примитиве </summary>
+        </member>
+        <member name="T:Intermech.Map.MapRedStroke">
+            <summary>ломаная линия для RedLines с пересчёт положения объектов относительно элемента в документе</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedStroke._relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedStroke._relativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedStroke._baseOffsetId">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedStroke.Relative">
+            <summary>сложный объект с  IDs  состовляющеми документ</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedStroke.RelativeId">
+            <summary>ID элемента базового элемента</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedStroke.BasePoint">
+            <summary>получить базовую точку элемента</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedStroke.CheckOffsetThis">
+            <summary>проверить поменялась ли базовая точка элемента</summary>
+            <returns>true - если смещение базовой точки поменялось</returns>
+        </member>
+        <member name="M:Intermech.Map.MapRedStroke.OffsetThis(System.Drawing.SizeF)">
+            <summary>сместить объект в указанную сторону </summary>
+            <param name="offset">смещение базовой точки</param>
+        </member>
+        <member name="F:Intermech.Map.MapRedStroke._createTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="F:Intermech.Map.MapRedStroke._modificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedStroke.CreateTime">
+            <summary>дата создания примитива</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRedStroke.ModificationTime">
+            <summary>дата последнего изменения примитива</summary>
+        </member>
+        <member name="M:Intermech.Map.MapRedStroke.GenerateToolTipText">
+            <summary>сформировать сведения о примитиве</summary>
+            <returns>сведения о примитиве</returns>
+        </member>
+        <member name="P:Intermech.Map.MapRedStroke.ToolTipText">
+            <summary>сведения о примитиве </summary>
+        </member>
+        <member name="T:Intermech.Map.RectangleStyle">
+            <summary>стили рамки</summary>
+        </member>
+        <member name="F:Intermech.Map.RectangleStyle.Box">
+            <summary>рамка без фасок</summary>
+        </member>
+        <member name="F:Intermech.Map.RectangleStyle.BoxFacet">
+            <summary>рамка с фаской</summary>
+        </member>
+        <member name="F:Intermech.Map.RectangleStyle.BoxBluntPoint">
+            <summary>рамка с закруглением</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRoundedRectangle.Corner">
+            <summary>Максимальную ширину и высоту фаски каждого угла</summary>
+        </member>
+        <member name="P:Intermech.Map.MapRoundedRectangle.Style">
+            <summary>стили рамки</summary>
+        </member>
+        <member name="E:Intermech.Map.MapText.onCreateControl">
+            <summary>Событие создание Control для редактирования из указанного типа</summary>
+        </member>
+        <member name="M:Intermech.Map.MapText.TextBoxControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Intermech.Map.MapTool.DoKeyDown">
+            <summary>действия когда клавиша клавиатуры нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.MapTool.DoMouseDown">
+            <summary>действия когда клавиша мыши нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.MapTool.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.MapTool.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolAction.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolAction.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolContext.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolDragging.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolDragging.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolLinking.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolLinking.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolManager.DoKeyDown">
+            <summary>действия когда клавиша клавиатуры нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolManager.DoMouseDown">
+            <summary>действия когда клавиша мыши нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolManager.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolManager.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolPanning.DoKeyDown">
+            <summary>действия когда клавиша клавиатуры нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolPanning.DoMouseDown">
+            <summary>действия когда клавиша мыши нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolPanning.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolPanning.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolResizing.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolResizing.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolRubberBanding.DoMouseDown">
+            <summary>действия когда клавиша мыши нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolRubberBanding.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.MapToolRubberBanding.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="M:Intermech.Map.MapView.ConvertDocToView(System.Drawing.PointF)">
+            <summary>преоброзовать точку из системы координат Документа в систему координат Окна</summary>
+            <param name="p">точка в системе координат Документа</param>
+            <returns>точка в системе координат Окна</returns>
+        </member>
+        <member name="M:Intermech.Map.MapView.ConvertDocToView(System.Drawing.SizeF)">
+            <summary>преоброзовать размер из системы координат Документа в систему координат Окна</summary>
+            <param name="s">размер в системе координат Документа</param>
+            <returns>размер в системе координат Окна</returns>
+        </member>
+        <member name="M:Intermech.Map.MapView.ConvertDocToView(System.Drawing.RectangleF)">
+            <summary>преоброзовать прямоугольник из системы координат Документа в систему координат Окна</summary>
+            <param name="r">прямоугольник в системе координат Документа</param>
+            <returns>прямоугольник в системе координат Окна</returns>
+        </member>
+        <member name="M:Intermech.Map.MapView.ConvertViewToDoc(System.Drawing.Point)">
+            <summary>преоброзовать точку из системы координат Окна в систему координат Документа </summary>
+            <param name="p">точка в системе координат Окна</param>
+            <returns>точка в системе координат Документа</returns>
+        </member>
+        <member name="M:Intermech.Map.MapView.ConvertViewToDoc(System.Drawing.Size)">
+            <summary>преоброзовать размер из системы координат Окна в систему координат Документа </summary>
+            <param name="s">размер в системе координат Окна</param>
+            <returns>размер в системе координат Документа</returns>
+        </member>
+        <member name="M:Intermech.Map.MapView.ConvertViewToDoc(System.Drawing.Rectangle)">
+            <summary>преоброзовать прямоугольник из системы координат Окна в систему координат Документа </summary>
+            <param name="r">прямоугольник в системе координат Окна</param>
+            <returns>прямоугольник в системе координат Документа</returns>
+        </member>
+        <member name="M:Intermech.Map.MapView.DoKeyDown">
+            <summary>действия когда клавиша клавиатуры нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.MapView.DoMouseDown">
+            <summary>действия когда клавиша мыши нажата</summary>
+        </member>
+        <member name="M:Intermech.Map.MapView.DoMouseMove">
+            <summary>действия когда мышь двигают</summary>
+        </member>
+        <member name="M:Intermech.Map.MapView.DoMouseUp">
+            <summary>действия когда клавиша мыши отпущена</summary>
+        </member>
+        <member name="P:Intermech.Map.MapView.IsZoomToFit">
+            <summary>свойство был ли вписан рисунок</summary>
+        </member>
+        <member name="P:Intermech.Map.MapView.DisplayRectangle">
+            <summary>прямоугольник окна прорисовки (Pixel)</summary>
+        </member>
+        <member name="P:Intermech.Map.MapView.DocExtent">
+            <summary>проекция окна прорисовки на Документ (mm)</summary>
+        </member>
+        <member name="P:Intermech.Map.MapView.DocExtentSize">
+            <summary>размер окна прорисовки в системе координат Документа </summary>
+        </member>
+        <member name="P:Intermech.Map.MapView.DocPosition">
+            <summary>проекция начала окна на Документ </summary>
+        </member>
+        <member name="P:Intermech.Map.MapView.DocumentSize">
+            <summary>размеры документа; если нет документа то (0,0) </summary>
+        </member>
+        <member name="P:Intermech.Map.MapView.DocumentTopLeft">
+            <summary>точка начала документа; если нет документа то (0,0) </summary>
+        </member>
+        <member name="F:Intermech.Map2.MapTextImage.TypeCharacterMap">
+            <summary>тип класса Intermech.Controls.CharacterMap</summary>
+        </member>
+        <member name="F:Intermech.Map2.MapTextImage.TypeCharSelectedEventHandler">
+            <summary>тип класса Intermech.Controls.CharacterMap.CharSelectedEventHandler</summary>
+        </member>
+        <member name="F:Intermech.Map2.MapTextImage.TypeCharacterMapEventArgs">
+            <summary>тип класса Intermech.Controls.CharacterMap.CharacterMapEventArgs</summary>
+        </member>
+    </members>
+</doc>

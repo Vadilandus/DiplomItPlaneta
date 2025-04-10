@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Extensions.Workflow</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Workflow.MetadataLoader">
+            <summary>Загрузчик метаданных IPS.Workflow</summary>
+        </member>
+        <member name="T:Intermech.Workflow.MessageObjectType">
+            <summary>Тип объекта "Почтовое сообщение Workflow"</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.TypeGuid">
+            <summary>Guid типа объекта</summary>
+        </member>
+        <member name="T:Intermech.Workflow.MessageObjectType.Attributes">
+            <summary>Системные атрибуты типа объекта</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.Process">
+            <summary>Ссылка на процесс, отправивший сообщение</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.Activity">
+            <summary>Ссылка на действие, отправившее сообщение</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.Sender">
+            <summary>Отправитель</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.Recipient">
+            <summary>Получатель</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.Subject">
+            <summary>Заголовок сообщения</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.Priority">
+            <summary>Заголовок сообщения</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.MessageText">
+            <summary>Текст сообщения</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.SenderStatus">
+            <summary>Статус у отправителя</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.RecipientStatus">
+            <summary>Статус у получателя</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.WasSentToRecipients">
+            <summary>Разослано (начало)</summary>
+        </member>
+        <member name="P:Intermech.Workflow.MessageObjectType.Attributes.Start">
+            <summary>Начало (разослано)</summary>
+        </member>
+        <member name="F:Intermech.Workflow.MessageObjectType.Attributes.WasSentFurther">
+            <summary>Было отправлено дальше (окончание, выполнено)</summary>
+        </member>
+        <member name="P:Intermech.Workflow.MessageObjectType.Attributes.Completed">
+            <summary>Выполнено (окончание, было отправлено дальше)</summary>
+        </member>
+        <member name="P:Intermech.Workflow.MessageObjectType.Attributes.Finished">
+            <summary>Окончание (выполнено, , было отправлено дальше)</summary>
+        </member>
+        <member name="T:Intermech.Workflow.MessageObjectType.ConsistOf">
+            <summary>Возможные способы формирования состава</summary>
+        </member>
+        <member name="T:Intermech.Workflow.MessageObjectType.UsedIn">
+            <summary>Возможные способы формирования входимости</summary>
+        </member>
+        <member name="T:Intermech.Workflow.Attributes">
+            <summary>Типы атрибутов IPS.Workflow</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Activity">
+            <summary>Действие</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.ProcessPriority">
+            <summary>Приоритет процесса</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.ProcessSubject">
+            <summary>Тема процесса</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Sender">
+            <summary>Отправитель</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Recipient">
+            <summary>Получатель</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.ActivityStatus">
+            <summary>Статус действия</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.PrototypeProcess">
+            <summary>Родительский шаблон</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.RemoteProcessStatus">
+            <summary>Статус удалённого процесса</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.MessageText">
+            <summary>Текст сообщения</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.RecipientStatus">
+            <summary>Статус у получателя</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.SenderStatus">
+            <summary>Статус у отправителя</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Started">
+            <summary>Начато (когда)</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Finished">
+            <summary>Завершено (когда)</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.DueDate">
+            <summary>Срок выполнения</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.PublicationNecessary">
+            <summary>Необходима публикация на портал</summary>
+        </member>
+        <member name="T:Intermech.Workflow.Attributes.Consts">
+            <summary>Guid-ы и идентификаторы системных атрибутов IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.ActivityGuid">
+            <summary>Действие</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.ProcessPriorityGuid">
+            <summary>Приоритет процесса</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.ProcessSubjectGuid">
+            <summary>Тема процесса</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.SenderGuid">
+            <summary>Отправитель</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.RecipientGuid">
+            <summary>Получатель</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.ActivityStatusGuid">
+            <summary>Статус действия</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.PrototypeProcessGuid">
+            <summary>Родительский шаблон</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.RemoteProcessStatusGuid">
+            <summary>Статус удаленного процесса</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.MessageTextGuid">
+            <summary>Сообщение</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.RecipientStatusGuid">
+            <summary>Статус у получателя</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.SenderStatusGuid">
+            <summary>Статус у отправителя</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.StartedGuid">
+            <summary>Начато</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.FinishedGuid">
+            <summary>Завершено</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.DueDateGuid">
+            <summary>Плановый срок выполнения</summary>
+        </member>
+        <member name="F:Intermech.Workflow.Attributes.Consts.PublicationNecessaryGuid">
+            <summary>Необходима публикация на портал</summary>
+        </member>
+        <member name="T:Intermech.Workflow.LCStep">
+            <summary>Системные шаги жизненного цикла IPS.Workflow</summary>
+        </member>
+        <member name="T:Intermech.Workflow.LCStep.Consts">
+            <summary>Guid-ы системных шагов жизненного цикла IPS.Workflow (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="T:Intermech.Workflow.ObjectTypes">
+            <summary>Типы объектов IPS.Workflow</summary>
+        </member>
+        <member name="F:Intermech.Workflow.ObjectTypes.Process">
+            <summary>Процесс workflow</summary>
+        </member>
+        <member name="F:Intermech.Workflow.ObjectTypes.Activity">
+            <summary>Действие workflow</summary>
+        </member>
+        <member name="F:Intermech.Workflow.ObjectTypes.Message">
+            <summary>Почтовое сообщение</summary>
+        </member>
+        <member name="T:Intermech.Workflow.ObjectTypes.Consts">
+            <summary>Guid-ы и идентификаторы системных типов объектов IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="F:Intermech.Workflow.ObjectTypes.Consts.ProcessGuid">
+            <summary>Процесс Workflow</summary>
+        </member>
+        <member name="F:Intermech.Workflow.ObjectTypes.Consts.ActivityGuid">
+            <summary>Действие Workflow</summary>
+        </member>
+        <member name="F:Intermech.Workflow.ObjectTypes.Consts.MessageGuid">
+            <summary>Почтовое сообщение</summary>
+        </member>
+        <member name="T:Intermech.Workflow.RelationTypes">
+            <summary>Типы связей IPS.Workflow</summary>
+        </member>
+        <member name="T:Intermech.Workflow.RelationTypes.Consts">
+            <summary>Guid-ы и идентификаторы системных типов связей IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="T:Intermech.Workflow.Role">
+            <summary>Роли IPS.Workflow</summary>
+        </member>
+        <member name="T:Intermech.Workflow.Role.Consts">
+            <summary>Guid-ы и идентификаторы системных ролей IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="T:Intermech.Workflow.SystemObject">
+            <summary>Системные объекты IPS.Workflow</summary>
+        </member>
+        <member name="T:Intermech.Workflow.SystemObject.Consts">
+            <summary>Guid-ы и идентификаторы системных объектов IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="T:Intermech.Workflow.User">
+            <summary>Системные пользователи IPS.Workflow</summary>
+        </member>
+        <member name="T:Intermech.Workflow.User.Consts">
+            <summary>Guid-ы и идентификаторы системных пользователей IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="T:Intermech.Workflow.UserGroup">
+            <summary>Группы пользователей IPS.Workflow</summary>
+        </member>
+        <member name="T:Intermech.Workflow.UserGroup.Consts">
+            <summary>Guid-ы и идентификаторы системных групп пользователей IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="T:Intermech.Workflow.Library">
+            <summary>Статический класс-хелпер для инициализации сервисов, кэшей и т.п. библиотеки Intermech.Extensions.Workflow</summary>
+        </member>
+        <member name="M:Intermech.Workflow.Library.Init(System.IServiceProvider,Intermech.Interfaces.IUserSession)">
+            <summary>Инициализация сервисов, кэшей и т.п. библиотеки Intermech.Extensions.Workflow</summary>
+        </member>
+        <member name="T:Intermech.Extensions.Workflow.Helper">
+            <summary>Статический класс-хелпер</summary>
+        </member>
+    </members>
+</doc>

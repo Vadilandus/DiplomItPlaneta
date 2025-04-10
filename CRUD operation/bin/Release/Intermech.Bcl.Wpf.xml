@@ -1,0 +1,763 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Bcl.Wpf</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.UI.Wpf.WinformsInterop.WinformsInteropInitializer">
+            <summary>
+            Ленивый инициализатор поддержки WPF внутри WinForms.
+            Реализация является thread safe
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.WinformsInterop.WinformsInteropInitializer.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.WinformsInterop.WinformsInteropInitializer.IsInitialized">
+            <summary>
+            Возвращает признак, что инициализация уже была выполнена.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.WinformsInterop.WinformsInteropInitializer.Initialize">
+            <summary>
+            Выполняет инициализацию WPF внутри WinForms.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.WinformsInterop.WinformsInteropInitializer.Instance">
+            <summary>
+            Возвращает экземпляр по умолчанию
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.WinformsInterop.WpfBitmapSources">
+            <summary>
+            Предоставляет методы для получения WPF-совместимых изображений из ресурсов System.Windows.Forms.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.WinformsInterop.WpfBitmapSources.FromManifestResourceStream(System.Type,System.String)">
+            <summary>
+            Создает <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> из внедренного ресурса растрового изображения.
+            </summary>
+            <param name="winformsResourceType">Сгенерированный компилятором тип для доступа к ресурсам сборки</param>
+            <param name="resourceStreamName">Имя файла растрового изображения в ресурсах сборки</param>
+            <returns>Объект <see cref="T:System.Windows.Media.Imaging.BitmapSource"/></returns>
+        </member>
+        <member name="M:Intermech.UI.Wpf.WinformsInterop.WpfBitmapSources.FromBitmap(System.Drawing.Bitmap)">
+            <summary>
+            Создает <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> из <see cref="T:System.Drawing.Bitmap"/>.
+            </summary>
+            <param name="bitmap">Растровое изображение System.Windows.Forms</param>
+            <returns>Объект <see cref="T:System.Windows.Media.Imaging.BitmapSource"/></returns>
+        </member>
+        <member name="M:Intermech.UI.Wpf.WinformsInterop.WpfBitmapSources.FromIcon(System.Drawing.Icon)">
+            <summary>
+            Создает <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> из <see cref="T:System.Drawing.Icon"/>.
+            </summary>
+            <param name="icon">Иконка System.Windows.Forms</param>
+            <returns>Объект <see cref="T:System.Windows.Media.Imaging.BitmapSource"/></returns>
+        </member>
+        <member name="T:Intermech.UI.Wpf.WinformsInterop.WpfElementHost">
+            <summary>
+            Доработанный ElementHost с исправлением проблем в базовой реализации
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.WinformsInterop.WpfElementHost.#ctor">
+            <summary>
+            Создает объект
+            </summary>
+        </member>
+        <member name="F:Intermech.UI.Wpf.WinformsInterop.WpfElementHost.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.WinformsInterop.WpfElementHost.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Intermech.UI.Wpf.WinformsInterop.WpfElementHost.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.CodeBehaviors.AutoCloseBehavior">
+            <summary>
+            Объект-поведение, обеспечивающий закрытие окна в соответствии с поведением модели вида.
+            Модель вида должна поддерживать интерфейс <see cref="T:Intermech.UI.ICloseableViewModel"/>
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.CodeBehaviors.AutoCloseBehavior.#ctor(System.Windows.Window,System.ComponentModel.INotifyPropertyChanged)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="window">Окно</param>
+            <param name="viewModel">Модель вида</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="window"/> содержит null; параметр <paramref name="viewModel"/> содержит null</exception>
+        </member>
+        <member name="M:Intermech.UI.Wpf.CodeBehaviors.AutoCloseBehavior.DoAttach">
+            <summary>
+            Подключает текущий объект.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.CodeBehaviors.AutoCloseBehavior.DoDetach">
+            <summary>
+            Отключает текущий объект.
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Controls.FindReplaceTextEditorAdapter">
+            <summary>
+            Базовый класс адаптера для элемента редактирования текста, предоставляющий доступ к API для
+            поиска и замены фрагментов текста. Используется в <see cref="T:Intermech.UI.Wpf.Controls.FindReplaceManager"/> для
+            интеграции с UI.
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Controls.FindReplaceDialog">
+            <summary>
+            Interaction logic for FindReplaceDialog.xaml
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.FindReplaceDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Controls.FindReplaceDialogCommands">
+            <summary>
+            Внутренние команды для FindReplaceDialog
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Controls.FindReplaceManager">
+            <summary>
+            This class ensures that the settings and text to be found is preserved when the find/replace dialog is closed
+            We need two-way binding, otherwise we could just make all properties static properties of the window
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.Controls.FindReplaceManager.Dialog">
+            <summary>
+            Instance of the dialog window
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.Controls.FindReplaceManager.Editors">
+            <summary>
+            The list of editors in which the search should take place.
+            The elements must either implement the IEditor interface, or 
+            InterfaceConverter should bne set.
+            </summary>       
+        </member>
+        <member name="P:Intermech.UI.Wpf.Controls.FindReplaceManager.CurrentEditor">
+            <summary>
+            The editor in which the current search operation takes place.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.Controls.FindReplaceManager.ShowSearchIn">
+            <summary>
+            Determines whether to display the Search in combo box
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.Controls.FindReplaceManager.AllowReplace">
+            <summary>
+            Determines whether the "Replace"-page in the dialog in shown or not.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.Controls.FindReplaceManager.OwnerWindow">
+            <summary>
+            The Window that serves as the parent of the Find/Replace dialog
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.FindReplaceManager.GetRegEx(System.Boolean)">
+            <summary>
+            Constructs a regular expression according to the currently selected search parameters.
+            </summary>
+            <param name="ForceLeftToRight"></param>
+            <returns>The regular expression.</returns>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.FindReplaceManager.ShowAsFind">
+            <summary>
+            Shows this instance of FindReplaceDialog, with the Find page active
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.FindReplaceManager.ShowAsReplace">
+            <summary>
+            Shows this instance of FindReplaceDialog, with the Replace page active
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.FindReplaceManager.CloseWindow">
+            <summary>
+            Closes the Find/Replace dialog, if it is open
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Controls.IFindReplaceTextEditor">
+            <summary>
+            Интерфейс элемента редактирования текста, предоставляющий доступ к API для 
+            поиска и замены фрагментов текста. Используется в <see cref="T:Intermech.UI.Wpf.Controls.FindReplaceManager"/> для
+            интеграции с UI.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.IFindReplaceTextEditor.Select(System.Int32,System.Int32)">
+            <summary>
+            Selects the specified portion of Text and scrolls that part into view.
+            </summary>
+            <param name="start"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.IFindReplaceTextEditor.BeginChange">
+            <summary>
+            This method is called before a replace all operation.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.IFindReplaceTextEditor.EndChange">
+            <summary>
+            This method is called after a replace all operation.
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Controls.IFindReplaceTextEditorWindow">
+            <summary>
+            Интерфейс окна, в котором находится элемент редактирования текста, предоставляющий доступ к API для 
+            поиска и замены фрагментов текста. Используется в <see cref="T:Intermech.UI.Wpf.Controls.FindReplaceManager"/> для
+            интеграции с UI.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.IFindReplaceTextEditorWindow.SetOwnerWindow(System.Windows.Window)">
+            <summary>
+            Устанавливает текущее окно в качестве владельца для диалога поиска и замены текста.
+            </summary>
+            <param name="findReplaceWindow">WPF-окно поиска и замены текста</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="findReplaceWindow"/> содержит null</exception>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Controls.RichTextBoxAdapter">
+            <summary>
+            Адаптер для WPF RichTextBox, используемый для интеграции с <see cref="T:Intermech.UI.Wpf.Controls.FindReplaceManager"/>
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.RichTextBoxAdapter.#ctor(System.Windows.Controls.RichTextBox)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="editorControl">Элемент WPF RichTextBox</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="editorControl"/> содержит null</exception>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Controls.TextBoxAdapter">
+            <summary>
+            Адаптер для WPF TextBox, используемый для интеграции с <see cref="T:Intermech.UI.Wpf.Controls.FindReplaceManager"/>
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Controls.TextBoxAdapter.#ctor(System.Windows.Controls.TextBox)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="editorControl">Элемент WPF TextBox</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="editorControl"/> содержит null</exception>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Controls.SharedResourceDictionary">
+            <summary>
+            Расширяет базовый класс <see cref="T:System.Windows.ResourceDictionary"/>, добавляя кэширование
+            совместно используемых словарей.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.Controls.SharedResourceDictionary.InDesignMode">
+            <summary>
+            Возвращает или задает режим работы текущего объекта в дизайнере.
+            В этом случае кэширование выключается, чтобы можно было редактировать 
+            содержимое словаря и сразу видеть изменения.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.Controls.SharedResourceDictionary.CachedSource">
+            <summary>
+            Возвращает или задает uri для загрузки содержимого словаря.
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.DelayedUserInputHandler">
+            <summary>
+            Обработчик пользовательского ввода, который позволяет выполнять обработку в паузах между активностью пользователя.
+            </summary>
+            <remarks>
+            Предназначен для использования только в UI-потоке. Реализация не является thread safe.
+            </remarks>
+        </member>
+        <member name="M:Intermech.UI.Wpf.DelayedUserInputHandler.#ctor(System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="checkInterval">Интервал времени, через который следует проверять активность пользователя. Значение должно быть небольшим</param>
+            <param name="reactionInterval">Интервал времени с момента последнего пользовательского ввода, когда должен сработать обработчик. Значение должно быть быть больше <paramref name="checkInterval"/></param>
+        </member>
+        <member name="P:Intermech.UI.Wpf.DelayedUserInputHandler.IsStarted">
+            <summary>
+            Возвращает признак, что обработчик был запущен.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.DelayedUserInputHandler.Start">
+            <summary>
+            Запускает обработчик.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Обработчик уже был запущен ранее</exception>
+        </member>
+        <member name="M:Intermech.UI.Wpf.DelayedUserInputHandler.Stop">
+            <summary>
+            Останавливает обработчик, если он был запущен ранее, и освобождает все его ресурсы.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.DelayedUserInputHandler.RegisterUserInput">
+            <summary>
+            Регистрирует событие пользовательского ввода и активирует процесс слежения за пользовательской активностью.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Обработчик не был запущен с помощью метода <see cref="M:Intermech.UI.Wpf.DelayedUserInputHandler.Start"/></exception>
+        </member>
+        <member name="M:Intermech.UI.Wpf.DelayedUserInputHandler.CancelUserInput">
+            <summary>
+            Отменяет запущенный ранее процесс слежения за пользовательской активностью.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Обработчик не был запущен с помощью метода <see cref="M:Intermech.UI.Wpf.DelayedUserInputHandler.Start"/></exception>
+        </member>
+        <member name="E:Intermech.UI.Wpf.DelayedUserInputHandler.ProcessUserInput">
+            <summary>
+            Событие отложенной обработки пользовательского ввода.
+            Он срабатывает, если с момента последнего события ввода прошло достаточно времени, а пользователь не активен.
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.Markup.InDesignModeExtension">
+            <summary>
+            Расширение разметки XAML, позволяющее эвристически определять DesignMode.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.Markup.InDesignModeExtension.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Эвристически определяет DesignMode и возвращает значение типа <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="serviceProvider">Провайдер сервисов</param>
+            <returns>Результат работы расширения</returns>
+        </member>
+        <member name="T:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand">
+            <summary>
+            Команда для контекстного меню, которая является элементом логического дерева WPF,
+            а не компонентом другой модели вида.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand.#ctor(System.String,System.Action{System.Object},System.Predicate{System.Object})">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="text">Текст для отображения в интерфейсе пользователя</param>
+            <param name="execute">Обработчик команды</param>
+            <param name="canExecute">Необязательный обработчик для проверки доступности команды</param>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand.Text">
+            <summary>
+            Текст для отображения в интерфейсе пользователя.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand.ToString">
+            <summary>
+            Возвращает строковое представление текущего объекта,
+            которое совпадает со значением свойства <see cref="P:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand.Text"/>.
+            </summary>
+            <returns>Строковое представление текущего объекта</returns>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand.System#Windows#Input#ICommand#CanExecute(System.Object)">
+            <summary>
+            Проверяет, можно ли выполнить команду.
+            </summary>
+            <param name="parameter">Параметр выполнения команды</param>
+            <returns>true - если команда может быть выполнена; false - если команда не может быть выполнена</returns>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand.System#Windows#Input#ICommand#Execute(System.Object)">
+            <summary>
+            Выполняет команду.
+            </summary>
+            <param name="parameter">Параметр выполнения команды</param>
+        </member>
+        <member name="E:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand.System#Windows#Input#ICommand#CanExecuteChanged">
+            <summary>
+            Событие изменения доступности команды для выполнения.
+            </summary>
+            <remarks>
+            Все реализации UI-команд (т.е. команды без собственного состояния) должны
+            иметь такую реализацию. Иначе метод CanExecute будет вызываться только один
+            раз сразу после создания команды.
+            </remarks>
+        </member>
+        <member name="T:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand`1">
+            <summary>
+            Команда для контекстного меню, которая является элементом логического дерева WPF,
+            а не компонентом другой модели вида.
+            </summary>
+            <typeparam name="T">Тип параметра команды</typeparam>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand`1.#ctor(System.String,System.Action{`0},System.Predicate{`0})">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="text">Текст для отображения в интерфейсе пользователя</param>
+            <param name="execute">Обработчик команды</param>
+            <param name="canExecute">Необязательный обработчик для проверки доступности команды</param>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand`1.Text">
+            <summary>
+            Текст для отображения в интерфейсе пользователя.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand`1.ToString">
+            <summary>
+            Возвращает строковое представление текущего объекта,
+            которое совпадает со значением свойства <see cref="P:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand`1.Text"/>.
+            </summary>
+            <returns>Строковое представление текущего объекта</returns>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand`1.System#Windows#Input#ICommand#CanExecute(System.Object)">
+            <summary>
+            Проверяет, можно ли выполнить команду.
+            </summary>
+            <param name="parameter">Параметр выполнения команды</param>
+            <returns>true - если команда может быть выполнена; false - если команда не может быть выполнена</returns>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand`1.System#Windows#Input#ICommand#Execute(System.Object)">
+            <summary>
+            Выполняет команду.
+            </summary>
+            <param name="parameter">Параметр выполнения команды</param>
+        </member>
+        <member name="E:Intermech.UI.Wpf.ViewModels.ContextMenuUICommand`1.System#Windows#Input#ICommand#CanExecuteChanged">
+            <summary>
+            Событие изменения доступности команды для выполнения.
+            </summary>
+            <remarks>
+            Все реализации UI-команд (т.е. команды без собственного состояния) должны
+            иметь такую реализацию. Иначе метод CanExecute будет вызываться только один
+            раз сразу после создания команды.
+            </remarks>
+        </member>
+        <member name="T:Intermech.UI.Wpf.ViewModels.WizardPageChangingEventArgs">
+            <summary>
+            Аргументы события перехода с одной страницы мастер на другую.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardPageChangingEventArgs.#ctor(Intermech.UI.Wpf.ViewModels.WizardPageVM,Intermech.UI.Wpf.ViewModels.WizardPageVM)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="previousPage">Предыдущая страница мастера. Параметр может быть равен null</param>
+            <param name="nextPage">Следующая страница мастера. Параметр может быть равен null</param>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageChangingEventArgs.PreviousPage">
+            <summary>
+            Предыдущая страница мастера. Значение свойства может быть равно null.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageChangingEventArgs.NextPage">
+            <summary>
+            Следующая страница мастера. Значение свойства может быть равно null.
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.ViewModels.WizardPageErrorsVM`1">
+            <summary>
+            Класс модели вида для ошибок на странице мастера.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardPageErrorsVM`1.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageErrorsVM`1.Items">
+            <summary>
+            Возвращает коллекцию ошибок
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageErrorsVM`1.IsEmpty">
+            <summary>
+            Возвращает признак, что коллекция ошибок пуста.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageErrorsVM`1.IsNotEmpty">
+            <summary>
+            Возвращает признак, что коллекция ошибок не пуста.
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.ViewModels.WizardPageNavigationEventArgs">
+            <summary>
+            Аргументы события перехода между страницами мастера.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardPageNavigationEventArgs.#ctor(Intermech.UI.Wpf.ViewModels.WizardPageNavigationType)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="navigationType">Тип перехода между страницами мастера</param>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageNavigationEventArgs.NavigationType">
+            <summary>
+            Возвращает тип перехода между страницами мастера.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageNavigationEventArgs.Cancel">
+            <summary>
+            Возвращает или задает признак, что операция перехода должна быть прервана.
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.ViewModels.WizardPageNavigationType">
+            <summary>
+            Тип перехода между страницами мастера.
+            </summary>
+        </member>
+        <member name="F:Intermech.UI.Wpf.ViewModels.WizardPageNavigationType.Backward">
+            <summary>
+            Переход по кнопке Назад
+            </summary>
+        </member>
+        <member name="F:Intermech.UI.Wpf.ViewModels.WizardPageNavigationType.Forward">
+            <summary>
+            Переход по кнопке Вперед/Готово
+            </summary>
+        </member>
+        <member name="F:Intermech.UI.Wpf.ViewModels.WizardPageNavigationType.Finish">
+            <summary>
+            Завершение работы мастера
+            </summary>
+        </member>
+        <member name="F:Intermech.UI.Wpf.ViewModels.WizardPageNavigationType.Cancel">
+            <summary>
+            Прерывание работы мастера
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.ViewModels.WizardPageVM">
+            <summary>
+            Класс модели вида для страницы мастера
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardPageVM.#ctor(System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="displayName">Отображаемое имя страницы мастера</param>
+            <exception cref="T:System.ArgumentException">параметр <paramref name="displayName"/> содержит null или пустую строку</exception>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageVM.DisplayName">
+            <summary>
+            Возвращает отображаемое имя страницы мастера.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageVM.IsActive">
+            <summary>
+            Возвращает признак, что текущая страница является активной страницей мастера.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardPageVM.OnIsActiveChanged">
+            <summary>
+            Обработчик смены значения для свойства <see cref="P:Intermech.UI.Wpf.ViewModels.WizardPageVM.IsActive"/>.
+            Базовая реализация метода пуста.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardPageVM.IsCompleted">
+            <summary>
+            Возвращает признак, что работа текущей страницы завершена, 
+            и мастер может перейти к следующей странице.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardPageVM.OnIsCompletedChanged">
+            <summary>
+            Обработчик смены значения для свойства <see cref="P:Intermech.UI.Wpf.ViewModels.WizardPageVM.IsCompleted"/>.
+            Базовая реализация метода пуста.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardPageVM.DoActivate(Intermech.UI.Wpf.ViewModels.WizardPageNavigationType,Intermech.UI.Wpf.ViewModels.WizardPageVM)">
+            <summary>
+            Обрабатывает активацию страницы в мастере после перехода с другой страницы
+            </summary>
+            <param name="navigationType">Тип перехода между страницами мастера</param>
+            <param name="previousPage">Предыдущая страница мастера. Может быть не задана, если текущая страница является первой страницей</param>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardPageVM.DoDeactivate(Intermech.UI.Wpf.ViewModels.WizardPageNavigationType,Intermech.UI.Wpf.ViewModels.WizardPageVM)">
+            <summary>
+            Обрабатывает деактивацию страницы в мастере перед переходом на другую страницу.
+            </summary>
+            <param name="navigationType">Тип перехода между страницами мастера</param>
+            <param name="nextPage">Следующая страница мастера. Может быть не задана, если текущая страница является последней страницей</param>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardPageVM.DoValidateNavigation(Intermech.UI.Wpf.ViewModels.WizardPageNavigationEventArgs)">
+            <summary>
+            Позволяет проверить возможность перехода между страницами мастера, и,
+            при необходимости, отменить операцию перехода.
+            </summary>
+            <param name="e">Аргументы события перехода между страницами мастера</param>
+        </member>
+        <member name="T:Intermech.UI.Wpf.ViewModels.WizardRunState">
+            <summary>
+            Текущее состояние мастера
+            </summary>
+        </member>
+        <member name="F:Intermech.UI.Wpf.ViewModels.WizardRunState.NotStarted">
+            <summary>
+            Мастер не запущен
+            </summary>
+        </member>
+        <member name="F:Intermech.UI.Wpf.ViewModels.WizardRunState.Started">
+            <summary>
+            Мастер запущен и выполняется
+            </summary>
+        </member>
+        <member name="F:Intermech.UI.Wpf.ViewModels.WizardRunState.Completed">
+            <summary>
+            Выполение мастера успешно завершено
+            </summary>
+        </member>
+        <member name="F:Intermech.UI.Wpf.ViewModels.WizardRunState.Cancelled">
+            <summary>
+            Выполнение мастера прервано
+            </summary>
+        </member>
+        <member name="T:Intermech.UI.Wpf.ViewModels.WizardVM">
+            <summary>
+            Класс модели вида для простого мастера с фиксированным набором страниц.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardVM.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardVM.Pages">
+            <summary>
+            Возвращает или задает набор страниц мастера.
+            Изменение набора страниц при работающем мастере приведет к его перезапуску.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardVM.RunState">
+            <summary>
+            Возвращает текущее состояние мастера
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardVM.CurrentPage">
+            <summary>
+            Возвращает текущую страницу мастера.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardVM.PreviousPageCommand">
+            <summary>
+            Возвращает команду для перехода на предыдущую страницу мастера.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardVM.NextPageCommand">
+            <summary>
+            Возвращает команду для перехода на следующую страницу мастера.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardVM.FinishCommand">
+            <summary>
+            Возвращает команду для завершения работы мастера.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardVM.CancelCommand">
+            <summary>
+            Возвращает команду для отмены работы мастера.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardVM.Restart">
+            <summary>
+            Перезапускает мастер.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Невозможно перезапустить мастер, так как он не запущен</exception>
+        </member>
+        <member name="E:Intermech.UI.Wpf.ViewModels.WizardVM.CurrentPageChanging">
+            <summary>
+            Предварительное событие изменения текущей страницы мастера.
+            Подписчики вызываются до начала изменения свойства <see cref="P:Intermech.UI.Wpf.ViewModels.WizardVM.CurrentPage"/>.
+            </summary>
+        </member>
+        <member name="E:Intermech.UI.Wpf.ViewModels.WizardVM.CurrentPageChanged">
+            <summary>
+            Окончательное событие изменения текущей страницы мастера.
+            Подписчики вызываются после успешного изменения свойства <see cref="P:Intermech.UI.Wpf.ViewModels.WizardVM.CurrentPage"/>.
+            </summary>
+        </member>
+        <member name="P:Intermech.UI.Wpf.ViewModels.WizardVM.Intermech#UI#ICloseableViewModel#IsClosed">
+            <summary>
+            Возвращает признак, что мастер завершил работу и не может больше использоваться.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardVM.Intermech#UI#ICloseableViewModel#Close">
+            <summary>
+            Завершает работу мастера.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardVM.DoValidateNavigation(Intermech.UI.Wpf.ViewModels.WizardPageNavigationEventArgs)">
+            <summary>
+            Позволяет проверить возможность перехода между страницами мастера, и,
+            при необходимости, отменить операцию перехода.
+            </summary>
+            <param name="e">Аргументы события перехода между страницами мастера</param>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardVM.DoCurrentPageChanging(Intermech.UI.Wpf.ViewModels.WizardPageNavigationType,Intermech.UI.Wpf.ViewModels.WizardPageVM,Intermech.UI.Wpf.ViewModels.WizardPageVM)">
+            <summary>
+            Обрабатывает начало перехода между страницами мастера.
+            </summary>
+            <param name="navigationType">Тип перехода между страницами мастера</param>
+            <param name="previousPage">Предыдущая страница мастера. Может быть не задана, если текущая страница является первой страницей</param>
+            <param name="nextPage">Следующая страница мастера. Может быть не задана, если текущая страница является последней страницей</param>
+        </member>
+        <member name="M:Intermech.UI.Wpf.ViewModels.WizardVM.DoCurrentPageChanged(Intermech.UI.Wpf.ViewModels.WizardPageNavigationType,Intermech.UI.Wpf.ViewModels.WizardPageVM,Intermech.UI.Wpf.ViewModels.WizardPageVM)">
+            <summary>
+            Обрабатывает завершение перехода между страницами мастера.
+            </summary>
+            <param name="navigationType">Тип перехода между страницами мастера</param>
+            <param name="previousPage">Предыдущая страница мастера. Может быть не задана, если текущая страница является первой страницей</param>
+            <param name="nextPage">Следующая страница мастера. Может быть не задана, если текущая страница является последней страницей</param>
+        </member>
+        <member name="T:Intermech.UI.Wpf.UIExceptionHandler">
+            <summary>
+            Позволяет перехватить все необработанные исключения в UI-потоке приложения и отобразить/записать их с помощью указанного обработчика.
+            Реализация класса не является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.UIExceptionHandler.#ctor(System.Action{System.Exception})">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="exceptionHandler">Обработчик исключений UI-потока приложения</param>
+            <exception cref="T:ArgumentNullException">Параметр <paramref name="exceptionHandler"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.UI.Wpf.UIExceptionHandler.Activate">
+            <summary>
+            Активирует обработчик.
+            </summary>
+        </member>
+        <member name="M:Intermech.UI.Wpf.UIExceptionHandler.Deactivate">
+            <summary>
+            Деактивирует обработчик.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,505 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Interfaces.Reports</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Interfaces.Reports.ImDocumentDataUtils">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ImDocumentDataUtils.UnpackImDocument(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="zipScr"></param>
+            <param name="updateDoc"></param>
+            <returns></returns>
+            <remarks>Вызов метода должен производиться из основного потока приложения</remarks>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ImDocumentDataUtils.PackImDocument(Intermech.Interfaces.Document.ImDocumentData,Intermech.ZLibCompressLevels)">
+            <summary>
+            Запаковка документа
+            </summary>
+            <param name="imDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportsDocModes">
+            <summary>
+            Режим загрузки структуры документов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsDocModes.None">
+            <summary>
+            Reserved
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsDocModes.IncludeObligatoryAttributes">
+            <summary>
+            Заполняет обязательные атрибуты
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsDocModes.IncludeCustomAttributes">
+            <summary>
+            Заполняет пользовательские атрибуты
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsDocModes.IncludeDocData">
+            <summary>
+            Заполняет содержимое документов
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.IReportsServerService">
+            <summary>
+            Интерфейс серверной службы генерации комплектов документов 
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.IReportsServerService.LoadCompectData(System.Int64,System.Guid,Intermech.Interfaces.Reports.ReportsDocModes)">
+            <summary>
+            Загрузка содержимого комплекта 
+            </summary>
+            <remarks>Для ускорения загрузки и экономии трафика - обработка на сервере</remarks>
+            <param name="objectId">Ид. версии объекта</param>
+            <param name="sessionGuid">Ид. сессии</param>
+            <param name="loadMode">Режим загрузки данных</param>
+            <returns>Результат. Содержимое комплекта</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.IReportsServerService.LoadComplectData(System.Int64,System.Guid,Intermech.Interfaces.Reports.ReportsDocModes)">
+            <summary>
+            Загрузка содержимого комплекта 
+            </summary>
+            <remarks>Для ускорения загрузки и экономии трафика - обработка на сервере</remarks>
+            <param name="objectId">Ид. версии объекта</param>
+            <param name="sessionGuid">Ид. сессии</param>
+            <param name="loadMode">Режим загрузки данных</param>
+            <returns>Результат. Содержимое комплекта</returns>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.IReportsServerUtils">
+            <summary>
+            Интерфейс для серверных утилит
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.IReportsServerUtils.RestoreComplectData(System.Guid,Intermech.Interfaces.Reports.ReportsBaseDoc)">
+            <summary>
+            Восстановление / генерация данных документа
+            </summary>
+            <remarks>Внимание! Содержимое внешних документов не обновляется!</remarks>
+            <param name="sessionGuid">Guid пользовательской сессии</param>
+            <param name="reportsDoc">Базовый класс для передачи документов со стороны сервера / другого приложения</param>
+            <param name="complect">Визуальный узел документа / комплекта</param>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.IReportTaskParams">
+            <summary>
+            Параметры задачи генерации КТД
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.IReportTaskParams.ObjectId">
+            <summary>
+            Идентификатор версии объекта для которого генерируется КТД
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.IReportTaskParams.ScriptObjId">
+            <summary>
+            Идентификатор версии скрипта ЭС
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.IReportTaskParams.PackageObjId">
+            <summary>
+            Идентификатор версии комплекта документов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.IReportTaskParams.ArchiveId">
+            <summary>
+            Ид. архива для документов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.IReportTaskParams.Attributes">
+            <summary>
+            Параметры задачи
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.IReportTaskParams.TaskMode">
+            <summary>
+            Режимы задачи генерации КТД
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportsPaсkageException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportsPaсkageException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportsPaсkageException.#ctor(System.String,System.Exception)">
+            <summary> 
+            Constructor
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportsConsts">
+            <summary>
+            Константы для генератора документов
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportsConsts.#cctor">
+            <summary>
+            Инициализация констант
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.SimpleWithSortRelation">
+            <summary>
+            тип связей "Простая связь с сортировкой"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.DocPackageBaseTypeGuid">
+            <summary>
+            тип объектов "Комплект документов базовый"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ScriptPackageTypeGuid">
+            <summary>
+            тип объектов "Шаблоны комплекта документов" (ЭС)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.DocumentBaseTypeGuid">
+            <summary>
+            Базовый тип документов, наследники которого будем обрабатывать в составе комплекта
+            на данный момент это "Документы"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.DocPackageBaseTypeID">
+            <summary>
+            Object type id  "Комплект документов базовый"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ScriptPackageTypeID">
+            <summary>
+            тип объектов "Шаблоны комплекта документов" (ЭС)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.DocumentBaseTypeID">
+            <summary>
+            Базовый тип документов , наследники которого будем обрабатывать в составе комплекта
+            на данный момент это "Документы" 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ObjTypeResultAttrTypeGuid">
+            <summary>
+            тип атрибута "Тип объекта-результата"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ConditionAttrTypeGuid">
+            <summary>
+            Атрибут "Условие"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ScriptPackageAttrTypeGuid">
+            <summary>
+            Атрибут "Ссылка на скрипт ЭС" 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.CaptionAttrTypeGuid">
+            <summary>
+            Атрибут "Заголовок"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.FileAttributeTypeGuid">
+            <summary>
+            Атрибут "Файл"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.NeedArchiveAttributeTypeGuid">
+            <summary>
+            Атрибут необходимость архива
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ArchiveAttributeTypeGuid">
+            <summary>
+            Атрибут "Архив"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.SourceLinkAttributeTypeGuid">
+            <summary>
+            Атрибут Ссылка на объект-источник
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.SimpleWithSortRelationID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ObjTypeResultAttrTypeID">
+            <summary>
+            Тип атрибута "Тип объекта-результата"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ConditionAttrTypeID">
+            <summary>
+            Тип атрибута "Условие"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ScriptPackageAttrTypeID">
+            <summary>
+            Атрибут "Ссылка на скрипт ЭС" 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.CaptionAttrTypeID">
+            <summary>
+            Атрибут "Заголовок"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.FileAttributeTypeID">
+            <summary>
+            Атрибут "Файл"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.NeedArchiveAttributeTypeID">
+            <summary>
+            Атрибут необходимость архива
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportsConsts.ArchiveAttributeTypeID">
+            <summary>
+            Атрибут "Архив"
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportsBaseDoc">
+            <summary>
+            Базовый класс для передачи документов со стороны сервера
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportsBaseDoc.#ctor(Intermech.Interfaces.Reports.ReportsBaseDoc)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="owner">Родительский элемент</param>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportsBaseDoc.ObjectID">
+            <summary>
+            Ид. версии объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportsBaseDoc.ObjectTypeID">
+            <summary>
+            Ид. типа объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportsBaseDoc.Order">
+            <summary>
+            Значение сортировки
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportsBaseDoc.Owner">
+            <summary>
+            Родительский элемент
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportsBaseDoc.Items">
+            <summary>
+            Список дочерних элементов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportsBaseDoc.Attributes">
+            <summary>
+            Атрибуты документа
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportsBaseDoc.CollectDocItem(System.Collections.Generic.List{Intermech.Interfaces.Reports.ReportsBaseDoc},System.Type)">
+            <summary>
+            Получить (рекурсивно список документов) 
+            </summary>
+            <param name="docList">Список документов</param>
+            <param name="docType">Искомый тип</param> 
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportsBaseDoc.RepDocComparer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportsBaseDoc.RepDocComparer.Compare(Intermech.Interfaces.Reports.ReportsBaseDoc,Intermech.Interfaces.Reports.ReportsBaseDoc)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportsDocComplect">
+            <summary>
+            Комплект документов
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportsDocComplect.#ctor(Intermech.Interfaces.Reports.ReportsBaseDoc)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="owner">Родительский элемент</param>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportsDoc">
+            <summary>
+            Документ
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportsDoc.#ctor(Intermech.Interfaces.Reports.ReportsBaseDoc)">
+            <summary>
+            Конструктор 
+            </summary>
+            <param name="owner">Родительский элемент</param>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportsDoc.Data">
+            <summary>
+            Сжатое (архивированное) XML содержимое документа
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportTaskMode">
+            <summary>
+            Режимы задачи генерации КТД
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportTaskMode.Default">
+            <summary>
+            По умолчанию
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportTaskMode.AdditionalComplect">
+            <summary>
+            Генерация дополнительных комплектов
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportTaskParams">
+            <summary>
+            Параметры задачи генерации КТД
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportTaskParams.#ctor(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="objectId"></param>
+            <param name="scriptId"></param>
+            <param name="packageObjId"></param>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTaskParams.ObjectId">
+            <summary>
+            Идентификатор версии объекта для которого генерируется КТД
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTaskParams.ScriptObjId">
+            <summary>
+            Идентификатор версии скрипта ЭС
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTaskParams.PackageObjId">
+            <summary>
+            Идентификатор версии комплекта документов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTaskParams.ArchiveId">
+            <summary>
+            Ид. архива для документов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTaskParams.Attributes">
+            <summary>
+            Дополнительные параметры (атрибуты) задачи
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTaskParams.TaskMode">
+            <summary>
+            Режим задачи генерации КТД
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportTaskResult">
+            <summary>
+            Результат выполнения задачи генератора комплекта документов
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportTaskResult.#ctor(Intermech.Interfaces.Expert.ExpertResult,Intermech.Interfaces.Reports.ReportTraceInfo)">
+            <summary>
+            
+            </summary>
+            <param name="expertResult"></param>
+            <param name="reportTraceInfo"></param>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTaskResult.ExpertResult">
+            <summary>
+            Результат экспертной системы
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTaskResult.TraceInfo">
+            <summary>
+            Данные трассировки
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.Reports.ReportTraceInfo">
+            <summary>
+            Информация о трассировке задачи генерации комплектов документов 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportTraceInfo._changeLog">
+            <summary>
+            Информация об изменениях в структуре комплекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportTraceInfo._traceInfo">
+            <summary>
+            Информация о трассировке
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.Reports.ReportTraceInfo._reportInfo">
+            <summary>
+            Доп. информация о ходе выполнения задачи
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.Reports.ReportTraceInfo.#ctor(System.Collections.Generic.List{Intermech.Interfaces.Expert.ChangeInfo},System.Byte[],System.String[],Intermech.Interfaces.Expert.HybridTableExp,Intermech.Interfaces.Expert.HybridTableExp,System.Collections.Generic.IList{Intermech.Interfaces.CategoryValue})">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="changeLog">Информация об изменениях в структуре комплекта</param>
+            <param name="traceInfo">Информация о трассировке</param>
+            <param name="reportInfo">Доп. информация о ходе выполнения задачи</param>
+            <param name="objectGlobalTable">Глобальная таблица объектов</param>
+            <param name="linkGlobalTable">Глобальная таблица связей</param>
+            <param name="modificationLog"></param>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTraceInfo.ChangeLog">
+            <summary>
+            Информация об изменениях в структуре комплекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTraceInfo.TraceInfo">
+            <summary>
+            Информация о трассировке
+            </summary>
+            <remarks>
+            Запакованный XML с отладочной информацией
+            </remarks>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTraceInfo.ReportInfo">
+            <summary>
+            Доп. информация о ходе выполнения задачи
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTraceInfo.ObjectGlobalTable">
+            <summary>
+            Глобальная таблица объектов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTraceInfo.LinkGlobalTable">
+            <summary>
+            Глобальная таблица связей
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.Reports.ReportTraceInfo.ModificationLog">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,3322 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Interfaces.XmlExchange</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Interfaces.XmlExchange.Consts">
+            <summary>
+            Константы
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeExtensions">
+            <summary>
+            Название узла "Настройки модулей расширения импорта/экспорта" - [Extentions]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeExtension">
+            <summary>
+            Название узла "Управление расширением импорта/экспорта" - [extention]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeScript">
+            <summary>
+            Название узла "Сценарий модулей расширения импорта/экспорта" - [script]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeExportSettings">
+            <summary>
+            Название головного узла настроек экспорта  - [xmlexportsettings]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeApplicabilitySettings">
+            <summary>
+            Название головного узла настроек применямости  - [applsettings]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeApplicability">
+            <summary>
+            Название узла настроек применямости  - [applicability]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeAttributes">
+            <summary>
+            Название узла с настройками атрибутов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeDefAttributes">
+            <summary>
+            Название узла с настройками атрибутов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeAttribute">
+            <summary>
+            Название узла c настройками атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeObjectTypes">
+            <summary>
+            Название узла c настройками типов объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeRelationType">
+            <summary>
+            Название узла c настройками типа связи
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeRelationTypes">
+            <summary>
+            Название узла c настройками типов связей
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeAttributeValue">
+            <summary>
+            Название узла c данными атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeScripts">
+            <summary>
+            Название узла "Сценарии модулей расширения экспорта" - [Scripts]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeImportRoot">
+            <summary>
+            Название корневого узла настроек импорта из XML - [XMLImportSettings]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeImportSearchRules">
+            <summary>
+            Название узла "Правила поиска объектов" (Rules of search for objects) - [SearchRules]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeObjectImportRules">
+            <summary>
+            Название узла "Правила импорта объектов" (Rules of import for objects ) - [ObjectImportRules]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeObjectCreationRules">
+            <summary>
+            Название узла "Правила создания объектов" - [ObjectCreationRules]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeObjectType">
+            <summary>
+            Название узла с описанием типа объектов - [object_type]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeImportAttribute">
+            <summary>
+            Название узла, содержащего описание типа атрибута - [attribute]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeImport">
+            <summary>
+            Название узла "Настройки модулей расширения импорта" - [import]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeImportScripts">
+            <summary>
+            Корневая секция скриптов импорта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlNodeImportActionScripts">
+            <summary>
+            Корневая секция скриптов-cобытий импорта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrLogFileFormat">
+            <summary>
+            Название атрибута, содержащего формат формирования имени лога для экспорта [logfileformat]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrPacketFileFormat">
+            <summary>
+            Название атрибута, содержащего формат формирования имени пакета для экспорта [packetfileformat]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrMetaFileFormat">
+            <summary>
+            Название атрибута, содержащего формат формирования имени файла с метаданными[metafileformat]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrObjFileFormat">
+            <summary>
+            Название атрибута, содержащего формат формирования имени файла с данными объектов [objfileformat]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrRelFileFormat">
+            <summary>
+            Название атрибута, содержащего формат формирования имени файла с данными связей [relfileformat]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrDataDirFormat">
+            <summary>
+            Название атрибута, содержащего формат формирования директории с данными [datadirformat]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrChunkItemSize">
+            <summary>
+            Название атрибута, содержащего размер пакета входных данных [chunkitemsize]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrChunkDirFormat">
+            <summary>
+            Название атрибута, содержащего шаблон для формрования имени директории для "подзадачи" [chunkitemsize]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrTimeZone">
+            <summary>
+            Название атрибута, содержащего наименование TimeZone для выгрузки данных с временем [timezone]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrDateTimeFormat">
+            <summary>
+            Название атрибута, содержащего наименование формат выгрузки даты / времени [datetimeformat]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrCompress">
+            <summary>
+            Название атрибута, содержащего режим архивации экспортирумых данных [compress]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrTask">
+            <summary>
+            Название атрибута, содержащего режим архивации экспортирумых данных [task]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrCheckSum">
+            <summary>
+            Название атрибута, содержащего режим выгрузки контрольной суммы файлов экспортирумых данных [task]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrExtraData">
+            <summary>
+            Название атрибута, содержащего режим выгрузки доп. данных [extradata]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrDefAttr">
+            <summary>
+            Название атрибута, содержащего режим выгрузки атрибутов объектов по умолчанию [defattr]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrObjVerRule">
+            <summary>
+            Название атрибута, содержащего правило подбора версий объектов [objverrule]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrID">
+            <summary>
+            Название атрибута, содержащего идентификатор - [id]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrGuid">
+            <summary>
+            Название атрибута, содержащего Guid - [guid]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrName">
+            <summary>
+            Название атрибута, содержащего имя - [name]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrUserID">
+            <summary>
+            Название атрибута, содержащего локальный идентификатор - [user_id]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrUserName">
+            <summary>
+            Название атрибута, содержащего локальное имя  - [user_name]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrUserAlias">
+            <summary>
+            Название атрибута, содержащего локальный псевдоним / алиас  - [user_alias]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrUserType">
+            <summary>
+            Название атрибута, содержащего локальный тип данных  - [user_type]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrUserMC">
+            <summary>
+            Название атрибута, содержащего локальное имя ед. измерения  - [user_mc]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrValue">
+            <summary>
+            Название атрибута, содержащего значение (константу) [value]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrRelTypeID">
+            <summary>
+            Название атрибута, содержащего идентификатор типа связи - [reltypeid]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrRelTypeGuid">
+            <summary>
+            Название атрибута, содержащего гл. идентификатор типа связи - [reltype_guid]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrProjTypeID">
+            <summary>
+            Название атрибута, содержащего идентификатор типа родительского объекта - [projtypeid]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrProjTypeGuid">
+            <summary>
+            Название атрибута, содержащего гл. идентификатор типа родительского объекта - [projtype_guid]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrPartTypeID">
+            <summary>
+            Название атрибута, содержащего идентификатор типа дочернего объекта - [parttypeid]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrPartTypeGuid">
+            <summary>
+            Название атрибута, содержащего гл. идентификатор типа дочернего объекта - [parttype_guid]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrApplMode">
+            <summary>
+            Название атрибута, содержащего режим обработки применяемости - [applmode]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrFlags">
+            <summary>
+            Название атрибута, содержащего флаги настроек [flags]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrAttrMode">
+            <summary>
+            Название атрибута, содержащего режим экспорта атрибутов - [attrmode]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrObjMode">
+            <summary>
+            Название атрибута, содержащего режим экспорта атрибутов - [objmodes]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrDirMode">
+            <summary>
+            Название атрибута, содержащего направление действия настроек - [dirmode]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrFindMode">
+            <summary>
+            Название атрибута, содержащего режим атрибутов для поиска - [findmode]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrComments">
+            <summary>
+            Название атрибута, содержащего комментарий
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrMode">
+            <summary>        
+            Название атрибута, содержащего режим экспорта [mode]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrFInList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrFValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrFStringValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrFIntegerValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrFDateValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrFDoubleValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrFGuid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrDictionary">
+            <summary>
+            Название атрибута, содержащего Guid словаря - [dictionary]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.XmlAttrSkipExists">
+            <summary>
+            Название атрибута, содержащего режим позволяющий не обрабатывать (не импортировать) сущестствующие  объекты в базе IPS  - [skipExists]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrLcStep">
+            <summary>
+            Название атрибута, содержащего Guid шага ЖЦ - [lcStep]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrCaseSensitive">
+            <summary>
+            Название атрибута, содержащего признак чувствительности к регистру - [casesensitive]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrSkipSpaces">
+            <summary>
+            Название атрибута, содержащего настройку игнорирования пробелов в именах - [skipspaces]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrRule">
+            <summary>
+            Название атрибута, содержащего правило - [rule]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrOperation">
+            <summary>
+            Название атрибута, содержащего логическую операцию - [operation]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrSearchType">
+            <summary>
+            Название атрибута, содержащего тип объекта для поиска - [search_type]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrVerRule">
+            <summary>
+            Название атрибута, содержащего правило подбора версий - [verrule]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrEnabled">
+            <summary>
+            Название атрибута, содержащего признак разрешения - [enabled]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrVersionOwner">
+            <summary>
+            Название атрибута, содержащего правило назначение родительской версии объекта [version_owner]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrVersionNo">
+            <summary>
+            Название атрибута, содержащего правило назначение версии объекта [version_no]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrVersionNoAttrId">
+            <summary>
+            Название атрибута, содержащего идентификатор версии объекта в XML [version_no_attr_id]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlAttrOrder">
+            <summary>
+            Название атрибута, содержащего порядок (последовательность) обработки (поиска)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlImportSearchObjectsPath">
+            <summary>
+            Путь к узлам [object_type], в которых содержатся описания типов объектов и правила их поиска:
+            [XMLImportSettings] => [SearchRules] => [object_type]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlObjectImportRulesPath">
+            <summary>
+            Путь к узлам [object_type], в которых содержатся описания типов объектов и правила их импорта:
+            [XMLImportSettings] => [xmlNodeObjectImportRules] => [object_type]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlObjectCreationRulesPath">
+            <summary>
+            Путь к узлам [object_type], в которых содержатся описания типов объектов и правила их создания:
+            [XMLImportSettings] => [xmlNodeObjectCreationRules] => [object_type]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlImportExtensions">
+            <summary>
+            Путь к узлам [object_type], в которых содержатся описания типов объектов и правила их создания:
+            [XMLImportSettings] => [xmlNodeExtentions] => [xmlNodeImport]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlImport_renew">
+            <summary>
+            Правило импорта объектов "обновлять: (очистить состав, если пришёл новый; обновить атрибуты; создать состав)" - [renew]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlImport_refresh">
+            <summary>
+            Правило импорта объектов "добавлять в состав (обновить атрибуты; дополнить состав)" - [refresh]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlImport_createVersion">
+            <summary>
+            Правило импорта объектов "создать новую версию на основе найденной существующей версии (по правилу создания версий [ObjectCreationRules])" - [createVersion]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlImport_createVersionKernel">
+            <summary>
+            Правило импорта объектов "создать новую версию на основе найденной существующей версии, с копированием дочерних связей средствами ядра (по правилу создания версий [ObjectCreationRules])" - [createVersionKernel]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlImport_create">
+            <summary>
+            Правило импорта объектов "создать новый объект (по правилу создания версий [ObjectCreationRules])" - [create]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlImport_createByDictionary">
+            <summary>
+            Правило импорта объектов "создавать на основе НСИ" - [createByDictionary]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlImport_skip">
+            <summary>
+            Правило импорта объектов "пропускать объект" - [skip]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlCreate_createVersion">
+            <summary>
+            Правило импорта объектов "создавать новую версию объекта" - [createVersion]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlCreate_refreshBase">
+            <summary>
+            Правило импорта объектов "отыскивать и обновлять базовую версию объекта" - [refreshBase]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlCreate_refreshVersion">
+            <summary>
+            Правило импорта объектов "отыскивать и обновлять текущую версию объекта" - [refreshVersion]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlCreate_renewVersion">
+            <summary>
+            Правило импорта объектов "отыскивать и обновлять текущую версию объекта" (с заменой состава) - [refreshVersion]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlCreate_skipVersion">
+            <summary>
+            Правило импорта объектов "отыскивать и пропускать текущую версию объекта" - [skipVersion]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlCreate_skip">
+            <summary>
+            Правило импорта объектов "пропускать объект" - [skip]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlVersionNo_maxValue">
+            <summary>
+            Правила генерации номера версии объекта "назначение максимального номера" - [maxValue]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlVersionNo_xmlValue">
+            <summary>
+            Правила генерации номера версии объекта "назначение номера из XML" - [xmlValue]
+            </summary>
+            <remarks>
+            Назначение номера версии объекта в IPS согласно номеру из XML. 
+            Если версия с таким номером или старше существует в базе IPS, назначается максимальный номер версии</remarks>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlVersionNo_xmlValueSkipOld">
+            <summary>
+            Правила генерации номера версии объекта "назначение номера из XML с проверкой на новые версии" - [xmlValueSkipOld]
+            </summary>
+            <remarks>Назначение номера версии объекта согласно номеру из XML. 
+            Если версия с таким номером или старше существует в базе IPS – объект исключается из импорта</remarks>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlVersionOwner_default">
+            <summary>
+            Правила поиска родительской версии объекта "По умолчанию" - [default]
+            </summary>
+            <remarks>Используется версия объекта, найденная по правилу поиска объекта / версии.</remarks>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlVersionOwner_base">
+            <summary>
+            Правила поиска родительской версии объекта "Создание новой версии объекта от базовой" - [base]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlVersionOwner_previous">
+            <summary>
+            Правила поиска родительской версии объекта "Поиск максимальной предыдущей версии" - [previous]
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlOperation_AND">
+            <summary>
+            Операция «И» между условиями на атрибуты при поиске объектов в базе
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.xmlOperation_OR">
+            <summary>
+            Операция «Или» между условиями на атрибуты при поиске объектов в базе
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.attrTypeMDMCode">
+            <summary>
+            Тип атрибута "Код MDM"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.attrTypeMDMGuid">
+            <summary>
+            Гл. идентификатор атрибута "Код MDM"
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Consts.Imbase">
+            <summary>
+            Настройки Imbase
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.Imbase.CommonCatalog">
+            <summary>
+            Системный каталог ImBase "Системный"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.Imbase.CommonFolder">
+            <summary>
+            Системная папка ImBase "Импортированные из XML"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Consts.Imbase.CommonTable">
+            <summary>
+            Системная таблица ImBase "Импортировано из XML"
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.ObjectSearchCondition">
+            <summary>
+            Условие поиска объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.ObjectSearchCondition.Attributes">
+            <summary>
+            Список типов атрибутов и их значений для поиска. 
+            Объединяются с помощью логической операции "И"
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.ObjectSearchCondition.#ctor">
+            <summary>
+            Создать пустое условие
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.ObjectSearchCondition.#ctor(System.Guid,System.Object)">
+            <summary>
+            Создать условие, заполнить его значением
+            </summary>
+            <param name="attrType">Тип атрибута</param>
+            <param name="attrValue">Значение атрибута</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.ObjectSearchCondition.#ctor(System.Tuple{System.Guid,System.Object}[])">
+            <summary>
+            Создать условие, заполнить его значениями
+            </summary>
+            <param name="attributes">Список типов атрибутов и их значений</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.ObjectSearchCondition.GetAttributeCondition(Intermech.Interfaces.IUserSession)">
+            <summary>
+            Создать условия для запроса в "ядро" - поиск атрибута с указанным значением
+            в которых требуется искать указанное значение
+            </summary>
+            <param name="session">Сессия</param>
+            <returns>Условия для поиска или пустой список</returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeConsts">
+            <summary>
+            Константы
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.ExportCustomObjectID">
+            <summary>
+            Ид. для выгружаемых "кастом" объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.ImportExportSettObjTypeGuid">
+            <summary>
+            Гл. ид. типа объектов с конфигурациями импорта/экспорта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.ImportSettObjTypeGuid">
+            <summary>
+            Гл. ид. типа объектов с конфигурациями импорта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.ExportSettObjTypeGuid">
+            <summary>
+            Гл. ид. типа объектов с конфигурациями экспорта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.DataAttrTypeGuid">
+            <summary>
+            Тип атрибута "Данные"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.XmlPacketFileName">
+            <summary>
+            Имя файла пакета экспорта по умолчанию
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.XmlMetaBriedFileName">
+            <summary>
+            Имя файла для "сокращенных" метаданных
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.IconFolderName">
+            <summary>
+            Имя папки для выгрузки иконок
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.PacketChunkSize">
+            <summary>
+            Размер пакета входных данных
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.Common.PacketChunkDirFormat">
+            <summary>
+            Шаблон для формирования имени директории для "подзадачи"
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.XmlMetaBriefDataName">
+            <summary>
+            Секция в XML для метаданных
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.XmlAttrDataName">
+            <summary>
+            Секция в XML для атрибутов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.XmlAttrTypesName">
+            <summary>
+            Секция в XML для типов атрибутов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.XmlAttrTypeName">
+            <summary>
+            Секция в XML для типа атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.XmlObjTypesName">
+            <summary>
+            Секция в XML для типов объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.XmlObjTypeName">
+            <summary>
+            Секция в XML для типа объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.XmlRelTypesName">
+            <summary>
+            Секция в XML для типов связей
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.XmlRelTypeName">
+            <summary>
+            Секция в XML для типа связи
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_OBJ_TYPE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_VALUE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_BASE_VALUE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_BASE_ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_BASE_CODE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_EI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_EI_OKEI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_PROJ_OBJ">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_PART_OBJ">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_USER_ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_USER_ALIAS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.F_USER_NAME">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.xmlXMLImportSettings">
+            <summary>
+            Настройки импорта пакетов XML - "XMLImportSettings"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.xmlSearchRules">
+            <summary>
+            Правила поиска объектов (Rules of search for objects) - "SearchRules"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.xmlObject_type">
+            <summary>
+            Секция правила поиска, правила создания - "object_type"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.xmlObjectCreationRules">
+            <summary>
+            Правила создания версий объектов - "ObjectCreationRules"
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.attrGuid">
+            <summary>
+            GUID элемента - "guid" (атрибут XML)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.attrName">
+            <summary>
+            Название элемента - "name" (атрибут XML)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.attrCaseSensitive">
+            <summary>
+            Чувствительность к регистру букв при поиске - "casesensitive" (атрибут XML)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.attrSkipSpaces">
+            <summary>
+            Игнорировать пробелы в значениях при поиске - "skipspaces" (атрибут XML)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.attrRule">
+            <summary>
+            Правило - "rule" (атрибут XML)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.ruleCreateNew">
+            <summary>
+            Правило "Создавать новую версию объекта" - "createNew" (значение атрибута "rule")
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.ruleRefreshBase">
+            <summary>
+            Правило "Отыскивать и обновлять базовую версию объекта" - "refreshBase" (значение атрибута "rule")
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.ruleCreateByDictionary">
+            <summary>
+            Правило "Создавать версию на основе НСИ" - "createByDictionary" (значение атрибута "rule")
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeConsts.XML.ruleSkip">
+            <summary>
+            Правило "Пропускать объект" - "skip" (значение атрибута "rule")
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Common.XmlExportExtAction">
+            <summary>
+            Действия, которые может выполнять расширение экспорта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Common.XmlExportExtAction.TaskPostProcess">
+            <summary>
+            Произвольная обработка после завершения задачи
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExtensionPriority">
+            <summary>
+            Приоритет расширения для задач экспорта / импорта из XML
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExtensionPriority.Default">
+            <summary>
+            Приоритет по умолчанию
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExtensionPriority.High">
+            <summary>
+            Высокий приоритет
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExtensionPriority.Highest">
+            <summary>
+            Наивысший приоритет
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExtensionPriority.Critical">
+            <summary>
+            Критический приоритет
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlImportExtAction">
+            <summary>
+            Действия, которые может выполнять расширение импорта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImLoadConfigData">
+            <summary>
+            Действие вызывается после загрузки конфигурации импорта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImSyncMetaData">
+            <summary>
+            Синхронизация метаданных
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.IndexPostProcess">
+            <summary>
+            Произвольная обработка индекса XML после его формирования
+            (вызывается после ImSyncMetaData)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImBeforeImportObjects">
+            <summary>
+            Действие вызывается перед началом импорта объектов в базу IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImBeforeImportObject">
+            <summary>
+            Действие вызывается перед началом импорта объекта в базу IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImProcessImportCreateRule">
+            <summary>
+            Действие вызывается для обработки правил импорта и создания объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImProcessSearchObject">
+            <summary>
+            Действие вызывается при поиске объектов 
+            </summary>
+            <remarks>Вызывается перед поиском по правилам в конфигурации. Если заполняется IPS.IDBObject - поиск по 
+            правилам не производиться</remarks>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImObjectConvertion">
+            <summary>
+            Обработка/преобразование записей типа ObjectRecord
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImObjectLinkWithIPS">
+            <summary>
+            Связь объектов индекса XML с объектами базы данных IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImObjectFillImportData">
+            <summary>
+            Заполнение структуры объектов для импорта данных в базу IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImObjectGetType">
+            <summary>
+            Получение типов объектов из конфигурации импорта и базы данных IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImObjectGetGuid">
+            <summary>
+            Поиск/создание Guid для записей типа IImObject
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImObjectGetOwnerID">
+            <summary>
+            Поиск владельцев и редакторов для записей типа IImObject
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImObjectGetLcStep">
+            <summary>
+            Поиск шага ЖЦ / уровня продвижения
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImObjectImAttributesConvertion">
+            <summary>
+            Обработка коллекции описаний атрибутов IImAttribute для записей типа IImObject
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImObjectBeforeImportData">
+            <summary>
+            Обработка структуры объекта с заполненными данными (атрибутами) для записей типа IImObject перед импортом в базу 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImAfterImportObject">
+            <summary>
+            Действие вызывается после импорта объекта в базу IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImAfterImportObjects">
+            <summary>
+            Действие вызывается после импорта объектов в базу IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImBeforeImportRelations">
+            <summary>
+            Действие вызывается перед началом импорта связей в базу IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImBeforeImportRelation">
+            <summary>
+            Действие вызывается перед началом импорта связи в базу IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImRelationConvertion">
+            <summary>
+            Обработка/преобразование записей типа IImRelation
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImRelationGetType">
+            <summary>
+            Получение типов связей из конфигурации импорта и базы данных IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImRelationImAttributesConvertion">
+            <summary>
+            Обработка коллекции описаний атрибутов IImAttribute для записей типа IImRelation
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImRelationBeforeImportData">
+            <summary>
+            Обработка структуры объекта с заполненными данными (атрибутами) для записей типа IImRelation перед импортом в базу 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImAfterImportRelation">
+            <summary>
+            Действие вызывается после импорта связи в базу IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ImAfterImportRelations">
+            <summary>
+            Действие вызывается после импорта связей в базу IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.TaskPostProcess">
+            <summary>
+            Произвольная обработка после завершения задачи
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ObjectSearchAction">
+            <summary>
+            Задание по поиску существующих объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportExtAction.ObjectCreateAction">
+            <summary>
+            Задание по созданию новых объектов
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeCriticalException">
+            <summary>
+            Критическое исключение (в скриптах экспорта / импорта), которое прерывает задачу
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeCriticalException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeCriticalException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IExtensionsModeCache">
+            <summary>
+            Интерфейс кэша, который хранит Guid-ы расширений и флажки, указывающие на разрешение
+            либо на запрет запуска данных расширений
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IExtensionsModeCache.IsEnabled(System.Guid)">
+            <summary>
+            Проверить, разрешено ли расширение с указанным идентификатором
+            </summary>
+            <param name="extGuid">Уникальный идентификатор расширения</param>
+            <returns>true - расширение разрешено использовать</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IExtensionsModeCache.IsEnabled(Intermech.Interfaces.XmlExchange.IXmlExchangeImportExtension)">
+            <summary>
+            Проверить, разрешено ли указанное расширение расширение
+            (учитывается конфигурация импорта, а также свойство IsSystem самого расширения
+            </summary>
+            <param name="ext">Проверяемое расширение</param>
+            <returns>true - расширение разрешено использовать</returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IXmlExchangeExportExtension">
+            <summary>
+            Интерфейс для расширений задачи экспорта данных
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeExportExtension.Actions">
+            <summary>
+            Действия, которые может выполнять расширение задачи экспорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExportExtension.CanProcess(Intermech.Interfaces.XmlExchange.Common.XmlExportExtAction)">
+            <summary>
+            Проверить, может ли расширение выполнить указанное действие
+            </summary>
+            <param name="action">Проверяемое действие</param>
+            <returns>true - расширение может выполнить указанное действие</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExportExtension.Execute(Intermech.Interfaces.XmlExchange.Common.XmlExportExtAction,System.Object,System.Object[])">
+            <summary>
+            Выполнить определенное действие задачи у расширения
+            </summary>
+            <param name="action">Выполняемое действие</param>
+            <param name="subTask">Задача экспорта данных</param>
+            <param name="args">Дополнительные аргументы метода</param>
+            <returns>Результат выполнения действия в виде ключей-значений</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExportExtension.GetObjectLinkedInfo(System.Object,Intermech.Interfaces.IDBObject,Intermech.Interfaces.ObjectRecord,System.Object)">
+            <summary>
+            Получение связанных объектов для экспорта, а также выгрузка доп. информация о объекте
+            </summary>
+            <remarks>Если объект исключается из экспорта в objRecord может быть null </remarks>
+            <param name="subTask">Подзадача экспорта</param>
+            <param name="dbObject">Экспортируемый объект</param>
+            <param name="objRecord">Экспортируемые данные объекта</param>
+            <param name="objExportData">Параметры обработки объекта</param>
+            <returns>Список связанных объектов для экспорта типа XmlObjExportData</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExportExtension.GetRelationLinkedInfo(System.Object,Intermech.Interfaces.IDBRelation,Intermech.Interfaces.RelationRecord,System.Object,Intermech.Interfaces.Compositions.ObjInfoItem)">
+            <summary>
+            Получение связанных объектов для экспорта, а также выгрузка доп. информация о связи
+            </summary>
+            <remarks>Если объект исключается из экспорта в objRecord может быть null </remarks>
+            <param name="subTask">Подзадача экспорта</param>
+            <param name="dbRelation">Экспортируемая связь</param>
+            <param name="relRecord">Экспортируемые данные связи</param>
+            <param name="partExportData">Параметры обработки связи (дочернего объекта)</param>
+            <param name="projObjInfo">Информация о родительском объекте</param>
+            <returns>Список связанных объектов для экспорта типа XmlObjExportData</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExportExtension.GetAttributeLinkedInfo(System.Object,Intermech.Interfaces.IDBAttributable,System.Object,System.Data.DataRow,System.Object)">
+            <summary>
+            Получение связанны объектов для экспорта, а также выгрузка доп. информация об атрибуте
+            </summary>
+            <remarks></remarks>
+            <param name="subTask">Подзадача экспорта</param>
+            <param name="dbAttributable">Экспортируемый объект или связь</param>
+            <param name="objExportData">Параметры обработки объекта / связи</param>
+            <param name="attrRow">Данные о атрибуте</param>
+            <param name="attrRecord">Экспортируемые данные атрибута</param>
+            <returns>Список связанных объектов для экспорта типа XmlObjExportData</returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IXmlExchangeExtension">
+            <summary>
+            Базовый интерфейс для расширений задач импорта / экспорта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeExtension.Priority">
+            <summary>
+            Приоритет расширения
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeExtension.Guid">
+            <summary>
+            Глобальный идентификатор плагина
+            </summary>
+            <remarks>Используется для управления работой плагина (включение / выключение в конфигурациях) в задачах
+            импорта / экспорта</remarks>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeExtension.IsSystem">
+            <summary>
+            Признак "системного" плагина 
+            </summary>
+            <remarks>"Включает" плагин вне зависимости от настроек конфигурации, если установлен признак системного</remarks>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExtension.StartTask(System.Object)">
+            <summary>
+            Уведомление плагина о начале задачи импорта / экспорта
+            </summary>
+            <param name="task">Объект задачи / подзадачи </param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExtension.EndTask(System.Object)">
+            <summary>
+            Уведомление плагина об окончании задачи импорта / экспорта
+            </summary>
+            <param name="task">Объект задачи / подзадачи </param>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IXmlExchangeImportExtension">
+            <summary>
+            Интерфейс для расширений задачи импорта данных
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeImportExtension.Actions">
+            <summary>
+            Действия, которые может выполнять расширение задачи импорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportExtension.CanProcess(Intermech.Interfaces.XmlExchange.XmlImportExtAction)">
+            <summary>
+            Проверить, может ли расширение выполнить указанное действие
+            </summary>
+            <param name="action">Проверяемое действие</param>
+            <returns>true - расширение может выполнить указанное действие</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportExtension.Execute(Intermech.Interfaces.XmlExchange.XmlImportExtAction,Intermech.IpsXmlViewer.Interfaces.IKernel,System.Object[])">
+            <summary>
+            Выполнить действия по изменению метаданных после обработки ZIP-архива и записи в индекс
+            </summary>
+            <param name="action">Выполняемое действие</param>
+            <param name="kernel">Микроядро XML (контейнер сервисов содержит все необходимые службы)</param>
+            <param name="args">Дополнительные аргументы метода</param>
+            <returns>Результат выполнения действия в виде ключей-значений</returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IXmlExchangeExportTask">
+            <summary>
+            Задача выгрузки данных в XML
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExportTask.ExportData(Intermech.Interfaces.Briefcase.ExportAttribute[],System.Object[])">
+            <summary>
+            Экспорт данных
+            </summary>
+            <param name="exportData">Данные для экспорта</param>
+            <param name="exportParams">Параметры экспорта</param>
+            <returns>Результат. Сообщение об ошибке</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExportTask.GetExportFiles">
+            <summary>
+            Получение файлов экспорта
+            </summary>
+            <param name="exportDataFiles"></param>
+            <returns>exportDataFiles</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeExportTask.GetExportData(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="exportDataFile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.ILogger">
+            <summary>
+            Протоколирование работы задачи
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.ILogger.AddToLog(System.String[])">
+            <summary>
+            Добавить информацию в протокол
+            </summary>
+            <param name="text">Добавляемая информация</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.ILogger.LogException(System.Exception)">
+            <summary>
+            Добавить исключение в протокол
+            </summary>
+            <param name="e">Исключение</param>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService">
+            <summary>
+            Серверный сервис для поиска существующих объектов IPS по описаниям объектов из индекса XML
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.GetObjectSearchRules(Intermech.IpsXmlViewer.Interfaces.IKernel,Intermech.IpsXmlViewer.Interfaces.IImObject)">
+            <summary>
+            Отыскать в конфигурации импорта правила поиска указанного типа объектов
+            </summary>
+            <param name="kernel">Микроядро XML</param>
+            <param name="xmlObj">Искомый объект</param>
+            <returns>Список узлов Consts.xmlNodeImportAttribute ([attribute]), 
+            содержащих перечень атрибутов, по которым требуется искать объект</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.GetObjectImportRules(Intermech.IpsXmlViewer.Interfaces.IKernel,Intermech.IpsXmlViewer.Interfaces.IImObject)">
+            <summary>
+            Отыскать в конфигурации импорта правила импорта указанного типа объектов
+            </summary>
+            <param name="kernel">Микроядро XML</param>
+            <param name="xmlObj">Искомый объект</param>
+            <returns>Список узлов Consts.xmlNodeImportAttribute ([attribute]), 
+            содержащих перечень атрибутов, по которым требуется импортировать объект</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.GetObjectCreateRules(Intermech.IpsXmlViewer.Interfaces.IKernel,Intermech.IpsXmlViewer.Interfaces.IImObject)">
+            <summary>
+            Отыскать в конфигурации импорта правила создания указанного типа объектов
+            </summary>
+            <param name="kernel">Микроядро XML</param>
+            <param name="xmlObj">Искомый объект</param>
+            <returns>Список узлов Consts.xmlNodeImportAttribute ([attribute]), 
+            содержащих перечень атрибутов, по которым требуется создавать объект</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.GetIPSObjectID(Intermech.IpsXmlViewer.Interfaces.IKernel,System.Int64)">
+            <summary>
+            Отыскать идентификатор версии объекта IPS по его идентификатору в базе данных индекса
+            </summary>
+            <param name="kernel">Микроядро XML</param>
+            <param name="xmlObjectId">Идентификатор версии объекта в индексе</param>
+            <returns>Идентификатор версии объекта в IPS или -1</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.FindIPSObject(Intermech.IpsXmlViewer.Interfaces.IKernel,Intermech.IpsXmlViewer.Interfaces.IImObject)">
+            <summary>
+            Отыскать существующий объект IPS по его описанию из индекса XML.
+            Правила поиска будут взяты из настроек импорта, которые могут храниться
+            в сервисах микроядра. Если настроек нет, будут применены правила поиска
+            по умолчанию
+            </summary>
+            <param name="kernel">Микроядро XML</param>
+            <param name="xmlObj">Описание искомого объекта из индекса XML</param>
+            <returns>Описание найденного объекта или null</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.FindByGuid(Intermech.Interfaces.IUserSession,System.Guid)">
+            <summary>
+            Отыскать существующий объект IPS по его Guid
+            </summary>
+            <param name="session">Сессия</param>
+            <param name="guid">Уникальный глобальный идентификатор версии объекта</param>
+            <returns>Найденный объект или null</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.FindByIdGUID(Intermech.Interfaces.IUserSession,System.Guid,System.String)">
+            <summary>
+            Поиск в базе IPS объекта по глобальному ид-ру
+            </summary>
+            <param name="session">Сессия</param>
+            <param name="guid">Глобальный ид-р объекта (не версии)</param>
+            <param name="versionRule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.FindByAttributes(Intermech.Interfaces.IUserSession,Intermech.IpsXmlViewer.Interfaces.IKernel,Intermech.IpsXmlViewer.Interfaces.IImObject,System.Collections.Generic.List{Intermech.Interfaces.XmlExchange.XmlImportBase},System.Collections.Specialized.HybridDictionary)">
+            <summary>
+            Отыскать объект IPS по всем указанным атрибутам
+            </summary>
+            <param name="session">Сессия</param>
+            <param name="kernel">Микроядро XML</param>
+            <param name="obj">Описание искомого объекта из индекса XML</param>
+            <param name="ruleAttrItems">Настройки правила поиска для атрибутов</param>
+            <param name="extParams"> Дополнительные параметры поиска объекта
+            "logicalAND"   : True - атрибуты объединяются в условия оператором "И", false - оператором "ИЛИ"
+            "searchObjType": Гл. ид. типа объекта по которому ищем объекты в базе, если он не задан тип определяем у самого объекта
+            </param>
+            <returns>Найденный объект или null</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.GetCommonImbaseFolder(Intermech.IpsXmlViewer.Interfaces.IKernel)">
+            <summary>
+            Вернуть Guid папки ImBase для импорта (из конфигурации или Guid системной папки)
+            </summary>
+            <param name="kernel">Микроядро XML</param>
+            <returns>Guid папки ImBase для импорта (из конфигурации или Guid системной папки)</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IFindIPSObjectsService.GetCommonImbaseTable(Intermech.IpsXmlViewer.Interfaces.IKernel)">
+            <summary>
+            Вернуть Guid таблицы ImBase для импорта (из конфигурации или Guid системной таблицы)
+            </summary>
+            <param name="kernel">Микроядро XML</param>
+            <returns>Guid таблицы ImBase для импорта (из конфигурации или Guid системной таблицы)</returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Services.Import.IXmlExchangeImportConfiguration">
+            <summary>
+            Интерфейс конфигурации импорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Services.Import.IXmlExchangeImportConfiguration.GetAttributeType(System.Int32,System.Nullable{System.Guid})">
+            <summary>
+            Поиск в конфигурации импорта, в секции [attributes], настроек атрибута 
+            </summary>
+            <param name="xmlAttrId">Идентификатор типа атрибута в XML</param>
+            <param name="xmlAttrGuid"></param>
+            <returns>настройки типа атрибута </returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Services.Import.IXmlExchangeImportConfiguration.GetAttribute4ObjectType(System.Int32,System.Int32,System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта 
+            настройки типа атрибута на основании его идентификатора в XML и принадлежности
+            указанному типу объекта
+            </summary>
+            <param name="xmlAttrId">Идентификатор типа атрибута в XML</param>
+            <param name="xmlObjTypeId">Ид. типа объекта</param>
+            <param name="xmlAttrGuid">Guid атрибута</param>
+            <param name="xmlObjTypeGuid">Guid типа объекта</param>
+            <returns>настройки типа атрибута для указанного типа объекта</returns>
+            <remarks>User_id для типа нет однозначного соответствия - используем Guid</remarks>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Services.Import.IXmlExchangeImportConfiguration.GetAttribute4RelationType(System.Int32,System.Int32,System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта 
+            настройки типа атрибута на основании его идентификатора в XML и принадлежности
+            указанному типу связи
+            </summary>
+            <param name="xmlAttrId">Идентификатор типа атрибута в XML</param>
+            <param name="xmlRelTypeId">Тип связи</param>
+            <param name="xmlRelType">Guid типа связи</param>
+            <returns>настройки типа атрибута для указанного типа связи</returns>
+            <remarks>Для User_id типа связи может не быть однозначного соответствия - для этих целей дополнительно задаем Guid</remarks>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Services.Import.IXmlExchangeImportConfiguration.GetObjectType(System.Int32,System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта 
+            настройки типа объекта на основании его идентификатора в XML
+            </summary>
+            <param name="xmlObjTypeId">Идентификатор типа объекта в XML</param>
+            <param name="xmlObjTypeGuid"></param>
+            <returns>настройки типа объекта </returns>
+            <remarks>Для User_id типа объекта может не быть однозначного соответствия - для этих целей дополнительно задаем Guid</remarks>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Services.Import.IXmlExchangeImportConfiguration.GetRelationType(System.Int32,System.Nullable{System.Guid})">
+            <summary>
+            Поиск по конфигурации импорта 
+            настройки связи на основании его параметров в XML
+            </summary>
+            <param name="xmlRelTypeId">Идентификатор типа связи в XML</param>
+            <param name="xmlRelTypeGuid">Guid типа связи</param>
+            <returns>Настройки для указанного типа связи</returns>
+            <remarks>Для User_id типа связи может не быть однозначного соответствия - для этих целей дополнительно задаем Guid</remarks>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Services.Import.XmlExchangeImportTaskParams">
+            <summary>
+            Класс параметров задачи импорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Services.Import.XmlExchangeImportTaskParams.#ctor(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="configurationId"></param>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Services.IXmlExchangeConfiguration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Services.XmlExchangeTaskParams">
+            <summary>
+            Базовых класс для параметров задач импорта / экспорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Services.XmlExchangeTaskParams.#ctor(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="configurationId"></param>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.Services.XmlExchangeTaskParams.ConfigurationId">
+            <summary>
+            Ид. версии конфигурации
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Services.XmlExchangeTaskStatus">
+            <summary>
+            Класс - статус задачи импорта / экспорта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Services.XmlExchangeTaskStatus.Progress">
+            <summary>
+            Процент выполнения
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.Services.XmlExchangeTaskStatus.Message">
+            <summary>
+            Строка статуса
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.Services.XmlExchangeTaskStatus.IsCompleted">
+            <summary>
+            Признак окончания задачи
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask">
+            <summary>
+            Задача импорта данных из XML
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.Log">
+            <summary>
+            Протокол выполненных действий (очищается после чтения)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.HasError">
+            <summary>
+            Есть ли ошибка в процессе работы
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.Exception">
+            <summary>
+            Исключение, которое возникло в процессе работы задания
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.UploadData(System.String,System.Byte[],System.Int32,System.Boolean)">
+            <summary>
+            Загрузить на сервер файл во временное хранилище.
+            Метод можно вызывать однократно для небольших файлов, либо
+            многократно для больших
+            </summary>
+            <param name="fileName">Имя временного файла (серверное)</param>
+            <param name="buffer">Порция данных</param>
+            <param name="bufferSize">Размер порции данных</param>
+            <param name="append">true - файл будет дописан, если существует</param>
+            <returns>true - действие выполнено успешно</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.Execute(Intermech.Interfaces.XmlExchange.Services.Import.XmlExchangeImportTaskParams)">
+            <summary>
+            Вызов импорта пакета данных
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.UploadXML(System.String,System.Byte[],System.Int32,System.Boolean)">
+            <summary>
+            Загрузить на сервер файл XML во временное хранилище.
+            Метод можно вызывать однократно для небольших файлов, либо
+            многократно для больших
+            </summary>
+            <param name="fileName">Имя временного файла (серверное)</param>
+            <param name="buff">Порция данных</param>
+            <param name="size">Размер порции данных</param>
+            <param name="append">true - файл будет дописан, если существует</param>
+            <returns>true - действие выполнено успешно</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.SelectCfg(System.Int64)">
+            <summary>
+            Выбрать конфигурацию импорта
+            </summary>
+            <param name="cfgID">Идентификатор версии объекта с конфигурацией импорта</param>
+            <returns>true - действие выполнено успешно</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.ParseZIP">
+            <summary>
+            Обработать ZIP-архив, считать его метаданные, получить список файлов
+            </summary>
+            <returns>true - задание успешно выполнено</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.ImportObjects">
+            <summary>
+            Задача поиска существующих объектов
+            </summary>
+            <returns>true - задание успешно выполнено</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.ImportImbaseObjects">
+            <summary>
+            Задача по импорту объектов Imbase
+            </summary>
+            <returns>true - задание успешно выполнено</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeImportTask.ImportRelations">
+            <summary>
+            Импортировать связи
+            </summary>
+            <returns>true - задание успешно выполнено</returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IXmlExchangeService">
+            <summary>
+            Интерфейс серверной службы IXmlExchangeService
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeService.CreateExportTask(System.Guid)">
+            <summary>
+            Создание задачи экспорта данных
+            </summary>
+            <param name="sessionGuid">Идентификатор сессии</param>
+            <returns>Задача экспорта</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeService.DisposeExportTask(System.Guid)">
+            <summary>
+            Освобождение ресурсов задачи экспорта
+            </summary>
+            <param name="taskGuid">Уникальный идентификатор задания</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeService.CreateImportTask(System.Guid)">
+            <summary>
+            Создание задачи импорта данных
+            </summary>
+            <param name="sessionGuid">Идентификатор сессии</param>
+            <returns>Задача импорта</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeService.DisposeImportTask(System.Guid)">
+            <summary>
+            Освобождение ресурсов задачи импорта
+            </summary>
+            <param name="taskGuid">Уникальный идентификатор задания</param>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeService.ImportExtList">
+            <summary>
+            Список расширений для импорта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeService.ExportExtList">
+            <summary>
+            Список расширений для экспорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeService.RegisterExtension(Intermech.Interfaces.XmlExchange.IXmlExchangeExtension)">
+            <summary>
+            Регистрация расширения экспорта/импорта данных
+            </summary>
+            <param name="dataExtension">Расширение экспорта/импорта</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeService.UnregisterExtension(Intermech.Interfaces.XmlExchange.IXmlExchangeExtension)">
+            <summary>
+            Удаление регистрации расширения экспорта/импорта данных
+            </summary>
+            <param name="dataExtension">Удаляемое расширение</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeService.GetImportExtensions(Intermech.Interfaces.XmlExchange.XmlImportExtAction)">
+            <summary>
+            Получить упорядоченный по приоритету (в порядке убывания) список расширений импорта
+            для выполнения указанного действия
+            </summary>
+            <param name="action">Выполняемое действие</param>
+            <returns>Упорядоченный по приоритету (в порядке убывания) список расширений импорта для выполнения указанного действия</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.IXmlExchangeService.GetExportExtensions(Intermech.Interfaces.XmlExchange.Common.XmlExportExtAction)">
+            <summary>
+            Получить упорядоченный по приоритету (в порядке убывания) список расширений экспорта
+            для выполнения указанного действия
+            </summary>
+            <param name="action">Выполняемое действие</param>
+            <returns>Упорядоченный по приоритету (в порядке убывания) список расширений экспорта для выполнения указанного действия</returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IXmlExchangeTask">
+            <summary>
+            Задача импорта / экспорта 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeTask.TaskGuid">
+            <summary>
+            Уникальный идентификатор задачи
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeTask.SessionGuid">
+            <summary>
+            Глобальный идентификатор пользовательской сессии
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeTask.Services">
+            <summary>
+            Контейнер сервисов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlExchangeTask.TaskStatus">
+            <summary>
+            Статус текущей задачи
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.IXmlServerPlugin">
+            <summary>
+            Интерфейс для проверки наличия загруженного плагина на сервере приложений
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.IXmlServerPlugin.PluginGuid">
+            <summary>
+            Guid плагина
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl">
+            <summary>
+            Класс для хранения настроек applicability при экспорте объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl._relTypeGuid">
+            <summary>
+            Гл. ид. типа связи
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl._projTypeGuid">
+            <summary>
+            Гл. ид. родительского объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl._partTypeGuid">
+            <summary>
+            Гл. ид. дочернего объекта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+             Конструктор
+            </summary>
+            <param name="relTypeId"> Ид. типа связи</param>
+            <param name="projTypeId">Ид. типа родительского объекта</param>
+            <param name="partTypeId"> Ид. типа дочернего объекта</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.#ctor(System.Guid)">
+            <summary>
+             Конструктор
+            </summary>
+            <param name="relTypeGuid">Гл. ид. типа связи</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.#ctor(System.Guid,System.Guid)">
+            <summary>
+            Конструктор 
+            </summary>
+            <param name="relTypeGuid">Гл. ид. типа связи</param>
+            <param name="projTypeGuid">Гл. ид. типа родительского объекта</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.#ctor(System.Guid,System.Guid,System.Guid)">
+            <summary>
+             Конструктор
+            </summary>
+            <param name="relTypeGuid"> Гл. ид. типа связи</param>
+            <param name="projTypeGuid">Гл. ид. типа родительского объекта</param>
+            <param name="partTypeGuid"> Гл. ид. типа дочернего объекта</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.ValidateData(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="fixMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.RelTypeID">
+            <summary>
+            Ид. типа связи 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.RelTypeGuid">
+            <summary>
+            Гл. идентификатор типа связи
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.ProjTypeID">
+            <summary>
+            Ид. типа родительского объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.ProjTypeGuid">
+            <summary>
+            Гл. ид. типа родительского объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.PartTypeID">
+            <summary>
+             Ид. типа дочернего объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.PartTypeGuid">
+            <summary>
+            Гл. ид. типа дочернего объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.ApplMode">
+            <summary>
+            Режим проверки применяемости / раскрытия состава для объектов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.DirMode">
+            <summary>
+            Направление действия правила / настроек
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAppl.Flags">
+            <summary>
+            Флаги
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportApplicabilityList">
+            <summary>
+            Класс для хранения настроек расширений применяемости
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable">
+            <summary>
+            Класс для хранение настроек типов со списком атрибутов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable._attrList">
+            <summary>
+            Список атрибутов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable._defAttrList">
+            <summary>
+            Список значений атрибутов по умолчанию
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="typeId"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable.#ctor(System.Int32,System.Guid,System.String)">
+            <summary>
+             Конструктор
+            </summary>
+            <param name="typeId"></param>
+            <param name="typeGuid"></param>
+            <param name="typeName"></param>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable.AttrMode">
+            <summary>
+            Режим выгрузки (обработки атрибутов)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable.AttrList">
+            <summary>
+            Список атрибутов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable.DefAttrList">
+            <summary>
+            Список значений атрибутов по умолчанию
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable.ValidateData(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="fixMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttributable.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttrList">
+            <summary>
+            Класс для хранения настроек выгрузки атрибутов типов связей/объектов
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValueList">
+            <summary>
+            Класс для хранения значений атрибутов по умолчанию
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr">
+            <summary>
+            Класс для хранения настроек типа атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr._mode">
+            <summary>
+            Режим выгрузки
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr._userMeasureCode">
+            <summary>
+            Пользовательская ед. изменения 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr._userFldType">
+            <summary>
+            Пользовательский тип данных
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="typeId"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr.#ctor(System.Int32,System.Guid,System.String)">
+            <summary>
+             Конструктор
+            </summary>
+            <param name="typeId"></param>
+            <param name="typeGuid"></param>
+            <param name="typeName"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных
+            </summary>
+            <param name="xmlNode"></param>
+            <param name="validateMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr.ValidateData(System.Boolean)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr.Mode">
+            <summary>
+            Параметры экспорта атрибута
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr.UserMeasureCode">
+            <summary>
+            Пользовательская ед. изменения 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportAttr.UserFldType">
+            <summary>
+            Пользовательский тип данных
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue">
+            <summary>
+            Класс для хранение значений атрибутов по умолчанию
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue._userFldType">
+            <summary>
+            Пользовательский тип данных
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue._inList">
+            <summary>
+            Порядковый номер значения атрибута (начинается с 0)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue._value">
+            <summary>
+            Значение атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue._stringValue">
+            <summary>
+            Строковая составляющая значения
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue._dateValue">
+            <summary>
+            Дата/время в формате нейтральной языковой культуры
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue._integerValue">
+            <summary>
+            Целочисленная составляющая
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue._doubleValue">
+            <summary>
+            Вещественная составляющая 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue._guid">
+            <summary>
+            Значение атрибута
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userId"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.UserFldType">
+            <summary>
+            Пользовательский тип данных
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.InList">
+            <summary>
+            Порядковый номер значения атрибута (начинается с 0)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.Value">
+            <summary>
+            Значение атрибута
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.StringValue">
+            <summary>
+            Строковая составляющая значения
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.DateValue">
+            <summary>
+            Дата/время в формате нейтральной языковой культуры
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.IntegerValue">
+            <summary>
+            Целочисленная составляющая
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.DoubleValue">
+            <summary>
+            Вещественная составляющая 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportDefAttrValue.Guid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportApplDirection">
+            <summary>
+            Направления действия правила применяемости / раскрытия составов  (вверх / вниз / в обоих направлениях)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportApplDirection.Down">
+            <summary>
+            Вниз (состав объекта)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportApplDirection.Up">
+            <summary>
+            Вверх (применяемость объекта)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportApplDirection.UpAndDown">
+            <summary>
+            Оба направления (вверх и вниз)
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportAttributeMode">
+            <summary>
+            Режимы экспорта/обработки атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportAttributeMode.None">
+            <summary>
+            Режим не определен
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportAttributeMode.Exclude">
+            <summary>
+            "Исключение" атрибута из XML
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportChecksumAlgorithm.Crc32">
+            <summary>
+            CRC32 в 16-м формате
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportChecksumAlgorithm.Md5">
+            <summary>
+            MD5 в 16-м формате
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportChecksumAlgorithm.Crc32Dec">
+            <summary>
+            CRC32 в 10-м формате
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportCompressMode">
+            <summary>
+            Режим архивирования пакета данных при экспорте
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportCompressMode.None">
+            <summary>
+            Данные не архивируются
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportCompressMode.Zip">
+            <summary>
+            ZIP архивация
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportFindAttrMode">
+            <summary>
+            Параметры атрибутов при поиске (объектов)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportFindAttrMode.None">
+            <summary>
+            Дополнительный режим не задан 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportFindAttrMode.SkipNotExists">
+            <summary>
+            Игнорировать условие, если атрибут не задан в XML
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.Settings.Export.Common.XmlExportFindAttrMode.SkipEmpty">
+            <summary>
+            Игнорировать условие, если значение атрибута в XML не задано
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Settings.Export.Extensions.XmlExchangeExportExtension">
+            <summary>
+            Класс для хранения настроек расширений экспорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Settings.Export.Extensions.XmlExchangeExportExtension.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Settings.Export.Extensions.XmlExchangeExportExtension.#ctor(System.Guid,System.String)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="typeGuid"></param>
+            <param name="typeName"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Settings.Export.Extensions.XmlExchangeExportExtension.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Settings.Export.Extensions.XmlExchangeExportExtension.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.Settings.Export.Extensions.XmlExchangeExportExtension.Guid">
+            <summary>
+            Гл. ид. расширения 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.Settings.Export.Extensions.XmlExchangeExportExtension.Name">
+            <summary>
+            Наименование расширения 
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.Settings.Export.Extensions.XmlExchangeExportExtensions">
+            <summary>
+            Класс для хранения настроек расширений экспорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.Settings.Export.Extensions.XmlExchangeExportExtensions.GetItemByGuid(System.Guid)">
+            <summary>
+            Поиск элемента по Guid
+            </summary>
+            <param name="typeGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExportApplMode">
+            <summary>
+            Режим проверки применяемости/раскрытия состава для объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportApplMode.AllObjects">
+            <summary>
+            Раскрытие состава всех объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportApplMode.RootObjectsOnly">
+            <summary>
+            Раскрытие состава только головных объектов задачи
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportApplMode.NoObjects">
+            <summary>
+            Запрет раскрытия состава
+            </summary>
+            <remarks>Данный режим имеет наивысший приоритет</remarks>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExportApplFlags">
+            <summary>
+            Дополнительные флаги применяемости/состава для объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportApplFlags.None">
+            <summary>
+            Доп. флаги не установлены
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportApplFlags.MarkAsRoot">
+            <summary>
+            Пометить полученный объект для XmlExchangeExportAppl как головной 
+            </summary>
+            <remarks>Используется для дальнейшего разворота применяемости / состава объекта с признаком XmlExportApplMode.RootObjectsOnly</remarks>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExportAttrsMode">
+            <summary>
+            Режим выгрузки атрибутов объектов/связей
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportAttrsMode.None">
+            <summary>
+            Дополнительный режим не задан - выгружаются только заданные атрибуты у типов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportAttrsMode.DefinedAttributes">
+            <summary>
+            Выгрузка предопределенных атрибутов для типа объекта/связи
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportAttrsMode.AllAttributes">
+            <summary>
+            Выгрузка всех атрибутов объекта/связи
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode">
+            <summary>
+            Режимы выгрузки дополнительных данных 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.None">
+            <summary>
+            Дополнительные данные не выгружаются
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.RefObj4Attributes">
+            <summary>
+            Выгрузка объектов для ссылочных атрибутов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.Rights">
+            <summary>
+            Права доступа
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.LcStep">
+            <summary>
+            Шаги ЖЦ
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.LcStepHist">
+            <summary>
+            История шагов ЖЦ
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.ObjectWorkCopies">
+            <summary>
+            Рабочие копии объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.RefObjectRelation">
+            <summary>
+            Выгрузка связей для ссылочных объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.RefObjectReference">
+            <summary>
+            Выгрузка информации о ссылках для ссылочных объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.UserDataOnly">
+            <summary>
+            Выгрузка объектов, связей, атрибутов у которых прописаны пользовательские псевдонимы (UserID)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportExtraDataMode.IconFiles">
+            <summary>
+            Выгружать файлы ico для типов объектов
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExportObjModes">
+            <summary>
+            Режимы экспорта/обработки объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportObjModes.None">
+            <summary>
+            Режим не определен
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportObjModes.ExcludeObjOnly">
+            <summary>
+            "Исключение" объекта из XML
+            </summary>
+            <remarks>Объекты вместе со связью с родительским объектом исключается их XML.
+            Настроенные параметры объекта / связи записываются у дочерних объектов, при условии их наличия</remarks>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportObjModes.ExcludeObjWithParams">
+            <summary>
+            "Исключение" объекта из XML вместе с параметрами
+            </summary>
+            <remarks>Объекты вместе со связью с родительским объектом исключается их XML вместе с их параметрами.
+            Настроенные параметры объекта / связи с родительским объектом в XML не пишутся</remarks>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExportTaskMode">
+            <summary>
+            Режим выгрузки данных в XML
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportTaskMode.SingleItem">
+            <summary>
+            Выгрузка исходных объектов в отдельном пакете XML
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlExportTaskMode.MultiItems">
+            <summary>
+            Выгрузка исходных объектов в одном пакете XML
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportObj">
+            <summary>
+            Настройки выгрузки типа объекта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObj.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObj.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="typeId">Ид. типа объекта</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObj.#ctor(System.Int32,System.Guid,System.String)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="typeId">Ид. типа объекта</param>
+            <param name="typeGuid"></param>
+            <param name="typeName"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObj.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObj.ValidateData(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="fixMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObj.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportObj.ObjModes">
+            <summary>
+            Параметры экспорта объектов
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportObjList">
+            <summary>
+            Настройки выгрузки типов объектов
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObjList.GetItemByID(System.Int32,System.Boolean)">
+            <summary>
+            Поиск элемента по ид-ру
+            </summary>
+            <param name="typeId"></param>
+            <param name="checkParent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObjList.GetItemByGuid(System.Guid,System.Boolean)">
+            <summary>
+            Поиск элемента по Guid
+            </summary>
+            <param name="typeGuid"></param>
+            <param name="checkParent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObjList.GetItemByID(System.Int32)">
+            <summary>
+            Поиск элемента по ид-ру
+            </summary>
+            <param name="typeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportObjList.GetItemByGuid(System.Guid)">
+            <summary>
+            Поиск элемента по Guid
+            </summary>
+            <param name="typeGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportRel">
+            <summary>
+            Класс для хранения настроек типа связи
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportRel.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportRel.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="typeId"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportRel.#ctor(System.Int32,System.Guid,System.String)">
+            <summary>
+             Конструктор
+            </summary>
+            <param name="typeId"></param>
+            <param name="typeGuid"></param>
+            <param name="typeName"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportRel.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportRel.ValidateData(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="fixMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportRel.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportRelList">
+            <summary>
+            Класс для хранения настроек типов связей
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportScript">
+            <summary>
+            Класс для хранения скриптов экспорта объектов
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportScript.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportScript.#ctor(System.String,System.String)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="scriptName"></param>
+            <param name="scriptCode"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportScript.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportScript.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Intermech.Interfaces.XmlExchange.XmlExchangeExportScript.ScriptName" -->
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportScript.ScriptCode">
+            <summary>
+            Код сценария (скрипта)
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportScripts">
+            <summary>
+            Класс для хранения скриптов экспорта объектов
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportHelper">
+            <summary>
+            Класс - помощник для работы с настройками
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportHelper.SaveSettings(System.Int64,Intermech.Interfaces.IUserSession,Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings)">
+            <summary>
+            Сохранение данных в объект
+            </summary>
+            <param name="configObjId">Ид. версии объекта с настройками</param>
+            <param name="session"></param>
+            <param name="settings"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportHelper.LoadSettings(System.Int64,Intermech.Interfaces.IUserSession,Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings@)">
+            <summary>
+            Загрузка данных из объекта
+            </summary>
+            <param name="configObjId"></param>
+            <param name="session"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportHelper.SaveSettings(Intermech.Interfaces.IDBObject,Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings)">
+            <summary>
+            Сохранение данных в объект
+            </summary>
+            <param name="stream"></param>
+            <param name="settings"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportHelper.LoadSettings(Intermech.Interfaces.IDBObject,Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings@,System.Boolean)">
+            <summary>
+            Загрузка данных из объекта
+            </summary>
+            <param name="stream"></param>
+            <param name="validateAndFix">Проверка и корректировка настроек при необходимости</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportHelper.SaveSettings(System.IO.Stream,Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings)">
+            <summary>
+            Сохранение данных в поток
+            </summary>
+            <param name="stream"></param>
+            <param name="settings"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportHelper.LoadSettings(System.IO.Stream,Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings@)">
+            <summary>
+            Загрузка данных из потока
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportItem">
+            <summary>
+            Базовый класс для хранения настроек экспорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportItem.GetXmlTypeName">
+            <summary>
+            Получение наименование секции элемента в XML 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportItem.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportItem.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportItem.ValidateData(System.Boolean)">
+            <summary>
+            Анализ / корректировка данных настойки
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportItem.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportItem.Comments">
+            <summary>
+            Комментарий
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportItem.Enabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportList`1">
+            <summary>
+            Список базовых классов настроек
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportList`1.GetXmlTypeName">
+            <summary>
+            Получение наименование секции элемента в XML 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportList`1.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportList`1.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings">
+            <summary>
+            Настройки экспорта данных в XML
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.GetAttributable(Intermech.AttributableElements,System.Int32)">
+            <summary>
+            Получение настроек атрибутов для указанного типа
+            </summary>
+            <param name="itemKind"></param>
+            <param name="itemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.GetAttribute(Intermech.AttributableElements,System.Int32,System.Int32)">
+            <summary>
+            Получение ид. пользовательского идентификатора для атрибута объекта / связи
+            </summary>
+            <param name="itemKind"></param>
+            <param name="itemType"></param>
+            <param name="attrType"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.LogFileFormat">
+            <summary>
+             Формат имени файла для пакета (задачи)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.PacketFileFormat">
+            <summary>
+             Формат имени файла для пакета (задачи)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.PacketChunkSize">
+            <summary>
+             Размер пакета входных данных
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.PacketChunkDirFormat">
+            <summary>
+             Шаблон для формирования имени директории для "подзадачи"
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.MetaFileFormat">
+            <summary>
+            Формат имени файла для метаданных
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.ObjFileFormat">
+            <summary>
+            Формат имени файла для объектов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.RelFileFormat">
+            <summary>
+             Формат имени файла для связей
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.DataDirFormat">
+            <summary>
+             Формат папки для файлов с данными
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.DateTimeFormat">
+            <summary>
+            Формат выгрузки даты
+            </summary>
+            <remarks>Если значение не задано - выгружается в виде 2017-07-10T08:52:58.857</remarks>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.TimeZoneName">
+            <summary>
+            Наименование TimeZone для выгрузки данных с временем
+            </summary>
+            <remarks>Если значение не задано - выгружается в виде UTC+0</remarks>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.CompressMode">
+            <summary>
+            Режим архивации экспортируемых данных
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.TaskMode">
+            <summary>
+            Режим выгрузки данных в XML
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.ChecksumMode">
+            <summary>
+            Режим выгрузки контрольной суммы файлов в XML
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.ExtraDataMode">
+            <summary>
+            Режим выгрузки доп. данных 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.DefObjAttrMode">
+            <summary>
+            Режим выгрузки атрибутов объектов по умолчанию
+            </summary>
+            <remarks>Значение режима игнорируется, если установлен флаг XmlExportExtraDataMode.UserDataOnly</remarks>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.ObjVerRule">
+            <summary>
+            Гл. идентификатор правила подбора версий объектов при получении состава / применяемости.
+            Если параметр не задан - берутся тек. настройки пользователя в навигаторе.
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.AttrSettings">
+            <summary>
+            Параметры атрибутов
+            </summary>
+            <remarks>Данные о псевдонимах</remarks>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.ObjSettings">
+            <summary>
+            Настройки экспорта объектов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.RelSettings">
+            <summary>
+             Настройки экспорта связей
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.ApplSettings">
+            <summary>
+            Настройки экспорта применяемости объектов / разворота состава
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.ExportExtensions">
+            <summary>
+            Настройки расширений экспорта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.ExportScripts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.LoadData(System.Xml.XmlDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.ValidateData(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="fixMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportSettings.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem">
+            <summary>
+            Базовый класс для хранения "типизированных" настроек экспорта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="typeId">Ид. типа</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem.#ctor(System.Int32,System.Guid,System.String)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="typeId">Ид. типа</param>
+            <param name="typeGuid"></param>
+            <param name="typeName"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem.ID">
+            <summary>
+            Ид. текущего элемента
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem.TypeID">
+            <summary>
+            Ид. типа 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem.TypeGuid">
+            <summary>
+            Гл. ид. типа 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItem.TypeName">
+            <summary>
+            Наименование типа 
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItemList`1">
+            <summary>
+            Список базовых классов настроек
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItemList`1.GetItemByID(System.Int32)">
+            <summary>
+            Поиск элемента по ид-ру
+            </summary>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItemList`1.GetItemByGuid(System.Guid)">
+            <summary>
+            Поиск элемента по Guid
+            </summary>
+            <param name="typeGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItemList`1.GetUserIDByID(System.Int32)">
+            <summary>
+            Поиск элемента по ид-ру
+            </summary>
+            <param name="typeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportTypedItemList`1.GetItemTypeIDs">
+            <summary>
+            Получение списка ид. типов элементов
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem">
+            <summary>
+            Базовый класс для хранения настроек экспорта с поддержкой пользовательских типов
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem.#ctor(System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userId">Ид. пользовательского типа</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userId">Ид. пользовательского типа</param>
+            <param name="userName"></param>
+            <param name="userAlias"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem.LoadData(System.Xml.XmlNode)">
+            <summary>
+            Загрузка данных из XML
+            </summary>
+            <param name="xmlNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem.SaveData(System.Xml.XmlDocument)">
+            <summary>
+            Сохранение данных в XML
+            </summary>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem.UserID">
+            <summary>
+            Пользовательский идентификатор
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem.UserID2Int">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem.UserAlias">
+            <summary>
+            Пользовательский псевдоним / alias 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItem.UserName">
+            <summary>
+            Пользовательское наименование
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItemList`1">
+            <summary>
+            Список базовых классов настроек
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlExchangeExportUserItemList`1.GetItemByUserID(System.Int32)">
+            <summary>
+            Поиск элемента по локальному идентификатору
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlImportBase">
+            <summary>
+            Базовый класс
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportBase.Owner">
+            <summary>
+            Владелец объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportBase.Name">
+            <summary>
+            Название узла XML
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportBase.Value">
+            <summary>
+            Внутреннее значение XML
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportBase.attributes">
+            <summary>
+            Коллекция атрибутов и их значений
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.XmlExchange.XmlImportBase.Items">
+            <summary>
+            Список дочерних узлов   
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.#ctor">
+            <summary>
+            Базовый конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.#ctor(Intermech.Interfaces.XmlExchange.XmlImportBase)">
+            <summary>
+            Конструктор, позволяющий указать владельца
+            </summary>
+            <param name="owner">Объект-владелец</param>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlImportBase.Item(System.String)">
+            <summary>
+            Прочитать/установить значение свойства с указанным именем
+            </summary>
+            <param name="attrName">Имя атрибута</param>
+            <returns>Значение атрибута или null, если атрибут с таким именем не найден</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Add(Intermech.Interfaces.XmlExchange.XmlImportBase)">
+            <summary>
+            Добавить дочерний элемент
+            </summary>
+            <param name="item">Добавляемый элемент</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Remove(Intermech.Interfaces.XmlExchange.XmlImportBase)">
+            <summary>
+            Удалить элемент
+            </summary>
+            <param name="item">Удаляемый элемент</param>
+        </member>
+        <member name="P:Intermech.Interfaces.XmlExchange.XmlImportBase.Text">
+            <summary>
+            Строка для отображения на экране
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Clear">
+            <summary>
+            Очистить поля класса
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Assign(System.Object)">
+            <summary>
+            Заполнить поля класса информацией из указанного объекта-источника
+            </summary>
+            <param name="source">Объект-источник</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Clone">
+            <summary>
+            Создать точную копию экземпляра класса
+            </summary>
+            <returns>Точная копия экземпляра класса или null</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.GetAsString(System.String,System.String)">
+            <summary>
+            Получить строковое представление атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.SetAsString(System.String,System.String)">
+            <summary>
+            Установить значение атрибута как строку
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде строки</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.GetAsObject(System.String,System.Object)">
+            <summary>
+            Получить объектное представление атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.SetAsObject(System.String,System.Object)">
+            <summary>
+            Установить значение атрибута как объект
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде объекта</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.GetAsDateTime(System.String,System.DateTime)">
+            <summary>
+            Получить представление DateTime атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение DateTime атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.SetAsDateTime(System.String,System.DateTime)">
+            <summary>
+            Установить значение атрибута как DateTime
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде DateTime</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.GetAsInt32(System.String,System.Int32)">
+            <summary>
+            Получить представление Int32 атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Int32 атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.SetAsInt32(System.String,System.Int32)">
+            <summary>
+            Установить значение атрибута как Int32
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Int32</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.GetAsInt64(System.String,System.Int64)">
+            <summary>
+            Получить представление Int64 атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Int64 атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.SetAsInt64(System.String,System.Int64)">
+            <summary>
+            Установить значение атрибута как Int64
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Int64</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.GetAsDouble(System.String,System.Double)">
+            <summary>
+            Получить представление Double атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Double атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.SetAsDouble(System.String,System.Double)">
+            <summary>
+            Установить значение атрибута как Double
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Double</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.GetAsGuid(System.String,System.Guid)">
+            <summary>
+            Получить представление Guid атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Guid атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.SetAsGuid(System.String,System.Guid)">
+            <summary>
+            Установить значение атрибута как Guid
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Guid</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.GetAsBoolean(System.String,System.Boolean)">
+            <summary>
+            Получить представление Boolean атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Boolean атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.SetAsBoolean(System.String,System.Boolean)">
+            <summary>
+            Установить значение атрибута как Boolean
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Boolean</param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Load(System.Xml.Linq.XElement)">
+            <summary>
+            Загрузить содержимое объекта из узла XML
+            </summary>
+            <param name="node">Узел XML</param>
+            <returns>true - узел считал содержимое корректно</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Load(Intermech.Interfaces.IDBObject,System.Int32,Intermech.Interfaces.XmlExchange.ILogger)">
+            <summary>
+            Загрузить XML из заданного атрибута указанного объекта
+            </summary>
+            <param name="obj">Объект</param>
+            <param name="attrId">Идентификатор типа атрибута</param>
+            <param name="logger"></param>
+            <returns>Коллекция элементов XML</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Load(System.Xml.Linq.XDocument,System.Xml.Linq.XElement,System.String)">
+            <summary>
+            Загрузить список из узла указанного документа
+            </summary>
+            <param name="document">Документ</param>
+            <param name="node">Узел</param>
+            <param name="nodeName">Имя узла</param>
+            <returns>Список</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Find(System.String,System.String,System.String[])">
+            <summary>
+            Отыскать в коллекции дочерних элементов первый узел, содержащий указанное значение заданного атрибута.
+            Уровень вложенности определяется элементами в пути path. Например, в коллекции хранится иерархия
+            вида:
+             [Level0]
+              [Level1]
+               [Level2 idAttr="idValue1"]
+                [Level3/]
+               [/Level2] 
+               [Level2 idAttr="idValue2"]
+                [Level3/]
+               [/Level2]
+              [/Level1]
+              [Level1]
+               [Level2 idAttr="idValue3"]
+                [Level3/]
+               [/Level2]
+               [Level2 idAttr="idValue4"]
+                [Level3/]
+               [/Level2]
+              [/Level1]
+             [\Level0]
+             
+            Требуется отыскать узел [Level2], содержащий idAttr="idValue3".
+            В этом случае в path следует передать "Level0", "Level1", "Level2"
+            </summary>
+            <param name="idAttr">Имя идентификационного атрибута</param>
+            <param name="idValue">Значение, по которому осуществляется поиск</param>
+            <param name="path">Полный путь к искомым узлам</param>
+            <returns>Первый подходящий узел</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.FindItems(System.String,System.String,System.String[],System.Collections.Generic.IEqualityComparer{System.String})">
+            <summary>
+            Отыскать в коллекции дочерних элементов узлы, содержащие указанное значение заданного атрибута.
+            Уровень вложенности определяется элементами в пути path. Например, в коллекции хранится иерархия
+            вида:
+             [Level0]
+              [Level1]
+               [Level2 idAttr="idValue1"]
+                [Level3/]
+               [/Level2] 
+               [Level2 idAttr="idValue2"]
+                [Level3/]
+               [/Level2]
+              [/Level1]
+              [Level1]
+               [Level2 idAttr="idValue3"]
+                [Level3/]
+               [/Level2]
+               [Level2 idAttr="idValue4"]
+                [Level3/]
+               [/Level2]
+              [/Level1]
+             [\Level0]
+             
+            Требуется отыскать узел [Level2], содержащий idAttr="idValue3".
+            В этом случае в path следует передать "Level0", "Level1", "Level2"
+            </summary>
+            <param name="attributeId">Имя идентификационного атрибута</param>
+            <param name="attributeValue">Значение, по которому осуществляется поиск</param>
+            <param name="path">Полный путь к искомым узлам</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.FindAll(System.String,System.String,System.String[])">
+            <summary>
+            Отыскать в коллекции дочерних элементов узлы, содержащие указанное значение заданного атрибута.
+            Уровень вложенности определяется элементами в пути path. Например, в коллекции хранится иерархия
+            вида:
+             [Level0]
+              [Level1]
+               [Level2 idAttr="idValue1"]
+                [Level3/]
+               [/Level2] 
+               [Level2 idAttr="idValue2"]
+                [Level3/]
+               [/Level2]
+              [/Level1]
+              [Level1]
+               [Level2 idAttr="idValue3"]
+                [Level3/]
+               [/Level2]
+               [Level2 idAttr="idValue4"]
+                [Level3/]
+               [/Level2]
+              [/Level1]
+             [\Level0]
+             
+            Требуется отыскать узел [Level2], содержащий idAttr="idValue3".
+            В этом случае в path следует передать "Level0", "Level1", "Level2"
+            </summary>
+            <param name="idAttr">Имя идентификационного атрибута</param>
+            <param name="idValue">Значение, по которому осуществляется поиск</param>
+            <param name="path">Полный путь к искомым узлам</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlImportBase.Find(System.String[])">
+            <summary>
+            Отыскать в коллекции дочерних элементов первый узел с указанным уникальным именем
+            </summary>
+            <param name="path">Полный путь к искомым узлам</param>
+            <returns>Первый подходящий узел</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Intermech.Interfaces.XmlExchange.XmlImportBase.FindItems(System.String[],System.Collections.Generic.IEqualityComparer{System.String})" -->
+        <!-- Badly formed XML comment ignored for member "M:Intermech.Interfaces.XmlExchange.XmlImportBase.FindAll(System.String[])" -->
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlScripts.XmlExportScriptCommand">
+            <summary>
+            Класс - скрипт экспорта объектов в XML в фоновых задачах (маршрутизаторе, планировщике задач)
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlScripts.XmlExportScriptCommand.GetExportXmlConfigs(System.Int32,System.Boolean,Intermech.Interfaces.IUserSession)">
+            <summary>
+            Получение списка конфигураций экспорта/импорта XML для типа объекта
+            </summary>
+            <param name="objTypeId">Тип объекта (для экспорта)</param>
+            <param name="needCommonConfigs">Признак добавления "общих" конфигураций</param>
+            <param name="session">Пользовательская сессия</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlScripts.XmlExportScriptCommand.Execute(System.Collections.Generic.List{Intermech.Interfaces.Compositions.ObjInfoItem},System.Int64,System.String,Intermech.Interfaces.IUserSession)">
+            <summary>
+            Запуск задачи экспорта данных в XML
+            </summary>
+            <param name="obj2Export">Экспортируемые объекты</param>
+            <param name="xmlConfigId">Ид. конфигурации для экспорта объектов</param>
+            <param name="exportPath">Директория экспорта</param>
+            <param name="session"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlScripts.XmlExportScriptCommand.Execute(System.Collections.Generic.List{System.Int64},System.String,Intermech.Interfaces.IUserSession)">
+            <summary>
+             Запуск задачи экспорта данных в XML
+            </summary>
+            <param name="obj2Export">Экспортируемые объекты</param>
+            <param name="exportPath">Директория экспорта</param>
+            <param name="session"></param>
+        </member>
+        <member name="T:Intermech.Interfaces.XmlExchange.XmlScripts.XmlImportScriptCommand">
+            <summary>
+            Класс - скрипт импорт данных из XML в фоновых задачах (маршрутизаторе, планировщике задач)
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.XmlExchange.XmlScripts.XmlImportScriptCommand.Execute(System.String,System.Int64,Intermech.Interfaces.IUserSession,System.String@)">
+            <summary>
+            Импорт данных из XML 
+            </summary>
+            <param name="importData"></param>
+            <param name="xmlConfigId"></param>
+            <param name="session"></param>
+            <param name="importLog"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

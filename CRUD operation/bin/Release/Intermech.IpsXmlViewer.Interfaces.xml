@@ -1,0 +1,2393 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.IpsXmlViewer.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.Consts">
+            <summary>
+            Константы
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.UnknownIDx32">
+            <summary>
+            Неизвестный или несуществующий объект, связь, атрибут
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.UnknownIDx64">
+            <summary>
+            Неизвестный или несуществующий объект, связь, атрибут
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlATTRIBUTE">
+            <summary>
+            Информация об атрибуте - "ATTRIBUTE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlATTRIBUTE_TYPE">
+            <summary>
+            Информация о типе атрибута - "ATTRIBUTE_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlATTRIBUTE_TYPES">
+            <summary>
+            Информация о типах атрибутов - "ATTRIBUTE_TYPES"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlATTRIBUTES">
+            <summary>
+            Атрибуты объектов / связей - "ATTRIBUTES"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlMETADATABRIEF">
+            <summary>
+            Секция с информацией о метаданных - "METADATABRIEF"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlOBJECT">
+            <summary>
+            Информация об объекте - "OBJECT"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlOBJECT_TYPE">
+            <summary>
+            Информация о типе объекта - "OBJECT_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlOBJECT_TYPES">
+            <summary>
+            Информация о типах объектов - "OBJECT_TYPES"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlOBJECTSDATASET">
+            <summary>
+            Секция с информацией об объектах - "OBJECTSDATASET"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlRELATION">
+            <summary>
+            Информация о связи - "RELATION"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlRELATION_TYPE">
+            <summary>
+            Информация о типе связи - "RELATION_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlRELATION_TYPES">
+            <summary>
+            Информация о типах связей - "RELATION_TYPES"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.xmlRELATIONSDATASET">
+            <summary>
+            Секция с данными связей - "RELATIONSDATASET"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_CREATE_DATE">
+            <summary>
+            Дата создания (UTC) - "F_CREATE_DATE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_GUID">
+            <summary>
+            Глобальный идентификатор в системе IPS - "F_GUID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_NAME">
+            <summary>
+            Наименование - "F_NAME"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_ICON">
+            <summary>
+            Имя файла для иконки типа объекта - "F_ICON"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_ID">
+            <summary>
+            Локальный идентификатор объекта - "F_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_IDGUID">
+            <summary>
+            Глобальный уникальный идентификатор объекта в IPS - "F_IDGUID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_NEW_IDGUID">
+            <summary>
+            Глобальный уникальный идентификатор объекта в IPS - "F_IDGUID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_OBJ_TYPE_NAME">
+            <summary>
+            Наименование типа объекта - "F_OBJ_TYPE_NAME"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_OBJ_TYPE">
+            <summary>
+            Локальный уникальный идентификатор типа объекта в документе - "F_OBJ_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.IPS_F_OBJ_TYPE">
+            <summary>
+            Локальный уникальный идентификатор типа объекта в документе в базе-приёмнике IPS - "IPS_F_OBJ_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_TYPE_NAME">
+            <summary>
+            Наименование типа объекта - "F_TYPE_NAME"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_ALIAS">
+            <summary>
+            Псевдоним атрибута - "F_ALIAS"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_ARC_METHOD">
+            <summary>
+            Метод упаковки файла (целочисленное значение: 0 – не упакован, 1 – zip) - "F_ARC_METHOD"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_ATTRIBUTE_ID">
+            <summary>
+            Локальный уникальный идентификатор атрибута в документе - "F_ATTRIBUTE_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.IPS_F_ATTRIBUTE_ID">
+            <summary>
+            Локальный уникальный идентификатор атрибута в документе в базе-приёмнике IPS - "IPS_F_ATTRIBUTE_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_ATTRIBUTE_TYPE">
+            <summary>
+            Тип данных атрибута (строковое, целочисленное, файл, ccылка на объект) - "F_ATTRIBUTE_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_DATE_VALUE">
+            <summary>
+            Дата/время (UTC) в формате нейтральной языковой культуры (Invariant Cultute) - "F_DATE_VALUE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_DOUBLE_VALUE">
+            <summary>
+            Вещественная составляющая значения атрибута в формате нейтральной языковой культуры - "F_DOUBLE_VALUE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_FILE">
+            <summary>
+            Относительный путь к файлу - "F_FILE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_FILESIZE">
+            <summary>
+            Реальный размер файла (распакованного) - "F_FILESIZE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_INLIST_ID">
+            <summary>
+            Порядковый номер значения атрибута (начинается с 0) - "F_INLIST_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_INTEGER_VALUE">
+            <summary>
+            Целочисленная составляющая значения атрибута - "F_INTEGER_VALUE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_STRING_VALUE">
+            <summary>
+            Строковая составляющая значения атрибута - "F_STRING_VALUE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_VALUE">
+            <summary>
+            Значение атрибута. Формируется в зависимости от типа атрибута - "F_VALUE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.CAPTION">
+            <summary>
+            Заголовок объекта - "CAPTION"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_CHKOUT_BY">
+            <summary>
+            Локальный идентификатор пользователя, взявшего версию объекта на редактирование 
+            (может не указываться, если не взят на изменение) - "F_CHKOUT_BY"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_CHKOUTGUID">
+            <summary>
+            Глобальный идентификатор пользователя в IPS, взявшего версию объекта на редактирование 
+            (может не указываться, если не взят на изменение) - "F_CHKOUTGUID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_LC_STEP">
+            <summary>
+            Локальный идентификатор этапа жизненного цикла - "F_LC_STEP"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_LEVEL_ID">
+            <summary>
+            Локальный идентификатор уровня продвижения - "F_LEVEL_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_MODIFY_DATE">
+            <summary>
+            Дата последней модификации объекта (UTC) - "F_MODIFY_DATE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_OBJ_CREATE">
+            <summary>
+            Дата создания версии объекта (UTC) - "F_OBJ_CREATE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_OBJECT_ID">
+            <summary>
+            Локальный идентификатор версии объекта - "F_OBJECT_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.IPS_F_OBJECT_ID">
+            <summary>
+            Локальный идентификатор версии объекта в базе-приёмнике IPS - "IPS_F_OBJECT_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_OBJECT_VER_TYPE">
+            <summary>
+            Признак версии/экземпляра/актуальной версии - "F_OBJECT_VER_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_OBJECTGUID">
+            <summary>
+            Глобальный идентификатор версии объекта в IPS - "F_OBJECTGUID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_NEW_OBJECTGUID">
+            <summary>
+            Глобальный идентификатор версии объекта в IPS - "F_OBJECTGUID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_OWNER_ID">
+            <summary>
+            Локальный идентификатор объекта-владельца - "F_OWNER_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_OWNERGUID">
+            <summary>
+            Глобальный уникальный идентификатор объекта-владельца в IPS - "F_OWNERGUID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_VERSION_ID">
+            <summary>
+            Порядковый номер версии объекта - "F_VERSION_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_OBJECT_TYPE">
+            <summary>
+            Локальный уникальный идентификатор типа объекта в документе - "F_OBJECT_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_CREATOR_ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_REL_CREATOR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_DELETE_DATE">
+            <summary>
+            Дата удаления связи - "F_DELETE_DATE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_PART_ID">
+            <summary>
+            Глобальный идентификатор дочернего объекта (не версии) в IPS - "F_PART_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_PART_OBJ">
+            <summary>
+            Локальный идентификатор версии дочернего объекта - "F_PART_OBJ"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_PRJ_GUID">
+            <summary>
+            Глобальный идентификатор связи в IPS - "F_PRJ_GUID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_PRJLINK_ID">
+            <summary>
+            Локальный уникальный идентификатор связи в документе - "F_PRJLINK_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.IPS_F_PRJLINK_ID">
+            <summary>
+            Локальный уникальный идентификатор связи в документе в базе-приёмнике IPS - "IPS_F_PRJLINK_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.IPS_F_PROJ_OBJ">
+            <summary>
+            Локальный уникальный идентификатор родительского объекта связи в документе в базе-приёмнике IPS - "IPS_F_PROJ_OBJ"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.IPS_F_PART_OBJ">
+            <summary>
+            Локальный уникальный идентификатор дочернего объекта связи в документе в базе-приёмнике IPS - "IPS_F_PART_OBJ"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_PROJ_ID">
+            <summary>
+            Глобальный идентификатор версии родительского объекта в IPS - "F_PROJ_ID"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_PROJ_OBJ">
+            <summary>
+            Локальный идентификатор версии родительского объекта - "F_PROJ_OBJ"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.F_RELATION_TYPE">
+            <summary>
+            Локальный уникальный идентификатор типа связи в документе - "F_RELATION_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.IPS_F_RELATION_TYPE">
+            <summary>
+            Локальный уникальный идентификатор типа связи в документе в базе-приёмнике IPS - "IPS_F_RELATION_TYPE"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.sqlIMS_OBJECTS">
+            <summary>
+            Имя таблицы со списком объектов - "IMS_OBJECTS"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.sqlIMS_RELATIONS">
+            <summary>
+            Имя таблицы со списком связей - "IMS_RELATIONS"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.sqlIMS_ATTRIBUTES">
+            <summary>
+            Имя таблицы со списком атрибутов - "IMS_ATTRIBUTES"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.sqlIMS_OBJECT_TYPES">
+            <summary>
+            Имя таблицы со списком типов объектов - "IMS_OBJECT_TYPES"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.sqlIMS_RELATION_TYPES">
+            <summary>
+            Имя таблицы со списком типов связей - "IMS_RELATION_TYPES"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.sqlIMS_ATTRIBUTE_TYPES">
+            <summary>
+            Имя таблицы со списком типов атрибутов - "IMS_ATTRIBUTE_TYPES"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.sqlIS_OBJECT">
+            <summary>
+            Объект - "IS_OBJECT"
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.Consts.sqlOWNER_ID">
+            <summary>
+            Владелец - "OWNER_ID"
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IndexerState">
+            <summary>
+            Текущее состояние индексатора
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.IndexerState.Idle">
+            <summary>
+            Индексатор простаивает
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.IndexerState.Objects">
+            <summary>
+            Обрабатывает объекты
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.IndexerState.Relations">
+            <summary>
+            Обрабатывает связи
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.IndexerState.Attributes">
+            <summary>
+            Обрабатывает атрибуты
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.IndexerState.Cancelled">
+            <summary>
+            Работа индексатора прервана
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.IndexerState.Completed">
+            <summary>
+            Работа индексатора завершена
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IndexerEventArgs">
+            <summary>
+            Аргументы события от индексатора
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.IndexerEventArgs.IndexerState">
+            <summary>
+            Состояние индексатора
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.IndexerEventArgs.Cancelled">
+            <summary>
+            Флаг можно установить в true, чтобы прервать процесс работы индексатора
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IndexerEventArgs.#ctor(Intermech.IpsXmlViewer.Interfaces.IndexerState)">
+            <summary>
+            Создать аргументы события от индексатора
+            </summary>
+            <param name="indexerState">Состояние индексатора</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IndexProgressEventHandler">
+            <summary>
+            Делегат, вызываемый индексатором, чтобы вызывающая сторона могла уточнить состояние
+            процесса индексирования
+            </summary>
+            <param name="sender">Отправитель (индексатор)</param>
+            <param name="e">Аргументы события</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.ExceptionEventArgs">
+            <summary>
+            Класс для передачи информации о исключительной ситуации и о том, 
+            обработано ли это исключение подписчиком
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.ExceptionEventArgs.Exception">
+            <summary>
+            Исключение
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.ExceptionEventArgs.Handled">
+            <summary>
+            Исключение обработано подписчиком или нет.
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.ExceptionEventArgs.#ctor(System.Exception)">
+            <summary>
+            Создать аргументы
+            </summary>
+            <param name="e">Исключение</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.ExceptionHandler">
+             <summary>
+             Представляет метод, который вызывается для обработки исключительной ситуации
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IExceptionHandlerService">
+            <summary>
+            Служба для обработки исключительных стиуаций с возможностью 
+            подключения пользовательских обработчиков.
+            </summary>
+        </member>
+        <member name="E:Intermech.IpsXmlViewer.Interfaces.IExceptionHandlerService.HandleException">
+            <summary>
+            Вызывается при возникновении в системе необработанного исключения.
+            Обработчики вызываются в порядке очереди до тех пор, пока кто то не установит 
+            флаг ExceptionEventArgs.Handled в true
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IExceptionHandlerService.ShowException(System.Exception)">
+            <summary>
+            Отобразить информацию об исключении
+            </summary>
+            <param name="e">Исключение</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IAdvancedServiceContainer">
+            <summary>
+            Контейнер сервисов, позволяющий получать отсутствующие в своём составе сервисы у дополнительного контейнера сервисов
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IAdvancedServiceContainer.AdvancedProvider">
+            <summary>
+            Дополнительный контейнер сервисов
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.AdvancedServiceContainer">
+            <summary>
+            Контейнер сервисов, позволяющий получать отсутствующие в своём составе сервисы у родительского контейнера сервисов
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.AdvancedServiceContainer._advancedProvider">
+            <summary>
+            Дополнительный контейнер сервисов
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.AdvancedServiceContainer.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.AdvancedServiceContainer.#ctor(System.IServiceProvider)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="parentProvider">Родительский контейнер сервисов</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.AdvancedServiceContainer.#ctor(System.IServiceProvider,System.IServiceProvider)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="parentProvider">Родительский контейнер сервисов</param>
+            <param name="advancedContainer">Дополнительный контейнер сервисов</param>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.AdvancedServiceContainer.AdvancedProvider">
+            <summary>
+            Дополнительный контейнер сервисов
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.AdvancedServiceContainer.GetService(System.Type)">
+            <summary>
+            Получить ссылку на сервис указанного типа
+            </summary>
+            <param name="serviceType">Тип запрашиваемого сервиса</param>
+            <returns>Сервис запрошенного типа или null, если сервис не найден</returns>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.FieldTypes">
+            <summary>
+            Типы атрибутов:
+            1 - строковый, 2 - целочисленный, 3 - вещественный, 4 - дата+время,
+            5 - короткий блоб,
+            6 - файл, 7 - ссылка на запись таблицы внешней БД,
+            8 - ссылка на объект, 9 - пароль, 10 - текст (мемо), 11 - двоичные данные,
+            12 - логический тип, 13 - вещественный с единицей измерения,
+            14 - автоинкрементный тип, 15 - системный, 16 - глобальный идентификатор
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftUnknown">
+            <summary>
+            Неизвестный тип
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftString">
+            <summary>
+            Строка.
+            Смысл полей IMS_OBJECT_ATTRS и IMS_OBJECT_ATTRS для соотв. типов атрибутов: 
+            F_STRING_VALUE - строка 
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftInteger">
+            <summary>
+            Целое число.
+            F_INTEGER_VALUE - число
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftDouble">
+            <summary>
+            Вещественное число.
+            F_DOUBLE_VALUE - число
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftDateTime">
+            <summary>
+            Дата.
+            F_DATE_VALUE - дата и время по Гринвичу
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftShortBlob">
+            <summary>
+            Короткие двоичные данные.
+            F_INTEGER_VALUE - ид. блоба в таблице IMS_BLOBS
+            F_STRING_VALUE - комментарии к блобу
+            F_DATE_VALUE - дата последней модификации блоба
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftFile">
+            <summary>
+            Файл.
+            F_INTEGER_VALUE - ид. файла в таблице файлового шкафа
+            F_STRING_VALUE - имя файла
+            F_DATE_VALUE - дата последней модификации файла
+            F_DOUBLE_VALUE - ObjectID файлового шкафа
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftExternalLink">
+            <summary>
+            Внешняя ссылка.
+            F_INTEGER_VALUE - ид. первичного ключа в этой таблице (или хэш ключа)
+            F_STRING_VALUE - значение атрибута 
+            F_DOUBLE_VALUE - ObjectID объекта, описывающего внешнюю таблицу БД
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftObjectLink">
+            <summary>
+            Ссылка на объект.
+            F_INTEGER_VALUE - ObjectID объекта, на который ссылается атрибут
+            F_STRING_VALUE - заголовок объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftPassword">
+            <summary>
+            Пароль.
+            F_STRING_VALUE - хэш пароля
+            F_DATE_VALUE - дата назначения пароля
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftMemo">
+            <summary>
+            Текст.
+            F_INTEGER_VALUE - ид. блоба в таблице IMS_MEMOS
+            F_STRING_VALUE - первые 450 символов текста
+            F_DATE_VALUE - дата последней модификации текста
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftBlob">
+            <summary>
+            Двоичные данные.
+            F_INTEGER_VALUE - ид. блоба в таблице файлового шкафа
+            F_STRING_VALUE - комментарии к блобу
+            F_DATE_VALUE - дата последней модификации блоба
+            F_DOUBLE_VALUE - ObjectID файлового шкафа
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftBoolean">
+            <summary>
+            Логический
+            F_INTEGER_VALUE - 0 - false, 1 - true
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftMeasured">
+            <summary>
+            Вещественное число, выраженное в единицах измерения.
+            F_INTEGER_VALUE - ид. базовой единицы измерения
+            F_STRING_VALUE - строковое представление значения, введенное в единицах измерения, выбранных пользователем
+            F_DOUBLE_VALUE - значение в базовой единице измерения
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftAutoInc">
+            <summary>
+            Автоинкрементное целое число.
+            F_INTEGER_VALUE - число
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftSystem">
+            <summary>
+            Системный атрибут.
+            значения хранятся в системных таблицах в собственных полях
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftGuid">
+            <summary>
+            Глобальный идентификатор.
+            F_STRING_VALUE - строковое представление Guid
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.FieldTypes.ftObjectLinkByID">
+            <summary>
+            Ссылка на объект без конкретизации версии
+            F_INTEGER_VALUE - ID объекта, на который ссылается атрибут
+            F_STRING_VALUE - заголовок объекта
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IAssignable">
+            <summary>
+            Интерфейс позволяет копировать в поля объекта содержимое полей другого объекта
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IAssignable.Clear">
+            <summary>
+            Очистить поля класса
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IAssignable.Assign(System.Object)">
+            <summary>
+            Скопировать в текущий объект поля из другого объекта.
+            </summary>
+            <param name="source">Объект-источник</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IDisplayable">
+            <summary>
+            Интерфейс, реализуемый элементами, способными вернуть строку для отображения на экране
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IDisplayable.Text">
+            <summary>
+            Строка для отображения на экране
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.RegexHelper">
+            <summary>
+            Содержит методы по созданию наиболее распространенных regex'ов.
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.RegexHelper.filemaskEscapeFrom">
+            <summary>
+            Список символов в файловой маске, которые должны употребляться со слэшем
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.RegexHelper.filemaskEscapeTo">
+            <summary>
+            Список символов со слэшем
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.RegexHelper.ToRegex(System.String,System.Boolean)">
+            <summary>
+            Создает regex из файловой маски, содержащей символы подстановки * и ?.
+            </summary>
+            <param name="fileMask">Файловая маска</param>
+            <param name="ignoreCase">Нужно ли игнорировать регистр символов</param>
+            <returns>Созданные regex</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.RegexHelper.ToRegexString(System.String)">
+            <summary>
+            Переводит текст файловой маски в текст regex.
+            </summary>
+            <param name="fileMask">Текст файловой маски</param>
+            <returns>Текст regex</returns>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.Interfaces.IDataValidator">
+            <summary>
+            Интерфейс для валидации структуры / данных перед импортом
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.Interfaces.IDataValidator.ValidateMetaData(System.Boolean)">
+            <summary>
+            Валидация метаданых перед импортом
+            </summary>
+            <param name="throwIfError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.Interfaces.IDataValidator.ValidateData(System.Boolean)">
+            <summary>
+            Валидация данных перед импортом
+            </summary>
+            <param name="throwIfError"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.Interfaces.IImParam.Id">
+            <summary>
+            Уникальный идентификатор параметра.
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.Interfaces.IImParam.Name">
+            <summary>
+            Наименование параметра.
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.Interfaces.IImParam.Value">
+            <summary>
+            Значение параметра.
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImAttribute">
+            <summary>
+            Атрибут объекта/связи
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttribute.IsObjectAttribute">
+            <summary>
+            Атрибут принадлежит объекту
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttribute.OwnerID">
+            <summary>
+            Идентификатор версии объекта/связи - владельца атрибута
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttribute.SQLTableName">
+            <summary>
+            Имя таблицы SQL, в которой хранится содержимое элемента
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttribute.MultiValuesCount">
+            <summary>
+            В свойстве хранится количество элементов, если атрибут является многозначным
+            (значение меньше 2 - однозначный атрибут)
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttribute.F_INLIST_ID">
+            <summary>
+            Возвращается минимальное значение F_INLIST_ID*
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttribute.F_ATTRIBUTE_ID">
+            <summary>
+            Возвращается значение F_ATTRIBUTE_ID
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttribute.DictAttrKey">
+            <summary>
+            Возвращается имя атрибута для хранения в словарике у объекта/связи
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImAttribute.DeNormalize">
+            <summary>
+            Извлечь из словарика атрибутов все значения (многозначные, однозначные) и
+            сформировать словарик, ключом которого являются значения F_INLIST_ID,
+            а значениями - значения атрибута
+            </summary>
+            <returns>Словарик, ключом которого являются значения F_INLIST_ID,
+            а значениями - значения атрибута</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImAttribute.Normalize">
+            <summary>
+            Метод осуществляет переименование имён значений атрибута
+            в соответствии со значением F_INLIST_ID
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImAttribute.GetInListIDs">
+            <summary>
+            Метод изучает значения атрибутов и возвращает список всех F_INLIST_ID.*
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImAttribute.CanMergeWith(Intermech.IpsXmlViewer.Interfaces.IImAttribute)">
+            <summary>
+            Проверить, можно ли объединиться с указанным атрибутом 
+            (касается многозначных атрибутов)
+            </summary>
+            <param name="attribute">Проверяемый атрибут</param>
+            <returns>true - объединение возможно</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImAttribute.MergeWith(Intermech.IpsXmlViewer.Interfaces.IImAttribute)">
+            <summary>
+            Выполнить объединение значений с указанным атрибутом.
+            ВНИМАНИЕ!!! АТРИБУТЫ ДОЛЖНЫ БЫТЬ НОРМАЛИЗОВАНЫ!!!
+            </summary>
+            <param name="attribute">Атрибут, со значениями которого требуется выполнить объединение</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImAttributeType">
+            <summary>
+            Описание типа атрибута
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttributeType.F_ATTRIBUTE_ID">
+            <summary>
+            Локальный уникальный идентификатор атрибута в документе - "F_ATTRIBUTE_ID"
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttributeType.F_NAME">
+            <summary>
+            Наименование типа атрибута - "F_NAME"
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttributeType.F_ALIAS">
+            <summary>
+            Псевдоним атрибута - "F_ALIAS"
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttributeType.F_ATTRIBUTE_TYPE">
+            <summary>
+            Тип данных атрибута (строковое, целочисленное, файл, ccылка на объект) - "F_ATTRIBUTE_TYPE"
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImAttributeType.DictAttrKey">
+            <summary>
+            Возвращается имя атрибута для хранения в словарике у объекта/связи
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImBaseElement">
+            <summary>
+            Базовый абстрактный интерфейс
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImBaseElement.MainAttrName">
+            <summary>
+            Имя атрибута, в котором хранится содержимое элемента
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImCompositeAttrElement">
+            <summary>
+            Абстрактный интерфейс, содержащий список ключей и значения (используется для атрибутов)
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImCompositeAttrElement.Item(System.String,Intermech.IpsXmlViewer.Interfaces.IKernel)">
+            <summary>
+            Прочитать/установить значение свойства с указанным Guid
+            </summary>
+            <param name="attrGuid">Guid атрибута</param>
+            <param name="kernel">Микроядро</param>
+            <returns>Значение атрибута или null, если атрибут с таким именем не найден</returns>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImCompositeAttrElement.Item(System.Guid,Intermech.IpsXmlViewer.Interfaces.IKernel)">
+            <summary>
+            Прочитать/установить значение свойства с указанным Guid
+            </summary>
+            <param name="attrGuid">Guid атрибута</param>
+            <param name="kernel">Микроядро</param>
+            <returns>Значение атрибута или null, если атрибут с таким именем не найден</returns>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement">
+            <summary>
+            Абстрактный интерфейс, содержащий список ключей и значения 
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.Attributes">
+            <summary>
+            Коллекция атрибутов и их значений
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.Item(System.String)">
+            <summary>
+            Прочитать/установить значение свойства с указанным именем
+            </summary>
+            <param name="attrName">Имя атрибута</param>
+            <returns>Значение атрибута или null, если атрибут с таким именем не найден</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.GetAsString(System.String,System.String)">
+            <summary>
+            Получить строковое представление атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.SetAsString(System.String,System.String)">
+            <summary>
+            Установить значение атрибута как строку
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде строки</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.GetAsObject(System.String,System.Object)">
+            <summary>
+            Получить объектное представление атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.SetAsObject(System.String,System.Object)">
+            <summary>
+            Установить значение атрибута как объект
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде объекта</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.GetAsDateTime(System.String,System.DateTime)">
+            <summary>
+            Получить представление DateTime атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение DateTime атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.SetAsDateTime(System.String,System.DateTime)">
+            <summary>
+            Установить значение атрибута как DateTime
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде DateTime</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.GetAsInt32(System.String,System.Int32)">
+            <summary>
+            Получить представление Int32 атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Int32 атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.SetAsInt32(System.String,System.Int32)">
+            <summary>
+            Установить значение атрибута как Int32
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Int32</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.GetAsInt64(System.String,System.Int64)">
+            <summary>
+            Получить представление Int64 атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Int64 атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.SetAsInt64(System.String,System.Int64)">
+            <summary>
+            Установить значение атрибута как Int64
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Int64</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.GetAsDouble(System.String,System.Double)">
+            <summary>
+            Получить представление Double атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Double атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.SetAsDouble(System.String,System.Double)">
+            <summary>
+            Установить значение атрибута как Double
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Double</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.GetAsGuid(System.String,System.Guid)">
+            <summary>
+            Получить представление Guid атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Guid атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.SetAsGuid(System.String,System.Guid)">
+            <summary>
+            Установить значение атрибута как Guid
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Guid</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.GetAsBoolean(System.String,System.Boolean)">
+            <summary>
+            Получить представление Boolean атрибута с указанным именем
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="defValue">Значение по умолчанию, возвращается, если атрибута нет</param>
+            <returns>Значение Boolean атрибута или значение по умолчанию</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImCompositeElement.SetAsBoolean(System.String,System.Boolean)">
+            <summary>
+            Установить значение атрибута как Boolean
+            </summary>
+            <param name="attr">Имя атрибута</param>
+            <param name="value">Значение атрибута в виде Boolean</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImDataElement">
+            <summary>
+            Абстрактный интерфейс, содержащий список ключей и значения, а также Guid (используется для объектов и связей)
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImDataElement.IsObject">
+            <summary>
+            Является ли элемент объектом или связью
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImDataElement.LoadAttributes(Intermech.IpsXmlViewer.Interfaces.IKernel)">
+            <summary>
+            Загрузить необязательные атрибуты из базы данных
+            </summary>
+            <param name="kernel">Микроядро</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImGuidElement">
+            <summary>
+            Абстрактный интерфейс, содержащий список ключей и значения, а также Guid (используется для объектов и связей)
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImGuidElement.GuidAttrName">
+            <summary>
+            Имя атрибута, который содержит Guid
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImGuidElement.F_GUID">
+            <summary>
+            Глобальный идентификатор типа элемента в системе IPS - "F_GUID"
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImMetaData">
+            <summary>
+            Метаданные из файла "Портфеля IPS"
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.Services">
+            <summary>
+            Контейнер сервисов
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.SyncRoot">
+            <summary>
+            Объект для потокобезопасного доступа к содержимому класса
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GlobalsGuid">
+            <summary>
+            В данном словарике хранятся соответствия [Guid чего-то] => [ImGlobals - информация о типе метаданных]
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.ObjectTypes">
+            <summary>
+            В данном словарике хранятся краткие описания типов объектов 
+            [ID типа объекта] => [ImObjectType - описание типа объекта]
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.ObjectsGuid2ID">
+            <summary>
+            В данном словарике хранятся соответствия [Guid типа объекта] => [ID типа объекта]
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.RelationTypes">
+            <summary>
+            В данном словарике хранятся краткие описания типов связей 
+            [ID типа связи] => [ImRelationType - краткое описание типа связи]
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.RelationsGuid2ID">
+            <summary>
+            В данном словарике хранятся соответствия [Guid типа связи] => [ID типа связи]
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.AttrTypes">
+            <summary>
+            В данном словарике хранятся краткие описания типов атрибутов 
+            [ID типа атрибута] => [ImAttributeType - описание типа атрибута]
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.AttrsGuid2ID">
+            <summary>
+            В данном словарике хранятся соответствия [Guid типа атрибута] => [ID типа атрибута]
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaData.AttrNameTypes">
+            <summary>
+            В данном словарике хранятся соответствия имён атрибутов их идентификаторам
+            [Имя типа атрибута] => [Int32 идентификатор типа атрибута]
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetObjectTypeID(System.String)">
+            <summary>
+            Возвращает идентификатор типа объектов по строковому представлению его глобального идентификатора
+            </summary>
+            <param name="Guid">Guid типа объекта в виде строки</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetObjectTypeID(System.Guid)">
+            <summary>
+            Получить по Guid типа объекта его Int32-идентификатор
+            </summary>
+            <param name="objTypeGuid">Guid типа объекта</param>
+            <returns>Идентификатор типа объекта. -1 - тип объекта не найден</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetObjectTypeGuid(System.Int32)">
+            <summary>
+            Получить по Int32-идентификатору типа объекта его Guid-идентификатор
+            </summary>
+            <param name="objTypeID">Идентификатор типа объекта</param>
+            <returns>Идентификатор типа объекта. Guid.Empty - тип объекта не найден</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.ExistsObjectType(System.Int32)">
+            <summary>
+            Проверить, существует ли в кэше информация об указанном типе объекта
+            </summary>
+            <param name="objTypeID">Идентификатор типа объекта</param>
+            <returns>true, если тип объекта существует</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.ExistsObjectType(System.Guid)">
+            <summary>
+            Проверить, существует ли в кэше информация об указанном типе объекта
+            </summary>
+            <param name="objTypeGuid">Guid типа объекта</param>
+            <returns>true, если тип объекта существует</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetObjectType(System.Int32)">
+            <summary>
+            Получить краткую информацию о типе объекта
+            </summary>
+            <param name="objTypeID">Идентификатор типа объекта</param>
+            <returns>Краткая информация о типе объекта или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetObjectType(System.Guid)">
+            <summary>
+            Получить краткую информацию о типе объекта
+            </summary>
+            <param name="objTypeGuid">Идентификатор типа объекта</param>
+            <returns>Краткая информация о типе объекта или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetObjectTypeName(System.Int32)">
+            <summary>
+            Получить название типа объектов (например, "Детали")
+            </summary>
+            <param name="objTypeID">Идентификатор типа объекта</param>
+            <returns>Название типа объектов (например, "Детали")</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetObjectTypeName(System.Guid)">
+            <summary>
+            Получить название типа объектов (например, "Детали")
+            </summary>
+            <param name="objTypeGuid">Идентификатор типа объекта</param>
+            <returns>Название типа объектов (например, "Детали")</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetObjectTypesList">
+            <summary>
+            Получить список описаний всех типов объектов
+            </summary>
+            <returns>Список описаний всех типов объектов</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetRelationTypeID(System.Guid)">
+            <summary>
+            Получить по Guid типа связи его Int32-идентификатор
+            </summary>
+            <param name="relTypeGuid">Guid типа связи</param>
+            <returns>Идентификатор типа связи. -1 - тип связи не найден</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetRelationTypeGuid(System.Int32)">
+            <summary>
+            Получить по Int32-идентификатору типа связи её Guid-идентификатор
+            </summary>
+            <param name="relTypeID">Идентификатор типа связи</param>
+            <returns>Идентификатор типа связи. Guid.Empty - тип связи не найден</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetRelationTypeID(System.String)">
+            <summary>
+            Возвращает идентификатор типа связи по строковому представлению её глобального идентификатора
+            </summary>
+            <param name="Guid">Guid типа связи в виде строки</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.ExistsRelationType(System.Int32)">
+            <summary>
+            Проверить, существует ли в кэше информация об указанном типе связи
+            </summary>
+            <param name="relTypeID">Идентификатор типа связи</param>
+            <returns>true, если тип связи существует</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.ExistsRelationType(System.Guid)">
+            <summary>
+            Проверить, существует ли в кэше информация об указанном типе связи
+            </summary>
+            <param name="relTypeGuid">Guid типа связи</param>
+            <returns>true, если тип связи существует</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetRelationType(System.Int32)">
+            <summary>
+            Получить краткую информацию о типе связи
+            </summary>
+            <param name="relTypeID">Идентификатор типа связи</param>
+            <returns>Краткая информация о типе связи или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetRelationType(System.Guid)">
+            <summary>
+            Получить краткую информацию о типе связи
+            </summary>
+            <param name="relTypeGuid">Идентификатор типа связи</param>
+            <returns>Краткая информация о типе связи или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetRelationTypeName(System.Int32)">
+            <summary>
+            Получить название типа связи (например, "Проектная связь")
+            </summary>
+            <param name="relTypeID">Идентификатор типа связи</param>
+            <returns>Название типа связи (например, "")</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetRelationTypeName(System.Guid)">
+            <summary>
+            Получить название типа связи (например, "Проектная связь")
+            </summary>
+            <param name="relTypeGuid">Идентификатор типа связи</param>
+            <returns>Название типа связи (например, "Проектная связь")</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetRelationTypesList">
+            <summary>
+            Получить список описаний всех типов связей
+            </summary>
+            <returns>Список описаний всех типов связей</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeTypeID(System.Guid)">
+            <summary>
+            Получить по Guid типа атрибута его Int32-идентификатор
+            </summary>
+            <param name="attrTypeGuid">Guid типа атрибута</param>
+            <returns>Идентификатор типа атрибута. -1 - тип атрибута не найден</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeTypeGuid(System.Int32)">
+            <summary>
+            Получить по Int32-идентификатору типа атрибута его Guid-идентификатор
+            </summary>
+            <param name="attrTypeID">Идентификатор типа атрибута</param>
+            <returns>Идентификатор типа атрибута. Guid.Empty - тип атрибута не найден</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeTypeID(System.String)">
+            <summary>
+            Возвращает идентификатор типа атрибута по строковому представлению его глобального идентификатора
+            </summary>
+            <param name="Guid">Guid типа атрибута в виде строки</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeByTypeNameID(System.String)">
+            <summary>
+            Возвращает идентификатор типа атрибута по его названию
+            </summary>
+            <param name="attrName">Название типа атрибута</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeByTypeNameGuid(System.String)">
+            <summary>
+            Возвращает Guid типа атрибута по его названию
+            </summary>
+            <param name="attrName">Название типа атрибута</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeTypesIDList">
+            <summary>
+            Получить список всех типов атрибутов
+            </summary>
+            <returns>Список всех типов атрибутов</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeTypesGuidList">
+            <summary>
+            Получить список Guid всех типов атрибутов
+            </summary>
+            <returns>Список Guid всех типов атрибутов</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeTypesList">
+            <summary>
+            Получить список описаний всех типов атрибутов
+            </summary>
+            <returns>Список описаний всех типов атрибутов</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeID(System.Object)">
+            <summary>
+            Получить Int32-идентификатор типа атрибута по его имени, Guid или числовому идентификатору.
+            Генерирует исключение, если в метод засунуть объект некорректного типа
+            </summary>
+            <param name="attributeID">Имя атрибута, Guid или числовой идентификатор</param>
+            <returns>Int32-идентификатор или Consts.UnknownIDx32, если тип атрибута не найден</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.ExistsAttributeType(System.Int32)">
+            <summary>
+            Проверить, существует ли в кэше информация об указанном типе атрибута
+            </summary>
+            <param name="attrTypeID">Идентификатор типа атрибута</param>
+            <returns>true, если тип атрибута существует</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.ExistsAttributeType(System.Guid)">
+            <summary>
+            Проверить, существует ли в кэше информация об указанном типе атрибута
+            </summary>
+            <param name="attrTypeGuid">Guid типа атрибута</param>
+            <returns>true, если тип атрибута существует</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeType(System.Int32)">
+            <summary>
+            Получить краткую информацию о типе атрибута
+            </summary>
+            <param name="attrTypeID">Идентификатор типа атрибута</param>
+            <returns>Краткая информация о типе атрибута или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.HasAttributeSystemData(System.Int32)">
+            <summary>
+            Хранятся ли в атрибуте системные данные
+            </summary>
+            <param name="attrTypeID">Идентификатор типа атрибута</param>
+            <returns>true, если в атрибуте хранятся системные данные</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.HasAttributeSystemData(System.Guid)">
+            <summary>
+            Хранятся ли в атрибуте системные данные
+            </summary>
+            <param name="attrTypeGuid">Guid типа атрибута</param>
+            <returns>true, если в атрибуте хранятся системные данные</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeType(System.Guid)">
+            <summary>
+            Получить краткую информацию о типе атрибута
+            </summary>
+            <param name="attrTypeGuid">Идентификатор типа атрибута</param>
+            <returns>Краткая информация о типе атрибута или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeTypeName(System.Int32)">
+            <summary>
+            Получить название типа атрибута
+            </summary>
+            <param name="attrTypeID">Идентификатор типа атрибута</param>
+            <returns>Название типа атрибута</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetAttributeTypeName(System.Guid)">
+            <summary>
+            Получить название типа атрибута
+            </summary>
+            <param name="attrTypeGuid">Идентификатор типа атрибута</param>
+            <returns>Название типа атрибута</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetGlobalsByGuid(System.Guid)">
+            <summary>
+            Получить по Guid какого-то элемента метаданных его тип
+            </summary>
+            <param name="guid">Guid какого-то элемента метаданных</param>
+            <returns>Тип метаданных для указанного элемента</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaData.GetDisplayableByGuid(System.Guid)">
+            <summary>
+            Получить по Guid какого-то элемента метаданных его описание
+            </summary>
+            <param name="guid">Guid какого-то элемента метаданных</param>
+            <returns>Описание метаданных для указанного элемента</returns>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter">
+            <summary>
+            Сервис позволяет преобразовывать Guid типов метаданных XML в IPS
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSAttributeTypeID(System.Guid)">
+            <summary>
+            Отыскать идентификатор типа атрибута в IPS на основании указанного Guid
+            </summary>
+            <param name="xmlAttrType">Guid типа атрибута из XML</param>
+            <returns>-1 или идентификатор типа атрибута из IPS</returns>
+            <remarks>Метод возвращает первое из значений атрибута с таки Guid из общей секции настроек</remarks>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSAttributeTypeGuid(System.IServiceProvider,System.Int32)">
+            <summary>
+            Определить по конфигурации импорта из контейнера сервисов
+            Guid типа атрибута в IPS на основании его идентификатора в XML
+            </summary>
+            <param name="services">Контейнер сервисов, в котором содержится конфигурация импорта</param>
+            <param name="xmlAttrID">Идентификатор типа атрибута в XML</param>
+            <returns>Guid типа атрибута в IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSAttributeTypeGuid(System.Int32,System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта из контейнера сервисов
+            Guid типа атрибута в IPS на основании его идентификатора в XML
+            </summary>
+            <param name="xmlAttrId">Идентификатор типа атрибута в XML</param>
+            <param name="xmlAttrGuid"></param>
+            <returns>Guid типа атрибута в IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSAttributeType4ObjGuid(System.IServiceProvider,System.Int32,System.Int32,System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта из контейнера сервисов
+            Guid типа атрибута в IPS на основании его идентификатора в XML и принадлежности
+            указанному типу объекта
+            </summary>
+            <param name="services">Контейнер сервисов, в котором содержится конфигурация импорта</param>
+            <param name="xmlAttrID">Идентификатор типа атрибута в XML</param>
+            <param name="xmlObjTypeID">Ид. типа объекта</param>
+            <param name="xmlObjType">Гуид типа объекта</param>
+            <returns>Guid типа атрибута в IPS для указанного типа объекта</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSAttribute4ObjectTypeGuid(System.Int32,System.Int32,System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта 
+            Guid типа атрибута в IPS на основании его идентификатора в XML и принадлежности
+            указанному типу объекта
+            </summary>
+            <param name="services">Контейнер сервисов, в котором содержится конфигурация импорта</param>
+            <param name="xmlAttrId">Идентификатор типа атрибута в XML</param>
+            <param name="xmlObjTypeId">Ид. типа объекта</param>
+            <param name="xmlObjType">Guid типа объекта</param>
+            <returns>Guid типа атрибута в IPS для указанного типа объекта</returns>
+            <remarks>User_id для типа нет однозначного соответствия - используем Guid</remarks>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSAttributeType4RelGuid(System.IServiceProvider,System.Int32,System.Int32,System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта из контейнера сервисов
+            Guid типа атрибута в IPS на основании его идентификатора в XML и принадлежности
+            указанному типу cвязи
+            </summary>
+            <param name="services">Контейнер сервисов, в котором содержится конфигурация импорта</param>
+            <param name="xmlAttrID">Идентификатор типа атрибута в XML</param>
+            <param name="xmlRelTypeID">Тип связи</param>
+            <param name="xmlRelType">Гуид типа связи</param>
+            <returns>Guid типа атрибута в IPS для указанного типа cвязи</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSAttribute4RelationTypeGuid(System.Int32,System.Int32,System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта 
+            Guid типа атрибута в IPS на основании его идентификатора в XML и принадлежности
+            указанному типу связи
+            </summary>
+            <param name="xmlAttrId">Идентификатор типа атрибута в XML</param>
+            <param name="xmlRelTypeId">Тип связи</param>
+            <param name="xmlAttrTypeGuid"></param>
+            <param name="xmlRelTypeGuid">Guid типа связи</param>
+            <returns>Guid типа атрибута в IPS для указанного типа связи</returns>
+            <remarks>Для User_id типа связи может не быть однозначного соответствия - для этих целей дополнительно задаем Guid</remarks>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSAttributeTypeFieldName(System.IServiceProvider,System.Guid)">
+            <summary>
+            Получить имя поля СУБД для указанного обязательного атрибута
+            </summary>
+            <param name="services">Контейнер сервисов, в котором содержится конфигурация импорта</param>
+            <param name="xmlAttrGuid">Уникальный глобальный идентификатор типа обязательного атрибута</param>
+            <returns>Имя поля СУБД для указанного обязательного атрибута или String.Empty</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSObjectTypeID(System.Guid)">
+            <summary>
+            Отыскать идентификатор типа объекта в IPS на основании указанного Guid
+            </summary>
+            <param name="xmlObjType">Guid типа объекта из XML</param>
+            <returns>-1 или идентификатор типа объекта из IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSObjectTypeGuid(System.String)">
+            <summary>
+            Отыскать Guid типа объекта в IPS на основании его наименования
+            </summary>
+            <param name="xmlObjTypeName">Наименование типа объекта из XML</param>
+            <returns>Guid типа объекта из IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSObjectTypeGuid(System.IServiceProvider,System.Int32)">
+            <summary>
+            Определить по конфигурации импорта из контейнера сервисов
+            Guid типа объекта в IPS на основании его идентификатора в XML
+            </summary>
+            <param name="services">Контейнер сервисов, в котором содержится конфигурация импорта</param>
+            <param name="xmlObjTypeID">Идентификатор типа объекта в XML</param>
+            <returns>Guid типа объекта в IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSObjectTypeGuid(System.Int32,System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта 
+            Guid типа объекта в IPS на основании его идентификатора в XML
+            </summary>
+            <param name="services">Контейнер сервисов, в котором содержится конфигурация импорта</param>
+            <param name="xmlObjTypeId">Идентификатор типа объекта в XML</param>
+            <returns>Guid типа объекта в IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSObjectTypeGuid(Intermech.IpsXmlViewer.Interfaces.IKernel,Intermech.IpsXmlViewer.Interfaces.IImObject)">
+            <summary>
+            Определить по конфигурации импорта из контейнера сервисов
+            Guid типа объекта в IPS на основании его идентификатора в XML
+            </summary>
+            <param name="kernel">Микроядро IPS</param>
+            <param name="xmlObj">Описание объекта из XML</param>
+            <returns>Guid типа объекта в IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSRelationTypeID(System.Guid)">
+            <summary>
+            Отыскать идентификатор типа связи в IPS на основании указанного Guid
+            </summary>
+            <param name="xmlRelType">Guid типа связи из XML</param>
+            <returns>-1 или идентификатор типа связи из IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSRelationTypeGuid(System.String)">
+            <summary>
+            Отыскать Guid типа связи в IPS на основании его наименования
+            </summary>
+            <param name="xmlRelTypeName">Наименование типа связи из XML</param>
+            <returns>Guid типа связи из IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSRelationTypeGuid(System.IServiceProvider,System.Int32)">
+            <summary>
+            Определить по конфигурации импорта из контейнера сервисов
+            Guid типа связи в IPS на основании его параметров в XML
+            </summary>
+            <param name="services">Контейнер сервисов, в котором содержится конфигурация импорта</param>
+            <param name="xmlRelTypeID">Идентификатор типа связи в XML</param>
+            <returns>Guid типа связи в IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSRelationTypeGuid(System.Int32,System.Nullable{System.Guid})">
+            <summary>
+            Определить по конфигурации импорта 
+            Guid типа связи в IPS на основании его параметров в XML
+            </summary>
+            <param name="services">Контейнер сервисов, в котором содержится конфигурация импорта</param>
+            <param name="xmlRelTypeId">Идентификатор типа связи в XML</param>
+            <returns>Guid типа связи в IPS</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IImMetaDataConverter.GetIPSRelationTypeGuid(Intermech.IpsXmlViewer.Interfaces.IKernel,Intermech.IpsXmlViewer.Interfaces.IImRelation)">
+            <summary>
+            Определить по конфигурации импорта из контейнера сервисов
+            Guid типа связи в IPS на основании ее параметров в XML
+            </summary>
+            <param name="kernel">Микроядро IPS</param>
+            <param name="xmlRel">Описание связи из XML</param>
+            <returns>Guid типа связи в IPS</returns>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImMetaDataElement">
+            <summary>
+            Абстрактный интерфейс, содержащий Guid (используется для метаданных)
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaDataElement.SQLTableName">
+            <summary>
+            Имя таблицы SQL, в которой хранится содержимое элемента
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaDataElement.SQLAttributes">
+            <summary>
+            Количество атрибутов, которые есть в записи
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImMetaDataElement.UniqueID">
+            <summary>
+            Уникальный идентификатор элемента (тип атрибута/объекта/связи)
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImObject">
+            <summary>
+            Версия объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImObject.F_OBJECT_ID">
+            <summary>
+            Идентификатор версии объекта
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImObjectType">
+            <summary>
+            Описание типа объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImObjectType.F_OBJ_TYPE">
+            <summary>
+            Локальный уникальный идентификатор типа объекта в документе - "F_OBJ_TYPE"
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImObjectType.F_OBJ_TYPE_NAME">
+            <summary>
+            Наименование типа объекта - "F_OBJ_TYPE_NAME"
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImObjectType.F_ICON">
+            <summary>
+            Имя файла для иконки типа объекта - "F_ICON"
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImRelation">
+            <summary>
+            Связь
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImRelationType">
+            <summary>
+            Описание типа связи
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImRelationType.F_RELATION_TYPE">
+            <summary>
+            Локальный уникальный идентификатор типа связи в документе - "F_RELATION_TYPE"
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IImRelationType.F_TYPE_NAME">
+            <summary>
+            Наименование типа связи - "F_TYPE_NAME"
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IIndexer">
+            <summary>
+            Интерфейс, позволяющий сформировать базу данных индекса на основании
+            одного или нескольких потоков, содержащих XML
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IIndexer.Services">
+            <summary>
+            Контейнер сервисов
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IIndexer.SQLConnection">
+            <summary>
+            База данных SQLite
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IIndexer.MetaData">
+            <summary>
+            Метаданные
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IIndexer.Tables">
+            <summary>
+            Коллекция таблиц базы данных, а также имена их колонок (все названия - в верхнем регистре)
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IIndexer.Objects">
+            <summary>
+            Количество объектов
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IIndexer.Relations">
+            <summary>
+            Количество связей
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IIndexer.AttributeTypes">
+            <summary>
+            Количество типов атрибутов
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IIndexer.ObjectTypes">
+            <summary>
+            Количество типов объектов
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IIndexer.RelationTypes">
+            <summary>
+            Количество типов связей
+            </summary>
+        </member>
+        <member name="E:Intermech.IpsXmlViewer.Interfaces.IIndexer.OnIndexProgress">
+            <summary>
+            Событие "Состояние индексатора"
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IIndexer.ProcessStreams(Intermech.IpsXmlViewer.Interfaces.IKernel,System.IO.Stream[])">
+            <summary>
+            Сформировать индексы в указанной базе данных из коллекции потоков
+            </summary>
+            <param name="kernel">Микроядро</param>
+            <param name="xmlStreams">Коллекция потоков, содержащих XML</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IKernel">
+            <summary>
+            Микроядро, позволяющее читать информацию из индекса
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IKernel.GetUniqueID">
+            <summary>
+            Получить уникальное внутреннее целочисленное значение
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IKernel.Services">
+            <summary>
+            Контейнер сервисов
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IKernel.Indexer">
+            <summary>
+            База данных
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IKernel.MetaData">
+            <summary>
+            Метаданные
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetFieldValue(System.String,System.String,System.Object,System.String,System.Boolean)">
+            <summary>
+            Получить значение поля у записи со значением указанного ключа
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="keyFieldName">Имя ключевого поля для поиска</param>
+            <param name="keyFieldValue">Значение ключевого поля для поиска</param>
+            <param name="fieldName">Имя запрашиваемого поля</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если объект не был найден</param>
+            <returns>Значение или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.SetFieldValue(System.String,System.String,System.Object,System.String,System.Object,System.Boolean)">
+            <summary>
+            Установить значение поля у записи со значением указанного ключа
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="keyFieldName">Имя ключевого поля для поиска</param>
+            <param name="keyFieldValue">Значение ключевого поля для поиска</param>
+            <param name="fieldName">Имя устанавливаемого поля</param>
+            <param name="fieldValue">Значение</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если объект не был найден</param>
+            <returns>Значение или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetAttributeTypes(System.Boolean)">
+            <summary>
+            Получить список типов атрибутов
+            </summary>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <returns>Список типов атрибутов или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetObjectTypes(System.Boolean)">
+            <summary>
+            Получить список типов объектов
+            </summary>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <returns>Список типов объектов или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetRelationTypes(System.Boolean)">
+            <summary>
+            Получить список типов связей
+            </summary>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <returns>Список типов связей или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.ReadItemAttributes(Intermech.IpsXmlViewer.Interfaces.IImDataElement,System.Boolean)">
+            <summary>
+            Загрузить атрибуты в указанный объект/связь
+            </summary>
+            <param name="item">Объект/связь</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если объект не был найден</param>
+            <returns>Описание объекта или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetObjectID(System.Guid,System.Boolean)">
+            <summary>
+            Получить идентификатор версии объекта из индекса на основании уникального глобального идентификатора его версии
+            </summary>
+            <param name="F_OBJECTGUID">Уникальный глобальный идентификатор версии объекта</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если объект не был найден</param>
+            <returns>ID версии объекта или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetObjectGuid(System.Int64,System.Boolean)">
+            <summary>
+            Получить Guid версии объекта из индекса на основании идентификатора его версии
+            </summary>
+            <param name="F_OBJECT_ID">Идентификатор версии объекта</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если объект не был найден</param>
+            <returns>Guid версии объекта или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetObject(System.Int64,System.Boolean,System.Boolean)">
+            <summary>
+            Получить описание объекта из индекса на основании идентификатора его версии
+            </summary>
+            <param name="F_OBJECT_ID">Идентификатор версии объекта</param>
+            <param name="onlyObligatory">true - читаются только обязательные атрибуты (минус один SQL-запрос)</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если объект не был найден</param>
+            <returns>Описание объекта или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetObject(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Получить описание объекта из индекса на основании уникального глобального идентификатора его версии
+            </summary>
+            <param name="onlyObligatory">true - читаются только обязательные атрибуты (минус один SQL-запрос)</param>
+            <param name="F_OBJECTGUID">Уникальный глобальный идентификатор версии объекта</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если объект не был найден</param>
+            <returns>Описание объекта или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetObjects(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Получить список объектов (только с обязательными атрибутами по умолчанию) указанного типа
+            </summary>
+            <param name="F_OBJECT_TYPE">Идентификатор типа объекта (-1 - все объекты)</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>
+            <returns>Список объектов (только с обязательными атрибутами) указанного типа или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetObjects(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Получить список объектов (только с обязательными атрибутами по умолчанию) для заданного условия
+            </summary>
+            <param name="sqlCondition">Условие на объекты  ("" - все объекты)</param>
+            <param name="sqlOrder">Сортировка объектов</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>
+            <returns>Список объектов (только с обязательными атрибутами) указанного типа или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetRelationID(System.Guid,System.Boolean)">
+            <summary>
+            Получить идентификатор связи из индекса на основании её уникального глобального идентификатора
+            </summary>
+            <param name="F_PRJ_GUID">Уникальный глобальный идентификатор связи</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если связь не была найдена</param>
+            <returns>Gud версии объекта или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetRelationGuid(System.Int64,System.Boolean)">
+            <summary>
+            Получить Guid связи из индекса на основании её идентификатора
+            </summary>
+            <param name="F_PRJLINK_ID">Идентификатор связи</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если связь не была найдена</param>
+            <returns>Guid связи или Guid.Empty</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetRelations(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Получить все связи указанного типа (или все связи из индекса)
+            </summary>
+            <param name="F_RELATION_TYPE">Тип связи (-1 - все типы связей)</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>       
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetRelations(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Получить все связи (только с обязательными атрибутами по умолчанию) для заданного условия
+            </summary>
+            <param name="sqlCondition">Условие на объекты  ("" - все объекты)</param>
+            <param name="sqlOrder">Сортировка связей</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>
+            <returns>Список объектов (только с обязательными атрибутами) указанного типа или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetRelation(System.Int64,System.Boolean,System.Boolean)">
+            <summary>
+            Получить описание связи из индекса на основании её идентификатора
+            </summary>
+            <param name="F_PRJLINK_ID">Идентификатор связи</param>
+            <param name="onlyObligatory">true - читаются только обязательные атрибуты (минус один SQL-запрос)</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если связь не была найдена</param>
+            <returns>Описание связи или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetRelation(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Получить описание связи из индекса на основании её глобального уникального идентификатора
+            </summary>
+            <param name="F_PRJ_GUID">Уникальный глобальный идентификатор связи</param>
+            <param name="onlyObligatory">true - читаются только обязательные атрибуты (минус один SQL-запрос)</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если связь не была найдена</param>
+            <returns>Описание связи или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetRootObjects(System.Boolean,System.Boolean)">
+            <summary>
+            Получить список объектов (только с обязательными атрибутами по умолчанию) верхнего уровня в составах
+            </summary>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>       
+            <returns>Список объектов (только с обязательными атрибутами) верхнего уровня в составах или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetComposition(System.Guid,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Получить состав (только с обязательными атрибутами связей и объектов) указанного родительского объекта
+            </summary>
+            <param name="F_PART_ID">Уникальный глобальный идентификатор версии родительского объекта</param>
+            <param name="F_RELATION_TYPE">Тип связи (-1 - все типы связей)</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>       
+            <returns>Список объектов (только с обязательными атрибутами) верхнего уровня в составах или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetComposition(System.Int64,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Получить состав (только с обязательными атрибутами связей и объектов) указанного родительского объекта
+            </summary>
+            <param name="F_PROJ_OBJ">Идентификатор версии родительского объекта</param>
+            <param name="F_RELATION_TYPE">Тип связи (-1 - все типы связей)</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>       
+            <returns>Список объектов (только с обязательными атрибутами) верхнего уровня в составах или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetCompositionRelTypes(System.Int64,System.Boolean)">
+            <summary>
+            Получить список типов связей из состава указанного родительского объекта
+            </summary>
+            <param name="F_PROJ_OBJ">Локальный идентификатор версии родительского объекта</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <returns>Список типов связей из состава указанного родительского объекта</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.HasComposition(System.Int64,System.Boolean,System.Int32)">
+            <summary>
+            Проверить наличие состава у указанного объекта (по указанному типусвязи либо по любым)
+            </summary>
+            <param name="F_PROJ_OBJ">Локальный идентификатор версии родительского объекта</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="F_RELATION_TYPE">Проверяемый тип связи или Consts.UnknownIDx32, если требуется проверить любые типы связей</param>
+            <returns>true - в составе есть как минимум одна связь указанного (или любого) типа</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetApplicability(System.Guid,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Получить применяемость (только с обязательными атрибутами связей и объектов) указанного дочернего объекта
+            </summary>
+            <param name="F_PART_ID">Уникальный глобальный идентификатор версии родительского объекта</param>
+            <param name="F_RELATION_TYPE">Тип связи (-1 - все типы связей)</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>       
+            <returns>Список объектов (только с обязательными атрибутами) верхнего уровня в составах или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetApplicability(System.Int64,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Получить применяемость (только с обязательными атрибутами связей и объектов) указанного дочернего объекта
+            </summary>
+            <param name="F_PART_OBJ">Идентификатор версии родительского объекта</param>
+            <param name="F_RELATION_TYPE">Тип связи (-1 - все типы связей)</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>       
+            <returns>Список объектов (только с обязательными атрибутами) верхнего уровня в составах или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetGetApplicabilityRelTypes(System.Int64,System.Boolean)">
+            <summary>
+            Получить список типов связей из состава указанного родительского объекта
+            </summary>
+            <param name="F_PART_OBJ">Локальный идентификатор версии дочернего объекта</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <returns>Список типов связей из состава указанного родительского объекта</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.HasApplicability(System.Int64,System.Boolean,System.Int32)">
+            <summary>
+            Проверить наличие применяемости у указанного объекта (по указанному типусвязи либо по любым)
+            </summary>
+            <param name="F_PART_OBJ">Локальный идентификатор версии дочернего объекта</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="F_RELATION_TYPE">Проверяемый тип связи или Consts.UnknownIDx32, если требуется проверить любые типы связей</param>
+            <returns>true - в составе есть как минимум одна связь указанного (или любого) типа</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.CreateObject(Intermech.IpsXmlViewer.Interfaces.IImObject,System.Boolean)">
+            <summary>
+            Создать в индексе запись объекта и его атрибутов
+            </summary>
+            <param name="obj">Описание создаваемой версии объекта</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <returns>Описание созданной версии объекта</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.DeleteObject(System.Int64,System.Boolean)">
+            <summary>
+            Удалить объект с указанным идентификатором из индекса
+            </summary>
+            <param name="F_OBJECT_ID">Идентификатор удаляемой версии объекта</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если были ошибки</param>
+            <returns>true - объект был удалён</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.DeleteObject(System.Guid,System.Boolean)">
+            <summary>
+            Удалить объект с указанным идентификатором из индекса
+            </summary>
+            <param name="F_OBJECTGUID">Уникальный глобальный идентификатор удаляемой версии объекта</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если были ошибки</param>
+            <returns>true - объект был удалён</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.CreateRelation(Intermech.IpsXmlViewer.Interfaces.IImRelation,System.Boolean)">
+            <summary>
+            Создать в индексе запись связи и её атрибутов
+            </summary>
+            <param name="rel">Описание создаваемой связи</param>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <returns>Описание созданной связи</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.DeleteRelation(System.Int64,System.Boolean)">
+            <summary>
+            Удалить связь с указанным идентификатором из индекса
+            </summary>
+            <param name="F_PRJLINK_ID">Идентификатор удаляемой связи</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если были ошибки</param>
+            <returns>true - связь была удалена</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.DeleteRelation(System.Guid,System.Boolean)">
+            <summary>
+            Удалить связь с указанным уникальным глобальным идентификатором из индекса
+            </summary>
+            <param name="F_PRJ_GUID">Уникальный глобальный идентификатор удаляемой связи</param>
+            <param name="throwIfNotFound">true - генерировать исключение, если были ошибки</param>
+            <returns>true - связь была удалена</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.LoadMetaData">
+            <summary>
+            Загрузить метаданные из индекса
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetReferencedObjects(System.Boolean,System.Boolean)">
+            <summary>
+            Получить список объектов, на которые есть ссылки (только с обязательными атрибутами объектов)
+            </summary>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>       
+            <returns>Список объектов (только с обязательными атрибутами) или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.GetUserReferences(System.Boolean,System.Boolean)">
+            <summary>
+            Получить список объектов типа "Пользователи", на которые есть ссылки у других объектов
+            в полях F_OWNER_ID и F_CHKOUT_BY (только с обязательными атрибутами объектов)
+            </summary>
+            <param name="throwIfError">true - генерировать исключение, если были ошибки</param>
+            <param name="readAttributes">Загружать в объекты все атрибуты (выполняется много дополнительных запросов)</param>       
+            <returns>Список объектов (только с обязательными атрибутами) или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IKernel.LinkWithIPSObject(System.Int64,System.Int64,System.Int32)">
+            <summary>
+            Связать объект базы данных индекса с объектом IPS
+            </summary>
+            <param name="xmlObjectID">Идентификатор версии объекта в базе данных индекса</param>
+            <param name="ipsObjectID">Идентификатор версии объекта в базе данных IPS</param>
+            <param name="ipsObjType">Идентификатор типа объекта в базе данных IPS</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.ImGlobals">
+            <summary>
+            Перечислитель позволяет определить, к какому типу относится какой-то элемент метаданных
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.ImGlobals.Unknown">
+            <summary>
+            Неизвестные метаданные
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.ImGlobals.IMSAttributeType">
+            <summary>
+            Тип атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.ImGlobals.IMSAttributeGroup">
+            <summary>
+            Группа атрибутов
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.ImGlobals.IMSLifeCycleLevel">
+            <summary>
+            Уровень продвижения
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.ImGlobals.IMSLifeCycleScheme">
+            <summary>
+            Схема жизненного цикла
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.ImGlobals.IMSLifeCycleStep">
+            <summary>
+            Шаг жизненного цикла
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.ImGlobals.IMSObjectType">
+            <summary>
+            Тип объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.ImGlobals.IMSRelationType">
+            <summary>
+            Тип связи
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImXmlObject">
+            <summary>
+            Расширение интерфейса объектов
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImXmlObjectType">
+            <summary>
+            Расширение интерфейса типов объектов
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IImXmlRelation">
+            <summary>
+            Расширение интерфейса связей
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.PluginEventHandler">
+            <summary>
+            Делегат для событий менеджера плагинов
+            </summary>
+            <param name="sender">Отправитель</param>
+            <param name="e">Аргументы события</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.PluginEventArgs">
+            <summary>
+            Аргументы событий менеджера плагинов
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.PluginEventArgs.Plugin">
+            <summary>
+            Модуль расширения
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.PluginEventArgs.#ctor(Intermech.IpsXmlViewer.Interfaces.IPlugin)">
+            <summary>
+            Создать аргументы
+            </summary>
+            <param name="plugin">Модуль расширения</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IPackage">
+            <summary>
+            Класс представляющий элемент дополнительного модуля.
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IPackage.Load(System.IServiceProvider)">
+            <summary>
+            Инициализировать модуль расширения
+            </summary>
+            <param name="serviceProvider">Контейнер сервисов</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IPackage.Unload">
+            <summary>
+            Деинициализировать модуль расширения
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPackage.Name">
+            <summary>
+            Название модуля расширения
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IPackageCollection">
+            <summary>
+            Коллекция дополнительных модулей
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPackageCollection.Item(System.Int32)">
+            <summary>
+            Получить дополнительный модуль расширения с указанным индексом
+            </summary>
+            <param name="index">Индекс</param>
+            <returns>Дополнительный модуль расширения с указанным индексом</returns>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IPackageExtension">
+            <summary>
+            Интерфейс для дополнительный возможностей модуля расширения.
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IPackageExtension.PostInit">
+            <summary>
+            Дополнительная инициализация элемента модуля расширения.
+            </summary>
+            <returns>Возвращает true, если дополнительная инициализация выполнена успешно.</returns>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IPlugin">
+            <summary>
+            Сборка с модулем расширения
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPlugin.IsValid">
+            <summary>
+            Является ли данный плагин корректным
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPlugin.Location">
+            <summary>
+            Полный путь сборки
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPlugin.Name">
+            <summary>
+            Имя сборки
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPlugin.Packages">
+            <summary>
+            Коллекция модулей расширения
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPlugin.AutoReload">
+            <summary>
+            true, если необходимо сохранять имя сборки в файле конфигурации
+            для последующей автоматической загрузки.
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPlugin.MinVersion">
+            <summary>
+            Минимальная версия программы, в которую может быть загружен данный плагин
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPlugin.MaxVersion">
+            <summary>
+            Максимальная версия программы, в которую может быть загружен данный плагин
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IPluginCollection">
+            <summary>
+            Коллекция модулей расширения
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IPluginManager">
+            <summary>
+            Интерфейс менеджера модулей расширения
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IPluginManager.LoadPlugins(System.String,System.String)">
+            <summary>
+            Загрузить все найденные плагины из указанной папки и всех её вложенных папок
+            </summary>
+            <param name="path">Путь</param>
+            <param name="mask">Маска для поиска файлов с плагинами</param>
+            <returns>Коллекция загруженных плагинов</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IPluginManager.Load(System.String)">
+            <summary>
+            Загрузить модуль расширения из указанной сборки
+            </summary>
+            <param name="fileName">Полный путь к сборке</param>
+            <returns>Модуль расширения или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IPluginManager.Load(System.String,System.Boolean)">
+            <summary>
+            Загрузить модуль расширения из указанной сборки
+            </summary>
+            <param name="fileName">Полный путь к сборке</param>
+            <param name="autoReload">Требуется ли автоматическая загрузка указанного плагина</param>
+            <returns>Модуль расширения или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IPluginManager.Unload(Intermech.IpsXmlViewer.Interfaces.IPlugin)">
+            <summary>
+            Выгрузить модуль расширения
+            </summary>
+            <param name="plugin">Выгружаемый модуль расширения</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IPluginManager.UnloadAll">
+            <summary>
+            Выгрузить все модули расширения
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPluginManager.Plugins">
+            <summary>
+            Получить коллекцию модулей расширения
+            </summary>
+        </member>
+        <member name="E:Intermech.IpsXmlViewer.Interfaces.IPluginManager.PluginAdded">
+            <summary>
+            Событие "Загружен модуль расширения"
+            </summary>
+        </member>
+        <member name="E:Intermech.IpsXmlViewer.Interfaces.IPluginManager.PluginRemoved">
+            <summary>
+            Событие "Выгружен модуль расширения"
+            </summary>
+        </member>
+        <member name="E:Intermech.IpsXmlViewer.Interfaces.IPluginManager.LoadComplete">
+            <summary>
+            Событие "Загружены все модули расширения"
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPluginManager.AutoLoad">
+            <summary>
+            Флаг указывает режим загрузки плагина (ручной или автоматический)
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.IPluginManager.AppVersion">
+            <summary>
+            Версия приложения
+            </summary>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.IOutputView">
+            <summary>
+            Служба позволяет отобразить текстовую информацию в окне вывода Навигатора
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IOutputView.Activate(System.String)">
+            <summary>
+            Переключает окно вывода для заданной категории
+            </summary>
+            <param name="category">Категория</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IOutputView.ClearText(System.String)">
+            <summary>
+            Очищает окно вывода для указанной категории
+            </summary>
+            <param name="category">Категория</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IOutputView.ShowView">
+            <summary>
+            Показывает окно вывода
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.IOutputView.WriteString(System.String,System.String)">
+            <summary>
+            Выводит текст в окно вывода для заданной категории
+            </summary>
+            <param name="category">Категория</param>
+            <param name="text">Выводимый текст</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.MainServicesContainer">
+            <summary>
+            Ссылка на основной контейнер сервисов
+            </summary>
+        </member>
+        <member name="F:Intermech.IpsXmlViewer.Interfaces.MainServicesContainer._services">
+            <summary>
+            Контейнер сервисов
+            </summary>
+        </member>
+        <member name="P:Intermech.IpsXmlViewer.Interfaces.MainServicesContainer.ServiceContainer">
+            <summary>
+            Контейнер сервисов
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.MainServicesContainer.#cctor">
+            <summary>
+            Создаём основной контейнер сервисов
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.MainServicesContainer.GetService(System.Type)">
+            <summary>
+            Получить сервис указанного типа
+            </summary>
+            <param name="serviceType">Запрашиваемый тип</param>
+            <returns>Результат или null</returns>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.MainServicesContainer.AddService(System.Type,System.Object)">
+            <summary>
+            Добавить сервис указанного типа
+            </summary>
+            <param name="serviceType">Добавляемый тип</param>
+            <param name="service">Экземпляр добавляемого типа</param>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.MainServicesContainer.RemoveService(System.Type)">
+            <summary>
+            Удалить сервис указанного типа
+            </summary>
+            <param name="serviceType">Удаляемый тип</param>
+        </member>
+        <member name="T:Intermech.IpsXmlViewer.Interfaces.UICultureHack">
+            <summary>
+            По мнению Microsoft интерфейс любого приложения Windows должен соответствовать интерфейсу операционной системы. То есть
+            на английской версии Windows не удастся получить русский интерфейс у локализованного приложения. Этот класс позволяет
+            обойти данное ограничение.
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.UICultureHack.Apply">
+            <summary>
+            Меняет язык интерфейса приложения. Имя локали берется из .config-файла из ключа с именем UICulture. Этот метод
+            должен быть вызван при старте приложения.
+            </summary>
+        </member>
+        <member name="M:Intermech.IpsXmlViewer.Interfaces.UICultureHack.CreateCultureInfo(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

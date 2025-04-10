@@ -1,0 +1,83 @@
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\CRUD operation.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\CRUD operation.pdb
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\obj\Debug\CRUD operation.csproj.CoreCompileInputs.cache
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\obj\Debug\CRUD operation.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\obj\Debug\CRUD operation.pdb
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\Intermech.Bars.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\obj\Debug\CRUD operation.csproj.CopyComplete
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\log4net.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\TcMemNetBindingInterface40.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\TcServerNetBinding40.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\TcServerNetBinding4064.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\TcServerNetBindingInterface40.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\TcSoaClient.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\TcSoaCommon.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\TcSoaCoreStrong.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\TcSoaQueryStrong.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\TcSoaStrongModel.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\Teamcenter_SSO.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\Teamcenter_SSOloader.dll
+C:\Users\v.antonyuk\source\repos\CRUD operation\CRUD operation\bin\Debug\ICSharpCode.SharpZipLib.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\ICSharpCode.SharpZipLib.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Bars.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\log4net.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\ICSharpCode.SharpZipLib.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\obj\Debug\CRUD operation.csprojAssemblyReference.cache
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\obj\Debug\CRUD operation.csproj.CoreCompileInputs.cache
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\obj\Debug\CRUD operation.csproj.CopyComplete
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TeamCenterAndIpsConnector.pdb
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\obj\Debug\TeamCenterAndIpsConnector.pdb
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Interfaces.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Bcl.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Serialization.Compatibility.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Scripting.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.RemotingLite.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Hashes.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Ninject.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\OpenMcdf.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\System.Security.Principal.Windows.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\LZ4n.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Ninject.Extensions.ChildKernel.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\System.Management.Automation.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Net.Compatibility.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Castle.Core.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\System.Memory.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\System.Numerics.Vectors.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\System.Buffers.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Interfaces.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Bcl.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Scripting.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Hashes.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Ninject.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\OpenMcdf.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Ninject.Extensions.ChildKernel.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Castle.Core.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\En\Intermech.Interfaces.resources.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\En\Intermech.Bcl.resources.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TcMemNetBindingInterface40.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TcServerNetBinding40.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TcServerNetBinding4064.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TcServerNetBindingInterface40.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TcSoaClient.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TcSoaCommon.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TcSoaCoreStrong.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TcSoaQueryStrong.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TcSoaStrongModel.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Teamcenter_SSO.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Teamcenter_SSOloader.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Interfaces.XmlExchange.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.IpsXmlViewer.Interfaces.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Expert.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.XmlExchange.IpsXml.Interfaces.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Interfaces.XmlExchange.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.IpsXmlViewer.Interfaces.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.Expert.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\Intermech.XmlExchange.IpsXml.Interfaces.xml
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\En\Intermech.Expert.resources.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\obj\Debug\TeamCenterTry.Form1.resources
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\obj\Debug\CRUD operation.csproj.GenerateResource.cache
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\bin\Debug\TeamCenterAndIpsConnector.dll
+d:\v.antonyuk\Рабочий стол\CRUD operation\CRUD operation\obj\Debug\TeamCenterAndIpsConnector.dll
+C:\Users\Vadim\OneDrive\Рабочий стол\CRUD operation\CRUD operation\obj\Debug\TeamCenterAndIpsConnector.pdb

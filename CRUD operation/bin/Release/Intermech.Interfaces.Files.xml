@@ -1,0 +1,1549 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Interfaces.Files</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Files.BatchFileImportOptions">
+            <summary>
+            Опции группового импорта файлов в базу данных IPS.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.BatchFileImportOptions.#ctor">
+            <summary>
+            Создает объект
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.BatchFileImportOptions.AfterImportAction">
+            <summary>
+            Возвращает или задает обработчик, который будет применен к каждому успешно импортированному файлу.
+            Значение свойства может быть не задано.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.BatchFileImportOptions.CustomProgressSink">
+            <summary>
+            Возвращает или задает индикатор хода выполнения операции.
+            Значение свойства может быть не задано.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.BatchFileImportOptions.NotifyOnMasterFileErrors">
+            <summary>
+            Включает или выключает режим отображения уведомлений об ошибках импорта головных файлов.
+            По умолчанию значение свойства установлено в false.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.BatchFileImportOptions.NotifyOnDeferredFilesErrors">
+            <summary>
+            Включает или выключает режим отображения уведомлений об ошибках импорта отложенных ссылочных зависимостей.
+            По умолчанию значение свойства установлено в false.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.BatchFileImportOptions.Clone">
+            <summary>
+            Клонирует текщий объект.
+            </summary>
+            <returns>Клон текущего объекта</returns>
+        </member>
+        <member name="M:Intermech.Files.BatchFileImportOptions.System#ICloneable#Clone">
+            <summary>
+            Клонирует текщий объект.
+            </summary>
+            <returns>Клон текущего объекта</returns>
+        </member>
+        <member name="T:Intermech.Files.CanControlFileAttributeEventArgs">
+            <summary>
+            Аргументы события, позволяющего определить, можно ли управлять атрибутом read-only у локального файла документа.
+            </summary>
+            <remarks>
+            Не для всех файлов возможно свободное управление атрибутом read-only, так как это может приводить к поломке приложения, работающего с этими файлами.
+            Например, нельзя выставлять атрибут read-only на файлы красного карандаша - это приводит к невозможности создания/редактирования замечаний к просматриваемым архивным копиям документов.
+            Другим примером могут служить файлы параметрических семейств Autodesk Inventor, эти файлы обновляются CAD-системой в отложенном режиме по мере необходимости. Установка на
+            них атрибутов read-only приводит к падению CAD-системы.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Files.CanControlFileAttributeEventArgs.#ctor(Intermech.Files.DBObjectState,System.Collections.Generic.IDictionary{System.Object,System.Object},System.String,System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="dbObject">Описатель объекта IPS, которому принадлежит файл</param>
+            <param name="dbObjectContext">Контекст объекта IPS, позволяющий связать несколько событий в единую операцию</param>
+            <param name="relativeFilePath">Путь к файлу, как он записан в атрибуте объекта IPS</param>
+            <param name="localFilePath">Путь к файлу объекта IPS на локальном диске</param>
+            <exception cref="T:ArgumentNullException">dbObject || dbObjectContext || relativeFilePath || localFilePath</exception>
+        </member>
+        <member name="P:Intermech.Files.CanControlFileAttributeEventArgs.DBObject">
+            <summary>
+            Описатель объекта IPS, которому принадлежит файл.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.CanControlFileAttributeEventArgs.DBObjectContext">
+            <summary>
+            Возвращает контекст объекта IPS, позволяющий связать несколько событий в единую операцию.
+            Все события, составляющие единую операцию, получают один и тот же объект контекста.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.CanControlFileAttributeEventArgs.RelativeFilePath">
+            <summary>
+            Путь к файлу, как он записан в атрибуте объекта IPS.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.CanControlFileAttributeEventArgs.LocalFilePath">
+            <summary>
+            Путь к файлу объекта IPS на локальном диске.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.CanControlFileAttributeEventArgs.CanControl">
+            <summary>
+            Возвращает или задает признак, разрешающий управление атрибутом read-only для локального файла объекта IPS.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.DBEntityWithFiles`2">
+            <summary>
+            Описывает список файлов и их владельца.
+            </summary>
+            <typeparam name="TEntity">Тип объекта-владельца файлов</typeparam>
+            <typeparam name="TFile">Тип записи о файле</typeparam>
+        </member>
+        <member name="M:Intermech.Files.DBEntityWithFiles`2.#ctor(`0,System.Collections.Generic.List{`1})">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="owner">Объект-владелец файлов</param>
+            <param name="files">Список файлов</param>
+            <exception cref="T:ArgumentNullException">files</exception>
+        </member>
+        <member name="P:Intermech.Files.DBEntityWithFiles`2.Owner">
+            <summary>
+            Возвращает владельца файлов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.DBEntityWithFiles`2.Files">
+            <summary>
+            Возвращает список файлов.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.DBObjectFilesDifferenceRules">
+            <summary>
+            Базовая реализация стратегии для определения изменений в локальных файлах объектов IPS.
+            Реализация стратегии использует сравнение дат модификации локального и удаленного (remote) файлов.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.DBObjectFilesDifferenceRules.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.DBObjectFilesDifferenceRules.FileDifferenceCalculator">
+            <summary>
+            Возвращает объект для сравнения состояний как отдельных файлов, так и групп файлов.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.DBObjectFilesDifferenceRules.CalculateDifference(System.DateTime,Intermech.Files.DBObjectState,Intermech.Files.FileState,Intermech.Files.FileState)">
+            <summary>
+            Определяет наличие или отсутствие изменений в локальном файле объекта IPS, сравнивая локальное и удаленное (remote) состояние файла.
+            </summary>
+            <param name="utcNow">Текущее время в UTC</param>
+            <param name="objectState">Версия объекта IPS, чей файл анализируется</param>
+            <param name="localFileState">Состояние файла на локальном диске. Может быть null, если на диске файл отсутствует, но не одновременно с remoteFileState</param>
+            <param name="remoteFileState">Состояние файла на базе данных. Может быть null, если в базе файл отсутствует, но не одновременно с localFileState</param>
+            <returns>Результат сравнения состояний файлов</returns>
+            <exception cref="T:ArgumentNullException">objectState</exception>
+            <exception cref="T:ArgumentException">аргументы localFileState и remoteFileState одновременно не могут быть равны null</exception>
+        </member>
+        <member name="M:Intermech.Files.DBObjectFilesDifferenceRules.DoCalculateDifference(System.DateTime,Intermech.Files.DBObjectState,Intermech.Files.FileState,Intermech.Files.FileState)">
+            <summary>
+            Определяет наличие или отсутствие изменений в локальном файле объекта IPS, сравнивая локальное и удаленное (remote) состояние файла.
+            </summary>
+            <param name="utcNow">Текущее время в UTC</param>
+            <param name="objectState">Версия объекта IPS, чей файл анализируется</param>
+            <param name="localFileState">Состояние файла на локальном диске. Может быть null, если на диске файл отсутствует, но не одновременно с remoteFileState</param>
+            <param name="remoteFileState">Состояние файла на базе данных. Может быть null, если в базе файл отсутствует, но не одновременно с localFileState</param>
+            <returns>Результат сравнения состояний файлов</returns>
+        </member>
+        <member name="T:Intermech.Files.DBObjectStateWithFiles">
+            <summary>
+            Описывает состояние объекта IPS и состояния его файлов.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.DBObjectStateWithFiles.#ctor(Intermech.Files.DBObjectState,System.Collections.Generic.List{Intermech.Files.FileState})">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="dbObjectState">Состояние объекта IPS</param>
+            <param name="files">Список состояний файлов объекта IPS</param>
+            <exception cref="T:ArgumentNullException">dbObjectState, files</exception>
+        </member>
+        <member name="T:Intermech.Files.FileAttributeEditMode">
+            <summary>
+            Способ редактирования атрибута "Файл" у объекта IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileAttributeEditMode.Normal">
+            <summary>
+            Для редактирования атрибута "Файл" используется внешнее приложение.
+            Это обычный режим, используемый для большинства объектов IPS.
+            Содержимое атрибута "Файл" должно быть извлечено в рабочую область файлового хранилища пользователя,
+            а позже изменения в файлах должны быть сохранены в базу данных
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileAttributeEditMode.Internal">
+            <summary>
+            Для редактирования атрибута "Файл" используется внутренний редактор, являющийхся частью IPS.
+            Это специальный режим, используемый лишь для некоторых объектов IPS.
+            Содержимое атрибута "Файл" не будет извлекаться в рабочую область файлового хранилища пользователя,
+            все изменения должны быть сделаны в оперативной памяти.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.FileDifferenceCalculator">
+            <summary>
+            Реализует объект для сравнения состояний как отдельных файлов, так и групп файлов.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileDifferenceCalculator.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileDifferenceCalculator.Calculate(Intermech.Files.FileState,Intermech.Files.FileState)">
+            <summary>
+            Сравнивает два состояния одного и того же файла объекта.
+            </summary>
+            <param name="localState">Локальное состояние файла</param>
+            <param name="remoteState">Удаленное (remote) состояние файла</param>
+            <returns>Результат сравнения состояний файлов</returns>
+            <exception cref="T:ArgumentException">Аргументы localState и remoteState не должны одновременно быть равны null; аргументы localState и remoteState должны описывать один и тот же файл.</exception>
+        </member>
+        <member name="M:Intermech.Files.FileDifferenceCalculator.Calculate(System.Collections.Generic.List{Intermech.Files.FileState},System.Collections.Generic.List{Intermech.Files.FileState})">
+            <summary>
+            Сравнивает локальные и удаленные (remote) состояния для группы файлов.
+            </summary>
+            <param name="localStates">Локальные состояния файлов</param>
+            <param name="remoteStates">Удаленные (remote) состояния файлов</param>
+            <returns>Список с результатами сравнения</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список состояний не может быть null</exception>
+        </member>
+        <member name="T:Intermech.Files.FileDifferencePair">
+            <summary>
+            Описывает результат сравнения локального и удаленного (remote) состояний файла.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileDifferencePair.#ctor(Intermech.Files.FileDifferenceType,Intermech.Files.FileState,Intermech.Files.FileState)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="differenceType">Тип различий между состояниями файла</param>
+            <param name="localState">Локальное состояние файла</param>
+            <param name="remoteState">Удаленное (remote) состояние файла</param>
+            <exception cref="T:ArgumentException">Значение localState или remoteState не соответствует типу различий между состояниями файла; имена файлов в localState и remoteState не совпадают</exception>
+        </member>
+        <member name="M:Intermech.Files.FileDifferencePair.Clone">
+            <summary>
+            Клонирует текущий объект.
+            </summary>
+            <returns>Клон текущего объекта</returns>
+        </member>
+        <member name="M:Intermech.Files.FileDifferencePair.System#ICloneable#Clone">
+            <summary>
+            Клонирует текущий объект.
+            </summary>
+            <returns>Клон текущего объекта</returns>
+        </member>
+        <member name="P:Intermech.Files.FileDifferencePair.DifferenceType">
+            <summary>
+            Возвращает тип различия между локальным и удаленным (remote) состояниями файла.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileDifferencePair.LocalState">
+            <summary>
+            Возвращает локальное состояние файла.
+            Значение свойства может быть равно null, если локальное состояние файла отсутствует.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileDifferencePair.RemoteState">
+            <summary>
+            Возвращает удаленное (remote) состояние файла.
+            Значение свойства может быть равно null, если удаленное состояние файла отсутствует.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.FileDifferenceType">
+            <summary>
+            Описывает тип различия между локальным и удаленным (remote) состояниями файла.
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileDifferenceType.MissingFile">
+            <summary>
+            Локальный файл отсутствует на диске.
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileDifferenceType.OutdatedFile">
+            <summary>
+            Локальный файл устарел по сравнению с удаленным (remote) файлом.
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileDifferenceType.UnchangedFile">
+            <summary>
+            Локальный файл не изменен
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileDifferenceType.UpdatedFile">
+            <summary>
+            Локальный файл изменен по сравнению с удаленным (remote) файлом.
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileDifferenceType.NewFile">
+            <summary>
+            Новый локальный файл, не имеющий соответствия в удаленном хранилище данных
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.FileImportOptions">
+            <summary>
+            Опции импорта файла в базу данных IPS.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileImportOptions.#ctor">
+            <summary>
+            Создает объект
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileImportOptions.ImportDeferredFiles">
+            <summary>
+            Включает или выключает режим автоматического импорта отложенных ссылочных зависимостей,
+            представленных в базе данных с помощью черновиков документов IPS.
+            По умолчанию значение свойства установлено в true.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileImportOptions.NotifyOnDeferredFilesErrors">
+            <summary>
+            Включает или выключает режим отображения уведомлений об ошибках импорта отложенных ссылочных зависимостей.
+            По умолчанию значение свойства установлено в false.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileImportOptions.ProgressSink">
+            <summary>
+            Возвращает или задает индикатор хода выполнения операции.
+            Значение свойства может быть не задано.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileImportOptions.Clone">
+            <summary>
+            Клонирует текщий объект.
+            </summary>
+            <returns>Клон текущего объекта</returns>
+        </member>
+        <member name="M:Intermech.Files.FileImportOptions.System#ICloneable#Clone">
+            <summary>
+            Клонирует текщий объект.
+            </summary>
+            <returns>Клон текущего объекта</returns>
+        </member>
+        <member name="T:Intermech.Files.FileImportResult">
+            <summary>
+            Результат импорта файла в базу данных IPS.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileImportResult.#ctor(System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="filePath">Путь к импортируемому файлу</param>
+            <exception cref="T:ArgumentException">Параметр <paramref name="filePath"/> не должен быть равен null или пустой строке.</exception>
+        </member>
+        <member name="P:Intermech.Files.FileImportResult.FilePath">
+            <summary>
+            Возвращает путь к импортируемому файлу.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileImportResult.Success.#ctor(System.String,System.Int64)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="filePath">Путь к импортируемому файлу</param>
+            <param name="objectId">Идентификатор версии объекта IPS</param>
+            <exception cref="T:ArgumentException">Параметр <paramref name="filePath"/> не должен быть равен null или пустой строке. Параметр <paramref name="objectId"/> не задан.</exception>
+        </member>
+        <member name="P:Intermech.Files.FileImportResult.Success.ObjectId">
+            <summary>
+            Возвращает задает идентификатор версии объекта IPS, который был создан в процессе импорта файла.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileImportResult.Success.DeferredFiles">
+            <summary>
+            Возвращает коллекцию абсолютных путей для непосредственных ссылочных зависимостей текущего импортированного файла,
+            импорт которых был отложен на неопределенное время. В процессе импорта текущего файла для каждого такой зависимости
+            в базе данных IPS был создан черновик документа, на который ссылается текущий импортированный объект IPS.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileImportResult.Success.RelatedErrors">
+            <summary>
+            Возвращает коллекцию ошибок импорта для любых ссылочных зависимостей текущего импортированного файла.
+            Если свойство не пусто, значит текущий файл импортирован не полностью, а частично.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileImportResult.Error.#ctor(System.String,System.Exception)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="filePath">Путь к импортируемому файлу</param>
+            <param name="exception">Объект исключения, ставшего причиной ошибки импорта файла</param>
+            <exception cref="T:ArgumentException">Параметр <paramref name="filePath"/> не должен быть равен null или пустой строке.</exception>
+            <exception cref="T:ArgumentNullException">Параметр <paramref name="exception"/> не должен быть равен null</exception>
+        </member>
+        <member name="P:Intermech.Files.FileImportResult.Error.Exception">
+            <summary>
+            Возвращает исключение, ставшее причиной ошибки импорта файла.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileImportResult.IgnoredFile.#ctor(System.String,System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="filePath">Путь к импортируемому файлу</param>
+            <param name="reason">Причина, по которой файл не может быть импортирован</param>
+            <exception cref="T:ArgumentException">Параметр <paramref name="filePath"/> не должен быть равен null или пустой строке. Параметр <paramref name="reason"/> не должен быть равен null или пустой строке.</exception>
+        </member>
+        <member name="P:Intermech.Files.FileImportResult.IgnoredFile.Reason">
+            <summary>
+            Возвращает причину, по которой файл не может быть импортирован.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileImportResult.AlreadyImportedFile.#ctor(System.String,System.Int64)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="filePath">Путь к импортируемому файлу</param>
+            <param name="objectId">Идентификатор версии объекта IPS</param>
+            <exception cref="T:ArgumentException">Параметр <paramref name="filePath"/> не должен быть равен null или пустой строке. Параметр <paramref name="objectId"/> не задан.</exception>
+        </member>
+        <member name="P:Intermech.Files.FileImportResult.AlreadyImportedFile.ObjectId">
+            <summary>
+            Возвращает задает идентификатор версии объекта IPS, который был создан в процессе импорта файла.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.FileOrigin">
+            <summary>
+            Содержит сведения о происхождении файла в рабочей области файлового хранилища.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileOrigin.#ctor(System.String,Intermech.Files.FileOriginType,System.Int64,Intermech.Files.DBObjectState)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="fileName">Путь и имя файла, путь может быть как абсолютным, так и относительным</param>
+            <param name="originType">Код происхождения файла</param>
+            <param name="id">Идентификатор объекта IPS или Consts.NoObject в случае нового файла</param>
+            <param name="workObject">Описание опубликованной в рабочей области версии объекта или null</param>
+        </member>
+        <member name="P:Intermech.Files.FileOrigin.FileName">
+            <summary>
+            Возвращает путь и имя файла. Путь может быть как абсолютным, так и относительным.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileOrigin.OriginType">
+            <summary>
+            Возвращает код происхождения файла.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileOrigin.Id">
+            <summary>
+            Возвращает идентификатор объекта IPS или Consts.NoObject в случае нового файла.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileOrigin.WorkObject">
+            <summary>
+            Возвращает описание опубликованной в рабочей области версии объекта или null.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.FileOriginType">
+            <summary>
+            Классифицирует происхождение файла в рабочей области файлового хранилища
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileOriginType.NewFile">
+            <summary>
+            Новый файл - добавлен в рабочую область пользователем извне
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileOriginType.WorkFile">
+            <summary>
+            Рабочий файл объекта - добавлен в рабочую область при публикации в ней объекта IPS
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileOriginType.DetachedFile">
+            <summary>
+            Отсоединенный файл - происхождение файла не установлено. В в базе IPS есть объект с таким файлом, но
+            ни одна из версий этого объекта не опубликована в рабочей области
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.FileProbeEventArgs">
+            <summary>
+            Аргументы события, используемого для поиска метода импорта файла в базу IPS.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileProbeEventArgs.#ctor(System.IO.FileInfo,System.IO.Stream)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="fileInfo">Описание файла</param>
+            <param name="fileContent">Содержимое файла</param>
+        </member>
+        <member name="P:Intermech.Files.FileProbeEventArgs.FileInfo">
+            <summary>
+            Возвращает описание импортируемого файла.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileProbeEventArgs.FileContent">
+            <summary>
+            Возвращает содержимое импортируемого файла.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileProbeEventArgs.ImportHandler">
+            <summary>
+            Возвращает или задает метод импорта файла в базу IPS.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileProbeEventArgs.ImportCapabilities">
+            <summary>
+            Возвращает или задает флаги особых возможностей у метода импорта файла.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.ImportFileCapabilities">
+            <summary>
+            Флаги особенностей работы метода импорта файла
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.ImportFileCapabilities.None">
+            <summary>
+            Метод импорта файла не имеет особенностей работы
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.ImportFileCapabilities.DeferredImport">
+            <summary>
+            Метод импорта файла использует отложенный импорт ссылочных зависимостей
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.ImportFileHandler">
+            <summary>
+            Делегат метода, используемого для импорта файла в базу IPS.
+            </summary>
+            <param name="fullPath">Абсолютный путь к импортируемому файлу</param>
+            <param name="importOptions">Опции импорта файла</param>
+            <returns>Результат импорта файла</returns>
+        </member>
+        <member name="T:Intermech.Files.FileState">
+            <summary>
+            Описывает состояние файла.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileState.#ctor(System.String,System.DateTime,System.Int64)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="fileName">Имя файла</param>
+            <param name="lastWriteTimeUtc">Дата последней модификации файла в UTC</param>
+            <param name="length">Длина файла в байтах</param>
+        </member>
+        <member name="M:Intermech.Files.FileState.FromFile(System.String)">
+            <summary>
+            Возвращает состояние указанного файла.
+            </summary>
+            <param name="path">Путь к файлу</param>
+            <returns>Состояние файла</returns>
+            <exception cref="T:ArgumentException">path - аргумент не задан или пуст</exception>
+            <exception cref="T:System.IO.FileNotFoundException">Указанный файл не найден на диске</exception>
+        </member>
+        <member name="M:Intermech.Files.FileState.FromFile(System.String,System.String)">
+            <summary>
+            Возвращает состояние указанного файла. Метод используется для получения состояний файлов, его имя файла указано в относительной форме.
+            </summary>
+            <param name="path">Путь к файлу</param>
+            <param name="resultFileName">Имя файла, которое должно быть указано в объекте состояния</param>
+            <returns>Состояние файла</returns>
+            <exception cref="T:ArgumentException">path, resultFileName - аргумент не задан или пуст</exception>
+            <exception cref="T:System.IO.FileNotFoundException">Указанный файл не найден на диске</exception>
+        </member>
+        <member name="M:Intermech.Files.FileState.CompareTo(Intermech.Files.FileState)">
+            <summary>
+            Сравнивает текущее состояние файла с указанным.
+            </summary>
+            <param name="other">Другое состояние файла для сравнения</param>
+            <returns>Результат сравнения</returns>
+            <exception cref="T:System.ArgumentNullException">Другое состояние файла для сравнения не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.FileState.CompareTo(System.DateTime)">
+            <summary>
+            Сравнивает текущее состояние файла с указанным.
+            </summary>
+            <param name="otherTime">Другое состояние файла для сравнения</param>
+            <returns>Результат сравнения</returns>
+        </member>
+        <member name="P:Intermech.Files.FileState.FileName">
+            <summary>
+            Возвращает имя файла.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileState.LastWriteTimeUtc">
+            <summary>
+            Возвращает дату последней модификации файла в UTC.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.FileState.Length">
+            <summary>
+            Возвращает длину файла в байтах.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.FileTracker">
+            <summary>
+            Реализует трекер состояний для файлов объектов, извлеченных на локальный диск. Он используется для определения характера изменений в таких файлах.
+            Трекер позволяет получить только состояние самого файла. Его нельзя использовать для определения факта наличия/отсутствия файлов у объекта,
+            а также для получения списка файлов объекта.
+            </summary>
+            <remarks>
+            Необходимость в подобном трекере возникла из-за того, что дату модификации файла, хранящуюся в файловом атрибуте объекта в базе, нельзя использовать
+            в качестве точки отсчета.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.#ctor(System.Int32)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="capacity">Начальная емкость внутренних таблиц трекера в количестве файлов</param>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.SaveFileState(System.Int64,Intermech.Files.FileState)">
+            <summary>
+            Сохраняет состояние файла объекта, скопированного из базы на локальный диск, либо записанного обратно в базу с диска.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта, которому принадлежит этот файл</param>
+            <param name="fileState">Состояние файла объекта</param>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.SaveFileState(System.Int64,System.String,System.DateTime)">
+            <summary>
+            Сохраняет состояние файла объекта, скопированного из базы на локальный диск, либо записанного обратно в базу с диска.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта, которому принадлежит этот файл</param>
+            <param name="fileName">Имя файла</param>
+            <param name="lastWriteTimeUtc">Дата последней модификации файла</param>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.DoSaveFileState(System.Int64,System.String,System.DateTime)">
+            <summary>
+            Реализует сохранение состояния файла объекта, скопированного из базы на локальный диск, либо записанного обратно в базу с диска.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта, которому принадлежит этот файл</param>
+            <param name="fileName">Имя файла</param>
+            <param name="lastWriteTimeUtc">Дата последней модификации файла</param>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.RemoveFileState(System.String)">
+            <summary>
+            Удаляет сохраненное состояние для указанного файла.
+            </summary>
+            <param name="fileName">Имя файла</param>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.DoRemoveFileState(System.String)">
+            <summary>
+            Реализует удаление сохраненного состояния для указанного файла.
+            </summary>
+            <param name="fileName">Имя файла</param>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.TryGetLastWriteTime(System.Int64,System.String)">
+            <summary>
+            Возвращает дату последней модификации для указанного файла.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта, которому принадлежит этот файл</param>
+            <param name="fileName">Имя файла</param>
+            <returns>Дата последней модификации файла</returns>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.DoGetLastWriteTime(System.Int64,System.String)">
+            <summary>
+            Реализует получение даты последней модификации для указанного файла.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта, которому принадлежит этот файл</param>
+            <param name="fileName">Имя файла</param>
+            <returns>Дата последней модификации файла</returns>
+        </member>
+        <member name="M:Intermech.Files.FileTracker.ValidateFileName(System.String)">
+            <summary>
+            Позволяет выполнить проверку корректности имени файла объекта.
+            </summary>
+            <param name="fileName">Имя файла объекта</param>
+        </member>
+        <member name="T:Intermech.Files.FileVars">
+            <summary>
+            Содержит динамические переменные, влияющие на работу сервисов IPS по работе с файлами.
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileVars.SoftMode">
+            <summary>
+            Переключатель, позволяющий активировать режим мягкого импорта файлов в IPS.
+            </summary>
+        </member>
+        <member name="F:Intermech.Files.FileVars.ExtendedMode">
+            <summary>
+            Переключатель, позволяющий активировать режим расширенного импорта файлов в IPS.
+            При включении этого режима помимо импорта документов в IPS также будут созданы 
+            объекты, выпускаемые по этим документам (изделия и др).
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.IDBFilesInformationService">
+            <summary>
+            Интерфейс сервиса для получения информации о состояниях файлов объектов IPS в базе данных.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IDBFilesInformationService.GetMasterFileName(System.Int64,System.Boolean)">
+            <summary>
+            Определяет мастер-файл для указанного объекта.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <param name="throwIfNotFound">Следует ли сбрасывать исключение при отсутствии мастер-файла у объекта</param>
+            <returns>Имя файла в относительной форме (так, как оно записано в базе IPS)</returns>
+            <exception cref="T:System.ArgumentException">objectId - Не задан идентификатор версии объекта IPS</exception>
+            <exception cref="T:Intermech.FaultException">У объекта отсутствует мастер-файл или нет атрибута "Файл"</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBFilesInformationService.GetFileNames(System.Int64)">
+            <summary>
+            Возвращает список имен файлов в атрибуте 'Файл' указанного объекта. Значения атрибута, равные DBNULL,
+            игнорируются и в результате выполнения метода не присутствуют.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>Список имен файлов объекта</returns>
+            <exception cref="T:System.ArgumentException">objectId - Не задан идентификатор версии объекта IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBFilesInformationService.GetFileBlobIds(System.Int64)">
+            <summary>
+            Возвращает идентификаторы блобов файлов в атрибуте 'Файл' указанного объекта. Значения атрибута, равные DBNULL,
+            игнорируются и в результате выполнения метода не присутствуют.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>Список пар из имен и идентификаторов блобов файлов</returns>
+            <exception cref="T:System.ArgumentException">objectId - Не задан идентификатор версии объекта IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBFilesInformationService.GetFileTypes(System.Int64)">
+            <summary>
+            Возвращает описания типов файлов в атрибуте 'Файл' указанного объекта. Значения атрибута, равные DBNULL,
+            игнорируются и в результате выполнения метода не присутствуют.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>Список типов файлов</returns>
+            <exception cref="T:System.ArgumentException">objectId - Не задан идентификатор версии объекта IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBFilesInformationService.GetFileStates(System.Int64)">
+            <summary>
+            Возвращает состояния файлов в атрибуте 'Файл' указанного объекта. Значения атрибута, равные DBNULL,
+            игнорируются и в результате выполнения метода не присутствуют.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>Список состояний файлов</returns>
+            <exception cref="T:System.ArgumentException">objectId - Не задан идентификатор версии объекта IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBFilesInformationService.GetFileStates(System.Collections.Generic.IList{Intermech.Files.DBObjectState})">
+            <summary>
+            Возвращает состояния файлов в атрибуте 'Файл' для указанных объектов. Значения атрибута, равные DBNULL,
+            игнорируются и в результате выполнения метода не присутствуют.
+            </summary>
+            <param name="objects">Список описателей версий объектов</param>
+            <returns>Список описателей версий объектов и состояний их файлов</returns>
+            <exception cref="T:ArgumentNullException">objects</exception>
+        </member>
+        <member name="T:Intermech.Files.IDBObjectFilesDifferenceRules">
+            <summary>
+            Интерфейс стратегии для определения изменений в локальных файлах объектов IPS.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectFilesDifferenceRules.CalculateDifference(System.DateTime,Intermech.Files.DBObjectState,Intermech.Files.FileState,Intermech.Files.FileState)">
+            <summary>
+            Определяет наличие или отсутствие изменений в локальном файле объекта IPS, сравнивая локальное и удаленное (remote) состояние файла.
+            </summary>
+            <param name="utcNow">Текущее время в UTC</param>
+            <param name="objectState">Версия объекта IPS, чей файл анализируется</param>
+            <param name="localFileState">Состояние файла на локальном диске. Может быть null, если на диске файл отсутствует, но не одновременно с remoteFileState</param>
+            <param name="remoteFileState">Состояние файла на базе данных. Может быть null, если в базе файл отсутствует, но не одновременно с localFileState</param>
+            <returns>Результат сравнения состояний файлов</returns>
+            <exception cref="T:ArgumentNullException">objectState</exception>
+            <exception cref="T:ArgumentException">аргументы localFileState и remoteFileState одновременно не могут быть равны null</exception>
+        </member>
+        <member name="T:Intermech.Files.IDBObjectsInformationService">
+            <summary>
+            Интерфейс сервиса для получения информации о состояниях объектов IPS в базе данных.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.GetObjectState(System.Int64,System.Boolean)">
+            <summary>
+            Возвращает состояние объекта в базе IPS.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <param name="throwIfNotFound">Признак, нужно ли сбрасывать исключение при отсутствии объекта</param>
+            <returns>Состояние объекта в базе или null, если указанного объекта нет в базе IPS</returns>
+            <exception cref="T:Intermech.KernelException">Указанный объект отсутствует в базе IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.GetObjectState(Intermech.Interfaces.IDBObject)">
+            <summary>
+            Возвращает состояние объекта в базе IPS.
+            </summary>
+            <param name="dbObject">Идентификатор версии объекта</param>
+            <returns>Состояние объекта IPS</returns>
+            <exception cref="T:ArgumentNullException">dbObject</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.CreateStateListForSingleObject(System.Int64)">
+            <summary>
+            Создает список, содержащий один указанный объект. Этот метод используется в случаях, когда требуется опубликовать
+            объект без учета его связей с другими объектами.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>Построенный список состояний объектов</returns>
+            <exception cref="T:Intermech.KernelException">Указанный объект отсутствует в базе IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.CreateStateListForObjectTree(System.Int64,Intermech.Interfaces.VersionsRulePackage)">
+            <summary>
+            Создает список, содержащий указанный объект и все связанные с ним объекты по всем типам связей, для которых настроено
+            извлечение файлов.
+            </summary>
+            <param name="rootObjectId">Идентификатор версии корневого объекта</param>
+            <param name="versionsRule">Правило подбора версий объектов</param>
+            <returns>Построенный список состояний объектов</returns>
+            <exception cref="T:Intermech.KernelException">Указанный объект отсутствует в базе IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.RemoveUnpublishedObjects(System.Collections.Generic.List{Intermech.Files.DBObjectState},Intermech.Files.IFileAreaPublishedObjects)">
+            <summary>
+            Удаляет из списка все объекты, которые не были ранее опубликованы в указанной файловой области.
+            </summary>
+            <param name="list">Список объектов</param>
+            <param name="area">Файловая область</param>
+            <exception cref="T:System.ArgumentNullException">Ссылки на список объектов и файловую область не должны быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.ExtractUnpublishedObjects(System.Collections.Generic.List{Intermech.Files.DBObjectState},Intermech.Files.IFileAreaPublishedObjects)">
+            <summary>
+            Извлекает из списка все объекты, которые не были ранее опубликованы в указанной файловой области.
+            </summary>
+            <param name="list">Список объектов</param>
+            <param name="area">Файловая область</param>
+            <returns>Список с извлеченными неопубликованными объектами</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылки на список объектов и файловую область не должны быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.RemoveDeadObjects(System.Collections.Generic.List{Intermech.Files.DBObjectState})">
+            <summary>
+            Удаляет из списка все мертвые объекты (отсутствующие в базе IPS). Этот метод используется в случаях, когда список
+            построен на основе локальных данных о публикации объектов в файловой области.
+            </summary>
+            <param name="list">Список объектов</param>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список объектов не должна быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.ExtractDeadObjects(System.Collections.Generic.List{Intermech.Files.DBObjectState})">
+            <summary>
+            Извлекает из списка все мертвые объекты (отсутствующие в базе IPS). Этот метод используется в случаях, когда список
+            построен на основе локальных данных о публикации объектов в файловой области.
+            </summary>
+            <param name="list">Список объектов</param>
+            <returns>Список с извлеченными мертвыми объектами</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список объектов не должна быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.FindOutdatedObjects(System.Collections.Generic.List{Intermech.Files.DBObjectFilesDifferences},System.Boolean)">
+            <summary>
+            Позволяет найти объекты IPS, чьи локальные файлы устарели/отсутствуют и, соответственно, требуют замены файлами из базы данных.
+            </summary>
+            <param name="list">Список проверяемых объектов IPS и состояния файлов этих объектов</param>
+            <param name="applyFileFilter">Флаг, включающий отсеивание файлов, не требующих обновления</param>
+            <returns>Список объектов IPS, требующих обновления</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список объектов IPS не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IDBObjectsInformationService.FindUnsavedObjects(System.Collections.Generic.List{Intermech.Files.DBObjectFilesDifferences},System.Boolean)">
+            <summary>
+            Позволяет найти объекты IPS, чьи локальные файлы имеют несохраненные изменения.
+            </summary>
+            <param name="list">Список проверяемых объектов IPS и состояния файлов этих объектов</param>
+            <param name="applyFileFilter">Флаг, включающий отсеивание файлов, не содержащих изменений</param>
+            <returns>Список объектов IPS с несохраненными изменениями</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список объектов IPS не может быть null</exception>
+        </member>
+        <member name="T:Intermech.Files.IFileArea">
+            <summary>
+            Базовый интерфейс файловой области в файловом хранилище пользователя.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.IFileArea.DisplayName">
+            <summary>
+            Возвращает понятное пользователю название файловой области.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.IFileArea.AreaPath">
+            <summary>
+            Возврашает абсолютный путь к каталогу файловой области.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.IFileAreaPublishedObjects">
+            <summary>
+            Дополнительный интерфейс файловой области, позволяющий получать состояния опубликованных объектов.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IFileAreaPublishedObjects.GetPublishedObjects">
+            <summary>
+            Возвращает список объектов, опубликованных в рабочей области.
+            </summary>
+            <returns>Список опубликованных версий объектов</returns>
+        </member>
+        <member name="M:Intermech.Files.IFileAreaPublishedObjects.IsObjectPublished(System.Int64)">
+            <summary>
+            Проверяет публикацию объекта в рабочей области.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>true, если указанная версия объекта опубликована в рабочей области; false - если не опубликована</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор версии объекта</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileAreaPublishedObjects.FindPublishedObjectByVersionId(System.Int64)">
+            <summary>
+            Позволяет найти опубликованный объект по идентификатору версии объекта.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>Состояние опубликованной версии объекта или null, если объект не был опубликован</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор версии объекта</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileAreaPublishedObjects.FindPublishedObjectById(System.Int64)">
+            <summary>
+            Позволяет найти опубликованный объект по идентификатору объекта.
+            </summary>
+            <param name="id">Идентификатор объекта</param>
+            <returns>Состояние опубликованной версии объекта или null, если объект не был опубликован</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор объекта</exception>
+        </member>
+        <member name="T:Intermech.Files.IFileAreas">
+            <summary>
+            Позволяет перечислять файловые области в файловом хранилище пользователя, а также определять принадлежность файлов к различным файловым
+            областям.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IFileAreas.FindArea(System.String)">
+            <summary>
+            Позволяет определить область файлового хранилища, в которой находится указанный файл.
+            </summary>
+            <param name="fullPath">Абсолютный путь к файлу</param>
+            <returns>Объект файловой области. Может быть null, если файл находится вне файлового хранилища</returns>
+            <exception cref="T:System.ArgumentException">Не задан путь к файлу</exception>
+            <exception cref="T:System.InvalidOperationException">Путь к файлу указан не в абсолютной форме</exception>
+        </member>
+        <member name="P:Intermech.Files.IFileAreas.TempArea">
+            <summary>
+            Возвращает объект области для временных файлов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.IFileAreas.CacheArea">
+            <summary>
+            Возвращает объект области для кэшируемых файлов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.IFileAreas.WorkArea">
+            <summary>
+            Возвращает объект рабочей области файлового хранилища.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.IFileAreas.ViewArea">
+            <summary>
+            Возвращает объект области просмотра файлового хранилища.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.IFileAttributeEditorService">
+            <summary>
+            Сервис для определения способа редактирования атрибута "Файл" у объектов IPS.
+            </summary>
+            <remarks>
+            У большинства объектов IPS для редактирования атрибута "Файл" требуется извлечь файлы на локальный диск,
+            передать их внешнему приложению, а затем сохранить изменения в базу данных IPS. Но есть небольшая группа
+            документов, которая редактируется встроенными в IPS средствами без извлечения файлов на диск.
+            Данный сервис позволяет определить требуемый режим редактирования атрибута "Файл" для указанного типа
+            объектов IPS.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Files.IFileAttributeEditorService.HasFileAttribute(System.Int32)">
+            <summary>
+            Проверяет, имеется ли у указанного типа объектов IPS атрибут "Файл".
+            </summary>
+            <param name="objectTypeId">Идентификатор типа объектов IPS</param>
+            <returns>true, если атрибут "Файл" имеется или может быть, false - если такого атрибута нет</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор типа объектов IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileAttributeEditorService.GetFileAttributeEditMode(System.Int32)">
+            <summary>
+            Возвращает для указанного типа объектов IPS способ редактирования атрибута "Файл".
+            </summary>
+            <param name="objectTypeId">Идентификатор типа объектов IPS</param>
+            <returns>Способ редактирования атрибута "Файл" у объектов указанного типа</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор типа объектов IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileAttributeEditorService.GetObjectTypesWithInternalEditMode">
+            <summary>
+            Возвращает коллекцию идентификаторов типов объектов IPS, у которых атрибут "Файл" должен редактироваться в оперативной памяти
+            без извлечения на диск в рабочую область файлового хранилища пользователя.
+            </summary>
+            <returns>Коллекция идентификаторов типов объектов IPS</returns>
+        </member>
+        <member name="T:Intermech.Files.IFileImportService">
+            <summary>
+            Интерфейс службы импорта файлов в базу IPS. Все методы, свойства и события интерфейса являются thread-safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IFileImportService.ImportFile(System.String)">
+            <summary>
+            Выполняет импорт указанного файла в базу IPS. В результате импорта в базе создается новых объект.
+            </summary>
+            <param name="fullPath">Абсолютный путь к импортируемому файлу</param>
+            <returns>Идентификатор версии объекта, созданного в результате импорта файла</returns>
+            <exception cref="T:System.ArgumentException">Параметр <paramref name="fullPath"/> должен быть непустой строкой. Параметр <paramref name="fullPath"/> должен содержать путь в абсолютной форме.</exception>
+            <exception cref="T:System.Exception">Ошибка в процессе импорта файла</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileImportService.ImportFile(System.String,Intermech.Files.FileImportOptions)">
+            <summary>
+            Выполняет импорт указанного файла в базу IPS. В результате импорта в базе создается новых объект.
+            </summary>
+            <param name="fullPath">Абсолютный путь к импортируемому файлу</param>
+            <param name="importOptions">Опции импорта файла</param>
+            <returns>Результат импорта файла</returns>
+            <exception cref="T:System.ArgumentException">Параметр <paramref name="fullPath"/> должен быть непустой строкой. Параметр <paramref name="fullPath"/> должен содержать путь в абсолютной форме.</exception>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="importOptions"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileImportService.BatchImport(System.Collections.Generic.ICollection{System.String},System.Action{System.Int64})">
+            <summary>
+            Выполняет пакетный импорт файлов в базу IPS.
+            </summary>
+            <param name="files">Список абсолютных путей к импортируемым файлам</param>
+            <param name="postProcess">Метод для пост-обработки каждого импортированного объекта. Может быть null</param>
+            <exception cref="T:System.ArgumentException">Ошибка в списке путей к импортируемым файлам</exception>
+            <exception cref="T:Intermech.FaultException">Файл не может быть импортирован</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileImportService.BatchImport(System.String,System.String,System.Action{System.Int64})">
+            <summary>
+            Выполняет пакетный импорт файлов в базу IPS.
+            </summary>
+            <param name="importTitle">Заголовок окна для выбора импортируемых файлов</param>
+            <param name="initialDirectory">Начальный каталог для окна выбора импортируемых файлов</param>
+            <param name="postProcess">Метод для пост-обработки каждого импортированного объекта. Может быть null</param>
+            <exception cref="T:System.ArgumentException">Не задан заголовок или начальный каталог для окна выбора файлов</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">Начальный каталог для окна выбора файлов не найден на диске</exception>
+            <exception cref="T:Intermech.FaultException">Файл не может быть импортирован</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileImportService.ImportFiles(System.Collections.Generic.ICollection{System.String},Intermech.Files.BatchFileImportOptions)">
+            <summary>
+            Выполняет пакетный импорт файлов в базу IPS.
+            </summary>
+            <param name="files">Список абсолютных путей к импортируемым файлам</param>
+            <param name="batchImportOptions">Опции импорта файлов</param>
+            <returns>Коллекция с результатами импорта файлов</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="files"/> не должен быть равен null. Параметр <paramref name="batchImportOptions"/> не должен быть равен null.</exception>
+            <exception cref="T:System.ArgumentException">Параметр <paramref name="files"/> содержит недопустимые значения</exception>
+            <exception cref="T:System.Exception">Ошибка в процессе импорта файла</exception>
+        </member>
+        <member name="E:Intermech.Files.IFileImportService.FileProbe">
+            <summary>
+            Событие для подключения специализированных методов импорта файлов. Оно вызывается для каждого импортируемого файла.
+            </summary>
+        </member>
+        <member name="E:Intermech.Files.IFileImportService.FallbackProbe">
+            <summary>
+            Событие для подключения методов импорта файлов, используемых при отсутствии специализированных методов импорта.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.IFileVault">
+            <summary>
+            Файловый сервис IPS. Он предназначен для публикации файлов объектов в файловом хранилище пользователя.
+            Все методы этого интерфейса являются thread-safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.GetObjectState(System.Int64,System.Boolean)">
+            <summary>
+            Возвращает состояние объекта в базе IPS.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <param name="throwIfNotFound">Признак, нужно ли сбрасывать исключение при отсутствии объекта</param>
+            <returns>Состояние объекта в базе или null, если указанного объекта нет в базе IPS</returns>
+            <exception cref="T:Intermech.KernelException">Указанный объект отсутствует в базе IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.GetObjectFileNames(System.Int64)">
+            <summary>
+            Возвращает список имен файлов в атрибуте 'Файл' указанного объекта. Значения атрибута, равные DBNULL,
+            игнорируются и в результате выполнения метода не присутствуют.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>Список имен файлов объекта</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор версии объекта</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.GetObjectFileStates(System.Int64)">
+            <summary>
+            Возвращает состояния файлов в атрибуте 'Файл' указанного объекта. Значения атрибута, равные DBNULL,
+            игнорируются и в результате выполнения метода не присутствуют.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>Список состояний файлов</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор версии объекта</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.GetObjectMasterFile(System.Int64,System.Boolean)">
+            <summary>
+            Определяет мастер-файл для указанного объекта.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <param name="throwIfNotFound">Следует ли сбрасывать исключение при отсутствии мастер-файла у объекта</param>
+            <returns>Имя файла в относительной форме (так, как оно записано в базе IPS)</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор версии объекта</exception>
+            <exception cref="T:Intermech.FaultException">У объекта отсутствует мастер-файл или нет атрибута "Файл"</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.CreateStateListForSingleObject(System.Int64)">
+            <summary>
+            Создает список, содержащий один указанный объект. Этот метод используется в случаях, когда требуется опубликовать
+            объект без учета его связей с другими объектами.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>Построенный список состояний объектов</returns>
+            <exception cref="T:Intermech.KernelException">Указанный объект отсутствует в базе IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.CreateStateListForDocumentTree(System.Int64,Intermech.Interfaces.VersionsRulePackage)">
+            <summary>
+            Создает список, содержащий указанный объект и все связанные с ним объекты по всем типам связей, для которых настроено
+            извлечение файлов.
+            </summary>
+            <param name="rootObjectId">Идентификатор версии корневого объекта</param>
+            <param name="versionsRule">Правило подбора версий объектов</param>
+            <returns>Построенный список состояний объектов</returns>
+            <exception cref="T:Intermech.KernelException">Указанный объект отсутствует в базе IPS</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.RemoveUnpublishedObjects(System.Collections.Generic.List{Intermech.Files.DBObjectState},Intermech.Files.IFileAreaPublishedObjects)">
+            <summary>
+            Удаляет из списка все объекты, которые не были ранее опубликованы в указанной файловой области.
+            </summary>
+            <param name="list">Список объектов</param>
+            <param name="area">Файловая область</param>
+            <exception cref="T:System.ArgumentNullException">Ссылки на список объектов и файловую область не должны быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.ExtractUnpublishedObjects(System.Collections.Generic.List{Intermech.Files.DBObjectState},Intermech.Files.IFileAreaPublishedObjects)">
+            <summary>
+            Извлекает из списка все объекты, которые не были ранее опубликованы в указанной файловой области.
+            </summary>
+            <param name="list">Список объектов</param>
+            <param name="area">Файловая область</param>
+            <returns>Список с извлеченными неопубликованными объектами</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылки на список объектов и файловую область не должны быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.RemoveDeadObjects(System.Collections.Generic.List{Intermech.Files.DBObjectState})">
+            <summary>
+            Удаляет из списка все мертвые объекты (отсутствующие в базе IPS). Этот метод используется в случаях, когда список
+            построен на основе локальных данных о публикации объектов в файловой области.
+            </summary>
+            <param name="list">Список объектов</param>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список объектов не должна быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.ExtractDeadObjects(System.Collections.Generic.List{Intermech.Files.DBObjectState})">
+            <summary>
+            Извлекает из списка все мертвые объекты (отсутствующие в базе IPS). Этот метод используется в случаях, когда список
+            построен на основе локальных данных о публикации объектов в файловой области.
+            </summary>
+            <param name="list">Список объектов</param>
+            <returns>Список с извлеченными мертвыми объектами</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список объектов не должна быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.PublishTree(System.Int64,System.String,Intermech.Interfaces.VersionsRulePackage,Intermech.Files.IFileArea)">
+            <summary>
+            Публикует заданный объект и все объекты, связанные с ним, в указанной области файлового хранилища.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <param name="fileName">Имя файла в относительной форме (так, как оно записано в базе IPS)</param>
+            <param name="versionsRule">Правило подбора версий</param>
+            <param name="fileArea">Область файлового хранилища, в которой следует опубликовать объект</param>
+            <returns>Абсолютный путь к файлу объекта после публикации</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор объекта или имя файла</exception>
+            <exception cref="T:System.ArgumentNullException">Не задано правило подбора версий или область файлового хранилища</exception>
+        </member>
+        <member name="M:Intermech.Files.IFileVault.PublishTree(System.Int64,System.Boolean,Intermech.Interfaces.VersionsRulePackage,Intermech.Files.IFileArea)">
+            <summary>
+            Публикует заданный объект и все объекты, связанные с ним, в указанной области файлового хранилища.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <param name="throwIfNoMasterFile">Следует ли сбрасывать исключение при отсутствии мастер-файла у объекта</param>
+            <param name="versionsRule">Правило подбора версий</param>
+            <param name="fileArea">Область файлового хранилища, в которой следует опубликовать объект</param>
+            <returns>Абсолютный путь к мастер-файлу объекта после публикации. Может быть null, если у объекта нет мастер-файла или атрибута "Файл"</returns>
+            <exception cref="T:System.ArgumentException">Не задан идентификатор объекта или имя файла</exception>
+            <exception cref="T:System.ArgumentNullException">Не задано правило подбора версий или область файлового хранилища</exception>
+            <exception cref="T:Intermech.FaultException">У объекта отсутствует мастер-файл или нет атрибута "Файл"</exception>
+        </member>
+        <member name="P:Intermech.Files.IFileVault.DBObjectsInfo">
+            <summary>
+            Возвращает сервис для получения информации о состоянии объектов IPS в базе данных.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.IFileVault.DBFilesInfo">
+            <summary>
+            Возвращает сервис для получения информации о состоянии файлов объектов IPS в базе данных.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.IFileVault.ReadOnlyLocalFiles">
+            <summary>
+            Возвращает менеджер операций с атрибутом read-only для локальных файлов объектов IPS.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.IOpenFiles">
+            <summary>
+            Позволяет взаимодействовать с файлами, открытыми во внешних приложениях.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IOpenFiles.IsOpen(System.String)">
+            <summary>
+            Возвращает true, если указанный файл открыт в каком-либо приложении.
+            </summary>
+            <param name="filePath">Путь к файлу</param>
+            <returns>Признак того, что файл открыт в приложении</returns>
+            <exception cref="T:System.ArgumentNullException">Путь к файлу не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IOpenFiles.IsDirty(System.String)">
+            <summary>
+            Возвращает true, если указанный файл открыт в каком-либо приложении и имеет несохраненные изменения.
+            </summary>
+            <param name="filePath">Путь к файлу</param>
+            <returns>Признак того, что файл имеет несохраненные изменения</returns>
+            <exception cref="T:System.ArgumentNullException">Путь к файлу не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IOpenFiles.Save(System.String)">
+            <summary>
+            Сохраняет на диск имеющиеся изменения в файле.
+            </summary>
+            <param name="filePath">Путь к файлу</param>
+            <exception cref="T:System.ArgumentNullException">Путь к файлу не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IOpenFiles.SetReadOnlyFlag(System.String,System.Boolean)">
+            <summary>
+            Управляет возможностью внесения изменений в документ.
+            </summary>
+            <param name="filePath">Путь к файлу, открытому в приложении</param>
+            <param name="readOnlyFlag">Значение флага</param>
+        </member>
+        <member name="M:Intermech.Files.IOpenFiles.IsReloadable(System.String)">
+            <summary>
+            Проверяет, поддерживается ли перезагрузка октрытого файла без его предварительного закрытия. Если файл не открыт, то метод вернет false.
+            </summary>
+            <param name="filePath">Путь к файлу</param>
+            <returns>Признак, что поддерживается перезагрузка октрытого файла без его предварительного закрытия</returns>
+            <exception cref="T:System.ArgumentNullException">Путь к файлу не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IOpenFiles.Reload(System.String)">
+            <summary>
+            Выполняет перезагрузку открытого файла без его предварительного закрытия.
+            </summary>
+            <param name="filePath">Путь к файлу</param>
+            <exception cref="T:System.ArgumentNullException">Путь к файлу не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IOpenFiles.Unload(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Выгружает из приложений все документы, которые используют указанные файлы. Все несохраненные изменения будут потеряны.
+            </summary>
+            <param name="fileList">Список путей к файлам, которые должны быть освобождены приложениями</param>
+            <returns>Объект с информацией для переоткрытия закрытых документов. Может быть null, если ни один документ не был закрыт</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список файлов не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IOpenFiles.UnloadAll">
+            <summary>
+            Выгружает все открытые в приложениях документы. Все несохраненные изменения будут потеряны.
+            </summary>
+            <returns>Объект с информацией для переоткрытия закрытых документов. Может быть null, если ни один документ не был закрыт</returns>
+        </member>
+        <member name="M:Intermech.Files.IOpenFiles.Reload(System.Object)">
+            <summary>
+            Переоткрывает закрытые ранее документы.
+            </summary>
+            <param name="reloadState">Объект состояния с информацией для переоткрытия документов</param>
+        </member>
+        <member name="T:Intermech.Files.IOpenFilesService">
+            <summary>
+            Сервис открытых файлов. Позволяет определить, какие файлы объектов IPS открыты в различных
+            приложениях, какие из этих файлов имеют несохраненные изменения, а также позволяет
+            закрыть и переоткрыть определенные файлы объектов. Все методы сервиса являются thread-safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IOpenFilesService.RegisterExtension(Intermech.Files.IOpenFilesServiceExtension)">
+            <summary>
+            Регистрирует расширение сервиса.
+            </summary>
+            <param name="extension">Объект расширения</param>
+            <exception cref="T:System.ArgumentNullException">Ссылка на объект расширения не может быть null</exception>
+            <exception cref="T:System.ArgumentException">Повторная регистрация расширения недопустима</exception>
+        </member>
+        <member name="M:Intermech.Files.IOpenFilesService.UnregisterExtension(Intermech.Files.IOpenFilesServiceExtension)">
+            <summary>
+            Отменяет регистрацию расширения сервиса.
+            </summary>
+            <param name="extension">Объект расширения</param>
+            <exception cref="T:System.ArgumentNullException">Ссылка на объект расширения не может быть null</exception>
+        </member>
+        <member name="T:Intermech.Files.IOpenFilesServiceExtension">
+            <summary>
+            Позволяет реализовать расширение сервиса открытых файлов. Посредством таких расширений сервис
+            взаимодействует с конкретными приложениями. Реализация этого интерфейса должна быть thread-safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.IReadOnlyLocalFilesManager">
+            <summary>
+            Интерфейс менеджера операций с атрибутом read-only для локальных файлов объектов IPS.
+            Реализация должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IReadOnlyLocalFilesManager.CanControlAttribute(Intermech.Files.DBObjectState,System.Collections.Generic.IDictionary{System.Object,System.Object},System.String,System.String)">
+            <summary>
+            Позволяет определить, можно ли управлять атрибутом read-only для указанного файла объекта IPS.
+            </summary>
+            <param name="dbObject">Описатель объекта IPS, которому принадлежит файл</param>
+            <param name="dbObjectContext">Контекст объекта IPS, позволяющий связать обработку всех файлов объекта в единую операцию</param>
+            <param name="relativeFilePath">Путь к файлу, как он записан в атрибуте объекта IPS</param>
+            <param name="localFilePath">Путь к файлу объекта IPS на локальном диске</param>
+            <returns>Признак возможности управления атрибутом read-only для локального файла объекта IPS</returns>
+            <exception cref="T:ArgumentNullException">dbObject || dbObjectContext || relativeFilePath || localFilePath</exception>
+            <exception cref="T:ArgumentException">relativeFilePath || localFilePath: не задан путь к файлу</exception>
+        </member>
+        <member name="M:Intermech.Files.IReadOnlyLocalFilesManager.CalculateAttribute(Intermech.Files.DBObjectState,System.Collections.Generic.IDictionary{System.Object,System.Object},System.String,System.String)">
+            <summary>
+            Определяет значение атрибута read-only для указанного файла объекта IPS с учетом возможного запрета на управление этим атрибутом файла.
+            </summary>
+            <param name="dbObject">Описатель объекта IPS, которому принадлежит файл</param>
+            <param name="dbObjectContext">Контекст объекта IPS, позволяющий связать обработку всех файлов объекта в единую операцию</param>
+            <param name="relativeFilePath">Путь к файлу, как он записан в атрибуте объекта IPS</param>
+            <param name="localFilePath">Путь к файлу объекта IPS на локальном диске</param>
+            <returns>Значение атрибута read-only для указанного файла</returns>
+            <exception cref="T:ArgumentNullException">dbObject || dbObjectContext || relativeFilePath || localFilePath</exception>
+            <exception cref="T:ArgumentException">relativeFilePath || localFilePath: не задан путь к файлу</exception>
+        </member>
+        <member name="E:Intermech.Files.IReadOnlyLocalFilesManager.CanControlAttributeEvent">
+            <summary>
+            Событие для определения, можно ли управлять атрибутом read-only для указанного файла.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.IReplaceFilePolicy">
+            <summary>
+            Позволяет реализовать политику перезаписи файлов объекта содержимым из базы IPS. Политика применяется к
+            локальным файлам, которые являются более свежими по сравнению с файлами объекта в базе IPS. Как правило,
+            такая ситуация имеет место, если пользователь редактирует файлы в обход IPS.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IReplaceFilePolicy.Apply(Intermech.Files.IWorkArea,Intermech.Files.DBObjectState,Intermech.Files.DBObjectState,System.Collections.Generic.List{Intermech.Files.FileDifferencePair})">
+            <summary>
+            Применяет политику.
+            </summary>
+            <param name="workArea">Ссылка на объект рабочей области файлового хранилища</param>
+            <param name="dbObject">Состояние объекта в базе IPS</param>
+            <param name="workObject">Состояние объекта в рабочей области</param>
+            <param name="askUserPairs">Пары состояний файлов, к которым применяется политика</param>
+            <returns>Список пар состояний файлов после применения политики</returns>
+        </member>
+        <member name="T:Intermech.Files.ITempArea">
+            <summary>
+            Область для временных файлов в файловом хранилище пользователя. Все методы интерфейса являются thread-safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.ITempArea.GetRandomFileName">
+            <summary>
+            Генерирует и возвращает случайное имя для папки или файла.
+            </summary>
+            <returns>Случайное имя для папки или файла</returns>
+        </member>
+        <member name="M:Intermech.Files.ITempArea.GetTempFileName">
+            <summary>
+            Создает новый файл нулевой длины со случайным именем и возвращает абсолютный путь к этому файлу.
+            </summary>
+            <returns>Абсолютный путь к временному файлу со случайным именем</returns>
+        </member>
+        <member name="T:Intermech.Files.IViewArea">
+            <summary>
+            Область просмотра в файловом хранилище пользователя. Все методы интерфейса являются thread-safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IViewArea.Publish(System.Collections.Generic.IList{Intermech.Files.DBObjectState})">
+            <summary>
+            Публикует список объектов в области просмотра файлового хранилища.
+            </summary>
+            <param name="objectList">Список версий публикуемых объектов</param>
+            <returns>Описатель головного объекта после публикации</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список версий объектов не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IViewArea.Cleanup">
+            <summary>
+            Очищает область просмотра.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.IWorkArea">
+            <summary>
+            Рабочая область в файловом хранилище пользователя. Все методы интерфейса являются thread-safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.Publish(System.Collections.Generic.IList{Intermech.Files.DBObjectState},Intermech.Files.IReplaceFilePolicy)">
+            <summary>
+            Публикует/обновляет список объектов в рабочей области файлового хранилища.
+            </summary>
+            <param name="objectList">Список версий публикуемых объектов</param>
+            <param name="replaceFilePolicy">Политика перезаписи существующих в рабочей области файлов</param>
+            <returns>Статистика по файловым операциям в рабочей области</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список версий объектов и политику перезаписи файлов не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.FindOutdatedObjects(System.Collections.Generic.List{Intermech.Files.DBObjectFilesDifferences},System.Boolean)">
+            <summary>
+            Позволяет найти опубликованные объекты, требующие обновления.
+            </summary>
+            <param name="list">Список проверяемых объектов и состояния файлов этих объектов</param>
+            <param name="applyFileFilter">Флаг, включающий отсеивание файлов, не требующих обновления</param>
+            <returns>Список объектов, требующих обновления</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список объектов не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.Attach(System.Int64)">
+            <summary>
+            Включает в рабочую область объект, который был импортирован в IPS. 
+            </summary>
+            <param name="objectId">Идентификатор версиb импортированного объекта</param>
+            <exception cref="T:System.ArgumentException">Идентификатор версии объекта не задан</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.Attach(System.Collections.Generic.IList{System.Int64})">
+            <summary>
+            Включает в рабочую область объекты, которые были импортированы в IPS.
+            </summary>
+            <param name="objectList">Список идентификаторов версий импортированных объектов</param>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список версий объектов не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.Unpublish(System.Int64)">
+            <summary>
+            Отменяет публикацию объекта в рабочей области и удаляет его файлы с диска.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <exception cref="T:System.ArgumentException">Идентификатор версии объекта не задан</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.Unpublish(System.Collections.Generic.IList{System.Int64})">
+            <summary>
+            Отменяет для указанных объектов публикацию в рабочей области файлового хранилища и удаляет их файлы с диска.
+            </summary>
+            <param name="objectList">Список идентификаторов версий объектов</param>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список идентификаторов не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.FindUnsavedObjects(System.Collections.Generic.List{Intermech.Files.DBObjectFilesDifferences},System.Boolean)">
+            <summary>
+            Позволяет найти опубликованные объекты, имеющие несохраненные изменения.
+            </summary>
+            <param name="list">Список проверяемых объектов и состояния файлов этих объектов</param>
+            <param name="applyFileFilter">Флаг, включающий отсеивание файлов, не содержащих изменений</param>
+            <returns>Список объектов с несохраненными изменениями</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список объектов не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.Save(System.Int64)">
+            <summary>
+            Выполняет быстрое сохранение в базу IPS указанного объекта. Если указанный объект не мог быть
+            изменен или отсутствует в базе IPS, то метод ничего не делает, исключение при этом не сбрасывается.
+            </summary>
+            <param name="objectId">Идентификатор версии объекта</param>
+            <returns>true, если быстрое сохранение в базу IPS действительно выполнялось, иначе - false</returns>
+            <exception cref="T:System.ArgumentException">Идентификатор версии объекта не задан</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.Save(System.Collections.Generic.List{Intermech.Files.DBObjectFilesDifferences})">
+            <summary>
+            Выполняет быстрое сохранение в базу IPS указанных объектов. Список объектов должен быть получен с помощью метода FindUnsavedObjects.
+            </summary>
+            <param name="objectList">Список сохраняемых объектов</param>
+            <returns>Возвращает количество объектов, для которых было выполнено сохранение файлов в базу IPS</returns>
+            <exception cref="T:System.ArgumentNullException">Ссылка на список объектов не может быть null</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.GetPublishedObjects(System.DateTime)">
+            <summary>
+            Возвращает список объектов, опубликованных в рабочей области и не использовавшихся с указанной даты.
+            </summary>
+            <param name="noUseSinceDate">Дата в UTC</param>
+            <returns>Список опубликованных версий объектов</returns>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.GetFileOrigin(System.String,System.Boolean)">
+            <summary>
+            Позволяет определить происхождение файла в рабочей области.
+            </summary>
+            <param name="fileName">Путь и имя файла</param>
+            <param name="isRelativeName">Признак, что путь к файлу задан в относительной форме</param>
+            <returns>Найденные сведения о происхождении файла</returns>
+            <exception cref="T:System.ArgumentException">Не задан путь к файлу</exception>
+            <exception cref="T:System.InvalidOperationException">Путь к файлу указан не в абсолютной форме</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.GetFileOrigins(System.Collections.Generic.IList{System.String},System.Boolean)">
+            <summary>
+            Позволяет определить происхождение указанных файлов в рабочей области.
+            </summary>
+            <param name="fileNames">Коллекция путей и имен файлов</param>
+            <param name="isRelativeNames">Признак, что пути к файлам заданы в относительной форме</param>
+            <returns>Найденные сведения о происхождении файлов</returns>
+            <exception cref="T:System.ArgumentException">Не задан путь к файлу</exception>
+            <exception cref="T:System.InvalidOperationException">Путь к файлу указан не в абсолютной форме</exception>
+        </member>
+        <member name="M:Intermech.Files.IWorkArea.CreateObjectFilesDifferenceCalculator(System.Int32)">
+            <summary>
+            Создает объект для определения изменений в локальных файлах объектов IPS.
+            </summary>
+            <param name="objectCapacity">Начальная емкость коллекции объектов IPS</param>
+            <returns>Специализированный объект для пакетного определения изменений в локальных файлах объектов IPS</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">objectCapacity</exception>
+        </member>
+        <member name="P:Intermech.Files.IWorkArea.FileTracker">
+            <summary>
+            Возвращает трекер состояний файлов в рабочей области.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.ReadOnlyLocalFilesManager">
+            <summary>
+            Реализует менеджер операций с атрибутом read-only для локальных файлов объектов IPS. Реализация является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.ReadOnlyLocalFilesManager.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="M:Intermech.Files.ReadOnlyLocalFilesManager.CanControlAttribute(Intermech.Files.DBObjectState,System.Collections.Generic.IDictionary{System.Object,System.Object},System.String,System.String)">
+            <summary>
+            Позволяет определить, можно ли управлять атрибутом read-only для указанного файла объекта IPS.
+            </summary>
+            <param name="dbObject">Описатель объекта IPS, которому принадлежит файл</param>
+            <param name="dbObjectContext">Контекст объекта IPS, позволяющий связать обработку всех файлов объекта в единую операцию</param>
+            <param name="relativeFilePath">Путь к файлу, как он записан в атрибуте объекта IPS</param>
+            <param name="localFilePath">Путь к файлу объекта IPS на локальном диске</param>
+            <returns>Признак возможности управления атрибутом read-only для локального файла объекта IPS</returns>
+            <exception cref="T:ArgumentNullException">dbObject || dbObjectContext || relativeFilePath || localFilePath</exception>
+            <exception cref="T:ArgumentException">relativeFilePath || localFilePath: не задан путь к файлу</exception>
+        </member>
+        <member name="M:Intermech.Files.ReadOnlyLocalFilesManager.CalculateAttribute(Intermech.Files.DBObjectState,System.Collections.Generic.IDictionary{System.Object,System.Object},System.String,System.String)">
+            <summary>
+            Определяет значение атрибута read-only для указанного файла объекта IPS с учетом возможного запрета на управление этим атрибутом файла.
+            </summary>
+            <param name="dbObject">Описатель объекта IPS, которому принадлежит файл</param>
+            <param name="dbObjectContext">Контекст объекта IPS, позволяющий связать обработку всех файлов объекта в единую операцию</param>
+            <param name="relativeFilePath">Путь к файлу, как он записан в атрибуте объекта IPS</param>
+            <param name="localFilePath">Путь к файлу объекта IPS на локальном диске</param>
+            <returns>Значение атрибута read-only для указанного файла</returns>
+            <exception cref="T:ArgumentNullException">dbObject || dbObjectContext || relativeFilePath || localFilePath</exception>
+            <exception cref="T:ArgumentException">relativeFilePath || localFilePath: не задан путь к файлу</exception>
+        </member>
+        <member name="E:Intermech.Files.ReadOnlyLocalFilesManager.CanControlAttributeEvent">
+            <summary>
+            Событие для определения, можно ли управлять атрибутом read-only для указанного файла.
+            </summary>
+        </member>
+        <member name="T:Intermech.Files.WorkAreaUpdateStats">
+            <summary>
+            Содержит статистику по выполненным файловым операциям в процессе обновления рабочей области
+            файлового хранилища.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.WorkAreaUpdateStats.HasDBUpdates">
+            <summary>
+            Возвращает true, если в рабочей области есть новые/обновленные файлы.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.WorkAreaUpdateStats.DownloadedFiles">
+            <summary>
+            Возвращает количество файлов, извлеченных из базы IPS в рабочую область файлового хранилища.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.WorkAreaUpdateStats.RefreshedFiles">
+            <summary>
+            Возвращает количество файлов в рабочей области файлового хранилища, чье содержимое было обновлено из базы IPS.
+            </summary>
+        </member>
+        <member name="P:Intermech.Files.WorkAreaUpdateStats.ReloadedFiles">
+            <summary>
+            Возвращает количество переоткрытых файлов, чье содержимое было обновлено из базы IPS.
+            </summary>
+        </member>
+    </members>
+</doc>

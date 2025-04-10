@@ -1,0 +1,1195 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Office.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Office.Interfaces.IDBResolution">
+            <summary>Интерфейс поручения</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.Name">
+            <summary>Наименование поручения</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.AuthorID">
+            <summary>Идентификатор автора поручения (редактируется вручную, не тоже самое, что создатель поручения)</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.IsControlResolution">
+            <summary>Является ли поручение контрольным</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.ControllerID">
+            <summary>Идентификатор контролёра</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.ExecutorIDs">
+            <summary>Идентификаторы исполнителей</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.OfficeDocumentObjVerID">
+            <summary>Идентификатор версии канцелярского документа, по которому выпущено поручение</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.IsPrivate">
+            <summary>Является ли поручение конфиденциальным</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.ProgressReportRecords">
+            <summary>Записи об отчётах о прогрессе исполнения поручения</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.RegistrationDate">
+            <summary>Дата регистрации</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.ResolutionExecutionType">
+            <summary>Атрибут "Исполнение поручения" значение которого определяет как будет исполняться поручение - последовательно или параллельно</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.ResponseUserID">
+            <summary>Идентификатор отвечающего исполнителя</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.PlannedDate">
+            <summary>Плановая дата исполнения</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.ResolutionText">
+            <summary>Текст поручения</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.ActualDate">
+            <summary>Фактическая дата исполнения</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.ControlDate">
+            <summary>Дата контроля</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IDBResolution.ContextInfo">
+            <summary>Информация о канцелярской входимости поручения</summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IDBResolution.IsUserAnyOfRoles(System.Int64,Intermech.Office.Interfaces.ResolutionUserRoles)">
+            <summary>Проверка, приходится ли пользователь кем-то для поручения</summary>
+            <param name="userID">Идентификатор пользователя</param>
+            <param name="resolutionUserRoles">Список ролей, принадлежность которым проверяется</param>
+            <returns>true если пользователь выступает в любой из переданных ролей, иначе false</returns>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IDBResolution.IsUserAnyOfRoles(Intermech.Office.Interfaces.ResolutionUserRoles)">
+            <summary>Проверка, приходится ли текущий пользователь кем-то для поручения</summary>
+            <param name="resolutionUserRoles">Список ролей, принадлежность которым проверяется</param>
+            <returns>true если текущий пользователь выступает в любой из переданных ролей, иначе false</returns>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IDBResolution.Run">
+            <summary>Рассылка поручения по соотв. ему маршруту workflow</summary>
+            <remarks>Вызов имеет смысл только для незапущенных ещё поручений, находящихся на этапе ЖЦ "Создание", например которые были созданы с атрибутом "Отложенное поручение"=True</remarks>
+            <exception cref="T:System.Exception">Thrown when an exception error condition occurs.</exception>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.OfficeHelper">
+            <summary>Набор вспомогательных статических методов</summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.OfficeHelper.GetResolutionContextInfo(Intermech.Interfaces.IUserSession,System.Int64,System.Int64,Intermech.Interfaces.IDBRelationCollection)">
+            <summary>Получить идентификатор канцелярской связи, по которой поручение либо принадлежит документ (для корневых поручений), либо
+                     входит в другое поручение</summary>
+            <param name="session">Пользовательская сессия</param>
+            <param name="resolutionObjectVersionID">Идентификатор версии поручения</param>
+            <param name="resolutionObjectID">Идентификатор объекта (!!! НЕ ВЕРСИИ !!!) поручения, если он известен</param>
+            <param name="relColl"></param>
+            <returns>Идентификатор связи</returns>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.OfficeHelper.GetOfficeDoc(Intermech.Interfaces.IUserSession,Intermech.Interfaces.IDBRelationCollection,System.Int32,System.Int64,System.Int64)">
+            <summary>Получить интерфейс документа, которому принадлежит поручение. Работает рекурсивно, то есть для вложенных поручений "докопается" до корневого, а потом и документа</summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.OfficeHelper.FindOfficeDocument(Intermech.Interfaces.IUserSession,System.Int64)">
+            <summary>Функция возвращает канцелярский документ для поручения.</summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.IOfficeDocumentTypeService">
+            <summary>
+            Сервис канцелярских документов
+            </summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeDocumentTypeService.GetSettings(System.Guid,System.Int32)">
+            <summary>Вернуть настройки типа документов.</summary>
+            <param name="sessionGuid">Глобальный идентификатор пользовательской сессии.</param>
+            <param name="documentType">тип документа.</param>
+            <returns>The settings.</returns>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeDocumentTypeService.SetSettings(System.Guid,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypeSettings)">
+            <summary>Установить настройки типа документов.</summary>
+            <param name="sessionGuid">Глобальный идентификатор пользовательской сессии.</param>
+            <param name="documentType">тип документа.</param>
+            <param name="settings">настройки.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeDocumentTypeService.GetOwnResetModes(System.Guid)">
+            <summary>Вернуть режимы обнуления счетчиков для всех документов.</summary>
+            <param name="sessionGuid">Глобальный идентификатор пользовательской сессии.</param>
+            <returns>The own reset modes.</returns>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeDocumentTypeService.SetOwnResetModes(System.Guid,System.Collections.Generic.Dictionary{Intermech.Office.Interfaces.OfficeDocumentTypes,Intermech.Office.Interfaces.CountResetTypes})">
+            <summary>Сохранить режимы обнуления счетчиков для всех документов.</summary>
+            <param name="sessionGuid">Глобальный идентификатор пользовательской сессии.</param>
+            <param name="resetTypes">Режимы обнуления счетчиков для всех документов.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeDocumentTypeService.GetTypeSettingsForUnit(System.Int64)">
+            <summary>Вернуть настройки канцелярских типов документов для канцелярии подразделении.</summary>
+            <param name="unitID">Идентификатор подразделения.</param>
+            <returns>При отсутствии настроек вернется null.</returns>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeDocumentTypeService.SetTypeSettingsForUnit(System.Int64,System.Collections.Generic.Dictionary{System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypeSettingsForUnit})">
+            <summary>Установить настройки канцелярских типов документов для канцелярии подразделении.</summary>
+            <param name="unitID">Идентификатор подразделения.</param>
+            <param name="settings">настройки.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeDocumentTypeService.GetSettings(System.Int64,System.Int32)">
+            <summary>Вернуть настройки типа документов для подразделения.</summary>
+            <param name="unitID">Идентификатор подразделения.</param>
+            <param name="documentType">Тип документа.</param>
+            <returns>The settings.</returns>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.OrderProcessTemplates">
+            <summary>Шаблоны поручений.</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OrderProcessTemplates.Control">
+            <summary>Шаблон процесса для контрольного поручения.</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OrderProcessTemplates.NoControl">
+            <summary>Шаблон процесса для неконтрольного поручения.</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OrderProcessTemplates.SuccessiveControl">
+            <summary>Шаблон процесса для контрольного поручения.</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OrderProcessTemplates.SuccessiveNoControl">
+            <summary>Шаблон процесса для неконтрольного поручения.</summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.OfficeDocumentTypeSettings">
+            <summary>Канцелярские настройки для документа.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeDocumentTypeSettings.EnableTypes">
+            <summary>Допустимые виды канцелярского документа.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeDocumentTypeSettings.Templates">
+            <summary>Шаблоны автоматической генерации регистрационного номера.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeDocumentTypeSettings.EnableEmptyRegNumbers">
+            <summary>Флаги определяющие возможность пустого значения в регистрационном номере.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeDocumentTypeSettings.ProcessTemplates">
+            <summary>Шаблоны поручений.</summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.OfficeDocumentTypeSettings.#ctor(Intermech.Office.Interfaces.OfficeDocumentTypes[],System.Collections.Generic.Dictionary{Intermech.Office.Interfaces.OfficeDocumentTypes,Intermech.Office.Interfaces.RegNumberSettings},System.Collections.Generic.Dictionary{Intermech.Office.Interfaces.OfficeDocumentTypes,System.Boolean},Intermech.Office.Interfaces.OrderProcessTemplates)">
+            <summary>Конструктор.</summary>
+            <param name="enableTypes">Допустимые виды канцелярского документа.</param>
+            <param name="templates">Шаблоны автоматической генерации регистрационного номера.</param>
+            <param name="enableEmptyRegNumbers">Флаги определяющие возможность пустого значения в регистрационном номере.</param>
+            <param name="processTemplates">Шаблоны поручений.</param>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.OfficeDocumentTypeSettingsForUnit">
+            <summary>Настройки типа канцелярского документа для конкретного подразделения.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeDocumentTypeSettingsForUnit.Templates">
+            <summary>Шаблоны автоматической генерации регистрационного номера.</summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.OfficeDocumentTypeSettingsForUnit.#ctor(System.Collections.Generic.Dictionary{Intermech.Office.Interfaces.OfficeDocumentTypes,Intermech.Office.Interfaces.RegNumberSettings})">
+            <summary>Создать объект.</summary>
+            <param name="templates">Шаблоны автоматической генерации регистрационного номера.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.OfficeDocumentTypeSettingsForUnit.#ctor(System.ValueTuple{Intermech.Office.Interfaces.OfficeDocumentTypes,Intermech.Office.Interfaces.RegNumberSettings}[])">
+            <summary>Создать объект.</summary>
+            <param name="templates">Шаблоны автоматической генерации регистрационного номера.</param>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.OfficeDocumentTypes">
+            <summary>Вид канцелярского документа.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeDocumentTypes.Incoming">
+            <summary>
+            Входящий
+            </summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeDocumentTypes.Outgoing">
+            <summary>
+            Исходящий
+            </summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeDocumentTypes.Internal">
+            <summary>
+            Внутренний
+            </summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.RegNumberSettings">
+            <summary>Настройки для генерации регистрационного номера.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.RegNumberSettings.Template">
+            <summary>Строка шаблона.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.RegNumberSettings.CountResetType">
+            <summary>Режим обнуления счетчика (актуален только при включенном CountWithinType)</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.RegNumberSettings.CountWithinType">
+            <summary>Нумерация в пределах типа объектов.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.RegNumberSettings.CountWithinUnit">
+            <summary>Нумерация в пределах подразделений.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.RegNumberSettings.EnableEmptyRegNumbers">
+            <summary>Флаг того, что регистрационный номер не присваивается новому документу.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.RegNumberSettings.AutoGenerateRegNumber">
+            <summary>Флаг автоматической генерации регистрационного номера.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.RegNumberSettings.DesignationEqualRegNumber">
+            <summary>Флаг установки обозначения равным регистрационному номеру.</summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.RegNumberSettings.#ctor(System.String,Intermech.Office.Interfaces.CountResetTypes,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>Конструктор</summary>
+            <param name="template">Строка шаблона</param>
+            <param name="countResetType">Режим обнуления счетчика</param>
+            <param name="countWithinType">Нумерация в пределах типа объектов</param>
+            <param name="countWithinUnit">Нумерация в пределах подразделений</param>
+            <param name="enableEmptyRegNumbers">Флаг того, что регистрационный номер не присваивается новому документу</param>
+            <param name="autoGenerateRegNumber">Флаг автоматической генерации регистрационного номера</param>
+            <param name="designationEqualRegNumber">Обозначение равно регистрационному номеру</param>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.CountResetTypes">
+            <summary>Режим обнуления счетчика.</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.CountResetTypes.None">
+            <summary>
+            Не обнулять
+            </summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.CountResetTypes.PerYear">
+            <summary>
+            Обнулять каждый год
+            </summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.CountResetTypes.PerMonth">
+            <summary>
+            Обнулять каждый месяц
+            </summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.IOfficeGeneralSettingsService">
+            <summary>Интерфейс на серверную службу с общими настройками канцелярии.</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IOfficeGeneralSettingsService.Settings">
+            <summary>
+            Общие настройки канцелярии.
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.IOfficeGeneralSettingsService.SupervisorObjVerIDs">
+            <summary>
+            Список идентификаторов супервизоров канцелярии
+            </summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeGeneralSettingsService.Reload(System.Guid)">
+            <summary>
+            Перечитать настройки.
+            </summary>
+            <param name="sessionGuid">
+            Глобальный идентификатор сессии администратора. Если сессия не администраторская выбрасывается исключительная ситуация
+            </param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeGeneralSettingsService.Save(System.Guid,Intermech.Office.Interfaces.OfficeGeneralSettings)">
+            <summary>
+            Сохранить настройки.
+            </summary>
+            <param name="sessionGuid">
+            Глобальный идентификатор сессии администратора. Если сессия не администраторская выбрасывается исключительная ситуация
+            </param>
+            <param name="settings">
+            Новые настройки.
+            </param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeGeneralSettingsService.WriteSupervisorsList(System.Guid,System.Int64[])">
+            <summary>
+            Сохранить в настройки список супервизоров канцелярии
+            </summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.IOfficeRegistrationService">
+            <summary>Сервис для регистрации документов в канцеляриях.</summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeRegistrationService.PrivateRegister(System.Guid,System.Int64,System.Int64,System.String)">
+            <summary>Регистрация во внутренней канцелярии.</summary>
+            <param name="sessionGuid">Пользовательская сессия.</param>
+            <param name="unitID">Идентификатор подразделения.</param>
+            <param name="documentID">Идентификатор документа.</param>
+            <param name="regNumber">Внутренний регистрационный номер.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeRegistrationService.IsDocumentPrivateRegister(System.Guid,System.Int64,System.Int64)">
+            <summary>Функция возвращает признак, зарегистрирован ли документ documentID в канцелярии подразделения unitID.</summary>
+            <param name="sessionGuid">Пользовательская сессия.</param>
+            <param name="unitID">Идентификатор подразделения.</param>
+            <param name="documentID">Идентификатор документа.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeRegistrationService.IsDocumentRegister(System.Guid,System.Int64)">
+            <summary>Функция возвращает признак, зарегистрирован ли документ documentID в общей канцелярии.</summary>
+            <param name="sessionGuid">Пользовательская сессия.</param>
+            <param name="documentID">Идентификатор документа.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeRegistrationService.GetPrivateRegNumber(System.Guid,System.Int64)">
+            <summary>Функция возвращает внутренний регистрационный номер документа.</summary>
+            <param name="sessionGuid">Пользовательская сессия.</param>
+            <param name="documentID">Идентификатор документа.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeRegistrationService.UpdatePrivateRegNumber(System.Guid,System.Int64,System.String)">
+            <summary>Обновление регистрационного номера.</summary>
+            <param name="sessionGuid">Пользовательская сессия.</param>
+            <param name="documentID">Идентификатор документа.</param>
+            <param name="regNumber">Новый внутренний регистрационный номер.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeRegistrationService.GetUserUnit(System.Int64)">
+            <summary>Возвращает ид. канцелярии для указанного юзера.</summary>
+            <param name="userID">Ид. пользователя.</param>
+            <returns>Ид. канцелярии или Consts.UnknownObjectId.</returns>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IOfficeRegistrationService.PublicRegister(System.Guid,System.Int64,System.String,System.Boolean,System.Collections.Generic.List{System.Int32},Intermech.Office.Interfaces.OfficeDocumentTypes)">
+            <summary>
+            Регистрация в канцелярии.
+            </summary>
+            <param name="sessionGuid">Пользовательская сессия.</param>
+            <param name="documentID">Идентификатор документа.</param>
+            <param name="regNumber">Внутренний регистрационный номер.</param>
+            <param name="designationEqualRegNumber">Обозначение документа равно регистрационному номеру.</param>
+            <param name="officeDocTypes">Список идентификаторов типов канцелярских документов</param>
+            <param name="type">Вид канцелярского документа.</param>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.IRegistrationNumberGenerator">
+            <summary>Служба генерации регистрационного номера для канцелярского документа.</summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.IsAutoGenerate(System.Guid,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes)">
+            <summary>Флаг автоматической генерации регистрационного номера для типа.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.IsAutoGenerate(System.Guid,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes,System.Int64)">
+            <summary>Флаг автоматической генерации регистрационного номера для типа для регистрации во внутренней канцелярии.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+            <param name="unitID">Идентификатор подразделения.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.IsEmptyRegNumbersEnabled(System.Guid,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes,System.Int64)">
+            <summary>Флаг отсутствия необходимости присвоения регистрационного номера внутренней канцелярии.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+            <param name="unitID">Идентификатор подразделения.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.Generate(System.Guid,System.Int64,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes,System.Int64)">
+            <summary>Генерация следующего значения для документа.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="documentID">Идентификатор канцелярского документа.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+            <param name="classifierID">Идентификатор классификатора, который участвует в расчете.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.PrivateGenerate(System.Guid,System.Int64,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes,System.Int64,System.Int64)">
+            <summary>Генерация следующего значения для регистрации во внутренней канцелярии.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="documentID">Идентификатор канцелярского документа.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+            <param name="classifierID">Идентификатор классификатора, который участвует в расчете.</param>
+            <param name="unitID">Идентификатор подразделения.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.PrivateGenerate(System.Guid,System.Int64,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes,System.Int64)">
+            <summary>Генерация следующего значения для регистрации во внутренней канцелярии.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="documentID">Идентификатор канцелярского документа.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+            <param name="unitID">Идентификатор подразделения.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.Generate(System.Guid,System.Int64,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes)">
+            <summary>Генерация следующего значения для документа.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="documentID">Идентификатор канцелярского документа.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.IsClassifierPresent(System.Guid,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes)">
+            <summary>Участвует в расчете регистрационного номера классификатор.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.IsClassifierPresent(System.Guid,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes,System.Int64)">
+            <summary>Участвует в расчете внутреннего регистрационного номера классификатор.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+            <param name="unitID">Идентификатор подразделения.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.ResetCounter(System.Guid,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes)">
+            <summary>Принудительный сброс счетчика.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IRegistrationNumberGenerator.ResetCounter(System.Guid,System.Int32,Intermech.Office.Interfaces.OfficeDocumentTypes,System.Int64)">
+            <summary>Принудительный сброс счетчика.</summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии.</param>
+            <param name="docTypeID">Тип документа.</param>
+            <param name="type">Вид канцелярского документа.</param>
+            <param name="unitID">Идентификатор подразделения.</param>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.IResolutionAccessService">
+            <summary>Служба прав доступа для поручений.</summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IResolutionAccessService.SetAccess(System.Int64)">
+            <summary>Установить права доступа на поручение.</summary>
+            <param name="resolutionID">Идентификатор версии поручения.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.IResolutionAccessService.ReturnResolution(System.Int64)">
+            <summary>Возврат поручения на первый шаг ЖЦ.</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.ISMDOSettingsService.Settings">
+            <summary>
+            Общие настройки канцелярии
+            </summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.ISMDOSettingsService.Reload(System.Guid)">
+            <summary>
+            Перечитать настройки
+            </summary>
+            <param name="sessionGuid">Глобильный идентификатор сессии администратора. Если сессия не администраторская генерится ошибка.</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.ISMDOSettingsService.Save(System.Guid,Intermech.Office.Interfaces.SMDOSettings)">
+            <summary>
+            Сохранить настройки
+            </summary>
+            <param name="sessionGuid">Глобильный идентификатор сессии администратора. Если сессия не администраторская генерится ошибка.</param>
+            <param name="settings">Новые настройки</param>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.ISMDOSettingsService.SendEmail(Intermech.Office.Interfaces.SMDOSettings,System.String,System.Collections.Generic.Dictionary{System.IO.FileStream,System.String},System.String)">
+            <summary>
+            Отправляем посылочку
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.SMDOSettings.Port">
+            <summary>
+            Порт исходящей почты СМДО
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.SMDOSettings.SmdoEmail">
+            <summary>
+            Почтовый адрес сервера СМДО
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.SMDOSettings.CompanySMDOid">
+            <summary>
+            Идентификатор компании в системе СМДО
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.SMDOSettings.CompanyName">
+            <summary>
+            Наименование компании
+            </summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.PlannedDataShift">
+            <summary>Сдвиг в днях для плановой даты, относительно текущей</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ObjtypeOfficeDocumentsGuid">
+            <summary>Глобальный идентификатор типа объектов "Канцелярские документы"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeOfficeDocumentsID">
+            <summary>Идентификатор типа объектов "Канцелярские документы"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ObjtypeResolutionsGuid">
+            <summary>Глобальный идентификатор типа объектов "Поручения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeResolutionsID">
+            <summary>Идентификатор типа объектов "Поручения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ObjtypeConfidentialResolutionsGuid">
+            <summary>Глобальный идентификатор типа объектов "Конфиденциальные поручения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeConfidentialResolutionsID">
+            <summary>Идентификатор типа объектов "Конфиденциальные поручения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ObjtypeDocDetailsGuid">
+            <summary>Глобальный идентификатор типа объектов "Реквизиты документа"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeDocDetailsID">
+            <summary>Идентификатор типа объектов "Реквизиты документа"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ObjtypeEmailMessagesGuid">
+            <summary>Глобальный идентификатор типа объектов "Электронные письма"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeEmailMessagesID">
+            <summary>Идентификатор типа объектов "Электронные письма"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeOrganizationUnitsID">
+            <summary>Идентификатор типа объектов "Организационные единицы"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeGroupsID">
+            <summary>Идентификатор типа объектов "Группы пользователей"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeDocumentsID">
+            <summary>Идентификатор типа объектов "Документы"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeUsersID">
+            <summary>Идентификатор типа объектов "Пользователи"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeOrganizationID">
+            <summary>Идентификатор типа объектов "Организации"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeContainerID">
+            <summary>Идентификатор типа объектов "Контейнер атрибутов"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeDepartmentID">
+            <summary>Идентификатор типа объектов "Подразделения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjtypeRoleID">
+            <summary>Идентификатор типа объектов "Роли"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ReltypeOfficeCompositionGuid">
+            <summary>Глобальный идентификатор типа связей "Состав канцелярского документа"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ReltypeOfficeCompositionID">
+            <summary>Идентификатор типа связей "Состав канцелярского документа"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ReltypeAnswerGuid">
+            <summary>Глобальный идентификатор типа связей "Ответ на"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ReltypeAnswerID">
+            <summary>Идентификатор типа связей "Ответ на"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ReltypeSimpleID">
+            <summary>Идентификатор типа связей "Простая вертикальная связь"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrGroupIncomingOfficeParamsGuid">
+            <summary>Глобальный идентификатор группы атрибутов "Атрибуты входящих канцелярских документов"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrGroupIncomingOfficeParamsID">
+            <summary>Идентификатор группы атрибутов "Атрибуты входящих канцелярских документов"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrGroupInternalOfficeParamsGuid">
+            <summary>Глобальный идентификатор группы атрибутов "Атрибуты внутренних канцелярских документов"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrGroupInternalOfficeParamsID">
+            <summary>Идентификатор группы атрибутов "Атрибуты внутренних канцелярских документов"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrGroupOutgoingOfficeParamsGuid">
+            <summary>Глобальный идентификатор группы атрибутов "Атрибуты исходящих канцелярских документов"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrGroupOutgoingOfficeParamsID">
+            <summary>Идентификатор группы атрибутов "Атрибуты исходящих канцелярских документов"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrGroupResolutionParamsGuid">
+            <summary>Глобальный идентификатор группы атрибутов "Атрибуты поручений"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrGroupResolutionParamsID">
+            <summary>Идентификатор группы атрибутов "Атрибуты поручений"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrOfficeDocumentTypeGuid">
+            <summary>Глобальный идентификатор атрибута "Вид канцелярского документа"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrOfficeDocumentTypeID">
+            <summary>Идентификатор атрибута "Вид канцелярского документа"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrRegistrationDateGuid">
+            <summary>Глобальный идентификатор атрибута "Дата регистрации"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrRegistrationDateID">
+            <summary>Идентификатор атрибута "Дата регистрации"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrRegNumberGuid">
+            <summary>Глобальный идентификатор атрибута "Регистрационный номер"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrRegNumberID">
+            <summary>Идентификатор атрибута "Регистрационный номер"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrInReplyToGuid">
+            <summary>Глобальный идентификатор атрибута "В ответ на письмо"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrInReplyToID">
+            <summary>Идентификатор атрибута "В ответ на письмо"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrCountersGuid">
+            <summary>Глобальный идентификатор атрибута "Счетчик регистрационных номеров"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrCountersID">
+            <summary>Идентификатор атрибута "Счетчик регистрационных номеров"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrMessageIdentityGuid">
+            <summary>Глобальный идентификатор атрибута "Идентификатор письма"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrMessageIdentityID">
+            <summary>Идентификатор атрибута "Идентификатор письма"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrSelfOfficeGuid">
+            <summary>Глобальный идентификатор атрибута "Собственная канцелярия"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrSelfOfficeID">
+            <summary>Идентификатор атрибута "Собственная канцелярия"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrUnitLinkGuid">
+            <summary>Глобальный идентификатор атрибута "Ссылка на подразделение"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrUnitLinkID">
+            <summary>Идентификатор атрибута "Ссылка на подразделение"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrUnitSettingsGuid">
+            <summary>Глобальный идентификатор атрибута "Настройки подразделения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrUnitSettingsID">
+            <summary>Идентификатор атрибута "Настройки подразделения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrAuthorGuid">
+            <summary>Глобальный идентификатор атрибута "Автор"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrAuthorID">
+            <summary>Идентификатор атрибута "Автор"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrControllerGuid">
+            <summary>Глобальный идентификатор атрибута "Контролер"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrControllerID">
+            <summary>Идентификатор атрибута "Контролер"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrPlannedDateGuid">
+            <summary>Глобальный идентификатор атрибута "Плановая дата исполнения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrPlannedDateID">
+            <summary>Идентификатор атрибута "Плановая дата исполнения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrIsControlResolutionGuid">
+            <summary>Глобальный идентификатор атрибута "Контрольное поручение"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrIsControlResolutionID">
+            <summary>Идентификатор атрибута "Контрольное поручение"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrResolutionIdentityGuid">
+            <summary>Глобальный идентификатор атрибута "Идентификатор поручения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrResolutionIdentityID">
+            <summary>Идентификатор атрибута "Идентификатор поручения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrExecutorsGuid">
+            <summary>Глобальный идентификатор атрибута "Исполнители поручения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrExecutorsID">
+            <summary>Идентификатор атрибута "Исполнители поручения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrReportAuthorsGuid">
+            <summary>Глобальный идентификатор атрибута "Авторы отчетов"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrReportAuthorsID">
+            <summary>Идентификатор атрибута "Авторы отчетов"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrReportsGuid">
+            <summary>Глобальный идентификатор атрибута "Отчеты исполнения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrReportsID">
+            <summary>Идентификатор атрибута "Отчеты исполнения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrReportDatesGuid">
+            <summary>Глобальный идентификатор атрибута "Даты отчетов исполнения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrReportDatesID">
+            <summary>Идентификатор атрибута "Даты отчетов исполнения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrAddresseesGuid">
+            <summary>Глобальный идентификатор атрибута "Адресаты"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrAddresseesID">
+            <summary>Идентификатор атрибута "Адресаты"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrDocRecipientGuid">
+            <summary>Глобальный идентификатор атрибута "Получатель документа"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrDocRecipientID">
+            <summary>Идентификатор атрибута "Получатель документа"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrDocRecipientsGuid">
+            <summary>Глобальный идентификатор атрибута "Получатели документа"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrDocRecipientsID">
+            <summary>Идентификатор атрибута "Получатели документа"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrInputRegNumGuid">
+            <summary>Глобальный идентификатор атрибута "Входящий регистрационный номер"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrInputRegNumID">
+            <summary>Идентификатор атрибута "Входящий регистрационный номер"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrInputRegNumsGuid">
+            <summary>Глобальный идентификатор атрибута "Входящие регистрационные номера"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrInputRegNumsID">
+            <summary>Идентификатор атрибута "Входящие регистрационные номера"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrAddresseeRegDateGuid">
+            <summary>Глобальный идентификатор атрибута "Дата регистрации в организации-адресате"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrAddresseeRegDateID">
+            <summary>Идентификатор атрибута "Дата регистрации в организации-адресате"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrAddresseeRegDatesGuid">
+            <summary>Глобальный идентификатор атрибута "Даты регистрации в организациях-адресатах"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrAddresseeRegDatesID">
+            <summary>Идентификатор атрибута "Даты регистрации в организациях-адресатах"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrActualDateGuid">
+            <summary>Глобальный идентификатор атрибута "Фактическая дата исполнения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrActualDateID">
+            <summary>Идентификатор атрибута "Фактическая дата исполнения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrResponseRequiresGuid">
+            <summary>Глобальный идентификатор атрибута "Требует ответа"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrResponseRequiresID">
+            <summary>Идентификатор атрибута "Требует ответа"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrResponseDateGuid">
+            <summary>Глобальный идентификатор атрибута "Срок ответа"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrResponseDateID">
+            <summary>Идентификатор атрибута "Срок ответа"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrAddresserGuid">
+            <summary>Глобальный идентификатор типа связей "Адресант"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrAddresserID">
+            <summary>Идентификатор типа связей "Адресант"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrEmailSenderGuid">
+            <summary>Глобальный идентификатор атрибута "E-mail отправителя"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrEmailSenderID">
+            <summary>Идентификатор атрибута "E-mail отправителя"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrSignatoryGuid">
+            <summary>Глобальный идентификатор атрибута "Кто подписал"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrSignatoryID">
+            <summary>Идентификатор атрибута "Кто подписал"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrSubjectGuid">
+            <summary>Глобальный идентификатор атрибута "Тема сообщения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrSubjectID">
+            <summary>Идентификатор атрибута "Тема сообщения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrMessageGuid">
+            <summary>Глобальный идентификатор атрибута "Сообщение"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrMessageID">
+            <summary>Идентификатор атрибута "Сообщение"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrPrivateRegNumberGuid">
+            <summary>Глобальный идентификатор атрибута "Внутренний регистрационный номер"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrPrivateRegNumberID">
+            <summary>Идентификатор атрибута "Внутренний регистрационный номер"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrIsPrivateRegisterGuid">
+            <summary>Глобальный идентификатор атрибута "Зарегистрирован во внутренней канцелярии"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrIsPrivateRegisterID">
+            <summary>Идентификатор атрибута "Зарегистрирован во внутренней канцелярии"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrReadGuid">
+            <summary>Глобальный идентификатор атрибута "Прочитано"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrReadID">
+            <summary>Идентификатор атрибута "Прочитано"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrResolutionExecuteTypeGuid">
+            <summary>Глобальный идентификатор атрибута "Исполнение поручения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrResolutionExecuteTypeID">
+            <summary>Идентификатор атрибута "Исполнение поручения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrExecutionOrderGuid">
+            <summary>Глобальный идентификатор атрибута "Порядок исполнения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrExecutionOrderID">
+            <summary>Идентификатор атрибута "Порядок исполнения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrPrivacyTextGuid">
+            <summary>Глобальный идентификатор атрибута "Текст конфиденциального поручения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrPrivacyTextID">
+            <summary>Идентификатор атрибута "Текст конфиденциального поручения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrResponseUserGuid">
+            <summary>Глобальный идентификатор атрибута "Отвечающий исполнитель"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrResponseUserID">
+            <summary>Идентификатор атрибута "Отвечающий исполнитель"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrOutgoingRegNumberGuid">
+            <summary>Глобальный идентификатор атрибута "Исходящий регистрационный номер"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrOutgoingRegNumberID">
+            <summary>Идентификатор атрибута "Исходящий регистрационный номер"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrSMDO_IdentityGuid">
+            <summary>Глобальный идентификатор атрибута "Идентификатор в системе СМДО"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrSMDO_IdentityID">
+            <summary>Идентификатор атрибута "Идентификатор в системе СМДО"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrResolutionDocumentRegNumGuid">
+            <summary>Глобальный идентификатор атрибута "Номер документа поручения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrResolutionDocumentRegNumID">
+            <summary>Идентификатор атрибута "Номер документа поручения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrCounterResetModesGuid">
+            <summary>Глобальный идентификатор атрибута "Режимы обнуления счетчиков"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrCounterResetModesID">
+            <summary>Идентификатор атрибута "Режимы обнуления счетчиков"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrPagesCountGuid">
+            <summary>Глобальный идентификатор атрибута "Листов"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrPagesCountID">
+            <summary>Идентификатор атрибута "Листов"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrResolutionTextGuid">
+            <summary>Глобальный идентификатор атрибута "Текст поручения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrResolutionTextID">
+            <summary>Идентификатор атрибута "Текст поручения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrControlDateGuid">
+            <summary>Глобальный идентификатор атрибута "Дата контроля"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrControlDateID">
+            <summary>Идентификатор атрибута "Дата контроля"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrTempCreateMultipleResolutionsGuid">
+            <summary>Глобальный идентификатор атрибута "Создавать отдельное поручение для каждого исполнителя"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrTempCreateMultipleResolutionsID">
+            <summary>Идентификатор атрибута "Создавать отдельное поручение для каждого исполнителя"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AttrTempDelayedRunGuid">
+            <summary>Глобальный идентификатор атрибута "Отложенное поручение"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrTempDelayedRunID">
+            <summary>Идентификатор атрибута "Отложенное поручение"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrEmailAddressID">
+            <summary>Идентификатор атрибута "Электронная почта"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrUserNameID">
+            <summary>Идентификатор атрибута с именем пользователя для отображения "Выводимое имя"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrNameID">
+            <summary>Идентификатор атрибута "Наименование"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrFileID">
+            <summary>Идентификатор атрибута "Файл"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrClassifiedObjectsID">
+            <summary>Идентификатор атрибута "Классификация создаваемых объектов"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrDesignationID">
+            <summary>Идентификатор атрибута "Обозначение"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.AttrDirectorID">
+            <summary>Идентификатор атрибута "Руководитель"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.FormResolutionGuid">
+            <summary>Глобальный идентификатор формы "Форма поручения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.FormResolutionID">
+            <summary>Идентификатор формы "Форма поручения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.FormInternalDocumentGuid">
+            <summary>Глобальный идентификатор формы "Внутренний документ"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.FormInternalDocumentID">
+            <summary>Идентификатор формы "Внутренний документ"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.FormIngoingDocumentGuid">
+            <summary>Глобальный идентификатор формы "Входящий документ"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.FormIngoingDocumentID">
+            <summary>Идентификатор формы "Входящий документ"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.FormOutgoingDocumentGuid">
+            <summary>Глобальный идентификатор формы "Исходящий документ"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.FormOutgoingDocumentID">
+            <summary>Идентификатор формы "Исходящий документ"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.FormOfficeDocGuid">
+            <summary>Глобальный идентификатор формы "Карточка канцелярского документа"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.FormOfficeDocID">
+            <summary>Идентификатор формы "Карточка канцелярского документа"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ObjectCounterGuid">
+            <summary>Глобальный идентификатор контейнера со счетчиками</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjectCounterID">
+            <summary>Идентификатор контейнера со счетчиками</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ObjectAutoSendTemplateGuid">
+            <summary>Глобальный идентификатор шаблона процесса для автоматической отправки почты</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjectAutoSendTemplateID">
+            <summary>Идентификатор шаблона процесса для автоматической отправки почты</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ObjectAddresseeGroupGuid">
+            <summary>Глобальный идентификатор группы АДРЕСАТЫ</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjectAddresseeGroupID">
+            <summary>Идентификатор группы АДРЕСАТЫ</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjectSystemUserID">
+            <summary>Идентификатор пользователя СИСТЕМА - юзер, под которым работает система</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjectCreatorUserGroupID">
+            <summary>Идентификатор группы пользователей "СОЗДАТЕЛЬ_ОБЪЕКТА"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjectAllUsersUserGroupID">
+            <summary>Идентификатор группы пользователей "ВСЕ_ПОЛЬЗОВАТЕЛИ"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ObjectAdminRoleGuid">
+            <summary>Глобальный идентификатор роли "Администратор"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.ObjectAdminRoleID">
+            <summary>Идентификатор роли "Администратор"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LevelPersonalID">
+            <summary>Идентификатор уровня продвижения "Персональный объект"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LevelCreatedID">
+            <summary>Идентификатор уровня продвижения "Создание и модификация"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LevelSigningID">
+            <summary>Идентификатор уровня продвижения "Согласование и утверждение"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LevelImportedID">
+            <summary>Идентификатор уровня продвижения "Импортировано"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LevelAnnulmentID">
+            <summary>Идентификатор уровня продвижения "Аннулировано"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LevelManufacturingID">
+            <summary>Идентификатор уровня продвижения "Производство и эксплуатация"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LevelDeletedID">
+            <summary>Идентификатор уровня продвижения "Удалено"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LevelKeepingID">
+            <summary>Идентификатор уровня продвижения "Хранение"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.LcSchemeOfResolutionGuid">
+            <summary>Глобальный идентификатор схемы ЖЦ поручений</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LcSchemeOfResolutionID">
+            <summary>Идентификатор схемы ЖЦ поручений</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.LсResolutionStepCreationGuid">
+            <summary>Глобальный идентификатор шага схемы ЖЦ поручений "Создание объекта"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LсResolutionStepCreationID">
+            <summary>Идентификатор шага схемы ЖЦ поручений "Создание объекта"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.LсResolutionStepChargedGuid">
+            <summary>Глобальный идентификатор шага схемы ЖЦ поручений "Поручено"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LсResolutionStepChargedID">
+            <summary>Идентификатор шага схемы ЖЦ поручений "Поручено"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.LсResolutionStepControlGuid">
+            <summary>Глобальный идентификатор шага схемы ЖЦ поручений "Контроль выполнения"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LсResolutionStepControlID">
+            <summary>Идентификатор шага схемы ЖЦ поручений "Контроль выполнения"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.LcResolutionStepCompletedGuid">
+            <summary>Глобальный идентификатор шага схемы ЖЦ поручений "Выполнено"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LcResolutionStepCompletedID">
+            <summary>Идентификатор шага схемы ЖЦ поручений "Выполнено"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.LсResolutionStepDeletedGuid">
+            <summary>Глобальный идентификатор шага схемы ЖЦ поручений "Удаление объекта"</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeConsts.LсResolutionStepDeletedID">
+            <summary>Идентификатор шага схемы ЖЦ поручений "Удаление объекта"</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ModuleName">
+            <summary>Имя модуля для конфигурации</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.GeneralSectionID">
+            <summary>Имя секции с общими настройками конфигурации</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AutoSendTemplateParamName">
+            <summary>Имя параметра в конфигурации с идентификатором шаблона для автоматической отправки документов</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ConsistentControlResolutionTemplateParamName">
+            <summary>Имя параметра в конфигурации с идентификатором шаблона процессов для контрольных параллельных поручений без документов")]</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ConsistentNonControlResolutionTemplateParamName">
+            <summary>Имя параметра в конфигурации с идентификатором шаблона процессов для неконтрольных параллельных поручений без документов")]</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ParallelControlResolutionTemplateParamName">
+            <summary>Имя параметра в конфигурации с идентификатором шаблона процессов для контрольных последовательных поручений без документов")]</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.CaptionAttributeForEmailMessagesParamName">
+            <summary>
+            Имя параметра в конфигурации с идентификатором атрибута, в который записывается тема письма при регистрации его в документ
+            </summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.ParallelNonControlResolutionTemplateParamName">
+            <summary>Имя параметра в конфигурации с идентификатором шаблона процессов для неконтрольных последовательных поручений без
+                     документов")]</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.SendAddresseeTemplateParamName">
+            <summary>Имя параметра в конфигурации с идентификатором шаблона</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AutoSendEmailParamName">
+            <summary>Имя параметра в конфигурации с почтовым адресом отправителя для автоматической отправки документов</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.PrivateOfficeParamName">
+            <summary>Имя параметра в конфигурации с флагом использования внутренней канцелярии</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.FilterResolutionsParamName">
+            <summary>Имя параметра в конфигурации с флагом фильтрации поручений</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.AutoSendUserParamName">
+            <summary>Имя параметра в конфигурации с идентификатором пользователя-отправителя для автоматической отправки документов</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.SupervisorObjVerIDs">
+            <summary>Имя параметра в конфигурации со строкой, в которой сохранены идентификаторы пользователей, групп пользователей и ролей, которые могут видеть поручения всех пользователей</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.OfficeConsts.IncomingPrivateFolderEnableParamName">
+            <summary>Имя параметра в конфигурации с флагом отображать ли узел "Входящие (подразделение)" в дереве навигатора</summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.ResolutionExecution">
+            <summary>Исполнение поручения</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionExecution.Parallel">
+            <summary>Параллельное</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionExecution.Successive">
+            <summary>Последовательное</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionExecution.Combined">
+            <summary>Комбинированное</summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.ResolutionUserRoles">
+            <summary>Кем приходится пользователь поручению</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionUserRoles.None">
+            <summary>Никто</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionUserRoles.Admin">
+            <summary>Администратор IPS. Нужен при проверке прав доступа и видимости</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionUserRoles.Creator">
+            <summary>Создатель. Пользователь создавший поручение</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionUserRoles.Author">
+            <summary>Автор. Пользователь, которого назначили автором поручения</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionUserRoles.Controller">
+            <summary>Контроллёр</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionUserRoles.Executor">
+            <summary>Исполнитель</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionUserRoles.AnyRole">
+            <summary>Кто-нибудь из всех ролей</summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.ResolutionParentType">
+            <summary>В контексте чего создано поручение - документа, поручения, либо создано без связи с чем либо</summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.OfficeGeneralSettings">
+            <summary>Общие настройки канцелярии.</summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.IncomingDocResetType">
+            <summary>
+            Счетчик для входящих канцелярских документов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.OutgoingDocResetType">
+            <summary>
+            Счетчик для исходящих канцелярских документов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.InternalDocResetType">
+            <summary>
+            Счетчик для внутренних канцелярских документов.
+            </summary>
+            <value>
+            The type of the internal document reset.
+            </value>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.TemplateID">
+            <summary>
+            Шаблон процесса отправки документов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.AddresseeTemplateID">
+            <summary>
+            Шаблон процесса для отправки уведомлений адресатам.
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.AutoSendEmail">
+            <summary>
+            Почтовый адрес отправителя.
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.UserID">
+            <summary>
+            Пользователь-отправитель.
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.PrivateOffice">
+            <summary>
+            Внутренняя канцелярия у подразделений.
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.FilterResolutions">
+            <summary>
+            Фильтровать ли поручения.
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.IncomingPrivateFolderEnable">
+            <summary>
+            Отображать ли узел "Входящие (подразделение)" в дереве навигатора
+            </summary>
+        </member>
+        <member name="P:Intermech.Office.Interfaces.OfficeGeneralSettings.CaptionAttributeForEmailMessages">
+            <summary>
+            Идентификатор атрибута, в который записывается тема письма при регистрации его в документ
+            </summary>
+        </member>
+        <member name="M:Intermech.Office.Interfaces.RegistrationHelper.AddRegistrationAttributes(Intermech.Interfaces.IDBObject,System.String,System.Boolean,System.Boolean)">
+            <summary>Установить регистрируемому документу основные атрибуты канцелярского документа.</summary>
+            <param name="obj">Регистрируемый документ.</param>
+            <param name="regNumber">Регистрационный номер.</param>
+            <param name="designationEqualRegNumber">Обозначение документа равно регистрационному номеру.</param>
+            <param name="setDate">Установка даты регистрации.</param>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.ResolutionContextInfo">
+            <summary>Информация о канцелярской входимости поручения</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionContextInfo.ResolutionID">
+            <summary>Идентификатор поручения, для которого была получена информация о контексте</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionContextInfo.PrjLinkID">
+            <summary>Идентификатор связи типа "Состав канцелярского поручения", для которого была получена информация о контексте</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionContextInfo.ParentType">
+            <summary>Куда входит непосредственно входит поручение - в документ, другое поручение, либо "само по себе", никуда не входит</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionContextInfo.ParentObjType">
+            <summary>Тип объекта, в который входит поручение</summary>
+        </member>
+        <member name="F:Intermech.Office.Interfaces.ResolutionContextInfo.ParentObjectVersionID">
+            <summary>ID версии объекта (документа или поручения), в контексте которого создано данное</summary>
+        </member>
+        <member name="T:Intermech.Office.Interfaces.ResolutionProgressReportRecord">
+            <summary>Информация о выпущенном отчёте о выполнении поручения</summary>
+        </member>
+        <member name="M:Intermech.Extensions.UserSessionExtensions.GetResolution(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>Получить интерфейс канцелярского поручения.</summary>
+            <exception cref="T:Intermech.Office.Interfaces.ResolutionNotFoundException">Если поручение не будет найдено в БД</exception>
+            <exception cref="T:Intermech.Office.Interfaces.ObjectIsNotIDBResolutionException">Если объект с переданным идентификатором найден, но он не поручение</exception>
+            <param name="session">The session to act on. This cannot be null.</param>
+            <param name="resolutionID">Identifier for the resolution.</param>
+            <param name="throwExceptOnError">(Optional) True to throw exception if not found.</param>
+            <returns>The resolution. This may be null.</returns>
+        </member>
+    </members>
+</doc>
