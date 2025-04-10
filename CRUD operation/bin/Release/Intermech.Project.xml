@@ -1,0 +1,3124 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Project</name>
+    </assembly>
+    <members>
+        <member name="M:Intermech.Project.EditingModeExtension.Any(Intermech.Project.EditingMode)">
+            <summary>Возвращает true, если разрешено какое-либо редактирование (свойства, или состав, или оба)</summary>
+        </member>
+        <member name="M:Intermech.Project.EditingModeExtension.ReadOnly(Intermech.Project.EditingMode)">
+            <summary>Возвращает true, если редактирование запрещено</summary>
+        </member>
+        <member name="M:Intermech.Project.EditingModeExtension.HasProperties(Intermech.Project.EditingMode)">
+            <summary>Есть ли флаг EditingMode.Properties в списке значений</summary>
+        </member>
+        <member name="M:Intermech.Project.EditingModeExtension.HasComposition(Intermech.Project.EditingMode)">
+            <summary>Есть ли флаг EditingMode.Composition в списке значений</summary>
+        </member>
+        <member name="T:Intermech.Project.ConstraintType">
+            <summary>
+            Тип ограничения для начала/окончания задач ImProject
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.Undefined">
+            <summary>
+            Не определено
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.AsSoonAsPossible">
+            <summary>
+            Как можно раньше
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.AsLateAsPossible">
+            <summary>
+            Как можно позже
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.MustStartOn">
+            <summary>
+            Фиксированное начало
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.MustFinishOn">
+            <summary>
+            Фиксированное окончание
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.StartNoEarlierThan">
+            <summary>
+            Начало не ранее
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.StartNoLaterThan">
+            <summary>
+            Начало не позднеее
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.FinishNoEarlierThan">
+            <summary>
+            Окончание не ранее
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.FinishNoLaterThan">
+            <summary>
+            Окончание не позднее
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.ConstraintType.ManualPlanning">
+            <summary>
+            Ручное планирование
+            </summary>
+        </member>
+        <member name="T:Intermech.Project.Task.GraphLinkDirection">
+            <summary>
+            Направление ссылки графа
+            </summary>
+        </member>
+        <member name="T:Intermech.Project.Task.GraphLink">
+            <summary>
+            Объект ссылки графа
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphLink.Direction">
+            <summary>
+            Направление ссылки
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphLink.Node">
+            <summary>
+            Узел на который указывает ссылка
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.Task.GraphLink.#ctor(Intermech.Project.Task.GraphNode,Intermech.Project.Task.GraphLinkDirection)">
+            <summary>
+            Конструктор объекта ссылки графа
+            </summary>
+            <param name="node"> Узел на который будет указывать ссылка </param>
+            <param name="direction"> Направоление ссылки </param>
+        </member>
+        <member name="T:Intermech.Project.Task.GraphLinkList">
+            <summary>
+            Колекция ссылок графа
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphLinkList.HasInbound">
+            <summary>
+            Исть ли входящие ссылки
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphLinkList.HasOutbound">
+            <summary>
+            Есть ли исходящие ссылки
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.Task.GraphLinkList.Contains(Intermech.Project.Task.GraphNode)">
+            <summary>
+            Если ли в колекции ссылок графа ссылка на определенный узел
+            </summary>
+            <param name="node"> Узел ссылку на который будем искать </param>
+        </member>
+        <member name="T:Intermech.Project.Task.GraphNode">
+            <summary>
+            Узел графа
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphNode.Links">
+            <summary>
+            Колекция ссылок графа
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphNode.Task">
+            <summary>
+            Колекция задач графа
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphNode.StartNode">
+            <summary>
+            Конечный узел, используется, если нужно создать зависимость, привязанную к началу задач (ОН, ОО)
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphNode.EndNode">
+            <summary>
+            Конечный узел, используется, если нужно создать зависимость, привязанную к окончанию задач (НО, ОО)
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphNode.ChainID">
+            <summary>
+            Идентификатор цепочки, увеличивается при разветвлении.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphNode.TaskName">
+            <summary>
+            Название задачи узла. (Если задача == null, то "?")
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.Task.GraphNode._workSpan">
+            <summary>
+            Для подпроцесса хранит отступ до его начала
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.GraphNode.LTR">
+            <summary>ориентация нода относительно начала графа. Учитывается, что граф сам может быть справа-налево</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.RealWork">
+            <summary>
+            Для суммарных задач возвращает трудозатраты самого длинного участка
+            Для несуммарных задач == Work
+            Если подзадачи суммарной задачи ещё не загружены, тогда значение хранится в переменной,
+            потому что не всегда длительность суммарной задачи напрямую связана с трудозатратами
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.SubtasksStart">
+            <summary>Возвращает минимальный Start подзадач. При отсутствии подзадач возвращает DateTime.MinValue!</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.ManualPlanning">
+            <summary>Ручной режим планирования (реализован только для проектов)</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.DurationLock">
+            <summary>
+            Содержит имя последнего свойства [Start,Finish,Duration], которое изменялось пользователем, это влияет на расчет длительности,
+            когда пользователь через окно свойств одновременно устанавливает несколько свойств попарно (Start + Duration, Start + Finish) и т.д.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.SubtasksFinish">
+            <summary>Возвращает максимальный Start подзадач. При отсутствии подзадач возвращает DateTime.MinValue!</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.DefaultEditingMode">
+            <summary>Устанавливается задачам при их добавлении в проект</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.WasCheckedOut">
+            <summary>Был ли объект взят на изменение перед началом редактирования</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.PseudoCheckedOut">
+            <summary>Режим, когда объект с другого узла, сам не может быть взят на изменение, но его подзадачи берутся и сдаются вместо него</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.Partial">
+            <summary>Задача не была полностью загружена (без проекта или проект без подзадач)</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.TaskColor">
+            <summary>Цвет задачи если он указан в карточке задачи. Если null - используется алгоритм подбора цвета по-умолчанию.</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.MyProject">
+            <summary>В отличие от Project, для проекта возвратит самого себя</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.Commit">
+            <summary>Вызывается после успешного сохранения транзакции сохранения проекта</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.Rollback">
+            <summary>Вызывается при откате транзакции сохранения проекта</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.AssignmentColumns">
+            <summary>
+            Набор колонок для получения состава ресурсов
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Task.IsHidden">
+            <summary>Возвращает True, если задача скрыта фильтром, или находится в minimizedTasks (включая родительские задачи))</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.DependenciesCompleted">
+            <summary>Определяет, все ли задачи, от которых зависит текущая задача, выполнены</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.PlannedPercentCompleted">
+            <summary>Вычисляет плановый процент выполнения задачи на текущий момент времени</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.UpdateParentPercentCompleted(System.Double)">
+            <summary>Метод применим только для классов Project и StandaloneTask, полученных при помощи StandaloneTask.Get()</summary>
+        </member>
+        <member name="F:Intermech.Project.Task._VisualProps">
+            <summary>Устанавливается при отрисовке задачи на диаграмме Гантта</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.SetAttributeValue(System.Int32,System.Object,System.Boolean)">
+            <summary>
+            Установка значения атрибута
+            </summary>
+            <param name="attrID">ID атрибута</param>
+            <param name="value">Новое значение</param>
+            <param name="isCustom">Признак того, что это не обязательный, пользовательский атрибут</param>
+        </member>
+        <member name="F:Intermech.Project.Task._propSubstitutes">
+            <summary>Для свойств из PropInfos.All, которые нужно отображать иначе, у нас есть специальный словарь замен</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.SiteID">
+            <summary>Идентификаторы узлов портала</summary>
+            <exception cref="T:System.Data.ReadOnlyException">Thrown when a Read Only error condition occurs</exception>
+        </member>
+        <member name="E:Intermech.Project.Task.SaveDbObjectAttributes">
+            <summary>Событие, вызываемое перед коммитом создания объекта задачи в БД (первое сохранение)</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.ObjectID">
+            <summary>
+            Идентефикатор версии объекта Task(задача ImProject)
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.Task.LoadFromXml(System.Xml.XmlNode,Intermech.Project.Project,System.Collections.Generic.Dictionary{Intermech.Project.Task,System.Collections.Generic.List{Intermech.Project.XmlPredecessor}},System.Collections.Generic.IEnumerable{Intermech.Project.DTO.AttributeMatchingModel})">
+            <summary>
+            Загрузить задачу из XML
+            </summary>
+            <param name="attributesMatching">Коллекция с информацией для загрузки кастомных атрибутов</param>
+            <returns></returns>
+        </member>
+        <member name="F:Intermech.Project.Task._Saved">
+            <summary>Вызывалась процедура сохранения для данной задачи, или нет</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.PlanningConflict">
+            <summary>Есть ли конфликт планирования между зависимостями и датой ограничения</summary>
+            <exception cref="T:System.ArgumentException">Thrown when one or more arguments have unsupported or illegal values</exception>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeSession(Intermech.Project.TaskState,Intermech.Interfaces.Session.SessionHandler)">
+            <summary>Быстрый вызов кода, связанного с обращением к сессии с помощью внешней функции с установкой/снятия текущего статуса задаче</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeSession``1(Intermech.Project.TaskState,Intermech.Interfaces.Session.SessionHandler{``0})">
+            <summary>Быстрый вызов кода, связанного с обращением к сессии с помощью внешней функции с установкой/снятия текущего статуса задаче</summary>
+        </member>
+        <member name="T:Intermech.Project.Task.DbObjectHandler">
+            <summary>Делегат метода обработки объекта БД не возвращающий результата</summary>
+        </member>
+        <member name="T:Intermech.Project.Task.DbObjectHandler`1">
+            <summary>Делегат метода обработки объекта БД возвращающий типизированный результат</summary>
+        </member>
+        <member name="T:Intermech.Project.Task.DbObjectHandlerNotNull`1">
+            <summary>Делегат метода обработки объекта БД возвращающий типизированный результат</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObject(Intermech.Project.Task.DbObjectHandler,System.Boolean)">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObject``1(Intermech.Project.Task.DbObjectHandler{``0},System.Boolean)">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObject(Intermech.Interfaces.IUserSession,Intermech.Project.Task.DbObjectHandler,System.Boolean)">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObject``1(Intermech.Interfaces.IUserSession,Intermech.Project.Task.DbObjectHandler{``0},System.Boolean)">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObjectNotNull``1(Intermech.Project.Task.DbObjectHandlerNotNull{``0})">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObjectNotNull``1(Intermech.Interfaces.IUserSession,Intermech.Project.Task.DbObjectHandlerNotNull{``0},System.Boolean)">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObject(Intermech.Project.TaskState,Intermech.Project.Task.DbObjectHandler,System.Boolean)">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObject``1(Intermech.Project.TaskState,Intermech.Project.Task.DbObjectHandler{``0},System.Boolean)">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObject(Intermech.Project.TaskState,Intermech.Interfaces.IUserSession,Intermech.Project.Task.DbObjectHandler,System.Boolean)">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.InvokeDbObject``1(Intermech.Project.TaskState,Intermech.Interfaces.IUserSession,Intermech.Project.Task.DbObjectHandler{``0},System.Boolean)">
+            <summary>Быстрый вызов кода, связанного с обращением к объекту БД задачи с помощью внешней функции</summary>
+        </member>
+        <member name="F:Intermech.Project.Task._RemoteExec">
+            <summary>True, когда запускаем проект на другом узле, на этом только устанавливается статус TaskStatus.Waiting</summary>
+        </member>
+        <member name="T:Intermech.Project.Task.SaveDbObjectAttributesDelegate">
+            <summary>Делегат для события, вызываемого перед коммитом создания объекта задачи в БД (первое сохранение)</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.ImportedRootObjectVersionGuid">
+            <summary>Guid версии импортированного в проект "корневого" объекта</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.ImportedObjectVersionID">
+            <summary>Идентификатор версии импортированного объекта</summary>
+        </member>
+        <member name="P:Intermech.Project.Task.ImportedRelationGuid">
+            <summary>GUID импортированной связи</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.LinkWithImportedObject(System.Guid,System.Int64,System.Guid)">
+            <summary>Связать задачу с импортированным объектом</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.SaveImportInfo(Intermech.Interfaces.IDBObject)">
+            <summary>Создание связи между создаваемым в БД объектом задачи и объектом типа "Настройки импорта"</summary>
+        </member>
+        <member name="M:Intermech.Project.Task.GetWorkTime(System.DateTime,System.Double)">
+            <summary>
+            Метод для получения списка дат и интервалов рабочего времени, необходимых для выполнения заданного объема работы
+            </summary>
+            <param name="start"> Дата и время начала работы </param>
+            <param name="work"> Объем работы в часах </param>
+        </member>
+        <member name="M:Intermech.Project.Task.GetWorkHours(System.DateTime,System.DateTime,System.Boolean)">
+            <summary>Вернуть количество рабочих часов в заданном периоде для текущих исполнителей</summary>
+            <param name="start">Начало периода</param>
+            <param name="finish">Конец периода</param>
+            <param name="fullWork">true: функция вернет суммарное количество рабочих часов всех исполнителей, false: количество рабочих часов в
+                                   этом периоде для одного исполнителя (для вычисления длительности)</param>
+            <returns>The work hours</returns>
+        </member>
+        <member name="T:Intermech.Project.ImportedObject">
+            <summary>Дескриптор импортированного в проект объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObject._ownerProject">
+            <summary>Ссылка на проект. Нужна для обращения в БД</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObject.ObjectVersionID">
+            <summary>Идентификатор версии импортированного в проект объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObject._objectVersionGuid">
+            <summary>Глобальный идентификатор версии импортированного в проекта объекта</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportedObject.ObjectVersionGuid">
+            <summary>Глобальный идентификатор версии импортированного в проекта объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObject.RelationID">
+            <summary>Идентификатор связи из проекта в импортированное в проект изделия (пока проект не сохранён = 0)</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportedObject.ImportSettings">
+            <summary>Настройки импорта</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportedObject.CreateImportObjectSettingsFromDB">
+            <summary>Метод для отложенной загрузки настроек из БД</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportedObject.#ctor(Intermech.Project.Project,System.Int64,System.Int64)">
+            <summary>Private constructor</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportedObject.#ctor(Intermech.Project.Project,System.Int64,System.Int64,System.Int64)">
+            <summary>Конструктор для сохранённых в БД дескрипторов импортов в проект объектов</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportedObject.#ctor(Intermech.Project.Project,System.Int64,System.Int64,Intermech.Project.ImportObjectSettings)">
+            <summary>Конструктор для дескрипторов ещё не сохранённых в БД дескрипторов импортов в проект объектов</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportedObject.GetHashCode">
+            <summary>Serves as a hash function for a particular type</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportedObject.MarkObjectIterationAsDeleted">
+            <summary>Вызывается при обнаружении факта удаления итерации. Обнуляет соотв. свойство в атрибутах итерации</summary>
+        </member>
+        <member name="T:Intermech.Project.ImportObjectSettingsBase">
+            <summary>Базовый класс для настроек импорта объектов в новом окне импорта</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.ImportAsSubTasks">
+            <summary>Импортировать как подзадачи</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.ImportRootObjects">
+            <summary>Импортировать ли корневой элемент</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.LimitMaxLevels">
+            <summary>Ограничить ли глубину импорта</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.LimitMaxLevelsCount">
+            <summary>Число импортируемых уровней структуры (если глубина импорта ограничена)</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.CopySummaries">
+            <summary>Создавать вложенные копии суммарных задач</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.LinearImport">
+            <summary>Создавать задачи на одном уровне, игнорируя иерархию</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.CreateIteration">
+            <summary>Создавать ли итерации импортируемых объектов</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.IterationName">
+            <summary>Наименование итерации</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.DefaultSettings">
+            <summary>Настройки по-умолчанию</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.ObjTypesWithSpecialTypes">
+            <summary>Перечисление типов объектов, которым назначены специальные настройки</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.SettingsForObjType">
+            <summary>Интерфейс "тип объекта => настройки для него"</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.FinalScriptID">
+            <summary>Скрипт пост-обработки импортированных задач</summary>
+        </member>
+        <member name="E:Intermech.Project.ImportObjectSettingsBase.AfterPrototypeChanged">
+            <summary>Событие вызывается после того, как изменится прототип</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettingsBase.FireAfterPrototypeChanged">
+            <summary>Информировать подписчиков события AfterPrototypeChanged что прототип изменился</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettingsBase.FireAfterPrototypeChanged(Intermech.Interfaces.IDBObject)">
+            <summary>Информировать подписчиков события AfterPrototypeChanged что прототип изменился</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.PrototypeObjectVersionID">
+            <summary>Идентификатор объекта проекта, который содержит шаблон задачи (если назначены, иначе Intermech.Consts.UnknownObjectId)</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.InitTaskScriptID">
+            <summary>Идентификатор скрипта инициализации задачи (если назначены, иначе Intermech.Consts.UnknownObjectId)</summary>
+        </member>
+        <member name="E:Intermech.Project.ImportObjectSettingsBase.AfterInitTaskScriptChanged">
+            <summary>Событие вызывается после того, как изменится прототипов</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettingsBase.FireAfterInitTaskScriptChanged">
+            <summary>Информировать подписчиков события AfterPrototypeChanged что прототип изменился</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettingsBase.FireAfterInitTaskScriptChanged(Intermech.Interfaces.IDBObject)">
+            <summary>Информировать подписчиков события AfterPrototypeChanged что прототип изменился</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsBase.InitTaskParams">
+            <summary>Параметры задачи, которые будут назначаться всем создаваемым задачам при импорте-синхронизации</summary>
+        </member>
+        <member name="E:Intermech.Project.ImportObjectSettingsBase.AfterInitTaskParamsChanged">
+            <summary>Событие, информирующее о том, что параметры задачи, которые будут назначаться всем создаваемым задачам при импорте-
+                     синхронизации, изменились</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettingsBase.FireAfterInitTaskParamsChanged(Intermech.Project.Task)">
+            <summary>Информировать подписчиков события AfterInitTaskParamsChanged что параметры задачи, которые будут назначаться всем создаваемым задачам при импорте-
+                     синхронизации, изменились</summary>
+        </member>
+        <member name="T:Intermech.Project.ImportObjectSettings">
+            <summary>Настройки импорта объектов в новом окне импорта</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettings._importAsSubTasks">
+            <summary>Импортировать как подзадачи</summary>
+        </member>
+        <member name="E:Intermech.Project.ImportObjectSettings.AfterImportAsSubTasksChanged">
+            <summary>Событие вызывается после изменения значения </summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.ImportAsSubTasks">
+            <summary>Импортировать как подзадачи</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettings._importRootObjects">
+            <summary>Импортировать ли корневой элемент</summary>
+        </member>
+        <member name="E:Intermech.Project.ImportObjectSettings.AfterImportRootObjectsChanged">
+            <summary>Событие вызывается после изменения значения </summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.ImportRootObjects">
+            <summary>Импортировать ли корневой элемент</summary>
+        </member>
+        <member name="E:Intermech.Project.ImportObjectSettings.AfterLimitMaxLevelsChanged">
+            <summary>Событие вызывается после изменения значения </summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettings._limitMaxLevels">
+            <summary>Ограничить ли глубину импорта</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.LimitMaxLevels">
+            <summary>Ограничить ли глубину импорта</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettings._limitMaxLevelsCount">
+            <summary>Число импортируемых уровней структуры (если глубина импорта ограничена)</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.LimitMaxLevelsCount">
+            <summary>Число импортируемых уровней структуры (если глубина импорта ограничена)</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettings._copySummaries">
+            <summary>Создавать вложенные копии суммарных задач</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.CopySummaries">
+            <summary>Создавать вложенные копии суммарных задач</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettings._linearImport">
+            <summary>Создавать задачи на одном уровне, игнорируя иерархию</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.LinearImport">
+            <summary>Создавать задачи на одном уровне, игнорируя иерархию</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettings._createIteration">
+            <summary>Создавать ли итерации импортируемых объектов</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.CreateIteration">
+            <summary>Создавать ли итерации импортируемых объектов</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettings._iterationName">
+            <summary>Наименование итерации</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.IterationName">
+            <summary>Наименование итерации</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.DefaultSettings">
+            <summary>Настройки по-умолчанию</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettings._settingsForObjTypesDictionary">
+            <summary>Словарь "тип объекта => настройки для него"</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.ObjTypesWithSpecialTypes">
+            <summary>Перечисление типов объектов, которым назначены специальные настройки</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.SettingsForObjType">
+            <summary>Интерфейс "тип объекта => настройки для него"</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettings.FinalScriptID">
+            <summary>Скрипт пост-обработки импортированных задач</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettings.AfterLoad(System.Runtime.Serialization.StreamingContext)">
+            <summary>Вызывается после десериализации. Позволяет восстановить несериализуемые поля</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettings.AfterLoad">
+            <summary>Вызывается после десериализации. Позволяет восстановить несериализуемые поля</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettings.SaveToDbRelation(Intermech.Interfaces.IDBRelation)">
+            <summary>Сохранить в связь</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettings.CreateFromDB(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>Создать из связи</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettings.CreateFromRelation(Intermech.Interfaces.IDBRelation)">
+            <summary>Создать из связи</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettings.LoadFromRelation(Intermech.Interfaces.IDBRelation)">
+            <summary>Загрузить все свойства из связи в БД</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettings.AddNewSpecialSettings(System.Int32)">
+            <summary>Вызывается после того, как пользователь добавляет новый тип объекта в список типов объектов, у которых специальные настройки импорта</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettings.DeleteSpecialSettings(System.Int32)">
+            <summary>Вызывается после того, как пользователь добавляет новый тип объекта в список типов объектов, у которых специальные настройки импорта</summary>
+        </member>
+        <member name="T:Intermech.Project.SettingsForObjTypeLink">
+            <summary>Readonly оболочка над Dictionary [int, ImportObjectSettingsForObjType]</summary>
+        </member>
+        <member name="T:Intermech.Project.ImportObjectSettingsForObjType">
+            <summary>Класс для настроек импорта объектов в новом окне импорта для определённого типа объекта</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.ObjType">
+            <summary>Идентификатор типа объекта, к которому привязаны настройки</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportObjectSettingsForObjType._defaultSettings">
+            <summary>Настройки по-умолчанию</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.DefaultSettings">
+            <summary>Настройки по-умолчанию</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.ObjTypesWithSpecialTypes">
+            <summary>Перечисление типов объектов, которым назначены специальные настройки</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.SettingsForObjType">
+            <summary>Интерфейс "тип объекта => настройки для него"</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.ImportAsSubTasks">
+            <summary>Импортировать как подзадачи</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.ImportRootObjects">
+            <summary>Импортировать ли корневой элемент</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.LimitMaxLevels">
+            <summary>Ограничить ли глубину импорта</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.LimitMaxLevelsCount">
+            <summary>Число импортируемых уровней структуры (если глубина импорта ограничена)</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.CopySummaries">
+            <summary>Создавать вложенные копии суммарных задач</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.LinearImport">
+            <summary>Создавать задачи на одном уровне, игнорируя иерархию</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.CreateIteration">
+            <summary>Создавать ли итерации импортируемых объектов</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.IterationName">
+            <summary>Наименование итерации</summary>
+        </member>
+        <member name="P:Intermech.Project.ImportObjectSettingsForObjType.FinalScriptID">
+            <summary>Скрипт пост-обработки импортированных задач</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettingsForObjType.FireAfterPrototypeChanged(Intermech.Interfaces.IDBObject)">
+            <summary>Информировать подписчиков события AfterPrototypeChanged что прототип изменился</summary>
+        </member>
+        <member name="M:Intermech.Project.ImportObjectSettingsForObjType.FireAfterInitTaskScriptChanged(Intermech.Interfaces.IDBObject)">
+            <summary>Информировать подписчиков события AfterPrototypeChanged что прототип изменился</summary>
+        </member>
+        <member name="T:Intermech.Project.SessionProviderHelper">
+            <summary>Хелпер-класс для быстрого вызова кода, связанного с обращением к сессии с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.SessionProviderHelper.InvokeSession(Intermech.ISessionProvider,Intermech.Interfaces.Session.SessionHandler)">
+            <summary>Быстрый вызов кода, связанного с обращением к сессии с помощью внешней функции</summary>
+        </member>
+        <member name="M:Intermech.Project.SessionProviderHelper.InvokeSession``1(Intermech.ISessionProvider,Intermech.Interfaces.Session.SessionHandler{``0})">
+            <summary>Быстрый вызов кода, связанного с обращением к сессии с помощью внешней функции</summary>
+        </member>
+        <member name="P:Intermech.Project.SiteID.CurrentSiteCode">
+            <summary>Код текущего узла</summary>
+        </member>
+        <member name="P:Intermech.Project.SiteID.CurrentSite">
+            <summary>Код текущего узла, для более удобного обращения - нестатический клон статического CurrentSiteCode</summary>
+        </member>
+        <member name="P:Intermech.Project.AssignmentCollection.Delta">
+            <summary>Содержит результат изменений, сделанных в последнем сохранении (руководители не учитываются)</summary>
+        </member>
+        <member name="M:Intermech.Project.AssignmentCollection.Load(Intermech.Interfaces.IUserSession,System.Int64)">
+            <summary>
+            Загрузка ресурсов задачи
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.AssignmentCollection._inRemoveNonChiefItems">
+            <summary>из RemoveNonChiefItems срабатывает OnChange и опять приходит в RemoveNonChiefItems</summary>
+        </member>
+        <member name="P:Intermech.Project.Collection`1.CalcIndexes">
+            <summary>Устанавливать Entity.Index при обновлении списка, или нет</summary>
+        </member>
+        <member name="M:Intermech.Project.Dependency.Save(Intermech.Interfaces.IUserSession)">
+            <summary>Сохраняет зависимость</summary>
+            <returns>Возвращает true, если сохранение прошло успешно, в случае false требуется повторный вызов после сохранения остальных задач проекта (т.е. сохранение не
+                     прошло из-за того, что идентификатор связанной задачи не был известен)</returns>
+        </member>
+        <member name="P:Intermech.Project.Dependency.Lag">
+            <summary>Запаздывание в единицах, указанных в LagUnit</summary>
+        </member>
+        <member name="P:Intermech.Project.Dependency.LagHours">
+            <summary>Запаздывание в часах</summary>
+        </member>
+        <member name="P:Intermech.Project.Dependency.LagUnit">
+            <summary>Единицы измерения значения Lag</summary>
+        </member>
+        <member name="P:Intermech.Project.Entity.Index">
+            <summary>Заполняется родительской коллекцией, если у неё включено CalcIndexes</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.CheckForDuplicates(Intermech.Project.Task,System.Int32)">
+            <summary>
+            Может это копия существующей задачи? Поищем, нет ли её уже здесь, если есть, сбросим ObjectID
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.Project.GetCopyAsTask">
+            <summary>Создать копию проекта как задачи. Используется для конвертации в задачи подпроектов, вставляемых повторно (такие уже есть в проекте) из буфера обмена</summary>
+        </member>
+        <member name="P:Intermech.Project.Project.SubProjects">
+            <summary>Список всех подпроектов проекта (не рекурсивно! подпроекты входящие в подпроекты не учитываются)</summary>
+        </member>
+        <member name="P:Intermech.Project.Project.RealWork">
+            <summary>Реальная продолжительность проекта в часах, учитывая промежутки, вызванные ограничениями задач (начало не ранее и т.д.)</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.ResolveDependencies(Intermech.Project.Task)">
+            <summary>
+            Вызывается после загрузки каждой задачи и после загрузки всего проекта
+            После загрузки каждой задачи пытается найти зависимые от неё задачи и восстановить зависимость
+            После полной загрузки проекта создает внешние задачи, где задача для зависимости найдена не была
+            </summary>
+            <param name="task"></param>
+        </member>
+        <member name="E:Intermech.Project.Project.OnRequestExpand">
+            <summary>
+            Реализация раскрытия неподгруженных задач в редакторе, требуется при вставке задач в нераскрытый проект
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.Project.GetTasksWithOverlappingResources">
+            <summary>
+            Получить группы задач, которые выполняются одновременно и ресурсы задействованы более чем на 100%, для каждого ресурса проекта
+            </summary>
+            <returns>Колекция объектов с переиспользованными ресурсами</returns>
+        </member>
+        <member name="M:Intermech.Project.Project.LoadProperties(Intermech.Interfaces.IDBObject)">
+            <summary>
+            Загружает основные свойства проекта, вне зависимости, открыт проект в режиме редактирования, или нет
+            </summary>
+            <param name="obj">Откуда читать свойства</param>
+        </member>
+        <member name="M:Intermech.Project.Project.EndEdit(System.Boolean)">
+            <summary>
+            Заканчивает редактирование объекта
+            Если до начала редактирования объект не был взят на изменение, то в зависимости от CancelChanges
+            Или отменяет изменения, или сдает изменения
+            </summary>
+            <param name="cancelChanges"></param>
+        </member>
+        <member name="M:Intermech.Project.Project.UpdateControls">
+            <summary>
+            Перерисовать связанные контролы, если имеются (таблица, диаграмма Гантта)
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.Project._FilterError">
+            <summary>
+            Здесь хранятся текст ошибки вычисления текущего фильтра, если она была
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.Project._importedObjects">
+            <summary>Список дескрипторов импортированных в проект объектов
+                     Список импортированных объектов показывается при вызове команды "синхронизация с составом объекта"</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.GetImportedObjectDescriptor(System.Int64,System.Boolean)">
+            <summary>Получить дескриптор импортированного в проект объекта по идентификатору объекта</summary>
+        </member>
+        <member name="P:Intermech.Project.Project.ImportedObjects">
+            <summary>Список дескрипторов импортированных в проект объектов
+                     Список импортированных объектов показывается при вызове команды "синхронизация с составом объекта"</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.CreateImportedObjectsFromDb">
+            <summary>Создание списка идентификаторов версий всех настроек импорта импортированных в проект объектов</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.AddImportedObjectInfo(System.Int64,System.Int64,Intermech.Project.ImportObjectSettings)">
+            <summary>Добавление в список дескрипторов импортированных в проект объектов новой записи</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.ImportedObjects_CollectionChangedFirstTime(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>Обработчик события изменения списка идентификаторов версий всех настроек импорта импортированных в проект объектов</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.SaveRelationsWithImportedObjectsToDb(Intermech.Interfaces.IDBObject)">
+            <summary>Сохранение в БД изменений списка идентификаторов версий всех настроек импорта импортированных в проект объектов</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.RemoveConnectionWithImportedObject(System.Int64,System.Boolean,System.Boolean)">
+            <summary>Удаление дескриптора импортированного объекта из списка дескрипторов объектов, импортированных в проект</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.IsRelationWasImportedAsTask(System.Guid,System.Guid)">
+            <summary>Поиск задачи импортированной в проект в контексте корневого объекта по глобальному идентификатору входимости (связи) объекта</summary>
+            <param name="importedRootObjectVersionGuid">Глобальный идентификатор корневого импортированного объекта</param>
+            <param name="objectCompositionRelationGuid">Глобальный идентификатор входимости (связи) объекта</param>
+            <returns>Импортированная задача</returns>
+        </member>
+        <member name="M:Intermech.Project.Project.GetTaskImportedByRelation(System.Guid,System.Guid)">
+            <summary>Поиск задачи импортированной в проект в контексте корневого объекта по глобальному идентификатору входимости (связи) объекта</summary>
+            <param name="importedRootObjectVersionGuid">Глобальный идентификатор корневого импортированного объекта</param>
+            <param name="objectCompositionRelationGuid">Глобальный идентификатор входимости (связи) объекта</param>
+            <returns>Импортированная задача</returns>
+        </member>
+        <member name="M:Intermech.Project.Project.IsObjectWasImportedAsTask(System.Guid,System.Int64)">
+            <summary>Поиск задачи импортированной в проект в контексте корневого объекта по идентификатору версии объекта</summary>
+            <param name="importedRootObjectVersionGuid">Глобальный идентификатор корневого импортированного объекта</param>
+            <param name="objectVersion">Идентификатор импортированного объекта</param>
+            <returns>Импортированная задача</returns>
+        </member>
+        <member name="M:Intermech.Project.Project.GetTaskImportedByObject(System.Guid,System.Int64)">
+            <summary>Поиск задачи импортированной в проект в контексте корневого объекта по идентификатору версии объекта</summary>
+            <param name="importedRootObjectVersionGuid">Глобальный идентификатор корневого импортированного объекта</param>
+            <param name="objectVersionID">Идентификатор импортированного объекта</param>
+            <returns>Импортированная задача</returns>
+        </member>
+        <member name="T:Intermech.Project.Project.TasksImportedFromObjectClass">
+            <summary>Класс-оболочка для перечисления задач, импортированных из определённого объекта</summary>
+        </member>
+        <member name="P:Intermech.Project.Project.TasksImportedFromObjectClass.Item(System.Guid)">
+            <summary>Перечисление задач, импортированных из определённого объекта</summary>
+            <param name="importedRootObjectVersionGuid">Глобальный идентификатор корневого импортированного объекта</param>
+        </member>
+        <member name="F:Intermech.Project.Project._tasksImportedFromObject">
+            <summary>Перечисление задач, импортированных из определённого объекта</summary>
+        </member>
+        <member name="P:Intermech.Project.Project.TasksImportedFromObject">
+            <summary>Перечисление задач, импортированных из определённого объекта</summary>
+        </member>
+        <member name="P:Intermech.Project.Project.PendingSiteID">
+            <summary>Идентификаторы узлов портала, временное значение. Если заполнено, означает, что синхронизация ещё не была выполнена</summary>
+        </member>
+        <member name="P:Intermech.Project.Project.SiteID">
+            <summary>Идентификаторы узлов портала</summary>
+        </member>
+        <member name="M:Intermech.Project.Project.Sync">
+            <summary>Синхронизирует проект с порталом. Для подпроектов запускает удаленные процессы, если узлы (владельцы свойств и состава) отличаются от текущего</summary>
+        </member>
+        <member name="P:Intermech.Project.Project.RemoteSiteCode">
+            <summary>Возвращает код узла, на котором должен выполняться данный проект. Если узел текущий, возвращает пробел</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectProperties.CompleteTasksOnProcess">
+            <summary>
+            Настройка "Автоматически завершать задачи при завершении процессов согласования результатов"
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.TaskEnumerationExtensions.ResolveDependencies(System.Collections.Generic.IEnumerable{Intermech.Project.Task})">
+            <summary>Восстанавливает связи между взаимосвязями в ограниченной последовательности задач.
+                     Используется например после Paste группы задач, восстанавливает связи в этой ограниченной группе задач</summary>
+            <param name="tasks">Перечисление задач</param>
+            <remarks>Код основывается на коде из Project.ResolveDependencies()</remarks>
+        </member>
+        <member name="T:Intermech.Project.DTO.InfoAboutDependency">
+            <summary>
+            Объект с информацией о зависимости ImProject
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutDependency.#ctor(System.Guid,System.Guid,Intermech.Project.Dependency)">
+            <summary>
+            Создать объект с информацией о зависимости ImProject
+            </summary>
+            <param name="from">Местный, идентификационный Guid задачи из которой взята зависимость</param>
+            <param name="to">Местный, идентификационный Guid задачи к которой ведет зависимость</param>
+            <param name="dependency">Объект зависимости ImProject</param>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutDependency.IdentifierTaskFrom">
+            <summary>
+            Местный, идентификационный Guid задачи из которой взята зависимость
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutDependency.IdentifierTaskTo">
+            <summary>
+            Идентификационный Guid задачи к которой ведет зависимость
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutDependency.Type">
+            <summary>
+            Тип зависимости
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutDependency.Lag">
+            <summary>
+            Задержка зависимости
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutDependency.LagUnit">
+            <summary>
+            Единицы измерения задержки
+            </summary>
+        </member>
+        <member name="T:Intermech.Project.DTO.InfoAboutImprojectTasks">
+            <summary>
+            Класс для хранения иерархической информации о задачах и их зависимостях
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutImprojectTasks.#ctor">
+            <summary>
+            Создание пустого объекта для хранения иерархической информации о задачах и их зависимостях
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutImprojectTasks.#ctor(Intermech.Project.DTO.InfoAboutTask[])">
+            <summary>
+            Создание объекта для хранения иерархической информации о задачах и их зависимостях
+            </summary>
+            <param name="tasksForCopy">Колекция с иерархической информацией о задачах</param>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutImprojectTasks.TasksForCopy">
+            <summary>
+            Колекция корневых объектов прототипов задач
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutImprojectTasks.DependenciesInfo">
+            <summary>
+            Информация о зфвисимостях
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutImprojectTasks.GetIdentifierGuid(Intermech.Project.Task)">
+            <summary>
+            Найти объект Task среди всей иерархии объектов taskForCopy и вернуть присвоенный ей местный гуид
+            </summary>
+            <param name="task">Объект задачи ImProject, которую необходимо найти</param>
+            <returns>Местный Guid искомой задачи из иерархии объектов tasksForCopy</returns>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutImprojectTasks.GetAllTasks">
+            <summary>
+            Получить колекцию всех объектов Task из данного объекта
+            </summary>
+            <returns>Линейная колекция из всех задач входящих в иерархию объектов TasksForCopy данного объекта</returns>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutImprojectTasks.GetAllTasksWithDependency">
+            <summary>
+            Получить колекцию всех объектов Task имеющих зависимости из данного объекта
+            </summary>
+            <returns>Линейная колекция из всех задач с зависимостями, входящих в иерархию объектов TasksForCopy данного объекта</returns>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutImprojectTasks.SaveDependency">
+            <summary>
+            Построить и сохранить колекцию зависимостей между всеми объектами Task из этого объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutOverlappingResource.AboutResource">
+            <summary>
+            Ресурс информация о котором находится в объекте
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutOverlappingResource.AllResourceTasks">
+            <summary>
+            Все задачи в которых задействован ресурс
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutOverlappingResource.TasksGroupsColections">
+            <summary>
+            Колекция с колекциями пересекающихся задач.
+            В каждой группе, каждая задача пересекается со всеми остальными в группе
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutOverlappingResource.HasInfoAboutOverlappingTasks">
+            <summary>
+            Есть ли пересекающиеся задачи
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutOverlappingResource.ClearAllTasks">
+            <summary>
+            Очистить все задачи
+            </summary>
+        </member>
+        <member name="T:Intermech.Project.DTO.InfoAboutTask">
+            <summary>
+            Класс для хранения информации о задачах ImProject и иерархии между ними
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutTask.#ctor(Intermech.Project.Task)">
+            <summary>
+            Создать объект для хранения информации об объекте задачи ImProject
+            </summary>
+            <param name="task">Задача ImProject</param>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutTask.TaskObjectID">
+            <summary>
+            ID версии объекта задачи
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutTask.IdentifierGuid">
+            <summary>
+            идентификационный Guid (Генерируется автоматически при создании объекта)
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutTask.Task">
+            <summary>
+            Задача ImProject
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.DTO.InfoAboutTask.ChildrenTasks">
+            <summary>
+            Колекция дочерних задач ImProject
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutTask.AddChildrenTask(Intermech.Project.DTO.InfoAboutTask)">
+            <summary>
+            Добавить информацию о дочерней задаче
+            </summary>
+            <param name="childrenInfoAboutTask"></param>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutTask.AddChildrenTask(System.Collections.Generic.List{Intermech.Project.DTO.InfoAboutTask})">
+            <summary>
+            Добавить информацию о дочерних задачах
+            </summary>
+            <param name="childrenInfoAboutTask"></param>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutTask.AlreadyExist(Intermech.Project.Task)">
+            <summary>
+            Рекурсивных метод проверки, присутствует ли задача ImProject в иерархии объектов с информацией о задачах
+            </summary>
+            <param name="task">Проверяемый объект задачи ImProject</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutTask.FindTaskIdentifier(Intermech.Project.Task)">
+            <summary>
+            Найти во всей иерархии и получить местный идентификационный Guid для задачи ImProject 
+            </summary>
+            <param name="task">Задача для которой хотим получить местный идентификационный Guid</param>
+            <returns>
+                Местный идентификационный Guid для искомой задачи ImProject
+                Guid.Empty если во всей иерархии с информацией о задачах нет объекта искомой задачи
+            </returns>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutTask.GetAllTasks">
+            <summary>
+            Метод для рекурсивного получения линейной колекции всех объектов задач ImProject, которые входят во всю иерархию данного объекта
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Project.DTO.InfoAboutTask.GetAllTasksWithDependency">
+            <summary>
+            Метод для рекурсивного получения линейной колекции всех объектов задач ImProject имеющих зависимости, которые входят во всю иерархию данного объекта
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Project.ICancelEditException">
+            <summary>Интерфейс, которым помечаются исключения, при возникновении которых при установке значения ячейки ProjectDataGridView
+                     требуется отменить редактирование</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetProjectType(Intermech.Interfaces.IUserSession)">
+            <summary>Получить тип объектов "Проекты IMProject"</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetTaskType(Intermech.Interfaces.IUserSession)">
+            <summary>Получить тип объектов "Задачи IMProject"</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetProjectMessageType(Intermech.Interfaces.IUserSession)">
+            <summary>Получить тип объектов "Сообщения IMProject"</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetDependencyType(Intermech.Interfaces.IUserSession)">
+            <summary>Получить тип объектов "Зависимости IMProject"</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetTaskInProjectRelationType(Intermech.Interfaces.IUserSession)">
+            <summary>Получить тип связей "Входимость задачи IMProject в проект IMProject"</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetProjectCollection(Intermech.Interfaces.IUserSession)">
+            <summary>Получить интерфейс фабрики проектов IMProject</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetTaskCollection(Intermech.Interfaces.IUserSession)">
+            <summary>Получить интерфейс фабрики задач IMProject</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetTaskCollection(Intermech.Interfaces.IUserSession,System.Int32)">
+            <summary>Получить интерфейс фабрики задач IMProject</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetProjectMessageCollection(Intermech.Interfaces.IUserSession)">
+            <summary>Получить интерфейс фабрики почтовых сообщений IMProject</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetDependencyCollection(Intermech.Interfaces.IUserSession)">
+            <summary>Получить интерфейс фабрики почтовых сообщений IMProject</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetRelationCollectionTaskInProject(Intermech.Interfaces.IUserSession,System.String)">
+            <summary>Получить интерфейс фабрики связей "Входимость задачи IMProject в проект IMProject"</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetProject(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>Получить интерфейс проекта IMProject по идентификатору его версии</summary>
+            <exception cref="T:Intermech.Project.ProjectNotFoundException">Если версия объекта с переданным идентификатором не найдена в БД
+                или данный объект не проект IMProject</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetProject(Intermech.Interfaces.IUserSession,System.Guid,System.Boolean)">
+            <summary>Получить интерфейс проекта IMProject по Guid-у его версии</summary>
+            <exception cref="T:Intermech.Project.ProjectNotFoundException">Если версия объекта с переданным Guid-ом не найдена в БД
+                или данный объект не проект IMProject</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetProject(Intermech.Interfaces.IUserSession,System.Int64,Intermech.Project.IProject@)">
+            <summary>Попытаться получить интерфейс проекта IMProject по идентификатору его версии</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetProject(Intermech.Interfaces.IUserSession,System.Guid,Intermech.Project.IProject@)">
+            <summary>Попытаться получить интерфейс проекта IMProject по Guid-у его версии</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetTask(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>Получить интерфейс задачи IMProject по идентификатору его версии</summary>
+            <exception cref="T:Intermech.Project.TaskNotFoundException">Если версия объекта с переданным идентификатором не найдена в БД
+                или данный объект не задача IMProject</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetTask(Intermech.Interfaces.IUserSession,System.Guid,System.Boolean)">
+            <summary>Получить интерфейс задачи IMProject по Guid-у его версии</summary>
+            <exception cref="T:Intermech.Project.TaskNotFoundException">Если версия объекта с переданным Guid-ом не найдена в БД
+                или данный объект не задача IMProject</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetTask(Intermech.Interfaces.IUserSession,System.Int64,Intermech.Project.IDBProjectTask@)">
+            <summary>Попытаться получить интерфейс задачи IMProject по идентификатору его версии</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetTask(Intermech.Interfaces.IUserSession,System.Guid,Intermech.Project.IDBProjectTask@)">
+            <summary>Попытаться получить интерфейс задачи IMProject по Guid-у его версии</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetProjectMessage(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>Получить интерфейс сообщения IMProject по идентификатору его версии</summary>
+            <exception cref="T:Intermech.Project.ProjectMessageNotFoundException">Если версия объекта с переданным идентификатором не найдена в БД
+                или данный объект не сообщение IMProject</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetProjectMessage(Intermech.Interfaces.IUserSession,System.Guid,System.Boolean)">
+            <summary>Получить интерфейс сообщения IMProject по Guid-у его версии</summary>
+            <exception cref="!:ProjectMessageWithVersionGuidNotFoundException">Если версия объекта с переданным Guid-ом не найдена в БД
+                или данный объект не сообщение IMProject</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetProjectMessage(Intermech.Interfaces.IUserSession,System.Int64,Intermech.Project.IDBProjectMessage@)">
+            <summary>Попытаться получить интерфейс сообщения IMProject по идентификатору его версии</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetProjectMessage(Intermech.Interfaces.IUserSession,System.Guid,Intermech.Project.IDBProjectMessage@)">
+            <summary>Попытаться получить интерфейс сообщения IMProject по Guid-у его версии</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetDependency(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>Получить интерфейс зависимости IMProject по идентификатору его версии</summary>
+            <exception cref="T:Intermech.Project.DependencyNotFoundException">Если версия объекта с переданным идентификатором не найдена в БД
+                или данный объект не зависимость IMProject</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetDependency(Intermech.Interfaces.IUserSession,System.Guid,System.Boolean)">
+            <summary>Получить интерфейс зависимости IMProject по Guid-у его версии</summary>
+            <exception cref="T:Intermech.Project.DependencyNotFoundException">Если версия объекта с переданным Guid-ом не найдена в БД
+                или данный объект не зависимость IMProject</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetDependency(Intermech.Interfaces.IUserSession,System.Int64,Intermech.Project.IDBDependency@)">
+            <summary>Попытаться получить интерфейс зависимости IMProject по идентификатору его версии</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetDependency(Intermech.Interfaces.IUserSession,System.Guid,Intermech.Project.IDBDependency@)">
+            <summary>Попытаться получить интерфейс зависимости IMProject по Guid-у его версии</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetTaskInProjectRelation(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>Получить интерфейс связи "входимость задачи IMProject в проект IMProject" по её идентификатору</summary>
+            <exception cref="T:Intermech.Project.RelationTaskInProjectNotFoundException">Если связь с переданным идентификатором не найдена в БД
+                или данный эта связь другого типа</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetTaskInProjectRelation(Intermech.Interfaces.IUserSession,System.Guid,System.Boolean)">
+            <summary>Получить интерфейс связи "входимость задачи IMProject в проект IMProject" по её Guid-у</summary>
+            <exception cref="T:Intermech.Project.RelationTaskInProjectNotFoundException">Если связь с переданным Guid-ом не найдена в БД
+                или данный эта связь другого типа</exception>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetTaskInProjectRelation(Intermech.Interfaces.IUserSession,System.Int64,Intermech.Project.IDBRelationTaskInProject@)">
+            <summary>Попытаться получить интерфейс связи "входимость задачи IMProject в проект IMProject" по её идентификатору</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.TryGetTaskInProjectRelation(Intermech.Interfaces.IUserSession,System.Guid,Intermech.Project.IDBRelationTaskInProject@)">
+            <summary>Попытаться получить интерфейс связи "входимость задачи IMProject в проект IMProject" по её Guid-у</summary>
+        </member>
+        <member name="M:Intermech.Project.ProjectIUserSessionExtensions.GetProjectTasks(Intermech.Interfaces.IUserSession,System.Int64,Intermech.Extensions.OneOrMore{Intermech.Kernel.Search.ColumnDescriptor}@,Intermech.Extensions.OneOrMore{Intermech.Kernel.Search.ConditionStructure}@,System.Boolean)">
+            <summary>Получить состав проекта (задачи)</summary>
+            <param name="session">usrSession - пользовательская сессия</param>
+            <param name="projectVersionID">ID версии проекта</param>
+            <param name="columns">Коллекция столбцов для запроса состава из базы данных</param>
+            <param name="conditions">Условия для запроса</param>
+            <param name="recursiveSubProjects">(по умолчанию false) Запрашивать ли рекурсивно задачи, входящие в подпроекты</param>
+        </member>
+        <member name="P:Intermech.Project.Evaluator.Expression.RequiresInput">
+            <summary>
+            Требуется запрашивать ввод значения пользователя, или нет
+            Значение должно быть уточнено, если в поле "значение" находится строка вида: "Текст запроса:"?
+            </summary>
+        </member>
+        <member name="T:Intermech.Project.Filter">
+            <summary>Фильтр задач IMProject-а</summary>
+        </member>
+        <member name="T:Intermech.Project.Filter.Condition">
+            <summary>Условие фильтрации задач IMProject-а</summary>
+        </member>
+        <member name="T:Intermech.Project.Filter.Condition.ValueSource">
+            <summary>Источник значения которое участвует в фильтрации</summary>
+        </member>
+        <member name="F:Intermech.Project.Filter.Condition.ValueSource.Found">
+            <summary>Признак того, что свойство, описанное Guid найдено в БД</summary>
+        </member>
+        <member name="P:Intermech.Project.TaskFilter.RequiresInput">
+            <summary>
+            Требуется запрашивать ввод значения пользователя, или нет
+            Значение должно быть уточнено, если в поле "значение" находится строка вида: "Текст запроса:"?
+            </summary>
+        </member>
+        <member name="F:Intermech.Project.TaskFilter.PenStr">
+            <summary>Карандаш в виде строки (для экономии GDI ресурсов, объект вида карандаш создаётся по месту использования)</summary>
+            <remarks>Строка генерируется с помощью GraphicFuncs.PenToString и преобразуется в карандаш с помощью GraphicFuncs.StringToPen(</remarks>>
+        </member>
+        <member name="F:Intermech.Project.TaskFilter.BrushStr">
+            <summary>Кисть в виде строки (для экономии GDI ресурсов, объект вида кисть создаётся по месту использования)</summary>
+            <remarks>Строка генерируется с помощью GraphicFuncs.BrushToString и преобразуется в кисть с помощью GraphicFuncs.StringToBrush(</remarks>>
+        </member>
+        <member name="T:Intermech.Project.IMProject">
+            <summary>Общие статические методы, константы и данные ядра IMProject-а</summary>
+        </member>
+        <member name="T:Intermech.Project.IDBDependencyCollection">
+            <summary>Интерфейс фабрики объектов "Зависимость IMProject"</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBDependencyCollection.Create">
+            <summary>Создает заготовку зависимости IMProject</summary>
+        </member>
+        <member name="T:Intermech.Project.IDBProjectCollection">
+            <summary>Интерфейс фабрика объектов "Проект IMProject"</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectCollection.Create">
+            <summary>Создает заготовку проекта IMProject</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectCollection.Create(Intermech.Project.IProject)">
+            <summary>Создает заготовку проекта IMProject на основе прототипа prototype</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectCollection.Create(System.Int64)">
+            <summary>Создает заготовку проекта IMProject на основе прототипа prototype</summary>
+        </member>
+        <member name="T:Intermech.Project.IDBProjectMessageCollection">
+            <summary>Интерфейс фабрики объектов "IMProject mail notification"</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectMessageCollection.Create">
+            <summary>Создает заготовку почтового сообщения IMProject</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectMessageCollection.Create(Intermech.Project.IDBProjectMessage)">
+            <summary>Создает заготовку почтового сообщения IMProject на основе прототипа prototype</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectMessageCollection.Create(System.Int64)">
+            <summary>Создает заготовку почтового сообщения IMProject на основе прототипа prototype</summary>
+        </member>
+        <member name="T:Intermech.Project.IDBProjectTaskCollection">
+            <summary>Интерфейс фабрики задач IMProject</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectTaskCollection.Create">
+            <summary>Создает заготовку новой задачи IMProject</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectTaskCollection.Create(Intermech.Project.IDBProjectTask)">
+            <summary>Создает заготовку новой задачи IMProject на основе прототипа prototype</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectTaskCollection.Create(System.Int64)">
+            <summary>Создает заготовку новой задачи IMProject на основе прототипа prototype</summary>
+        </member>
+        <member name="T:Intermech.Project.IDBDependency">
+            <summary>Интерфейс зависимости IMProject</summary>
+        </member>
+        <member name="T:Intermech.Project.IDBProjectMessage">
+            <summary>IMProject mail notification</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectMessage.TaskID">
+            <summary>Идентификатор задачи IMProject</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectMessage.Task">
+            <summary>Задача IMProject, по которой выпущено сообщение</summary>
+        </member>
+        <member name="T:Intermech.Project.IDBProjectTask">
+            <summary>Интерфейс задачи IMProject</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.ProjectID">
+            <summary>Идентификатор проекта, в который входит задача</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBProjectTask.GetDbProject">
+            <summary>Получить интерфейс проекта, в который входит данная задача</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.ParentTask">
+            <summary>Интерфейс задачи в которую вложена данная</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.Status">
+            <summary>Статус задачи</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.PlanStartDateTime">
+            <summary>Плановое начало или null (если не задано)</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.PlanFinishDateTime">
+            <summary>Плановое окончание рассчитанное как PlanStartDateTime + PlanDuration</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.PlanDuration">
+            <summary>Плановая продолжительность или null (если не задано)</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.DueDateID">
+            <summary>Срок выполнения</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.Description">
+            <summary>Описание задачи</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.ManagerAnswer">
+            <summary>Ответ руководителя отправившего задание с этапа проверки обратно исполнителям</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.Assignments">
+            <summary>Ресурсы назначенные задаче</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.ChiefID">
+            <summary>Идентификатор руководителя задачи</summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.Messages">
+            <summary>
+            Информация по сообщениям, отправленным по задаче, содержит идентификаторы объекта и версии объекта сообщений,
+            идентификатор получателя, начато, завершено, статус (см. <see cref="T:Intermech.Workflow.ActivityStatus"/>)
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.IDBProjectTask.Parcipiants">
+            <summary>Список исполнителей</summary>
+        </member>
+        <member name="T:Intermech.Project.IProject">
+            <summary>Интерфейс проекта IMProject</summary>
+        </member>
+        <member name="P:Intermech.Project.IProject.Parcipiants">
+            <summary>Получить список исполнителей проекта</summary>
+        </member>
+        <member name="M:Intermech.Project.IProject.CheckOutChildren">
+            <summary>Только для внутреннего использования! </summary>
+        </member>
+        <member name="M:Intermech.Project.IProject.CheckInChildren">
+            <summary>Только для внутреннего использования! </summary>
+        </member>
+        <member name="P:Intermech.Project.IProject.RemoteStatus">
+            <summary>Статус удаленного процесса (если проект передавался через портал через команду синхронизации)</summary>
+        </member>
+        <member name="M:Intermech.Project.IProject.GetProjectTasks(Intermech.Extensions.OneOrMore{Intermech.Kernel.Search.ColumnDescriptor}@,Intermech.Extensions.OneOrMore{Intermech.Kernel.Search.ConditionStructure}@,System.Boolean)">
+            <summary>Получить состав проекта (задачи)</summary>
+            <param name="columns">Коллекция столбцов для запроса состава из базы данных</param>
+            <param name="conditions">Условия для запроса</param>
+            <param name="recursiveSubProjects">(по умолчанию false) Запрашивать ли рекурсивно задачи, входящие в подпроекты</param>
+        </member>
+        <member name="T:Intermech.Project.ProjectParcipiantInfo">
+            <summary>Структура с данными на исполнителя проекта</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectParcipiantInfo.ID">
+            <summary>Идентификатор объекта пользователя (Не идентификатор версии объекта!)</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectParcipiantInfo.ObjectVerID">
+            <summary>Идентификатор версии объекта пользователя</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectParcipiantInfo.Caption">
+            <summary>Заголовок объекта пользователя</summary>
+        </member>
+        <member name="T:Intermech.Project.TaskParcipiantInfo">
+            <summary>Структура с данными на исполнителя задачи</summary>
+        </member>
+        <member name="P:Intermech.Project.TaskParcipiantInfo.ID">
+            <summary>Идентификатор объекта пользователя (Не идентификатор версии объекта!)</summary>
+        </member>
+        <member name="P:Intermech.Project.TaskParcipiantInfo.ObjectVerID">
+            <summary>Идентификатор версии объекта пользователя</summary>
+        </member>
+        <member name="P:Intermech.Project.TaskParcipiantInfo.Caption">
+            <summary>Заголовок объекта пользователя</summary>
+        </member>
+        <member name="P:Intermech.Project.TaskParcipiantInfo.IsChief">
+            <summary>Признак руководителя</summary>
+        </member>
+        <member name="T:Intermech.Project.IDBRelationCollectionTaskInProject">
+            <summary>Интерфейс фабрики связей "Входимость задачи IMProject в проект IMProject"</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBRelationCollectionTaskInProject.Create(System.Int64,System.Int64,System.DateTime)">
+            <summary>Создает связь между объектами projectID (ид. версии проекта) и taskID (ид. версии
+                задачи), которая начнет действовать с даты beginDate (в локальном времени)</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBRelationCollectionTaskInProject.Create(System.Int64,System.Int64,Intermech.Interfaces.AttributeValues[])">
+            <summary>То же, но связь начнет действовать с момента ее создания</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBRelationCollectionTaskInProject.Create(Intermech.Interfaces.NewRelationProperties@)">
+            <summary>Создает связь между объектами properties.ProjectObjectID (ид. версии проекта) и
+                properties.PartID (ид. версии задачи), которая начнет действовать с даты properties.BeginDate (в
+                локальном времени). Если properties.BeginDate == DateTime.MinValue, то связь начинает действовать с даты ее
+                создания. Если properties.EndDate == DateTime.MaxValue, то время действия связи не ограничено. Тип связи задается
+                при получении объекта IDBRelationCollection (если при создании тип связи меньше 0, то функция Create работать не
+                будет). Если properties.PrototypeRelationID > 0, то связь инициализируется атрибутами от связи прототипа с номером
+                properties.PrototypeRelationID</summary>
+        </member>
+        <member name="M:Intermech.Project.IDBRelationCollectionTaskInProject.GetProjectTasks(System.Int64,Intermech.Extensions.OneOrMore{Intermech.Kernel.Search.ColumnDescriptor}@,Intermech.Extensions.OneOrMore{Intermech.Kernel.Search.ConditionStructure}@,System.Boolean)">
+            <summary>Получить состав проекта (задачи)</summary>
+            <param name="projectVersionID">ID версии проекта</param>
+            <param name="columns">Коллекция столбцов для запроса состава из базы данных</param>
+            <param name="conditions">Условия для запроса</param>
+            <param name="recursiveSubProjects">(по умолчанию false) Запрашивать ли рекурсивно задачи, входящие в подпроекты</param>
+        </member>
+        <member name="T:Intermech.Project.IDBRelationTaskInProject">
+            <summary>Интерфейс связи "Входимость задачи IMProject в проект IMProject"</summary>
+        </member>
+        <member name="T:Intermech.Project.Interfaces.ISchedule">
+            <summary>
+            Интерфейс объектов расписания
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Interfaces.ISchedule.ObjectID">
+            <summary>
+            Идентификатор версии объекта, для которого расчитано расписание
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Interfaces.ISchedule.BaseObjectID">
+            <summary>
+            Идентификатор версии объекта расписания на основе которого построено это расписание
+            Если это расписание не построено на основе другого расписания, то должен вернуться ObjectID
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Interfaces.ISchedule.Index">
+            <summary>
+            Заполняется родительской коллекцией, если у неё включено CalcIndexes
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Interfaces.ISchedule.UseCache">
+            <summary>
+            Использовать ли кэш
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Interfaces.ISchedule.DayDuration">
+            <summary>
+            Рабочих часов в дне
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Interfaces.ISchedule.WeekDuration">
+            <summary>
+            Рабочих часов в неделе
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Interfaces.ISchedule.MonthDuration">
+            <summary>
+            Рабочих часов в месяце
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Interfaces.ISchedule.Modified">
+            <summary>
+            Имеются ли изменения
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.Interfaces.ISchedule.Load(System.Int64,Intermech.Interfaces.IUserSession)">
+            <summary>
+            Загрузить расписание
+            </summary>
+            <param name="objectID">Идентификатор версии объекта, для которого нужно расчитать расписание</param>
+            <param name="session">Сессия</param>
+        </member>
+        <member name="M:Intermech.Project.Interfaces.ISchedule.ClearCache">
+            <summary>
+            Очистить кэш
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.Interfaces.ISchedule.GetIntervals(System.DateTime)">
+            <summary>
+            Получить интервалы рабочего времени
+            </summary>
+            <param name="date">Дата в которой необходимо получить интервалы рабочего времени</param>
+        </member>
+        <member name="M:Intermech.Project.Interfaces.ISchedule.GetDayTimeIntervals(System.DateTime)">
+            <summary>
+            Получить интервалы рабочего времени (из кэша если он не пуст или сформировать новые) и закэшировать
+            </summary>
+            <param name="date">Дата в которой необходимо получить интервалы рабочего времени</param>
+        </member>
+        <member name="M:Intermech.Project.Interfaces.ISchedule.IsNonWorkingTime(System.DateTime)">
+            <summary>
+            Является ли дата выходным днем
+            </summary>
+            <param name="date">Проверяемая дата</param>
+        </member>
+        <member name="M:Intermech.Project.Interfaces.ISchedule.GetWorkTime(System.DateTime,System.DateTime)">
+            <summary>
+            Получить рабочее время в промежутке
+            </summary>
+            <param name="start">Дата начала промежутка из которого нужно получить рабочее время</param>
+            <param name="finish">Дата окончания промежутка в котором нужно получить рабочее время</param>
+        </member>
+        <member name="M:Intermech.Project.Interfaces.ISchedule.GetWorkTime(System.DateTime,System.Double)">
+            <summary>
+            Метод для получения списка дат и интервалов рабочего времени, необходимых для выполнения заданного объема работы
+            </summary>
+            <param name="start"> Дата и время начала работы </param>
+            <param name="work"> Объем работы в часах </param>
+        </member>
+        <member name="M:Intermech.Project.Interfaces.ISchedule.Assign(Intermech.Project.Schedule)">
+            <summary>
+            Присвоисть расписание
+            </summary>
+            <param name="src">Объект расписания, значения которого будут назначены объекту из текущего объекта расписания</param>
+        </member>
+        <member name="T:Intermech.Project.LCStepVsTaskStatusConnection">
+            <summary>Связь между шагом жизненного цикла и статусом задачи</summary>
+        </member>
+        <member name="T:Intermech.Project.MetadataLoader">
+            <summary>Загрузчик метаданных IPS.Project</summary>
+        </member>
+        <member name="T:Intermech.Project.Attributes">
+            <summary>Системные типы атрибутов IPS.Project</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Project">
+            <summary>Ссылка на проект IMProject</summary>
+        </member>
+        <member name="P:Intermech.Project.Attributes.PlanStart">
+            <summary>Плановое начало</summary>
+        </member>
+        <member name="P:Intermech.Project.Attributes.PlanFinish">
+            <summary>Плановое окончание</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.PlanDuration">
+            <summary>Плановая длительность</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.PlanWork">
+            <summary>Плановые трудозатраты</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.FactStart">
+            <summary>Фактическое начало</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.FactFinish">
+            <summary>Фактическое окончание</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ProjectData">
+            <summary>Данные проекта</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ConstraintType">
+            <summary>Тип ограничения</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ConstraintDate">
+            <summary>Дата ограничения</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.VerifyScheme">
+            <summary>Шаблон согласования</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.PercentCompleted">
+            <summary>Процент выполнения</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Flags">
+            <summary>Флаги</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.TaskPriority">
+            <summary>Приоритет задачи</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.FromTask">
+            <summary>Исходит из задачи</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ToTask">
+            <summary>Входит в задачу</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.DependencyType">
+            <summary>Тип зависимости</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Lag">
+            <summary>Запаздывание</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ResourceUnits">
+            <summary>Число единиц ресурса</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ResourceIsChief">
+            <summary>Признак руководителя</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.AttachKind">
+            <summary>Вид вложения ImProject</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ManagerAnswer">
+            <summary>Ответ руководителя</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.TaskColor">
+            <summary>Цвет на диаграмме</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ImportedRootObjectGuid">
+            <summary>Глобальный идентификатор корневого импортированного в проект объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ImportedRelationGuid">
+            <summary>Guid связи в составе импортированного в проект корневого объекта, по которой импортированных объект входит в состав корневого</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.ImportedObject">
+            <summary>Ссылка на объект по которому была создана задача в процессе импорта</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.LastSyncDate">
+            <summary>Дата последней синхронизации состава</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Prototype">
+            <summary>Шаблон для новых задач</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.InitScript">
+            <summary>Сценарий инициализации задач</summary>
+        </member>
+        <member name="M:Intermech.Project.Attributes.IsProtected(System.Int32)">
+            <summary>Проверка возможно ли редактировать атрибут, в обход редактора</summary>
+        </member>
+        <member name="M:Intermech.Project.Attributes.InitProtectedIDs(Intermech.Interfaces.IUserSession)">
+            <summary>Инициализация списка атрибутов, которые невозможно редактировать в обход редактора</summary>
+        </member>
+        <member name="P:Intermech.Project.Attributes.ProtectedIDsList">
+            <summary>Список атрибутов, которые невозможно редактировать в обход редактора</summary>
+        </member>
+        <member name="T:Intermech.Project.Attributes.Consts">
+            <summary>Guid-ы и идентификаторы системных атрибутов IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ProjectGuid">
+            <summary>Ссылка на проект IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.PlanDurationGuid">
+            <summary>Плановая длительность</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.PlanWorkGuid">
+             <summary>Плановые трудозатраты</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.FactStartGuid">
+            <summary>Фактическое начало</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.FactFinishGuid">
+            <summary>Фактическое окончание</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ProjectDataGuid">
+            <summary>Данные проекта</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ConstraintTypeGuid">
+            <summary>Тип ограничения</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ConstraintDateGuid">
+            <summary>Дата ограничения</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.VerifySchemeGuid">
+            <summary>Шаблон согласования</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.PercentCompletedGuid">
+            <summary>Процент выполнения</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.FlagsGuid">
+            <summary>Флаги</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.TaskPriorityGuid">
+            <summary>Приоритет задачи</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.FromTaskGuid">
+            <summary>Исходит из задачи</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ToTaskGuid">
+            <summary>Входит в задачу</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.DependencyTypeGuid">
+            <summary>Тип зависимости</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.LagGuid">
+            <summary>Запаздывание</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ResourceUnitsGuid">
+            <summary>Число единиц ресурса</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ResourceIsChiefGuid">
+            <summary>Признак руководителя</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.AttachKindGuid">
+            <summary>Вид вложения ImProject</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ManagerAnswerGuid">
+            <summary>Ответ руководителя</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.TaskColorGuid">
+            <summary>Цвет на диаграмме</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ImportedRelationGuidStr">
+            <summary>Guid связи в составе импортированного в проект корневого объекта, по которой импортированных объект входит в состав корневого</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ImportedRootObjectGuidStr">
+            <summary>Глобальный идентификатор корневого импортированного в проект объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.ImportedObjectGuid">
+            <summary>Ссылка на объект по которому была создана задача в процессе импорта</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.LastSyncDateGuid">
+            <summary>Дата последней синхронизации состава</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.PrototypeGuid">
+            <summary>Шаблон для новых задач</summary>
+        </member>
+        <member name="F:Intermech.Project.Attributes.Consts.InitScriptGuid">
+            <summary>Сценарий инициализации задач</summary>
+        </member>
+        <member name="T:Intermech.Project.Attribute">
+            <summary>Псевдоним</summary>
+        </member>
+        <member name="T:Intermech.Project.LCStep">
+            <summary>Системные шаги жизненного цикла IPS.Project</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Designing">
+            <summary>Проектирование</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Executing">
+            <summary>Выполнение</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Sent">
+            <summary>Разослано исполнителям</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Validating">
+            <summary>Проверка руководителем</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Completed">
+            <summary>Выполнено</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Terminated">
+            <summary>Прервано</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Waiting">
+            <summary>Ожидание</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Imported">
+            <summary>Импортировано</summary>
+        </member>
+        <member name="P:Intermech.Project.LCStep.DirectEdit">
+            <summary>Импортировано</summary>
+        </member>
+        <member name="T:Intermech.Project.LCStep.Consts">
+            <summary>Guid-ы системных шагов жизненного цикла IPS.Project (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Consts.DesigningGuid">
+            <summary>Проектирование</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Consts.ExecutingGuid">
+            <summary>Выполнение</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Consts.SentGuid">
+            <summary>Разослано исполнителям</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Consts.ValidatingGuid">
+            <summary>Проверка руководителем</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Consts.CompletedGuid">
+            <summary>Выполнено</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Consts.TerminatedGuid">
+            <summary>Прервано</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Consts.WaitingGuid">
+            <summary>Ожидание</summary>
+        </member>
+        <member name="F:Intermech.Project.LCStep.Consts.ImportedGuid">
+            <summary>Импортировано</summary>
+        </member>
+        <member name="T:Intermech.Project.ObjectTypes">
+            <summary>Системные типы объектов IPS.Project</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.ScriptInitTaskAfterImport">
+            <summary>Сценарий инициализации каждой отдельной задачи сразу после создания в процессе импорта</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.ScriptInitAfterImportTasks">
+            <summary>Сценарий обработки всех импортированных задач IMProject по окончании импорта в проект структуры объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.ProjectObjects">
+            <summary>Абстрактный тип "Объекты IMProject"</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Project">
+            <summary>Проект IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Task">
+            <summary>Задача IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Dependency">
+            <summary>Взаимосвязь IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.ProjectMessage">
+            <summary>Сообщение IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.RouteElement">
+            <summary>Расцеховочный элемент</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.BasicTechprocess">
+            <summary>Базовый техпроцесс</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.TechRoute">
+            <summary>Расцеховочный маршрут</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.PrintScheme">
+            <summary>Сохранённые настройки вывода на печать проекта IMProject</summary>
+        </member>
+        <member name="T:Intermech.Project.ObjectTypes.Consts">
+            <summary>Guid-ы и идентификаторы системных типов объектов IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.IMProjectObjectGuid">
+            <summary>Объекты IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.ProjectGuid">
+            <summary>Проект IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.TaskGuid">
+            <summary>Задача IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.DependencyGuid">
+            <summary>Взаимосвязь IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.InitTasksScriptTypeGuid">
+            <summary>Сценарий инициализации каждой отдельной задачи сразу после создания в процессе импорта</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.ScriptInitAfterImportTasksGuid">
+            <summary>Сценарий обработки всех импортированных задач IMProject по окончании импорта в проект структуры объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.ProjectMessageGuid">
+            <summary>Сообщение IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.RouteElementGuid">
+            <summary>Расцеховочный элемент</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.BasicTechprocessGuid">
+            <summary>Базовый техпроцесс</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.TechRouteGuid">
+            <summary>Расцеховочный маршрут</summary>
+        </member>
+        <member name="F:Intermech.Project.ObjectTypes.Consts.PrintSchemeGuid">
+            <summary>Сохранённые настройки вывода на печать проекта IMProject</summary>
+        </member>
+        <member name="T:Intermech.Project.PhysicalQuantity">
+            <summary>Системные физические величины IPS.Project</summary>
+        </member>
+        <member name="F:Intermech.Project.PhysicalQuantity.Time">
+            <summary>Время</summary>
+        </member>
+        <member name="T:Intermech.Project.PhysicalQuantity.Consts">
+            <summary>Guid-ы и идентификаторы системных физических величин IPS.Project (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="F:Intermech.Project.PhysicalQuantity.Consts.TimeGuid">
+            <summary>Время</summary>
+        </member>
+        <member name="T:Intermech.Project.RelationTypes">
+            <summary>Системные типы связей IPS.Project</summary>
+        </member>
+        <member name="F:Intermech.Project.RelationTypes.TaskComposition">
+            <summary>Состав задачи</summary>
+        </member>
+        <member name="F:Intermech.Project.RelationTypes.TaskAttachment">
+            <summary>Вложение IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.RelationTypes.Resources">
+            <summary>Связь с задействованными в проекте ресурсами</summary>
+        </member>
+        <member name="F:Intermech.Project.RelationTypes.ImportedObjects">
+            <summary>Импортированные в проект объекты</summary>
+        </member>
+        <member name="T:Intermech.Project.RelationTypes.Consts">
+            <summary>Guid-ы и идентификаторы системных типов связей IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="F:Intermech.Project.RelationTypes.Consts.TaskCompositionGuid">
+            <summary>Состав задачи</summary>
+        </member>
+        <member name="F:Intermech.Project.RelationTypes.Consts.TaskAttachmentGuid">
+            <summary>Вложение IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.RelationTypes.Consts.ResourcesGuid">
+            <summary>Связь с задействованными в проекте ресурсами</summary>
+        </member>
+        <member name="F:Intermech.Project.RelationTypes.Consts.ImportedObjectsInProjectGuid">
+            <summary>Импортированные в проект объекты</summary>
+        </member>
+        <member name="T:Intermech.Project.SystemObject">
+            <summary>Системные объекты IPS.Project</summary>
+        </member>
+        <member name="F:Intermech.Project.SystemObject.AssignmentsReportTemplate2ID">
+            <summary>Шаблон отчета загрузки исполнителей 2</summary>
+        </member>
+        <member name="T:Intermech.Project.SystemObject.Consts">
+            <summary>Guid-ы и идентификаторы системных объектов IPS (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="F:Intermech.Project.SystemObject.Consts.AssignmentsReportTemplate2IDGuid">
+            <summary>Шаблон отчета загрузки исполнителей 2</summary>
+        </member>
+        <member name="T:Intermech.Project.DependencyObjectType">
+            <summary>Тип объекта "Взаимосвязи IMProject"</summary>
+        </member>
+        <member name="F:Intermech.Project.DependencyObjectType.TypeGuid">
+            <summary>Guid типа объекта</summary>
+        </member>
+        <member name="T:Intermech.Project.DependencyObjectType.Attributes">
+            <summary>Системные атрибуты типа объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.DependencyObjectType.Attributes.FromTask">
+            <summary>Исходит из задачи</summary>
+        </member>
+        <member name="F:Intermech.Project.DependencyObjectType.Attributes.ToTask">
+            <summary>Входит в задачу</summary>
+        </member>
+        <member name="F:Intermech.Project.DependencyObjectType.Attributes.Type">
+            <summary>Тип зависимости</summary>
+        </member>
+        <member name="F:Intermech.Project.DependencyObjectType.Attributes.Lag">
+            <summary>Запаздывание</summary>
+        </member>
+        <member name="T:Intermech.Project.DependencyObjectType.ConsistOf">
+            <summary>Возможные способы формирования состава</summary>
+        </member>
+        <member name="T:Intermech.Project.DependencyObjectType.UsedIn">
+            <summary>Возможные способы формирования входимости</summary>
+        </member>
+        <member name="T:Intermech.Project.ProjectMessageObjectType">
+            <summary>Тип объекта "Почтовое сообщение IMProject"</summary>
+        </member>
+        <member name="F:Intermech.Project.ProjectMessageObjectType.TypeGuid">
+            <summary>Guid типа объекта</summary>
+        </member>
+        <member name="T:Intermech.Project.ProjectMessageObjectType.Attributes">
+            <summary>Системные атрибуты типа объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.ProjectMessageObjectType.Attributes.Task">
+            <summary>Ссылка на задачу IMProject, в контексте которой было сгенерировано сообщение</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectMessageObjectType.Attributes.Activity">
+            <summary>Ссылка на действие, отправившее сообщение</summary>
+        </member>
+        <member name="F:Intermech.Project.ProjectMessageObjectType.Attributes.ManagerAnswer">
+            <summary>Ответ руководителя</summary>
+        </member>
+        <member name="T:Intermech.Project.ProjectMessageObjectType.ConsistOf">
+            <summary>Возможные способы формирования состава</summary>
+        </member>
+        <member name="T:Intermech.Project.ProjectMessageObjectType.UsedIn">
+            <summary>Возможные способы формирования входимости</summary>
+        </member>
+        <member name="T:Intermech.Project.ProjectObjectType">
+            <summary>Тип объекта "Проекты IMProject"</summary>
+        </member>
+        <member name="F:Intermech.Project.ProjectObjectType.TypeGuid">
+            <summary>Guid типа объекта</summary>
+        </member>
+        <member name="T:Intermech.Project.ProjectObjectType.Attributes">
+            <summary>Системные атрибуты типа объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.ProjectObjectType.Attributes.Data">
+            <summary>Данные проекта</summary>
+        </member>
+        <member name="T:Intermech.Project.ProjectObjectType.ConsistOf">
+            <summary>Возможные способы формирования состава</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectObjectType.ConsistOf.ImportedObjects">
+            <summary>Импортированные в проект объекты</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectObjectType.ConsistOf.Project">
+            <summary>Ссылка на проект IMProject. Искать у задач IMProject</summary>
+        </member>
+        <member name="T:Intermech.Project.ProjectObjectType.UsedIn">
+            <summary>Возможные способы формирования входимости</summary>
+        </member>
+        <member name="T:Intermech.Project.TaskObjectType">
+            <summary>Тип объекта "Задачи IMProject"</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.TypeGuid">
+            <summary>Guid типа объекта</summary>
+        </member>
+        <member name="T:Intermech.Project.TaskObjectType.Attributes">
+            <summary>Системные атрибуты типа объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.Project">
+            <summary>Ссылка на проект IMProject</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.PlanStart">
+            <summary>Плановое начало</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.PlanFinish">
+            <summary>Плановое окончание</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.DueDate">
+            <summary>Плановый срок выполнения</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.PlanDuration">
+            <summary>Плановая длительность</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.Work">
+            <summary>Плановые трудозатраты</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.FactStart">
+            <summary>Фактическое начало</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.FactFinish">
+            <summary>Фактическое окончание</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.ConstraintType">
+            <summary>Тип ограничения</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.ConstraintDate">
+            <summary>Дата ограничения</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.VerifyScheme">
+            <summary>Шаблон согласования</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.PercentCompleted">
+            <summary>Процент выполнения</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.Flags">
+            <summary>Флаги</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.TaskPriority">
+            <summary>Приоритет задачи</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.TaskColor">
+            <summary>Цвет на диаграмме</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.ImportedRootObjectGuid">
+            <summary>Глобальный идентификатор корневого импортированного в проект объекта</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.ImportedRelationGuid">
+            <summary>Guid связи в составе импортированного в проект корневого объекта, по которой импортированных объект входит в состав корневого</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.Attributes.ImportedObject">
+            <summary>Ссылка на объект по которому была создана задача в процессе импорта</summary>
+        </member>
+        <member name="T:Intermech.Project.TaskObjectType.ConsistOf">
+            <summary>Возможные способы формирования состава</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskObjectType.ConsistOf.TaskComposition">
+            <summary>Состав задачи</summary>
+        </member>
+        <member name="P:Intermech.Project.TaskObjectType.ConsistOf.Attachments">
+            <summary>Состав задачи</summary>
+        </member>
+        <member name="T:Intermech.Project.TaskObjectType.UsedIn">
+            <summary>Возможные способы формирования входимости</summary>
+        </member>
+        <member name="P:Intermech.Project.TaskObjectType.UsedIn.Project">
+            <summary>Ссылка на проект IMProject</summary>
+        </member>
+        <member name="P:Intermech.Project.TaskObjectType.UsedIn.TaskComposition">
+            <summary>Состав задачи</summary>
+        </member>
+        <member name="T:Intermech.Project.ImportedObjectsRelType">
+            <summary>Тип связи "Импортированные в проект объекты"</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObjectsRelType.TypeGuid">
+            <summary>Guid типа связи</summary>
+        </member>
+        <member name="T:Intermech.Project.ImportedObjectsRelType.Attributes">
+            <summary>Системные атрибуты типа связи</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObjectsRelType.Attributes.IterationID">
+            <summary>Идентификатор итерации в которой сохранён состав импортированного объекта на момент импорта</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObjectsRelType.Attributes.ImportedObject">
+            <summary>Ссылка на объект, импортированный в проект</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObjectsRelType.Attributes.Data">
+            <summary>Данные импорта (XML?)</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObjectsRelType.Attributes.LastSyncDate">
+            <summary>Дата последней синхронизации состава</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObjectsRelType.Attributes.Prototype">
+            <summary>Шаблон для новых задач</summary>
+        </member>
+        <member name="F:Intermech.Project.ImportedObjectsRelType.Attributes.InitScript">
+            <summary>Сценарий инициализации задач</summary>
+        </member>
+        <member name="T:Intermech.Project.ResourceRelType">
+            <summary>Тип связи "Ресурс проекта IMProject"</summary>
+        </member>
+        <member name="F:Intermech.Project.ResourceRelType.TypeGuid">
+            <summary>Guid типа связи</summary>
+        </member>
+        <member name="T:Intermech.Project.ResourceRelType.Attributes">
+            <summary>Системные атрибуты типа связи</summary>
+        </member>
+        <member name="F:Intermech.Project.ResourceRelType.Attributes.Units">
+            <summary>Число единиц ресурса</summary>
+        </member>
+        <member name="F:Intermech.Project.ResourceRelType.Attributes.IsChief">
+            <summary>Признак руководителя</summary>
+        </member>
+        <member name="T:Intermech.Project.TaskAttachmentRelType">
+            <summary>Тип связи "Вложение IMProject"</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskAttachmentRelType.TypeGuid">
+            <summary>Guid типа связи</summary>
+        </member>
+        <member name="T:Intermech.Project.TaskAttachmentRelType.Attributes">
+            <summary>Системные атрибуты типа связи</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskAttachmentRelType.Attributes.Kind">
+            <summary>Вид вложения IMProject</summary>
+        </member>
+        <member name="T:Intermech.Project.TaskCompositionRelType">
+            <summary>Тип связи "Состав задачи IMProject"</summary>
+        </member>
+        <member name="F:Intermech.Project.TaskCompositionRelType.TypeGuid">
+            <summary>Guid типа связи</summary>
+        </member>
+        <member name="T:Intermech.Project.TaskCompositionRelType.Attributes">
+            <summary>Системные атрибуты типа связи</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectConsts.ScriptInitAfterImportTasksGuidStr">
+            <summary>Сценарий обработки всех импортированных задач IMProject по окончании импорта в проект структуры объекта</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectConsts.InitTasksScriptTypeGuidStr">
+            <summary>Сценарий инициализации каждой отдельной задачи сразу после создания в процессе импорта</summary>
+        </member>
+        <member name="P:Intermech.Project.ProjectConsts.ModifyContentDateID">
+            <summary>Атрибут "Дата модификации содержимого объекта"</summary>
+        </member>
+        <member name="T:Intermech.Project.Helper">
+            <summary>Статический класс-хелпер для IPS.Project</summary>
+        </member>
+        <member name="M:Intermech.Project.Helper.CheckTypeIsProject(System.Int32)">
+            <exception cref="T:System.InvalidOperationException">Если переданный тип не является задачей IMProject</exception>
+        </member>
+        <member name="M:Intermech.Project.Helper.CheckTypeIsTask(System.Int32)">
+            <exception cref="T:System.InvalidOperationException">Если переданный тип не является задачей IMProject</exception>
+        </member>
+        <member name="P:Intermech.Project.Helper.ProjectsTypeIDs">
+            <summary>Идентификаторы типов проектов, включая идентификаторы дочерних от "Проект IMProject" типов</summary>
+        </member>
+        <member name="P:Intermech.Project.Helper.ProjectsChildTypeIDs">
+            <summary>Идентификаторы типов объектов, дочерних от "Проект IMProject" типов</summary>
+        </member>
+        <member name="P:Intermech.Project.Helper.TasksTypeIDs">
+            <summary>Идентификаторы типов задач, включая идентификаторы дочерних от "Задача IMProject" типов</summary>
+        </member>
+        <member name="P:Intermech.Project.Helper.TasksTypeIDsArray">
+            <summary>Массив идентификаторов типов задач, включая идентификаторы дочерних от "Задача IMProject" и "Проект IMProject" типов</summary>
+        </member>
+        <member name="P:Intermech.Project.Helper.TasksNotProjectTypeIDsArray">
+            <summary>Массив идентификаторов типов задач, ИСКЛЮЧАЯ "Проект IMProject" и дочерних от него типов</summary>
+        </member>
+        <member name="M:Intermech.Project.Helper.CheckTypeIsDependence(System.Int32)">
+            <exception cref="T:System.InvalidOperationException">Если переданный тип не является взаимосвязью проекта IMProject</exception>
+        </member>
+        <member name="P:Intermech.Project.Helper.DependenceTypeIDs">
+            <summary>Идентификаторы типов взаимосвязей, включая идентификаторы дочерних от "Взаимосвязь IMProject" типов</summary>
+        </member>
+        <member name="T:Intermech.Project.Library">
+            <summary>Статический класс-хелпер для инициализации сервисов, кэшей и т.п. библиотеки Intermech.Project</summary>
+        </member>
+        <member name="M:Intermech.Project.Library.Init(System.IServiceProvider,Intermech.Interfaces.IUserSession)">
+            <summary>Инициализация сервисов, кэшей и т.п. библиотеки Intermech.Project</summary>
+        </member>
+        <member name="T:Intermech.Project.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.AddData">
+            <summary>
+              Looks up a localized string similar to Дополнительно.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.AllowedParameterRange">
+            <summary>
+              Looks up a localized string similar to Допустимый диапазон значений параметра.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.AsLateAsPossible">
+            <summary>
+              Looks up a localized string similar to Как можно позже.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.AsSoonAsPossible">
+            <summary>
+              Looks up a localized string similar to Как можно раньше.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.AttributeNotFound">
+            <summary>
+              Looks up a localized string similar to Атрибут &quot;{0}&quot; не найден.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CanStartTaskSubject">
+            <summary>
+              Looks up a localized string similar to Можно выполнять задачу &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CanStartTaskTemplate">
+            <summary>
+              Looks up a localized string similar to Все предыдущие задачи, от которых зависела задача &quot;&lt;a href=&quot;#view={0}&quot;&gt;{1}&lt;/a&gt;&quot; проекта &quot;&lt;a href=&quot;#view={2}&quot;&gt;{3}&lt;/a&gt;&quot; (руководитель: &lt;a href=&quot;#object={4}&quot;&gt;{5}&lt;/a&gt;) были выполнены, можно приступать к её выполнению.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.Cant_Set_AutoZoom">
+             <summary>
+               Looks up a localized string similar to Текущий проект невозможно разместить на указанном числе страниц из-за его размера. 
+            Автоматически выбран масштаб печати 10 процентов от нормального размера. Проект будет напечатан в этом масштабе.
+             </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CantAddDependency">
+            <summary>
+              Looks up a localized string similar to Невозможно добавить зависимость.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CantSetMilestoneProperty">
+            <summary>
+              Looks up a localized string similar to Невозможно задать &quot;{0}&quot;: не разрешено для вех.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CantSetSummaryProperty">
+            <summary>
+              Looks up a localized string similar to Невозможно задать &quot;{0}&quot;: не разрешено для суммарных задач.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CheckoutProgress">
+            <summary>
+              Looks up a localized string similar to Взятие на редактирование...
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CheckoutTaskNeeded">
+            <summary>
+              Looks up a localized string similar to Для изменения свойств действия &quot;{0}&quot; нужно взять его на редактирование!.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ChooseProject">
+            <summary>
+              Looks up a localized string similar to Выбор проекта.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ChooseResources">
+            <summary>
+              Looks up a localized string similar to Выбор ресурсов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ClosingProgress">
+            <summary>
+              Looks up a localized string similar to Завершение редактирования...
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CmdVerifyResults">
+            <summary>
+              Looks up a localized string similar to Согласовать.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CmdVerifyResultsHint">
+            <summary>
+              Looks up a localized string similar to Запустить процесс согласования результатов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.CountMarkAttributes">
+            <summary>
+              Looks up a localized string similar to Отмечено {0} атрибутов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.DefaultForAllObjectTypes">
+            <summary>
+              Looks up a localized string similar to По-умолчанию для всех типов объектов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.DeleteSettingsForObjectType">
+            <summary>
+              Looks up a localized string similar to Удалить настройки для типа объекта &quot;{0}&quot;?.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.DependencyCaption">
+            <summary>
+              Looks up a localized string similar to Зависимость задач &quot;{0}&quot;=&gt;&quot;{1}&quot;.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.DoubleDependencyNotAllowed">
+            <summary>
+              Looks up a localized string similar to Двойная связь задачи-предшественника ({0}) с одной задачей-последователем ({1}) не допускается.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrChiefNeeded">
+            <summary>
+              Looks up a localized string similar to Данная команда может быть выполнена только руководителем проекта ({0})!.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrCircularDependency">
+            <summary>
+              Looks up a localized string similar to Взаимные зависимости не допускаются.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrCircularSubProject">
+            <summary>
+              Looks up a localized string similar to Нельзя вставлять проект в самого себя.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrDepTaskNotFound">
+            <summary>
+              Looks up a localized string similar to Не найден предшественник (&quot;{0}&quot;).
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrDupSubProject">
+            <summary>
+              Looks up a localized string similar to Дублирование, вставка подпроекта в проект допускается только один раз.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrIncorrectFieldValue">
+            <summary>
+              Looks up a localized string similar to Недопустимое значение поля.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrMilestoneResource">
+            <summary>
+              Looks up a localized string similar to Невозможно добавить ресурс: вехи не могут содержать ресурсов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrNoTaskResources">
+            <summary>
+              Looks up a localized string similar to Не заданы исполнители/ресурсы для задачи &quot;{0}&quot;!.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrNotPropertiesOwner">
+            <summary>
+              Looks up a localized string similar to Текущий узел не имеет прав владения свойств опубликованного объекта.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrOnlyChiefCanEdit">
+            <summary>
+              Looks up a localized string similar to Редактирование запущенного проекта разрешено только его руководителю!.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrParentChildDependency">
+            <summary>
+              Looks up a localized string similar to Связи между суммарными задачами и их подчиненными не допускаются.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrPortalNeededForExec">
+            <summary>
+              Looks up a localized string similar to Служба портала не найдена, удаленный запуск проекта &quot;{0}&quot; невозможен. Проект должен выполняться на &quot;домашнем&quot; узле его руководителя (&quot;{1}&quot;)!.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrProjectShouldBeValid">
+            <summary>
+              Looks up a localized string similar to Т.к. проект &quot;{0}&quot; имеет статус &quot;{1}&quot;, для успешного сохранения требуется, чтобы он был корректным.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrResByNameNotFound">
+            <summary>
+              Looks up a localized string similar to Ресурс &quot;{0}&quot; не найден среди использующихся ресурсов проекта. Для первичного добавления ресурса в проект используйте закладку &quot;Ресурсы&quot; в окне свойств задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrShowInfoFromSaveProject">
+             <summary>
+               Looks up a localized string similar to Предупреждение
+            ----  Значение &apos;{0}&apos; не может быть импортировано в атрибут &apos;{1}&apos;
+            ----  Причина - &apos;{2}&apos;
+            ----  Импорт данного атрибута для задачи &apos;{3}&apos; будет пропущен..
+             </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrWorkflowServiceNotFound">
+            <summary>
+              Looks up a localized string similar to Невозможно отправить сообщение: серверная служба маршрутизатора не загружена!.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ErrWrongDurationFormat">
+             <summary>
+               Looks up a localized string similar to Недопустимая длительность ({0}). 
+            Введите длительность в правильном формате, например 4 часа (или 4ч), 12 дней (или 12д), 3 недели (или 3н) или 2мес для месяцев.
+             </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FailedMarkAttribute">
+             <summary>
+               Looks up a localized string similar to Не удалось отметить ни один атрибут.
+            Отметить можно только те атрибуты, для которых выбран соответствующий атрибут из IPS.
+             </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterAllTasks">
+            <summary>
+              Looks up a localized string similar to Все задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterCompleted">
+            <summary>
+              Looks up a localized string similar to Выполненные задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterCritical">
+            <summary>
+              Looks up a localized string similar to Критические задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterEstimation">
+            <summary>
+              Looks up a localized string similar to Задачи с оценкой длительности.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterExecuted">
+            <summary>
+              Looks up a localized string similar to Выполняющиеся задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterMilestones">
+            <summary>
+              Looks up a localized string similar to Вехи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterOverdueTasks">
+            <summary>
+              Looks up a localized string similar to Не выполненные в срок.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterResource">
+            <summary>
+              Looks up a localized string similar to Использование ресурса.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterResourceText">
+            <summary>
+              Looks up a localized string similar to Показать задачи, использующие:.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterSummary">
+            <summary>
+              Looks up a localized string similar to Суммарные задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterWithConstraints">
+            <summary>
+              Looks up a localized string similar to Задачи с крайними сроками.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterWithResults">
+            <summary>
+              Looks up a localized string similar to Задачи с результатами.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FilterWithSrcData">
+            <summary>
+              Looks up a localized string similar to Задачи с исходными данными.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FinishFinish">
+            <summary>
+              Looks up a localized string similar to Окончание-Окончание (ОО).
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FinishNoEarlierThan">
+            <summary>
+              Looks up a localized string similar to Окончание не ранее.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FinishNoLaterThan">
+            <summary>
+              Looks up a localized string similar to Окончание не позднее.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FinishStart">
+            <summary>
+              Looks up a localized string similar to Окончание-Начало (ОН).
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FirstSelectAttribute">
+            <summary>
+              Looks up a localized string similar to Сначала выберите атрибут, в который должен быть импортирован параметр.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FromEnd">
+            <summary>
+              Looks up a localized string similar to От даты окончания проекта.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.FromStart">
+            <summary>
+              Looks up a localized string similar to От даты начала проекта.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ImportedInProjectObjects">
+            <summary>
+              Looks up a localized string similar to Импортированные в проект объекты.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ImportTooMuchObjects">
+            <summary>
+              Looks up a localized string similar to Импорт большого числа объектов может занять длительное время.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.InvalidConditionErr">
+            <summary>
+              Looks up a localized string similar to Условие ({0}) некорректно, невозможно вычислить результат.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.LoseChangesDeletedImportedObjects">
+            <summary>
+              Looks up a localized string similar to Сохранить измненения внесённые список импортированных в проект объектов?.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ManagerAnswer">
+             <summary>
+               Looks up a localized string similar to Сообщение от руководителя:
+            {0}.
+             </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ManualPlanning">
+            <summary>
+              Looks up a localized string similar to Ручное планирование.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ManyObjectAlreadyImported">
+             <summary>
+               Looks up a localized string similar to Следующие объекты уже импортированы в проект:
+            {0} Повторить выбор?.
+             </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.MustBeVerifiedByProcess">
+            <summary>
+              Looks up a localized string similar to Результаты выполнения задачи должны пройти процесс согласования &quot;{0}&quot;.{1}Проверку не прошли следующие вложения:.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.MustFinishOn">
+            <summary>
+              Looks up a localized string similar to Фиксированное окончание.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.MustHaveResultsErr">
+            <summary>
+              Looks up a localized string similar to Т.к. задан процесс согласования результатов, задача должна содержать результаты выполнения!.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.MustStartOn">
+            <summary>
+              Looks up a localized string similar to Фиксированное начало.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ObjectAlreadyImported">
+            <summary>
+              Looks up a localized string similar to Выбранный объект уже импортирован в проект. Повторить выбор?.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ObjectWithCaptionAlreadyImported">
+            <summary>
+              Looks up a localized string similar to Объект {0} уже импортирован в проект. Повторить выбор?.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OnceAgain">
+            <summary>
+              Looks up a localized string similar to повторно.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpE">
+            <summary>
+              Looks up a localized string similar to равно.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpG">
+            <summary>
+              Looks up a localized string similar to больше.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpGE">
+            <summary>
+              Looks up a localized string similar to больше или равно.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpIn">
+            <summary>
+              Looks up a localized string similar to содержит.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpInr">
+            <summary>
+              Looks up a localized string similar to в диапазоне.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpL">
+            <summary>
+              Looks up a localized string similar to меньше.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpLE">
+            <summary>
+              Looks up a localized string similar to меньше или равно.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpNE">
+            <summary>
+              Looks up a localized string similar to не равно.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpOut">
+            <summary>
+              Looks up a localized string similar to не содержит.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OpOutr">
+            <summary>
+              Looks up a localized string similar to вне диапазона.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OutputNameErrorSaveProject">
+            <summary>
+              Looks up a localized string similar to Ошибки сохранения проекта ImProject.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OverdueTaskMailSubject">
+            <summary>
+              Looks up a localized string similar to Задача &quot;{0}&quot; не выполнена в срок.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.OverdueTaskMailTemplate">
+            <summary>
+              Looks up a localized string similar to Задача &quot;&lt;a href=&quot;#view={0}&quot;&gt;{1}&lt;/a&gt;&quot; (исполнитель: &quot;{2}&quot;) проекта &quot;&lt;a href=&quot;#view={3}&quot;&gt;{4}&lt;/a&gt;&quot; не выполнена в срок!.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.PendingTaskMailSubject">
+            <summary>
+              Looks up a localized string similar to Задача &quot;{0}&quot; выполнена.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.PendingTaskMailTemplate">
+            <summary>
+              Looks up a localized string similar to Исполнитель задачи &quot;{0}&quot; выполнил задачу &quot;&lt;a href=&quot;#view={1}&quot;&gt;{2}&lt;/a&gt;&quot; проекта &quot;&lt;a href=&quot;#view={3}&quot;&gt;{4}&lt;/a&gt;&quot;. Как руководитель, вы должны подтвердить факт выполнения задачи. Откройте свойства задачи и подтвердите/отклоните указанный процент выполнения.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.PlanningConflict">
+            <summary>
+              Looks up a localized string similar to Конфликт планирования.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.Project">
+            <summary>
+              Looks up a localized string similar to Проект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ProjectMembers">
+            <summary>
+              Looks up a localized string similar to Участники проекта &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ProjectProps">
+            <summary>
+              Looks up a localized string similar to Свойства проекта.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ProjectValidationErrors">
+            <summary>
+              Looks up a localized string similar to При проверке проекта &quot;{0}&quot; были обнаружены следующие ошибки:.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.RemoveFromList">
+            <summary>
+              Looks up a localized string similar to Исключить из списка.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.RemoveLinkWithSelectedImportedObjectAndDeleteTasks">
+            <summary>
+              Looks up a localized string similar to Удалить из проекта задачи, импортированные из выбранных объектов?.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ResourceAssignments">
+            <summary>
+              Looks up a localized string similar to Загрузка ресурсов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ResourcesCalcMode_Load">
+            <summary>
+              Looks up a localized string similar to Процент загрузки.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ResourcesCalcMode_PeakLoad">
+            <summary>
+              Looks up a localized string similar to Пиковые единицы.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ResourcesTitle">
+            <summary>
+              Looks up a localized string similar to Ресурсы.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.SavingProgress">
+            <summary>
+              Looks up a localized string similar to Сохранение...
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ScaleTypeDays">
+            <summary>
+              Looks up a localized string similar to Дни.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ScaleTypeMonths">
+            <summary>
+              Looks up a localized string similar to Месяцы.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ScaleTypeQuarters">
+            <summary>
+              Looks up a localized string similar to Кварталы.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ScaleTypeWeeks">
+            <summary>
+              Looks up a localized string similar to Недели.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ScaleTypeYears">
+            <summary>
+              Looks up a localized string similar to Годы.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.SelectAttribute">
+            <summary>
+              Looks up a localized string similar to Выберите атрибут.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.StartFinish">
+            <summary>
+              Looks up a localized string similar to Начало-Окончание (НО).
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.StartNoEarlierThan">
+            <summary>
+              Looks up a localized string similar to Начало не ранее.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.StartNoLaterThan">
+            <summary>
+              Looks up a localized string similar to Начало не позднее.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.StartStart">
+            <summary>
+              Looks up a localized string similar to Начало-Начало (НН).
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.SubProjectAlreadyExists">
+            <summary>
+              Looks up a localized string similar to Вставка подпроекта в проект допускается только один раз.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.SubTaskTemplateNotAssigned">
+            <summary>
+              Looks up a localized string similar to Для объекта типа {0} должна быть создана суммарная задача, однако шаблон для суммарных задач для этого типа не указан.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.SummaryCantBeMilestone">
+            <summary>
+              Looks up a localized string similar to Суммарные задачи не могут быть вехами!.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.SyncPending">
+            <summary>
+              Looks up a localized string similar to Требуется синхронизация.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskData">
+            <summary>
+              Looks up a localized string similar to Исходные данные.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskHasConstraint">
+            <summary>
+              Looks up a localized string similar to Для задачи установлено ограничение &apos;{0}&apos; с датой &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskMailSubject">
+            <summary>
+              Looks up a localized string similar to Вам назначена задача &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskMailTemplate">
+            <summary>
+              Looks up a localized string similar to Вы {6}назначены исполнителем задачи &quot;&lt;a href=&quot;#view={0}&quot;&gt;{1}&lt;/a&gt;&quot; проекта &quot;&lt;a href=&quot;#view={2}&quot;&gt;{3}&lt;/a&gt;&quot; (руководитель: &lt;a href=&quot;#object={4}&quot;&gt;{5}&lt;/a&gt;).&lt;br /&gt;Установить процент выполнения можно из окна почты или органайзера на закладке свойств задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamAssignments">
+            <summary>
+              Looks up a localized string similar to Идентификаторы ресурсов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamAssignmentsString">
+            <summary>
+              Looks up a localized string similar to Ресурсы.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamChiefString">
+            <summary>
+              Looks up a localized string similar to Руководитель.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamChiefString1">
+            <summary>
+              Looks up a localized string similar to Руководитель.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamCompleted">
+            <summary>
+              Looks up a localized string similar to Выполнено.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamCompletedWork">
+            <summary>
+              Looks up a localized string similar to Фактические трудозатраты.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamConstraintDate">
+            <summary>
+              Looks up a localized string similar to Дата ограничения.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamConstraintType">
+            <summary>
+              Looks up a localized string similar to Тип ограничения.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamDispIndex">
+            <summary>
+              Looks up a localized string similar to Индекс.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamDuration">
+            <summary>
+              Looks up a localized string similar to Длительность.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamEstimation">
+            <summary>
+              Looks up a localized string similar to Предварительная оценка.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamFactFinish">
+            <summary>
+              Looks up a localized string similar to Фактическое окончание.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamFactFinish1">
+            <summary>
+              Looks up a localized string similar to Фактическое окончание.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamFactStart">
+            <summary>
+              Looks up a localized string similar to Фактическое начало.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamFactStart1">
+            <summary>
+              Looks up a localized string similar to Фактическое начало.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamFinish">
+            <summary>
+              Looks up a localized string similar to Окончание.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamHasSubTasks">
+            <summary>
+              Looks up a localized string similar to Имеет подзадачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamIndentLevel">
+            <summary>
+              Looks up a localized string similar to Уровень вложенности.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamIsCritical">
+            <summary>
+              Looks up a localized string similar to Критическая задача.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamIsExecuted">
+            <summary>
+              Looks up a localized string similar to Выполняется.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamMilestone">
+            <summary>
+              Looks up a localized string similar to Веха.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamName">
+            <summary>
+              Looks up a localized string similar to Название.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamNotes">
+            <summary>
+              Looks up a localized string similar to Заметки.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamNotes1">
+            <summary>
+              Looks up a localized string similar to Заметки.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamPercentCompleted">
+            <summary>
+              Looks up a localized string similar to Процент выполнения.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamPlannedPercentCompleted">
+            <summary>
+              Looks up a localized string similar to Плановый процент выполнения.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamPriority">
+            <summary>
+              Looks up a localized string similar to Приоритет.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamResultsCount">
+            <summary>
+              Looks up a localized string similar to Количество результатов.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamSrcDataCount">
+            <summary>
+              Looks up a localized string similar to Количество исходных данных.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamStart">
+            <summary>
+              Looks up a localized string similar to Начало.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamStatus">
+            <summary>
+              Looks up a localized string similar to Статус задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamStatus1">
+            <summary>
+              Looks up a localized string similar to Статус задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamWbsCode">
+            <summary>
+              Looks up a localized string similar to Код СДР.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskParamWork">
+            <summary>
+              Looks up a localized string similar to Трудозатраты.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskProps">
+            <summary>
+              Looks up a localized string similar to Свойства задачи.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskResults">
+            <summary>
+              Looks up a localized string similar to Результаты.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskStatusCompleted">
+            <summary>
+              Looks up a localized string similar to Выполнено.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskStatusExecuted">
+            <summary>
+              Looks up a localized string similar to Выполняется.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskStatusNotStarted">
+            <summary>
+              Looks up a localized string similar to Проектируется.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskStatusPending">
+            <summary>
+              Looks up a localized string similar to Ожидает проверки руководителем.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskStatusSent">
+            <summary>
+              Looks up a localized string similar to Разослано исполнителям.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskStatusTerminated">
+            <summary>
+              Looks up a localized string similar to Выполнение прервано.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskStatusWaiting">
+            <summary>
+              Looks up a localized string similar to Ожидает запуска.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskVerifyRejected">
+            <summary>
+              Looks up a localized string similar to Выполнение задачи &quot;{0}&quot; было отклонено руководителем.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskViewPageCommon">
+            <summary>
+              Looks up a localized string similar to Общие.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskViewPageExtra">
+            <summary>
+              Looks up a localized string similar to Дополнительно.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskViewPageInitialData">
+            <summary>
+              Looks up a localized string similar to Исходные данные.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskViewPageNone">
+            <summary>
+              Looks up a localized string similar to Неопределённая закладка.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskViewPageNotes">
+            <summary>
+              Looks up a localized string similar to Заметки.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskViewPagePrecursors">
+            <summary>
+              Looks up a localized string similar to Предшественники.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskViewPageResources">
+            <summary>
+              Looks up a localized string similar to Ресурсы.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TaskViewPageResults">
+            <summary>
+              Looks up a localized string similar to Результаты.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TimeUnitD">
+            <summary>
+              Looks up a localized string similar to дней,д,дн,день,дня.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TimeUnitH">
+            <summary>
+              Looks up a localized string similar to часов,ч,час.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TimeUnitM">
+            <summary>
+              Looks up a localized string similar to минут,мин,минута,минуты.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TimeUnitMon">
+            <summary>
+              Looks up a localized string similar to месяцев,м,мес,месяц,месяца.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.TimeUnitW">
+            <summary>
+              Looks up a localized string similar to недель,нед,н,неделя,недели.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.UsePrototypeForSubprojects">
+            <summary>
+              Looks up a localized string similar to Шаблон для суммарных задач.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.UsePrototypeForTask">
+            <summary>
+              Looks up a localized string similar to Использовать параметры.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ValFalse">
+            <summary>
+              Looks up a localized string similar to Нет.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ValMinDate">
+            <summary>
+              Looks up a localized string similar to Минимальная дата.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ValNow">
+            <summary>
+              Looks up a localized string similar to Текущая дата.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.ValTrue">
+            <summary>
+              Looks up a localized string similar to Да.
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.Properties.Resources.WinUpdatingProgress">
+            <summary>
+              Looks up a localized string similar to Обновление окон.
+            </summary>
+        </member>
+        <member name="T:Intermech.Project.Strings">
+            <summary>Строки в ресурсах проекта Intermech.Project</summary>
+        </member>
+        <member name="F:Intermech.Project.Strings.AllTasksFilterName">
+            <summary>Наименование фильтра для фильтрации всех задач ("Все задачи")</summary>
+        </member>
+        <member name="P:Intermech.Project.DateSchedule.StartTime">
+            <summary>Дата + время, которое берется из первого интервала
+            Пока что везде интервалы в timeIntervalCollection идут последовательно по возрастанию</summary>
+        </member>
+        <member name="P:Intermech.Project.DateSchedule.FinishTime">
+            <summary>Дата + время, которое берется из последнего интервала
+            Пока что везде интервалы в timeIntervalCollection идут последовательно по возрастанию</summary>
+        </member>
+        <member name="M:Intermech.Project.DateScheduleList.MergedList">
+            <summary>Склеивает все интервалы за одни и те же даты, убирает пересечения</summary>
+            <returns>A DateScheduleList</returns>
+        </member>
+        <member name="M:Intermech.Project.MergedSchedule.GetWorkTime(System.DateTime,System.Double)">
+            <summary>
+            Метод для получения списка дат и интервалов рабочего времени, необходимых для выполнения заданного объема работы
+            </summary>
+            <param name="start"> Дата и время начала работы </param>
+            <param name="work"> Объем работы в часах </param>
+        </member>
+        <member name="M:Intermech.Project.Schedule.Load(System.Int64,Intermech.Interfaces.IUserSession)">
+            <summary>
+            Загрузить расписание из календаря
+            </summary>
+            <param name="objectID">Идентификатор версии календаря, для которого нужно расчитать расписание</param>
+            <param name="session">Сессия</param>
+        </member>
+        <member name="M:Intermech.Project.Schedule.GetWorkTime(System.DateTime,System.Double)">
+            <summary>
+            Метод для получения списка дат и интервалов рабочего времени, необходимых для выполнения заданного объема работы
+            </summary>
+            <param name="start"> Дата и время начала работы </param>
+            <param name="work"> Объем работы в часах </param>
+        </member>
+        <member name="M:Intermech.Project.Schedule._getWorkTimeList(System.DateTime,System.Double)">
+            <summary>
+            Метод для получения списка дат и интервалов рабочего времени, необходимых для выполнения заданного объема работы
+            </summary>
+            <param name="start"> Дата и время начала работы </param>
+            <param name="work"> Объем работы в часах </param>
+        </member>
+        <member name="M:Intermech.Project.Schedule._getWorkTimeList(System.DateTime,System.DateTime,System.Double)">
+            <summary>
+            Метод для получения списка дат и интервалов рабочего времени, необходимых для выполнения заданного объема работы
+            </summary>
+            <param name="start"> Дата и время начала работы </param>
+            <param name="maxDate"> Максимальная дата и время окончания работы </param>
+            <param name="work"> Объем работы в часах </param>
+        </member>
+        <member name="M:Intermech.Project.Schedule._getBackwardWorkTimeList(System.DateTime,System.Double)">
+            <summary>
+            Метод для получения списка дат и интервалов рабочего времени, необходимых для выполнения заданного объема работы в обратном порядке
+            </summary>
+            <param name="start"> Дата и время окончания работы </param>
+            <param name="work"> Объем работы в часах </param>
+        </member>
+        <member name="M:Intermech.Project.TimeInterval.Merge(Intermech.Project.TimeInterval)">
+            <summary>Объединяет два временных интервала, если это возможно (между интервалами нет промежутков)</summary>
+            <returns>Возвращает true, если объединение успешно и false, если оно невозможно</returns>
+        </member>
+        <member name="P:Intermech.Project.UserSchedule.Calendar">
+            <summary>
+            Календарь для пользователя
+            </summary>
+        </member>
+        <member name="P:Intermech.Project.UserSchedule.ObjectID">
+            <summary>
+            Идентификатор версии объекта пользователя
+            </summary>
+        </member>
+        <member name="M:Intermech.Project.UserSchedule.Load(System.Int64,Intermech.Interfaces.IUserSession)">
+            <summary>
+            Загрузить расписание для пользователя
+            </summary>
+            <param name="objectID">Идентификатор версии пользователя, для которого нужно расчитать расписание</param>
+            <param name="session">Сессия</param>
+        </member>
+        <member name="F:Intermech.Project.WorkTimeUnit._hoursPerUnit">
+            <summary>Количество часов в этой единице времени</summary>
+        </member>
+        <member name="M:Intermech.Project.WorkTimeUnit.Convert(System.Double,Intermech.Project.Interfaces.ISchedule)">
+            <summary>Сколько текущих единиц измерения в days днях</summary>
+        </member>
+        <member name="M:Intermech.Project.WorkTimeUnit.ToDays(System.Double,Intermech.Project.Interfaces.ISchedule)">
+            <summary>Переводит количество в этой единице измерения в дни</summary>
+        </member>
+        <member name="M:Intermech.Project.WorkTimeUnits.Parse(System.String,Intermech.Project.WorkTimeUnit,System.Double,System.Boolean)">
+            <summary>Преобразует строковую длительность в WorkTimeValue</summary>
+            <param name="s">Исходная строка</param>
+            <param name="defaultUnit">Единица измерения по умолчанию</param>
+            <param name="defaultValue">(Optional)</param>
+            <param name="lagMode">(Optional) Режим запаздывания дополнительно разрешает отрицательные значения</param>
+        </member>
+        <member name="T:Intermech.Extensions.StringExtensions">
+            <summary>Extensions for strings</summary>
+        </member>
+        <member name="M:Intermech.Extensions.StringExtensions.ConvertToColorFromHEX(System.String)">
+            <summary>Преобразовать строку вида #FA12CC в цвет</summary>
+            <exception cref="T:System.FormatException">Если формат строки не позволяет конвертировать</exception>
+        </member>
+        <member name="M:Intermech.Extensions.StringExtensions.ConvertToColorOrNullFromHEX(System.String)">
+            <summary>Преобразовать строку вида #FA12CC в цвет</summary>
+        </member>
+        <member name="M:Intermech.Extensions.StringExtensions.TryConvertToColorFromHEX(System.String,System.Drawing.Color@)">
+            <summary>Попытаться преобразовать строку вида #FA12CC в цвет</summary>
+        </member>
+        <member name="T:Intermech.Helper">
+            <summary>Псевдоним</summary>
+        </member>
+    </members>
+</doc>

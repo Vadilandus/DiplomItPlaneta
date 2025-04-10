@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Drawing.Common</name>
+    </assembly>
+    <members>
+        <member name="M:Intermech.Drawing.Common.IUniNativeApiHelper.GetDeviceContext(System.IntPtr)">
+            <summary>
+            В местах использования метод Win32 в лоб заменён на apiHelper без замены на аналог в IUniGraphics. Код подразумевает использование только под Windows
+            </summary>
+            <param name="hWnd"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Intermech.Drawing.Common.UniColor.state">
+            <summary>
+            Поле используется для проверки IsEmpty
+            </summary>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UniDrawing.DrawCross(Intermech.Drawing.Common.IUniGraphics,Intermech.Drawing.Common.IUniPen,Intermech.Drawing.Common.UniRectangleF,Intermech.Drawing.Common.UniGraphicsUnit)">
+            <summary>
+            Временный служебный метод для отладки
+            </summary>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UniDrawing.DrawCross(Intermech.Drawing.Common.IUniGraphics,Intermech.Drawing.Common.UniColor,Intermech.Drawing.Common.UniRectangleF,Intermech.Drawing.Common.UniGraphicsUnit)">
+            <summary>
+            Временный служебный метод для отладки
+            </summary>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UniDrawing.DrawPlus(Intermech.Drawing.Common.IUniGraphics,Intermech.Drawing.Common.UniColor,Intermech.Drawing.Common.UniRectangleF,Intermech.Drawing.Common.UniGraphicsUnit)">
+            <summary>
+            Временный служебный метод для отладки
+            </summary>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UniMatrix.GetMatrixForRotateTextInBox(Intermech.Drawing.Common.UniRectangle@,System.Int32)">
+            <summary>Создать матрицу для поворота текста. Угол может принимать только значения: 0, 90, -90, 270, 180</summary>
+            <param name="rect">Прямоугольник в котором находится текст. Переворачивается вместе с текстом</param>
+            <param name="angle">Угол поворота. Может принимать только значения: 90, -90, 270, 180</param>
+            <returns>Матрица пересчета</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UniMatrix.GetMatrixForRotateTextInBox(Intermech.Drawing.Common.UniRectangleF@,System.Int32)">
+            <summary>Создать матрицу для поворота текста. Угол может принимать только значения: 0, 90, -90, 270, 180</summary>
+            <param name="rect">Прямоугольник в котором находится текст. Переворачивается вместе с текстом</param>
+            <param name="angle">Угол поворота. Может принимать только значения: 90, -90, 270, 180</param>
+            <returns>Матрица пересчета</returns>
+        </member>
+        <member name="T:Intermech.Drawing.Common.UnitsConverter">
+            <summary>Преобразование единиц измерения</summary>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPoints(System.Single)">
+            <summary>Миллиметры в пункты (1/72 дюйма)</summary>
+            <param name="mm">Миллиметры</param>
+            <returns>Пункты</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPointsF(System.Single)">
+            <summary>Миллиметры в пункты (1/72 дюйма)</summary>
+            <param name="mm">Миллиметры</param>
+            <returns>Пункты</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToTwips(System.Single)">
+            <summary>Миллиметры в twips (1 twips = 1/20 пункта = 1/1440 дюйма)</summary>
+            <param name="mm">Миллиметры</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToTwipsF(System.Single)">
+            <summary>Миллиметры в twips (1 twips = 1/20 пункта = 1/1440 дюйма)</summary>
+            <param name="mm">Миллиметры</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToTwipsF(Intermech.Drawing.Common.UniPointF)">
+            <summary>Миллиметры в twips (1 twips = 1/20 пункта = 1/1440 дюйма)</summary>
+            <param name="pointMm">Миллиметры</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToTwips(Intermech.Drawing.Common.UniPointF)">
+            <summary>Миллиметры в twips (1 twips = 1/20 пункта = 1/1440 дюйма)</summary>
+            <param name="pointMm">Миллиметры</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToTwipsF(Intermech.Drawing.Common.UniSizeF)">
+            <summary>Миллиметры в twips (1 twips = 1/20 пункта = 1/1440 дюйма)</summary>
+            <param name="sizeMm">Миллиметры</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToTwips(Intermech.Drawing.Common.UniSizeF)">
+            <summary>Миллиметры в twips (1 twips = 1/20 пункта = 1/1440 дюйма)</summary>
+            <param name="sizeMm">Миллиметры</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToTwips(Intermech.Drawing.Common.UniRectangleF)">
+            <summary>Миллиметры в twips (1 twips = 1/20 пункта = 1/1440 дюйма)</summary>
+            <param name="rec">Прямоугольник в миллиметрах</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToTwipsF(Intermech.Drawing.Common.UniRectangleF)">
+            <summary>Миллиметры в twips (1 twips = 1/20 пункта = 1/1440 дюйма)</summary>
+            <param name="rec">Прямоугольник в миллиметрах</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PointToInch(System.Single)">
+            <summary>Пункты в дюймы (1 пункт = 1/72 дюйма)</summary>
+            <param name="point">Пункты</param>
+            <returns>Дюймы</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PointToMm(System.Single)">
+            <summary>Пункты в дюймы (1 пункт = 1/72 дюйма)</summary>
+            <param name="point">Пункты</param>
+            <returns>Дюймы</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PointToTwipsF(System.Single)">
+            <summary>Пункты в twips (1 пункт = 20 twips)</summary>
+            <param name="point">Пункты</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PointToTwips(System.Single)">
+            <summary>Пункты в twips (1 пункт = 20 twips)</summary>
+            <param name="point">Пункты</param>
+            <returns>Twips</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.TwipsToMm(System.Single)">
+            <summary>Twips в миллиметры (1 twips = 1/1440 дюйма)</summary>
+            <param name="twips">Twips</param>
+            <returns>Миллиметры</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.TwipsToMm(Intermech.Drawing.Common.UniPointF)">
+            <summary>Twips в миллиметры (1 twips = 1/1440 дюйма)</summary>
+            <param name="twips">Twips</param>
+            <returns>Миллиметры</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.TwipsToMm(Intermech.Drawing.Common.UniRectangleF)">
+            <summary>Twips в миллиметры (1 twips = 1/1440 дюйма)</summary>
+            <param name="twips">Twips</param>
+            <returns>Миллиметры</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.TwipsToInch(System.Single)">
+            <summary>Twips в дюймы (1 twips = 1/1440 дюйма)</summary>
+            <param name="twips">Twips</param>
+            <returns>Дюймы</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToHundredthsOfInch(System.Single)">
+            <summary>Преобразовать миллиметры в сотые доли дюйма</summary>
+            <param name="mm">Миллиметры</param>
+            <returns>Сотые доли дюйма</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToInch(System.Single)">
+            <summary>Преобразовать миллиметры в дюймы</summary>
+            <param name="mm">Миллиметры</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToInch(Intermech.Drawing.Common.UniSizeF)">
+            <summary>Преобразовать миллиметры в дюймы</summary>
+            <param name="mm">Миллиметры</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.InchToMm(System.Single)">
+            <summary>Преобразовать дюймы в миллиметры</summary>
+            <param name="Inch">Дюймы</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.InchToPoint(System.Single)">
+            <summary>Преобразовать дюймы в Пункты</summary>
+            <param name="Inch">Дюймы</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.InchToTwips(System.Single)">
+            <summary>Преобразовать дюймы в Пункты</summary>
+            <param name="Inch">Дюймы</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixels(System.Single,System.Single)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Миллиметры</param>
+            <param name="dpi">Точек на дюйм</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixelsR(System.Single,System.Single)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Миллиметры</param>
+            <param name="dpi">Точек на дюйм</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixels(System.Single,System.Single,System.Boolean)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Миллиметры</param>
+            <param name="dpi">Точек на дюйм</param>
+            <param name="roundUp">Округлять вверх</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixelsF(System.Single,System.Single)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Миллиметры</param>
+            <param name="dpi">Точек на дюйм</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixelsF(Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Миллиметры</param>
+            <param name="dpi">Точек на дюйм</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixelsF(Intermech.Drawing.Common.UniRectangleF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Миллиметры</param>
+            <param name="dpi">Точек на дюйм</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixelsF(Intermech.Drawing.Common.UniSizeF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Миллиметры</param>
+            <param name="dpi">Точек на дюйм</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixels(Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Точка с координатами в миллиметрах</param>
+            <param name="dpi">Точек на дюйм по X и Y</param>
+            <returns>Точка в пикселях</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixels(Intermech.Drawing.Common.UniSizeF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Точка с координатами в миллиметрах</param>
+            <param name="dpi">Точек на дюйм по X и Y</param>
+            <returns>Точка в пикселях</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixelsR(Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Точка с координатами в миллиметрах</param>
+            <param name="dpi">Точек на дюйм по X и Y</param>
+            <returns>Точка в пикселях</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.MmToPixels(Intermech.Drawing.Common.UniRectangleF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать миллиметры в пиксели</summary>
+            <param name="mm">Точка с координатами в миллиметрах</param>
+            <param name="dpi">Точек на дюйм по X и Y</param>
+            <returns>Точка в пикселях</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PixelsToMm(System.Int32,System.Single)">
+            <summary>Преобразовать пиксели в миллиметры</summary>
+            <param name="pixels">Пикселы</param>
+            <param name="dpi">Точек на дюйм</param>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PixelsToMm(Intermech.Drawing.Common.UniPoint,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать пиксели в миллиметры</summary>
+            <param name="pixels">Точка в пикселях</param>
+            <param name="dpi">Точек на дюйм</param>
+            <returns>Точка в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PixelsToMm(Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать пиксели в миллиметры</summary>
+            <param name="pixels">Точка в пикселях</param>
+            <param name="dpi">Точек на дюйм</param>
+            <returns>Точка в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PixelsToMm(System.Int32,System.Int32,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать пиксели в миллиметры</summary>
+            <param name="x">X в пикселях</param>
+            <param name="y">Y в пикселях</param>
+            <param name="dpi">Точек на дюйм</param>
+            <returns>Точка в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PixelsToMm(Intermech.Drawing.Common.UniSize,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать пиксели в миллиметры</summary>
+            <param name="pixels">Точка в пикселях</param>
+            <param name="dpi">Точек на дюйм</param>
+            <returns>Точка в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PixelsToMm(Intermech.Drawing.Common.UniSizeF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать пиксели в миллиметры</summary>
+            <param name="pixels">Точка в пикселях</param>
+            <param name="dpi">Точек на дюйм</param>
+            <returns>Точка в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PixelsToMm(Intermech.Drawing.Common.UniRectangle,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать пиксели в миллиметры</summary>
+            <param name="pixels">Прямоугольник в пикселях</param>
+            <param name="dpi">Точек на дюйм</param>
+            <returns>Точка в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.PixelsToMm(Intermech.Drawing.Common.UniRectangleF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать пиксели в миллиметры</summary>
+            <param name="pixels">Прямоугольник в пикселях</param>
+            <param name="dpi">Точек на дюйм</param>
+            <returns>Точка в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.LineLength(Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Вычислить длину линии между двумя точками</summary>
+            <param name="p0">Точка 0</param>
+            <param name="p1">Точка 1</param>
+            <returns>Длина линии от точки 0 до точки 1</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.GetNearestLinePoint(Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniPointF)">
+            <summary>Получить точку на прямой ближайшую к заданной точке</summary>
+            <param name="point">Точка</param>
+            <param name="linePoint1">Точка прямой 1</param>
+            <param name="linePoint2">Точка прямой 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.DistanceFromLine(Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniPointF)">
+            <summary>
+            Расстояние от точки до прямой, заданной двумя точками
+            </summary>
+            <param name="point"></param>
+            <param name="linePoint1"></param>
+            <param name="linePoint2"></param>
+            <returns>Возвращается расстояние от точки до прямой. Если точки 1 и 2 совпадают, то возвращается расстояние до этих точек</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertPixelToWorld(Intermech.Drawing.Common.UniPoint,Intermech.Drawing.Common.IUniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Перевести пиксели в мировые координаты</summary>
+            <param name="point">Координаты прямоугольника в пикселях</param>
+            <returns>Координаты прямоугольника в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertPixelToWorld(Intermech.Drawing.Common.UniRectangle,Intermech.Drawing.Common.IUniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Перевести пиксели в мировые координаты</summary>
+            <param name="uniRectangle">Координаты прямоугольника в пикселях</param>
+            <returns>Координаты прямоугольника в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertPixelFToWorld(Intermech.Drawing.Common.UniPointF[],Intermech.Drawing.Common.IUniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Перевести пиксели в мировые координаты</summary>
+            <param name="points">Координаты прямоугольника в пикселях</param>
+            <returns>Координаты прямоугольника в миллиметрах</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertWorldXToPixel(System.Single,Intermech.Drawing.Common.UniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать мировую координату X в пиксели</summary>
+            <param name="x">x</param>
+            <returns>Координата x в пикселях</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertWorldYToPixel(System.Single,Intermech.Drawing.Common.UniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать мировую координату Y в пиксели</summary>
+            <param name="y">y</param>
+            <returns>Координата Y в пикселях</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertWorldToPixel(Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Перевести мировые координаты в пиксели</summary>
+            <param name="point">Мировые координаты</param>
+            <returns>Пиксели</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertWorldToPixel(Intermech.Drawing.Common.UniRectangleF,Intermech.Drawing.Common.UniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Перевести мировые координаты в пиксели</summary>
+            <param name="rectangle">Мировые координаты</param>
+            <returns>Пиксели</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertWorldToPixelF(Intermech.Drawing.Common.UniRectangleF,Intermech.Drawing.Common.UniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Перевести мировые координаты в пиксели</summary>
+            <param name="rectangle">Мировые координаты</param>
+            <returns>Пиксели</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertWorldToPixelF(Intermech.Drawing.Common.UniPointF[],Intermech.Drawing.Common.UniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Перевести мировые координаты в пиксели</summary>
+            <param name="points">Мировые координаты</param>
+            <returns>Пиксели</returns>
+        </member>
+        <member name="M:Intermech.Drawing.Common.UnitsConverter.ConvertWorldToPixelF(Intermech.Drawing.Common.UniPointF,Intermech.Drawing.Common.UniMatrix,Intermech.Drawing.Common.UniPointF)">
+            <summary>Преобразовать мировые координаты в пиксели</summary>
+            <param name="point">Точка в мировых координатах</param>
+            <returns>Точка в пикселях</returns>
+        </member>
+    </members>
+</doc>

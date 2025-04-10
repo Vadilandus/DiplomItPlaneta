@@ -1,0 +1,554 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.XmlExchange.IpsXml.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfo">
+            <summary>
+            Класс для хранения расширенной информации об атрибутах
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfo.#ctor(System.String,System.String)">
+            <summary>
+            .ctor
+            </summary>
+            <param name="key"></param>
+            <param name="caption"></param>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfo.#ctor(System.String,System.Int32,System.String)">
+            <summary>
+            .ctor
+            </summary>
+            <param name="key"></param>
+            <param name="caption"></param>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfo.AttributeKey">
+            <summary>
+            Идентификатор атрибута
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfo.AttributeCaption">
+            <summary>
+            Заголовок атрибута
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfo.AttributeGroup">
+            <summary>
+            Группа, к которой принадлежит атрибут
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfo.AttributeType">
+            <summary>
+            Заголовок атрибута
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfo.CompareTo(System.Object)">
+            <summary>
+            сравнение делаем по идентификатору
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfoHelper.AddAttributeInfo(System.Collections.Generic.Dictionary{Intermech.XmlExchange.IpsXml.Interfaces.IAttributeInfo,System.Object},System.String,System.Object,System.String)">
+            <summary>
+            Добавление атрибута в словарь
+            </summary>
+            <param name="attrInfo">словарь</param>
+            <param name="key">строковый ключ атрибута</param>
+            <param name="value">значение атрибута</param>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfoHelper.AddAttributeInfo(System.Collections.Generic.Dictionary{Intermech.XmlExchange.IpsXml.Interfaces.IAttributeInfo,System.Object},Intermech.XmlExchange.IpsXml.Interfaces.IAttributeInfo,System.Object)">
+            <summary>
+            Добавление атрибута в словарь
+            </summary>
+            <param name="attrInfo">словарь</param>
+            <param name="key">строковый ключ атрибута</param>
+            <param name="value">значение атрибута</param>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfoHelper.TryGetKey(System.Collections.Generic.Dictionary{Intermech.XmlExchange.IpsXml.Interfaces.IAttributeInfo,System.Object},System.String)">
+            <summary>
+            Попытка получить ключ словаря с заданным именем
+            </summary>
+            <param name="dict"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.AttributeInfoHelper.CreateAttributeInfo(System.String,System.String)">
+            <summary>
+            Создание ключа словаря атрибутов
+            </summary>
+            <param name="key">имя ключа</param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IAttributeInfo">
+            <summary>
+            Интерфейс  с расширенной информацией об атрибутах
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IAttributeInfo.AttributeKey">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IAttributeInfo.AttributeCaption">
+            <summary>
+            Заголовок
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IAttributeInfo.AttributeGroup">
+            <summary>
+            Группа атрибутов
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IAttributeInfo.AttributeType">
+            <summary>
+            Группа атрибутов
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IXmlCompositeElement.Attributes">
+            <summary>
+            Коллекция атрибутов и их значений
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataEntity">
+            <summary>
+            Общий интерфейс единицы данных(сущности) представленных в XML содержащий в себе параметры.
+            </summary>
+            <remarks>
+            Используется для объектного представления данных в каком-либо формате XML.
+            </remarks>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataEntity.XmlParams">
+            <summary>
+            Параметры.
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataFactory">
+            <summary>
+            Фабрика по загрузке данных из любого XML. 
+            </summary>
+            <remarks>См. реализации конкретных классов.</remarks>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataFactory.GetDataProvider(System.String[])">
+            <summary>
+            Загрузить Файл/Файлы и предоставить доступ к их содержимому через провайдер.
+            </summary>
+            <param name="files">Файл/Файлы которые необходимо загрузить</param>
+            <returns>Провайдер, обеспечивающий доступ к загруженным данных из файлов.</returns>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.OnVisitObject">
+            <summary>
+            Событие посещения объекта.
+            </summary>
+            <param name="parentObj">Родительский объект по связи.</param>
+            <param name="obj">Посещаемый объект.</param>
+            <param name="rel">Связь между родительским и дочерним объектами.</param>
+            <param name="stopTraversing">Прекратить обход.false - по умолчанию.</param>
+            <remarks>parentObj и rel могут быть = null в случае если посещается головной объект.</remarks>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.OnVisitObject`1">
+            <summary>
+            Событие посещения объекта.
+            </summary>
+            <param name="parentObj">Родительский объект по связи.</param>
+            <param name="obj">Посещаемый объект.</param>
+            <param name="rel">Связь между родительским и дочерним объектами.</param>
+            <param name="stopTraversing">Прекратить обход.false - по умолчанию.</param>
+            <remarks>parentObj и rel могут быть = null в случае если посещается головной объект.</remarks>
+            <param name="bundle">Дополнительные пользовательские данные.</param>        
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.OnFilterObject">
+            <summary>
+            Событие посещения объекта.
+            </summary>
+            <param name="parentObj">Родительский объект по связи.</param>
+            <param name="obj">Посещаемый объект.</param>
+            <param name="rel">Связь между родительским и дочерним объектами.</param>
+            <param name="stopTraversing">Прекратить обход.false - по умолчанию.</param>        
+            <returns>true, если связь удовлетворяет условиям фильтрации, false - иначе.</returns>
+            <remarks>parentObj и rel могут быть = null в случае если посещается головной объект.</remarks>            
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.OnFilterObject`1">
+            <summary>
+            Событие посещения объекта.
+            </summary>
+            <param name="parentObj">Родительский объект по связи.</param>
+            <param name="obj">Посещаемый объект.</param>
+            <param name="rel">Связь между родительским и дочерним объектами.</param>
+            <param name="stopTraversing">Прекратить обход.false - по умолчанию.</param>        
+            <returns>true, если связь удовлетворяет условиям фильтрации, false - иначе.</returns>
+            <remarks>parentObj и rel могут быть = null в случае если посещается головной объект.</remarks>
+            <param name="bundle">Дополнительные пользовательские данные.</param>        
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlEntity">
+            <summary>
+            Общий интерфейс единицы данных представленных в XML.
+            </summary>
+            <remarks>
+            Используется для объектного представления данных в каком-либо формате XML.
+            </remarks>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IXmlEntity.Description">
+            <summary>
+            Описание сущности.
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlMetaDataElement">
+            <summary>
+            Элемент метаданных в Xml
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject">
+            <summary>
+            Объект в иерархии XML.
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlParam">
+            <summary>
+            Отдельный параметр.
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IXmlParam.Id">
+            <summary>
+            Уникальный идентификатор параметра.
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IXmlParam.Name">
+            <summary>
+            Наименование параметра.
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IXmlParam.Value">
+            <summary>
+            Значение параметра.
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IXmlParam.Caption">
+            <summary>
+            Заголовок параметра.
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlParams">
+            <summary>
+            Список параметров.
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlRelation">
+            <summary>
+            Связь между объектами в иерархии XML.
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlTypedObject">
+            <summary>
+            Интерфейс для объекта, который возвращает тип 
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.Logger.Configuration.LoggerConfig">
+            <summary>
+            Настройки логгирования.
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.Logger.Configuration.LoggerConfig.MessageTypes">
+            <summary>
+            Типы сообщений.
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.Logger.Configuration.LogMessageTypes">
+            <summary>
+            Типы сообщений логгирования.
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.Logger.Configuration.LogMessageTypesExtension">
+            <summary>
+            Вспомогательные функции к AttrType.
+            </summary>
+        </member>
+        <member name="F:Intermech.XmlExchange.IpsXml.Interfaces.Logger.Configuration.LogMessageTypesExtension.CaptionBuffer">
+            <summary>
+            Буфер для хранения заголовков
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Logger.Configuration.LogMessageTypesExtension.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Logger.Configuration.LogMessageTypesExtension.ToLogString(Intermech.XmlExchange.IpsXml.Interfaces.Logger.Configuration.LogMessageTypes)">
+            <summary>
+            Преобразование в Строковое представление типа для лога.
+            </summary>
+            <param name="target">Тип сообщения.</param>
+            <returns>Строковое представление типа для лога.</returns>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger">
+            <summary>
+            Универсальный логгер в файл.
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="logFileName">Имя файла, в который будет производится запись</param>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger.Info(System.String)">
+            <summary>
+            Запись информационного сообщения в файл.
+            </summary>
+            <param name="message">Сообщение</param>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger.Warn(System.String)">
+            <summary>
+            Запись предупреждения в файл.
+            </summary>
+            <param name="message">Сообщение</param>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger.Error(System.String)">
+            <summary>
+            Запись ошибки в файл.
+            </summary>
+            <param name="message">Сообщение</param>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger.Clear">
+            <summary>
+            Очистить лог-файл.
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger.LoggerConfig">
+            <summary>
+            Настройки логирования.
+            </summary>
+        </member>
+        <member name="F:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger._stream">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger._writer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Logger.IpsXmlLogger.InternalLogMessage(System.String,Intermech.XmlExchange.IpsXml.Interfaces.Logger.Configuration.LogMessageTypes)">
+            <summary>
+            Записать сообщение в файл.
+            </summary>
+            <param name="message">Текст сообщения</param>
+            <param name="messageType">Тип сообщения</param>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.BaseXmlContentBuilder">
+            <summary>
+            Базовый класс для построения отображаемых элементов в соответствии с типом провайдера
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.BaseXmlContentBuilder.XmlProvider">
+            <summary>
+            Провайдер 
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.BaseXmlDataProvider">
+            <summary>
+            Базовый провайдер данных XML реализующий обобщенный алгоритм обхода дерева объектов.
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.BaseXmlDataProvider.InternalTraverse(Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject,Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject,Intermech.XmlExchange.IpsXml.Interfaces.IXmlRelation,Intermech.XmlExchange.IpsXml.Interfaces.OnFilterObject,Intermech.XmlExchange.IpsXml.Interfaces.OnVisitObject,System.Boolean,System.Boolean@)">
+            <summary>
+            Внутренняя функция прохода по дереву связей объекта.
+            </summary>
+            <param name="parentObj">Родительский объект по связи.</param>
+            <param name="childObj">Дочерний объект по связи.</param>
+            <param name="rel">Связь которую необходимо посетить.</param>
+            <param name="filter">Фильтр связей.Если null - обход всех связей.</param>
+            <param name="action">Действие при посещении очередной связи.</param>
+            <param name="recursive">Проход по всем уровням вложенности.Если false, то будет осуществлен проход только по текущей связи.</param>
+            <param name="stopTraversing">Был ли остановлен обход.</param>        
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.BaseXmlDataProvider.InternalTraverse``1(Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject,Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject,Intermech.XmlExchange.IpsXml.Interfaces.IXmlRelation,Intermech.XmlExchange.IpsXml.Interfaces.OnFilterObject{``0},Intermech.XmlExchange.IpsXml.Interfaces.OnVisitObject{``0},System.Boolean,System.Boolean@,``0)">
+            <summary>
+            Внутренняя функция прохода по дереву связей объекта.
+            </summary>
+            <param name="parentObj">Родительский объект по связи.</param>
+            <param name="childObj">Дочерний объект по связи.</param>
+            <param name="rel">Связь которую необходимо посетить.</param>
+            <param name="filter">Фильтр связей.Если null - обход всех связей.</param>
+            <param name="action">Действие при посещении очередной связи.</param>
+            <param name="recursive">Проход по всем уровням вложенности.Если false, то будет осуществлен проход только по текущей связи.</param>
+            <param name="stopTraversing">Был ли остановлен обход.</param>        
+            <param name="bundle">Дополнительные пользовательские данные.</param>        
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.BaseXmlDataProvider.GetObjChildRelations(Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject)">
+            <summary>
+            Получить коллекцию связей с дочерними объектами.
+            </summary>
+            <param name="obj">Родительский объект</param>
+            <returns>Коллекция связей с дочерними объектами</returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.BaseXmlDataProvider.GetObjParentRelations(Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject)">
+            <summary>
+            Получение связей с родительскими объектами
+            </summary>
+            <param name="obj">Объект</param>
+            <returns>Коллекция связей с родительскими объектами</returns>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.Provider.IAttributeInfoProvider">
+            <summary>
+            Интерфейс с поддержкой расширенной информации об атрибутах
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Provider.IAttributeInfoProvider.GetObjectAttributesInfo(System.Object)">
+            <summary>
+            Получение информации об атрибутах элемента
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Provider.IAttributeInfoProvider.GetAttributeInfo(System.String,System.Object)">
+            <summary>
+            Получение информации о заголовке атрибута
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider">
+            <summary>
+            Универсальный провайдер данных в любом формате XML
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.RootObjects">
+            <summary>
+            Доступ к корневым объектам
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.GetRootObjects(Intermech.XmlExchange.IpsXml.Interfaces.GetRoots)">
+            <summary>
+            Доступ к корневым объектам
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.GetAllObjects">
+            <summary>
+            Получить список всех объектов из XML
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.GetObjectAttributes">
+            <summary>
+            Получить все атрибуты объектов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.GetAllRelations">
+            <summary>
+            Получить список всех объектов из XML
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.GetAllRelationAttributes">
+            <summary>
+            Получить атрибуты связей
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.GetRelParentObj(Intermech.XmlExchange.IpsXml.Interfaces.IXmlRelation)">
+            <summary>
+            Получить родительский объект по связи
+            </summary>
+            <param name="rel">Связь</param>
+            <returns>Родительский объект</returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.GetRelChildObj(Intermech.XmlExchange.IpsXml.Interfaces.IXmlRelation)">
+            <summary>
+            Получить дочерний объект по связи
+            </summary>
+            <param name="rel">Связь</param>
+            <returns>Дочерний объект</returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.GetObjChildRelations(Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject)">
+            <summary>
+            Получение связей с дочерними объектами
+            </summary>
+            <param name="obj">Объект</param>
+            <returns>Коллекция связей с дочерними объектами. null, если связей нет</returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.GetObjParentRelations(Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject)">
+            <summary>
+            Получение связей с родительскими объектами
+            </summary>
+            <param name="obj">Объект</param>
+            <returns>Коллекция связей с родительскими объектами. null, если связей нет</returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.Traverse(Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject,Intermech.XmlExchange.IpsXml.Interfaces.OnFilterObject,Intermech.XmlExchange.IpsXml.Interfaces.OnVisitObject,System.Boolean)">
+            <summary>
+            Проход по дереву связей объекта.
+            </summary>
+            <param name="startFromObj">Объект, с которого начать обход. Not null</param>
+            <param name="filter">Фильтр связей.Если null - обход всех связей.</param>
+            <param name="action">Действие при посещении очередного объекта.Если null, то все действие в OnFilterObject().</param>
+            <param name="recursive">Проход по всем уровням вложенности.Если false, то будет осуществлен проход только по узлу
+            и его непосредственным дочерним.</param>
+            <param name="bundle">Дополнительные пользовательские данные.</param>        
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.IXmlDataProvider.Traverse``1(Intermech.XmlExchange.IpsXml.Interfaces.IXmlObject,Intermech.XmlExchange.IpsXml.Interfaces.OnFilterObject{``0},Intermech.XmlExchange.IpsXml.Interfaces.OnVisitObject{``0},System.Boolean,``0)">
+            <summary>
+            Проход по дереву связей объекта.
+            </summary>
+            <param name="startFromObj">Объект, с которого начать обход. Not null</param>
+            <param name="filter">Фильтр связей.Если null - обход всех связей.</param>
+            <param name="action">Действие при посещении очередного объекта.Если null, то все действие в OnFilterObject().</param>
+            <param name="recursive">Проход по всем уровням вложенности.Если false, то будет осуществлен проход только по узлу
+            и его непосредственным дочерним.</param>
+            <param name="bundle">Дополнительные пользовательские данные.</param>        
+            <remarks>Параметр bundle может использоваться например для передачи на нижние уровни реккурсии результатов работы функции на более высоких уровнях.</remarks>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlMetadataProvider">
+            <summary>
+            Провайдер Xml-данных, содержащих информацию о метаданных 
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlObjectsProvider">
+            <summary>
+            Базовый интерфейс для всех провайдеров
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlContentBuilder">
+            <summary>
+            Построитель данных, соответствующих типу переданного провайдера
+            </summary>
+        </member>
+        <member name="P:Intermech.XmlExchange.IpsXml.Interfaces.IXmlContentBuilder.XmlProvider">
+            <summary>
+            Провайдер, для которого строим способ отображения
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.IXmlVerifyingProvider">
+            <summary>
+            Провайдер верификации Xml-данных
+            </summary>
+        </member>
+        <member name="T:Intermech.XmlExchange.IpsXml.Interfaces.Utils.XmlUtils">
+            <summary>
+            Вспомогательные функции.
+            </summary>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Utils.XmlUtils.ReplaceForbiddenSymbols(System.String)">
+            <summary>Заменить запрещенные символы для имен файлов</summary>
+            <param name="fileName">Имя файла</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Utils.XmlUtils.RecreateDirectory(System.String)">
+            <summary>
+            Пересоздать директорию. 
+            </summary>
+            <param name="dirName">Имя директории</param>
+            <remarks>Если директория существует, то она будет удалена со всем содержимым и создана заново.</remarks>
+        </member>
+        <member name="M:Intermech.XmlExchange.IpsXml.Interfaces.Utils.XmlUtils.GetIconTypeKey(System.Boolean,System.String)">
+            <summary>
+            Метод формирует ключ для идентификации иконок: категория(объект/связь) + идентификатор типа
+            </summary>
+            <param name="isObjectType"></param>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

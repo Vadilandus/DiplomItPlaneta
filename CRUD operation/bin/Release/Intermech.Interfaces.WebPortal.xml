@@ -1,0 +1,1659 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Interfaces.WebPortal</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Interfaces.WebPortal.AttributeInfo">
+            <summary>
+             Структура с главной инфой по атрибуту объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.AttributeInfo.Guid">
+            <summary>
+            Глобальный идентификатор атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.AttributeInfo.Name">
+            <summary>
+            Имя атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.AttributeInfo.ShortName">
+            <summary>
+            Краткое имя
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.AttributeInfo.Alias">
+            <summary>
+            Алиас атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.AttributeInfo.FieldType">
+            <summary>
+            Тип данных
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.AttributePossibleValues">
+            <summary>
+            Допустимые значения атрибута
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributePossibleValues.AttributeID">
+            <summary>
+            Идентификатор атрибута
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributePossibleValues.PossibleValues">
+            <summary>
+            Допустимые значения
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.Attributes4ObjectTag">
+            <summary>
+            Дополнительная информация для объекта, записываемой в файл для отправки на портал
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.Attributes4ObjectTag.RootType">
+            <summary>
+            Корневой тип
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.Attributes4ObjectTag.LinkedGuid">
+            <summary>
+            Глобальный идентификатор связанного объекта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.Attributes4ObjectTag.#ctor(Intermech.Interfaces.WebPortal.PublishObjectRootType,System.String)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="rootType">Корневой тип</param>
+            <param name="linkedGuid">Глобальный идентификатор связанного объекта</param>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.Attributes4RelationTag">
+            <summary>
+            Дополнительная информация для объекта, записываемой в файл для отправки на портал
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.Attributes4RelationTag.PartObjectGuid">
+            <summary>
+            Глобальный идентификатор версии part-объекта для связи
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.Attributes4RelationTag.ProjectObjectGuid">
+            <summary>
+            Глобальный идентификатор версии project-объекта для связи
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.Attributes4RelationTag.#ctor(System.Guid,System.Guid)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="partObjectGuid">Глобальный идентификатор версии part-объекта для связи</param>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.Attributes4Tag">
+            <summary>
+            Базовый класс для дополнительной информации, записываемой в файл для отправки на портал
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.AttributeValue">
+            <summary>
+             Структура с инфой по значению атрибута
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.InListID">
+            <summary>
+            Порядковый номер знаяения 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.StringValue">
+            <summary>
+            Строковая составляющая
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.Description">
+            <summary>
+            Строковая составляющая
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.DoubleValue">
+            <summary>
+            Вещественная составляющая
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.DateTimeValue">
+            <summary>
+            Временная составляющая в InvariantCulture
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.IntegerValue">
+            <summary>
+            Целочисленная составляющая
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.ArcMethod">
+            <summary>
+            Составляющая, хранящая тип упаковки файла (для блобов)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.FileName">
+            <summary>
+            Составляющая, хранящая имя файла (для блобов)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.FileType">
+            <summary>
+            Тип файла (для блобов)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.FileAuthor">
+            <summary>
+            Автор файла (для блобов)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.GuidValue">
+            <summary>
+            Составляющая, хранящая некий глобальный идентификатор
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.AttributeValue.IsEmpty">
+            <summary>
+            Флаг того что значение атрибута равно NULL
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.ChangeType">
+            <summary>
+            Тип изменения публикуемого (передаваемого/принимаемого) объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ChangeType.ctDelete">
+            <summary>
+            Удаление
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ChangeType.ctUpdate">
+            <summary>
+            Изменение
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ChangeType.ctCreate">
+            <summary>
+            Добавление
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.ColumnTypeCode">
+            <summary>
+            Типы данных в колонках
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.CompositionApplicabilities">
+            <summary>
+            Хранилище доступных типов связей для формирования состава публикуемых объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.CompositionApplicabilities.RelationTypes">
+            <summary>
+            Список наименований или гуидов типов связей по которым ищется состав 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.CompositionApplicabilities.RecursivityRelationTypes">
+            <summary>
+            Список наименований или гуидов типов связей которые разрешены всегда, независимо от флага recursive
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.CompositionApplicabilities.ObjectTypesFilter">
+            <summary>
+            Список глобальных типов (наименования или гуиды), объекты которых должны отфильтровыватся
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.CompositionApplicabilities.IsGuids">
+            <summary>
+            Флаг того, что в массивах лежат гуиды
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.CompositionApplicabilities.#ctor(System.String[],System.String[],System.String[])">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="relationTypes">Типы связей для состава и способ запроса по ним</param>
+            <param name="recursivityRelationTypes">Список наименований или гуидов типов связей по которым ищется полный состав</param>
+            <param name="objectTypesFilter">Список глобальных типов (наименования или гуиды), объекты которых должны отфильтровыватся</param>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.Conditions">
+            <summary>
+            Условия, по которым должен вестись поиск
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.Columns">
+            <summary>
+            Массив с идентификаторами (число, guid или имя) колонок, которые должны быть включены в выборку
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.ColumnsInfo">
+            <summary>
+            Доп. инфа по колонкам (заполняется тока в случае необходимости)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.SortColumns">
+            <summary>
+            Массив с идентификаторами колонок, по которым нужно отсортировать выборку объектов
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.Orders">
+            <summary>
+            Порядок сортировки значений (если список пустой, то принимается сортировка по возрастанию)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.SortSources">
+            <summary>
+            Источник атрибутов, по которым идет сортировка. Должен быть в Columns!
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.SortContents">
+            <summary>
+            Вид информации в атрибуте, по которому идет сортировка. Должен быть в Columns!
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.LastKeyValue">
+            <summary>
+            Последнее значение ключевого поля, которое было передано клиенту (по умолчанию=0)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.LastOrderValue">
+            <summary>
+            Последнее значение первого поля сортировки, которое было передано клиенту (по умолчанию=null)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.RecordCount">
+            <summary>
+            Количество записей, которые нужно передать клиенту (по умолчанию=QueryConsts.Default)
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.FailIfNotFound">
+            <summary>
+            Генерировать ли исключение AttributeTypeNotFoundException в случае, если какой-либо атрибут
+            в списках Columns и SortColumns отсутствует. Если false - атрибут просто не будет 
+            включен в результирующую таблицу. По умолчанию true.
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.TableName">
+            <summary>
+            Имя таблицы, которую вернет ф-ция SELECT
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.Contents">
+            <summary>
+            Виды информации, которую нужно получить по атрибутам из Columns.
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.DBQueryParams.ColumnNames">
+            <summary>
+            Способы именования колонок атрибутов Columns
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.IImportAttributesHandlerService">
+            <summary>
+            Сервис позволяет подмахнуть значение атрибуту в момент импорта объекта или связи из портала
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IImportAttributesHandlerService.Register(System.Int32,Intermech.Interfaces.WebPortal.ImportAttributeHandler)">
+            <summary>
+            Регистрация обработчика
+            </summary>
+            <param name="attributeID">Идентификатор атрибута</param>
+            <param name="handler">Обработчик</param>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.ImportAttributeHandler">
+            <summary>
+            Обработчик экспорта атрибута публикуемого объекта
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ImportAttributeHandler.Handle(Intermech.Interfaces.SpecHandleAttributeEventArgs,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Обработка значения
+            </summary>
+            <param name="e">Аргументы события от процесса импорта</param>
+            <param name="tag">Дополнительные данные от процесса импорта</param>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.ImportInfo">
+            <summary>
+            Информация о процессе запроса импорта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ImportInfo.Persent">
+            <summary>
+            Процент выполнения
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ImportInfo.ImportTaskStatus">
+            <summary>
+            Статус
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ImportInfo.ErrorMessage">
+            <summary>
+            Текст ошибки, если она есть
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ImportInfo.ErrorStack">
+            <summary>
+            Стек ошибки, если она есть
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.ImportTaskStatuses">
+            <summary>
+            Статусы процесса запроса импорта 
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ImportTaskStatuses.None">
+            <summary>
+            Отсутствует
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ImportTaskStatuses.Working">
+            <summary>
+            В работе
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ImportTaskStatuses.Error">
+            <summary>
+            Ошибка
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ImportTaskStatuses.Completed">
+            <summary>
+            Успешно выполнено
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.IncompleteRelationTag">
+            <summary>
+            Дополнительные данные, передаваемые вместе с публикуемой связью 
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.IPortalConnector">
+            <summary>
+            Интерфейс на серверный сервис для работы с порталом
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.IPortalConnector.PortalVersion">
+            <summary>
+            Получить версию портала
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.Login(System.Guid)">
+            <summary>
+            Залогиниться к порталу
+            </summary>
+            <param name="sessionGuid">GUID сессии, данные которой использовать для авторизации в портале</param>
+            <returns>Глобальный идентификатор соединения</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.Logout(System.Guid)">
+            <summary>
+            Закончить работу с порталом
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.IsAdmin(System.Guid)">
+            <summary>
+            Является ли пользователь администратором на портале
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор пользовательской сессии</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetObjectTypesTree(System.Guid)">
+            <summary>
+            Получить список типов объектов, используемых порталом (непосредственно с портала)
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.LastModifyMetadata(System.Guid)">
+            <summary>
+            Получить дату последней модификации метаданных на портале
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetPublishRelationAttributes(System.Guid)">
+            <summary>
+            Получить список атрибутов для типа связей "Состав опубликованного объекта"
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetAttributePossibleValues(System.Guid)">
+            <summary>
+            Получить список атрибутов и допустимых значений для атрибутов используемых в типах объектов "Опубликованные объекты"
+            и атрибутов для типа связей "Состав опубликованного объекта" 
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.StartPublishingTask(System.Guid,System.String,System.String,System.Int64)">
+            <summary>
+            Начало публикации пачки объектов/связей (задачи)
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="taskName">Название задачи</param>
+            <param name="enabledSites">Строка с кодами узлов информационной системы, на которые может быть скопирован данный объект</param>
+            <param name="packetID"></param>
+            <returns>Идентификатор созданной задачи публикации</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.StartPublishingTask(System.Guid,System.String,System.String)">
+            <summary>
+            Начало публикации пачки объектов/связей (задачи)
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="taskName">Название задачи</param>
+            <param name="enabledSites">Строка с кодами узлов информационной системы, на которые может быть скопирован данный объект</param>
+            <returns>Идентификатор созданной задачи публикации</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.PublishUnit(System.Guid,System.Int64,Intermech.Interfaces.WebPortal.TransferedObject)">
+            <summary>
+            Добавить в задачу публикации объект/связь
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="taskID">Идентификатор задачи публикации</param>
+            <param name="unit">Публикуемые объект/связь</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.TransferPublishUnitFile(System.Guid,System.String,System.String,System.Byte[],System.Boolean)">
+            <summary>
+            Запись на портале файла для публикуемого объекта/связи
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="unitGuid">Глобальный идентификатор TransferedObject, которому принадлежит файл</param>
+            <param name="fileName">Имя файла</param>
+            <param name="bytes">Байты с данными</param>
+            <param name="continuation">Флаг того, что передача файла в режипе продолжения (первый раз false, потом true)</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.CompletePublish(System.Guid,System.Int64,System.Boolean)">
+            <summary>
+            Завершение сеанса публикации.
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="taskID">Идентификатор задачи публикации</param>
+            <param name="deleteTask">Удалять задачу после успешного завершения публикации</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.DeletePublishTask(System.Guid,System.Int64)">
+            <summary>
+            Удалить из списка задач завершенную задачу публикации
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="taskID">Идентификатор задачи публикации</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.DeletePublishTask(System.Guid,System.Int64,System.Int32)">
+            <summary>
+            Удалить из списка задач завершенную задачу публикации
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор соединения</param>
+            <param name="taskID">Идентификатор задачи публикации на портале</param>
+            <param name="deleteMode">Режим удаления:
+            1 - удаляет только задачу публикации (используется для успешно завершенной задачи)
+            0 - удаляет также временные файлы публикуемых объектов (используется при удалении незаконченной задачи, с ошибкой) 
+            </param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetTaskStatus(System.Guid,System.Int64)">
+            <summary>
+            Получить статус задачи синхронизации 
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="taskID">Идентификатор задачи публикации</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.AutoImportComplete(System.Guid,System.Int64[],System.Boolean)">
+            <summary>
+            Завершить автоматическое обновление
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор пользовательской сессии</param>
+            <param name="objectsIDs">Идентификаторы опубликованных объектов</param>
+            <param name="withComposition">Завершить получение автообновлений также и у состава объектов</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetUpdates(System.Guid,System.Guid)">
+            <summary>
+            Получить идентификаторы обновлений для текущего узла
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="sessionGuid">GUID сессии</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetUpdateAuthor(System.Guid,System.String)">
+            <summary>
+            Получить код узла, который инициировал обновление
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="updateGUID">Глобальный идентификатор обновления</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetUpdateUnit(System.Guid,System.String)">
+            <summary>
+            Начало получения изменения
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="updateGUID">Глобальный идентификатор обновления</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.StartUpdateUnit(System.Guid,System.String)">
+            <summary>
+            Установить флаг статуса для изменения "В работе", что означает, что данные по
+            функции StartUpdateUnit приняты успешно и клиент начал обработку данных
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="updateGUID">Глобальный идентификатор обновления</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetUpdateAttributesFile(System.Guid,System.Guid,System.String,System.Int64)">
+            <summary>
+            Получить очередную порцию байт файла с атрибутами обновления
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="transferedGuid">Глобальный идентификатор экземпляра TransferedObject</param>
+            <param name="fileName">Имя файла в массиве файлов изменения</param>
+            <param name="startPosition">Стартовая позиция в потоке с которой начинать чтение</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetUpdateAttributesFileLength(System.Guid,System.Guid,System.String)">
+            <summary>
+            Получить размер файла
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="transferedGuid">Глобальный идентификатор экземпляра TransferedObject</param>
+            <param name="fileName">Имя файла в массиве файлов изменения</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.EndUpdateUnit(System.Guid,System.String)">
+            <summary>
+            Окончание получения изменения 
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="updateGUID">Глобальный идентификатор обновления</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.EndUpdateUnit(System.Guid,System.String,System.String[])">
+            <summary>
+            Окончание получения изменения со взятием объектов во владение
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="updateGUID">Глобальный идентификатор обновления</param>
+            <param name="guids">Глобальные идентификаторы объектов которые беруться во владение</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.SelectPublishObjects(System.Guid,System.Int32,Intermech.Interfaces.WebPortal.DBQueryParams)">
+            <summary>
+            Получить список опубликованных объектов указанного типа
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="objectType">Тип опубликованных объектов (на портале)</param>
+            <param name="dbParams">Параметры запроса</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.ImportObjects(System.Guid,Intermech.Interfaces.WebPortal.TaskPriority,System.Int64[],System.Int32[],System.Boolean,System.Boolean,Intermech.Interfaces.WebPortal.SelectCompositionType,System.Boolean)">
+            <summary>
+            Имортировать опубликованные объекты с портала
+            </summary>
+            <param name="sessionGuid">GUID сессии</param>
+            <param name="priority">Приоритет</param>
+            <param name="objectsIDs">Идентификаторы опубликованных объектов</param>
+            <param name="filteredTypes"></param>
+            <param name="setOwner">Получить права владения</param>
+            <param name="autoUpdate">Автоматически получать изменения в импортируемых объектах</param>
+            <param name="compositionType">Тип запроса состава</param>
+            <param name="startImmediately">Начать импорт незамедлительно</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.ImportPackets(System.Guid,Intermech.Interfaces.WebPortal.TaskPriority,System.Int64[],Intermech.Interfaces.WebPortal.ImportVersionsModes,System.Boolean)">
+            <summary>
+            Импортировать пакеты
+            </summary>
+            <param name="sessionGuid">GUID сессии</param>
+            <param name="priority">Приоритет</param>
+            <param name="packetIDs"></param>
+            <param name="importVersionsMode"></param>
+            <param name="startImmediately"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.PacketImportComplete(System.Guid,System.Int64)">
+            <summary>
+            Импорт пакета завершен
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="packetID">Идентификатор пакета</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetObjectAttributes(System.Guid,System.Int64,System.String[])">
+            <summary>
+            Получить значения атрибутов для объекта
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="objectID">Идентификатор опубликованного объекта</param>
+            <param name="attrIDs">Массив идентификаторами атрибутов (м.б. глобальными идентификаторами, наименованиями либо для получения обязательных
+            атрибутов объекта значения ObligatoryObjectAttributes, например "F_LC_STEP"), значения которых нужно получить</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetRelationAttributes(System.Guid,System.Int64,System.String[])">
+            <summary>
+            Получить значения атрибутов для связи
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="relationID">Идентификатор опубликованной связи</param>
+            <param name="attrIDs">Массив идентификаторами атрибутов (м.б. глобальными идентификаторами, наименованиями либо для получения обязательных
+            атрибутов связи значения ObligatoryObjectAttributes, например "F_CREATE_DATE"), значения которых нужно получить</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetImportComposition(System.Guid,System.Int64[],System.Int32[],System.Int32)">
+            <summary>
+            Получить список объектов состава импортируемого объекта, включая связанные объекты.
+            </summary>
+            <param name="sessionGuid">GUID сессии</param>
+            <param name="objectIDs"></param>
+            <param name="filteredTypes"></param>
+            <param name="countLevels"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.SelectComposition(System.Guid,System.Guid,System.Int64,Intermech.Interfaces.WebPortal.DBQueryParams,System.Int32)">
+            <summary>
+            Получить состав опубликованного объекта
+            </summary>
+            <param name="sessionGuid">GUID сессии</param>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="objectID">Идентификатор версии опубликованного объекта, для которого необходимо получить состав</param>
+            <param name="dbParams">Параметры запроса</param>
+            <param name="countLevels">Рекурсивный состав</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetSiteUsers(System.Guid,System.Guid,Intermech.Interfaces.WebPortal.DBQueryParams)">
+            <summary>
+            Получить список пользователей узла.
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <param name="siteGuid">Глобальный идентификатор версии узла</param>
+            <param name="dbParams">Параметры запроса</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.ImportUsers(System.Guid,System.Int64[])">
+            <summary>
+            Импортировать пользователей в локальную базу
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор пользовательской сессии</param>
+            <param name="userIDs">Список пользователей</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetLastSitesInfoUpdate(System.Guid)">
+            <summary>
+            Получить время последнего изменения информации об узлах информационной системы 
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetSitesInfo(System.Guid)">
+            <summary>
+            Получить информацию по узлам информационной системы
+            </summary>
+            <param name="connectGuid">Глобальный идентификатор соединения</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.ChangeUserPassword(System.Guid,System.String,System.String)">
+            <summary>
+            Изменить пароль пользователя портала
+            </summary>
+            <param name="sessionGuid">GUID сессии</param>
+            <param name="login">Логин пользователя</param>
+            <param name="newPassword">Новый пароль</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.AddUser(System.Guid,System.String,System.String,System.String,System.Guid)">
+            <summary>
+            Добавить пользователя портала
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии</param>
+            <param name="userName">Выводимое имя пользователя</param>
+            <param name="login">Логин пользователя</param>
+            <param name="password">Пароль</param>
+            <param name="userGuid">Глобальный идентификатор версии объекта-пользователя</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.ChangeUserPassword(System.Guid,System.String,Intermech.Protection.PswPackage)">
+            <summary>
+            Изменить пароль пользователя портала
+            </summary>
+            <param name="sessionGuid">GUID сессии</param>
+            <param name="login">Логин пользователя</param>
+            <param name="newPassword">Новый пароль</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.AddUser(System.Guid,System.String,System.String,Intermech.Protection.PswPackage,System.Guid)">
+            <summary>
+            Добавить пользователя портала
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии</param>
+            <param name="userName">Выводимое имя пользователя</param>
+            <param name="login">Логин пользователя</param>
+            <param name="password">Пароль</param>
+            <param name="userGuid">Глобальный идентификатор версии объекта-пользователя</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.DeleteUser(System.Guid,System.String)">
+            <summary>
+            Удалить пользователя портала
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии</param>
+            <param name="login">Логин пользователя</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.DeleteObjects(System.Guid,System.Int64[])">
+            <summary>
+            Удаление опубликованных объектов, возвращает массив с глобальными идентификаторами удаленных объектов
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии</param>
+            <param name="objectIDs">Список идентификаторов объектов для удаления</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetProcessTemplates(System.Guid)">
+            <summary>
+            Получить опубликованные узлом шаблоны процессов
+            </summary>
+            <param name="siteGuid">Глобальный идентификатор узла</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.OwnComplete(System.Guid,System.Int64[],System.String,Intermech.Interfaces.WebPortal.CompositionApplicabilities,System.Boolean,System.Boolean)">
+            <summary>
+            Завершение владением 
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор сессии</param>
+            <param name="objectIDs">Список идентификаторов опубликованных объектов, владение которыми завершается</param>
+            <param name="ownerSites">Строка с кодами узлов с правами владения на эти объекты</param>
+            <param name="applic">Состав</param>
+            <param name="withComposition">Вместе с составом</param>
+            <param name="autoUpdate">Получать обновления об изменениях у этих объектов</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.OwnComplete(System.Guid,System.String[],System.String)">
+            <summary>
+            Завершение владением 
+            </summary>
+            <param name="connectionGuid">Глобальный идентификатор соединения</param>
+            <param name="objectGUIDs">Список идентификаторов опубликованных объектов, владение которыми завершается</param>
+            <param name="ownerSites">Строка с кодами узлов с правами владения на эти объекты</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.SelectPublishObjectsFlt(System.Guid,System.Int32,System.String[],System.Int32,System.String[],System.Int32[],System.String[],System.String[],System.Int32[],System.Int32[],System.Boolean[])">
+            <summary>
+            Получить список опубликованных объектов указанного типа. 
+            В параметры-массивы пишем поиндексно значения из условий запроса ConditionStructure[]
+            </summary>
+            <param name="sessionGuid">Глобальный идентификатор соединения</param>
+            <param name="objectType">Тип опубликованных объектов (на портале)</param>
+            <param name="columns">Массив с идентификаторами (число, guid или имя) колонок, которые должны быть включены в выборку</param>
+            <param name="recordCount">Количество возвращаемых строк</param>
+            <param name="attributes">Ид. атрибута</param>
+            <param name="relationalOperators">Операторы отношений</param>
+            <param name="values">Искомое значение</param>
+            <param name="values2">Искомое значение 2, нужно например для between</param>
+            <param name="logicalOperators">Логический операторы, которыми это условие объединяется со следующим по списку условий</param>
+            <param name="groupIDs">Управляет группировкой условий. 
+            (если GroupID больше 0, то перед условием открываются GroupID скобок,
+             если GroupID меньше 0, то за условием закрываются GroupID скобок)</param>
+            <param name="caseSensitives">Указывает на чувствительность поиска к регистру букв</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.CreatePacket(System.Guid,System.Int64,System.Guid,System.String,System.String,System.String,System.String)">
+            <summary>
+            Создать пакет на текущую задачу публикации
+            </summary>
+            <param name="connectionGuid">Глобальный идентификатор соединения</param>
+            <param name="taskID">Идентификатор задачи публикации</param>
+            <param name="guid">Глобальный идентификатор пакета</param>
+            <param name="name">Наименование пакета</param>
+            <param name="designation">Обозначение пакета</param>
+            <param name="note">Коментарии к пакету</param>
+            <param name="enableSites">Разрешенные узлы</param>
+            <returns>Идентификатор пакета (IDBObject.ObjectID)</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetPacketContent(System.Guid,System.Int64)">
+            <summary>
+            Получить содержимое пакета
+            </summary>
+            <param name="connectionGuid">Глобальный идентификатор соединения</param>
+            <param name="packetID">Идентификатор пакета (IDBObject.ObjectID)</param>
+            <returns>Содержимое ввиде таблицы</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.DeletePackets(System.Guid,System.Int64[])">
+            <summary>
+            Удалить пакеты
+            </summary>
+            <param name="connectionGuid">Глобальный идентификатор соединения</param>
+            <param name="packetIDs">Идентификаторы пакетов (IDBObject.ObjectID)</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetImportReceipts(System.Guid,System.Int64)">
+            <summary>
+            Получить все квитанции импорта для пакета
+            </summary>
+            <param name="connectionGuid">Глобальный идентификатор соединения</param>
+            <param name="packetID">Идентификатор пакета (IDBObject.ObjectID)</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPortalConnector.GetReceiptContent(System.Guid,System.Int64)">
+            <summary>
+            Получить содержимое квитанции
+            </summary>
+            <param name="connectionGuid">Глобальный идентификатор соединения</param>
+            <param name="receiptID">Идентификатор квитанции (IDBObject.ObjectID)</param>
+            <returns>Квитанция ввиде таблицы</returns>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.IPortalConnector.IsOffline">
+            <summary>
+            Флаг офлайн режима
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.IPortalConnector.OfflineImportFilesList">
+            <summary>
+            Список файлов для импорта
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration">
+            <summary>
+            Интерфейс для работы с конфигурацией публикуемых типов объектов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.ComplianceObjectTypes">
+            <summary>
+            Получить соответствия типов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.Reload">
+            <summary>
+            Перечитать кэш
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.Save">
+            <summary>
+            Сохранить кэш в базу
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.IsPublishObjectType(System.Int32)">
+            <summary>
+            Тип объектов публикуемый?
+            </summary>
+            <param name="objType">Идентификатор типа объектов</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.ObjectWithLink(System.Int32)">
+            <summary>
+            Публиковать весь объект при ссылке на него
+            </summary>
+            <param name="objType">Идентификатор типа объектов</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.SetObjectWithLink(System.Int32,System.Boolean)">
+            <summary>
+            Установить типу объектов признак публикации всего объекта при ссылке на него
+            </summary>
+            <param name="objType">Идентификатор типа объектов</param>
+            <param name="value">Новое значение</param>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.PublishObjectTypes">
+            <summary>
+            Список типов объектов, публикация которых разрешена
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.PublishRelationTypes">
+            <summary>
+            Список типов связей, публикация которых не запрещена
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.AlwaysRelationTypes">
+            <summary>
+            Список типов связей, публикация которых должна быть всегда
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.RemovePublishObjectType(System.Int32,System.Boolean)">
+            <summary>
+            Удалить тип объектов из числа публикуемых
+            </summary>
+            <param name="objType">Идентификатор типа объектов</param>
+            <param name="saveInBase">Сохранить изменения в базе</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.AddPublishObjectType(System.Int32,System.Boolean)">
+            <summary>
+            Добавить тип объектов для публикации
+            </summary>
+            <param name="objType">Идентификатор типа объектов</param>
+            <param name="saveInBase">Сохранить изменения в базе</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.SetRelationMigrateType(System.Guid,Intermech.Interfaces.WebPortal.RelationMigrateType,System.Boolean)">
+            <summary>
+            Установить тип передачи связей через портал
+            </summary>
+            <param name="relationType">Глобальный идентификатор типа связей</param>
+            <param name="migrateType">Тип передачи</param>
+            <param name="saveInBase">Сохранить изменения в базе</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.GetRelationMigrateType(System.Guid)">
+            <summary>
+            Получить тип передачи связей через портал
+            </summary>
+            <param name="relationType">Глобальный идентификатор типа связей</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.GetCompositionApplicabilities">
+            <summary>
+            Получить настройки формирования состава
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.IPublishTypesConfiguration.ObjectWithLinksPresent">
+            <summary>
+            Флаг, показывающий, что в настройках есть типы объектов, которые нужно передавать целиком, если на них ссылается
+            публикуемый объект или связь
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.ISitesCacheService">
+            <summary>
+            Интерфейс на кэш со списком узлов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ISitesCacheService.Sites">
+            <summary>
+            Все узлы
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ISitesCacheService.Reload(System.Object)">
+            <summary>
+            Перечитать кэш
+            </summary>
+            <param name="session">При вызове с клиента передаем GUID сессии, при вызове с сервера - IUserSession</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ISitesCacheService.GetSite(System.Char)">
+            <summary>
+            Получить информацию об узле информационной системы по его коду
+            </summary>
+            <param name="code">Код узла</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ISitesCacheService.GetSite(System.Int64)">
+            <summary>
+            Получить информацию об узле информационной системы по его идентификатору
+            </summary>
+            <param name="id">Идентификатор версии объекта узла</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ISitesCacheService.GetSite(System.Guid)">
+            <summary>
+            Получить информацию об узле информационной системы по его глобальному идентификатору
+            </summary>
+            <param name="guid">Глобальный идентификатор версии объекта узла</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ISitesCacheService.GetSite(System.String)">
+            <summary>
+            Получить информацию об узле информационной системы по его глобальному идентификатору
+            </summary>
+            <param name="name">Наименование узла</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ISitesCacheService.GetSite(System.Guid,System.Boolean)">
+            <summary>
+            Получить информацию об узле информационной системы по его глобальному идентификатору
+            </summary>
+            <param name="guid">Глобальный идентификатор версии объекта узла</param>
+            <param name="throwException">Генерить exception если сайт не найден</param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ISitesCacheService.SitesIDs">
+            <summary>
+            Список идентификаторов зарегистрированных в системе узлов
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ISitesCacheService.Info">
+            <summary>
+            Информация текущего узла
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ISitesCacheService.NextCode">
+            <summary>
+            Получить следующую букву для нового узла
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ISitesCacheService.GetSiteDescription(System.String)">
+            <summary>
+            Получить расшифровку значения поля F_SITE_ID у объекта
+            </summary>
+            <param name="siteID">Значение F_SITE_ID</param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ISitesCacheService.IsPortal">
+            <summary>
+            Флаг того, что это портал
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.ITransferedObject">
+            <summary>
+            Интерфейс для классов, описывающих передаваемые объекты и связи
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ITransferedObject.GUID">
+            <summary>
+            Уникальный глобальный идентификатор описателя
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ITransferedObject.DataFiles">
+            <summary>
+            Список файлов с запакованным объектом/связью
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ITransferedObject.Category">
+            <summary>
+            Категория
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.ITransferedObject.Tag">
+            <summary>
+            Дополнительные данные
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ITransferedObject.Load(System.IO.BinaryReader)">
+            <summary>
+            Функция восстановления описателя из блоба
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.ITransferedObject.Save(System.IO.BinaryWriter)">
+            <summary>
+            Функция сохранения описателя в блоб
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.ObjectTag">
+            <summary>
+             Дополнительные данные, передаваемые с публикуемым объектом
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ObjectTag.InComposition">
+            <summary>
+            Флаг того, что объект публикуется/импортируется в составе
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ObjectTag.WithComposition">
+            <summary>
+            Флаг того, что объект публикуется вместе с составом
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ObjectTag.CreatorCode">
+            <summary>
+            Код узла, создавшего этот объект
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ObjectTag.OwnerCode">
+            <summary>
+            Код узла, владеющего этим объектом
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ObjectTag.CompositionOwnerCode">
+            <summary>
+            Код узла, владеющего составом этого объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ObjectTag.RootType">
+            <summary>
+            Корневой тип публикуемого объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ObjectTag.EnableSites">
+            <summary>
+            Разрешенные узлы
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PacketTag">
+            <summary>
+            Дополнительные данные к пакету
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PortalAttributeType">
+            <summary>
+            Структура, описывающая тип атрибутов, используемый порталом
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalAttributeType.ID">
+            <summary>
+            Идентификатор в базе портала
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalAttributeType.Name">
+            <summary>
+            Наименование
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalAttributeType.GUID">
+            <summary>
+            Глобальный идентификатор атрибута
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalAttributeType.Type">
+            <summary>
+            Тип атрибутов
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalAttributeType.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalAttributeType.#ctor(System.Int32,System.String,System.String,Intermech.FieldTypes)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PortalObjectType">
+            <summary>
+            Структура, описывающая тип объектов, используемый порталом
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalObjectType.ID">
+            <summary>
+            Идентификатор в базе портала
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalObjectType.ParentID">
+            <summary>
+            Идентификатор родительского типа
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalObjectType.Name">
+            <summary>
+            Наименование
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalObjectType.GUID">
+            <summary>
+            Глобальный идентификатор типа
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalObjectType.Icon">
+            <summary>
+            Иконка
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PortalObjectType.Attributes">
+            <summary>
+            Атрибуты типа объектов
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalObjectType.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalObjectType.#ctor(System.Int32,System.Int32,System.String,System.String,System.Byte[])">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="id">Идентификатор в базе портала</param>
+            <param name="parentID">Идентификатор родительского типа</param>
+            <param name="name">Наименование</param>
+            <param name="guid">Глобальный идентификатор типа</param>
+            <param name="icon">Иконка</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalObjectType.#ctor(System.Data.DataRow)">
+            <summary>
+            Создать вспомогательный класс, загрузить данные из указанной строки (таблица должна быть получена из кэша метаданных)
+            </summary>
+            <param name="row">Строка с исходными данными</param>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalObjectType.Equals(System.Object)">
+            <summary>
+            Сравнить с указанным объектом
+            </summary>
+            <param name="obj">Объект для сравнения</param>
+            <returns>true, если объекты равны</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalObjectType.GetHashCode">
+            <summary>
+            Вернуть 32-битный хэш-код экземпляра класса
+            </summary>
+            <returns>32-битный хэш-код экземпляра класса</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalObjectType.ToString">
+            <summary>
+            Вернуть строковое представление экземпляра класса
+            </summary>
+            <returns>Строковое представление экземпляра класса</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalObjectType.Clone">
+            <summary>
+            Создать точную копию
+            </summary>
+            <returns>Точная копия</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalObjectType.CompareTo(System.Object)">
+            <summary>
+            Сравнить с указанным объектом
+            </summary>
+            <param name="obj">Объект для сравнения</param>
+            <returns>-1, 0, 1</returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.PortalObjectType.CompareTo(Intermech.Interfaces.WebPortal.PortalObjectType)">
+            <summary>
+            Сравнить с указанным объектом
+            </summary>
+            <param name="other">Объект для сравнения</param>
+            <returns>-1, 0, 1</returns>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PossibleValue">
+            <summary>
+            Допустимое значение
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PossibleValue.ValueFieldName">
+            <summary>
+            Имя поля со значением
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PossibleValue.StringValue">
+            <summary>
+            Строковая составляющая
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PossibleValue.Description">
+            <summary>
+            Строковая составляющая
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PossibleValue.DoubleValue">
+            <summary>
+            Вещественная составляющая
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PossibleValue.DateTimeValue">
+            <summary>
+            Временная составляющая в InvariantCulture
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PossibleValue.IntegerValue">
+            <summary>
+            Целочисленная составляющая
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.ProcessTemplateInfo">
+            <summary>
+            Описывает удаленный шаблон процесса
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ProcessTemplateInfo.Guid">
+            <summary>
+            Глобальный идентификатор версии
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.ProcessTemplateInfo.Name">
+            <summary>
+            Наименование
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Intermech.Interfaces.WebPortal.PswEasyPackage" -->
+        <member name="P:Intermech.Interfaces.WebPortal.PswEasyPackage.NoneCryptStr">
+            <summary>
+            Пароль в открытом виде
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PswEasyPackage.SHA1CryptHash">
+            <summary>
+            Хэш пароля в SHA1
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PswEasyPackage.MD5CryptHash">
+            <summary>
+            Хэш пароля в MD5
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PublicationReceipt">
+            <summary>
+            квитанция публикации
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublicationReceipt.ReceiptType">
+            <summary>
+            Тип
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublicationReceipt.CreateDate">
+            <summary>
+            Дата и время создания
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublicationReceipt.CreatorUser">
+            <summary>
+            Создатель
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublicationReceipt.CreatorSite">
+            <summary>
+            Узел, на котором сформирована квитанция
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublicationReceipt.ActionID">
+            <summary>
+            Идентификатор действия, в рамках которого сформирована квитанция или Consts.UnknownObjectId 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublicationReceipt.ProcessID">
+            <summary>
+            Идентификатор процесса, в рамках которого сформирована квитанция или Consts.UnknownObjectId 
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublicationReceipt.Content">
+            <summary>
+            Содержимое
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PublishAttribute">
+            <summary>
+            Сруктура хранящая информацию об атрибуте опубликованного объекта и его значениях
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishAttribute.Info">
+            <summary>
+            Информация об атрибуте
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishAttribute.Values">
+            <summary>
+            Значения
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishAttribute.Category">
+            <summary>
+            Категория опубликованного атрибута
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PublishAttributeCategory">
+            <summary>
+            Тип атрибута опубликованного объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishAttributeCategory.PublishObject">
+            <summary>
+            Aтрибуты опубликованного объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishAttributeCategory.Object">
+            <summary>
+            Aтрибуты объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishAttributeCategory.PublishRelation">
+            <summary>
+            Aтрибуты опубликованной связи
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishAttributeCategory.Relation">
+            <summary>
+            Aтрибуты связи
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PublishObjectsColumn">
+            <summary>
+            Колонка в таблице с результатами запроса опубликованных объектов на портал
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishObjectsColumn.Name">
+            <summary>
+            Данные строки
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishObjectsColumn.TypeCode">
+            <summary>
+            Код типа данных
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PublishObjectsRow">
+            <summary>
+            Строка в таблице с результатами запроса опубликованных объектов на портал
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishObjectsRow.Data">
+            <summary>
+            Данные строки
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublishObjectsRow.Item(System.Int32)">
+            <summary>
+            Элемент строки
+            </summary>
+            <param name="index">Индекс</param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.PublishObjectsTable">
+            <summary>
+            Таблица с результатами запроса опубликованных объектов на портал
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishObjectsTable.Rows">
+            <summary>
+            Строки таблицы
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishObjectsTable.Columns">
+            <summary>
+            Колонки таблицы
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.PublishObjectsTable.Name">
+            <summary>
+            Имя таблицы
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublishObjectsTable.Item(System.Int32)">
+            <summary>
+            Строка
+            </summary>
+            <param name="index">Индекс</param>
+            <returns></returns>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.PublishRulesConsts.ForbiddenAttributes">
+            <summary>
+            Список запрещенных для публикации атрибутов по-умолчанию
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.RelationTag">
+            <summary>
+             Дополнительные данные, передаваемые с публикуемой связью
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.RemarkInfo">
+            <summary>
+            Информация по атрибуту-замечанию
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.SiteCodesInfo">
+            <summary>
+            Информация о кодах для объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.SiteCodesInfo.ObjectID">
+            <summary>
+            Идентификатор версии объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.SiteCodesInfo.ObjectType">
+            <summary>
+            Тип объекта
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.SiteCodesInfo.Creator">
+            <summary>
+            Создатель
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.SiteCodesInfo.Owner">
+            <summary>
+            Владелец
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.SiteCodesInfo.CompositionOwner">
+            <summary>
+            Владелец состава
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.SiteIDHelper">
+            <summary>
+            Вспомогательные методы для атрибута F_SITE_ID
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.SiteIDHelper.GetCaption(Intermech.Interfaces.WebPortal.ISitesCacheService,System.String)">
+            <summary>
+            Получить расшифровку кодов узлов в виде строки с названиями узлов через запятую
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.SiteIDHelper.IsForeign(Intermech.Interfaces.WebPortal.ISitesCacheService,System.String)">
+            <summary>
+            Функция по SITE_ID объекта определяет чужой объект для текущего узла
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.SiteIDHelper.IsCompositionForeign(Intermech.Interfaces.WebPortal.ISitesCacheService,System.String)">
+            <summary>
+            Функция по SITE_ID объекта определяет чужой состав объекта для текущего узла
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.SiteIDHelper.IsOwner(System.Char,System.String)">
+            <summary>
+            Функция определяет, является ли текущий узел владельцем объекта
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.SiteInfo">
+            <summary>
+            Описывает узел информационной системы
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.SiteInfo.ID">
+            <summary>
+            Идентификатор узла для которого создана данная сессия
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.SiteInfo.GUID">
+            <summary>
+            Глобальный дентификатор узла для которого создана данная сессия
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.SiteInfo.Code">
+            <summary>
+            Код узла для которого создана данная сессия
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.SiteInfo.Caption">
+            <summary>
+            Наименование
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.SiteInfoHelper">
+            <summary>
+            Вспомогательные методы для списка узлов
+            </summary>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.SiteInfoHelper.GetSitesFromDB(Intermech.Interfaces.IUserSession)">
+            <summary>
+            Получить список узлов из БД без фильтрации по типу системы
+            </summary>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.WebPortal.SiteInfoHelper.GetSitesFromDB(Intermech.Interfaces.IUserSession,Intermech.Interfaces.WebPortal.SystemTypes)">
+            <summary>
+            Получить список узлов из БД
+            </summary>
+            <param name="session">Пользовательская сессия</param>
+            <param name="filterType">Фильтр по типу системы</param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.TransferedObject">
+            <summary>
+            Класс, описывающий передаваемый/принимаемый объект/связь
+            между порталом и узлом информационной системы
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.TransferedObject.GUID">
+            <summary>
+            Глобальный идентификатор экземпляра TransferedObject
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObject.ChangesType">
+            <summary>
+            Тип изменения (добавление/изменение/удаление)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.TransferedObject.Category">
+            <summary>
+            Категория (объект/связь)
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.TransferedObject.DataFiles">
+            <summary>
+            Список файлов с данными
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObject.Completed">
+            <summary>
+            Флаг того, что передаваемый/принимаемый объект/связь обработан
+            </summary>
+        </member>
+        <member name="P:Intermech.Interfaces.WebPortal.TransferedObject.Tag">
+            <summary>
+            Дополнительные данные, передаваемые с публикуемым объектом/связью
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.TransferedObjectCategory">
+            <summary>
+            Категория изменяемого объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.Object">
+            <summary>
+            Объект
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.Relation">
+            <summary>
+            Связь
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.ObjectLink">
+            <summary>
+            Объект-ссылка
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.AutoTransfer">
+            <summary>
+            Объект, характеризующий пакет как автоматически транзитный
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.AttributesContainer">
+            <summary>
+            Контейнер с атрибутами объекта
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.GroupObject">
+            <summary>
+            Объект в составе группы
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.GroupRelation">
+            <summary>
+            Связь в группе
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.Receipt">
+            <summary>
+            Квитанция
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.PacketObject">
+            <summary>
+            Объект в составе пакета
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.PacketRelation">
+            <summary>
+            Связь в пакете
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.Packet">
+            <summary>
+            Пакет
+            </summary>
+        </member>
+        <member name="F:Intermech.Interfaces.WebPortal.TransferedObjectCategory.IncompleteRelation">
+            <summary>
+            Связь-пустышка к неполному ссылочному объекту
+            </summary>
+        </member>
+        <member name="T:Intermech.Interfaces.WebPortal.TransferedObjectTag">
+            <summary>
+            Дополнительные данные, передаваемые с публикуемым объектом/связью
+            </summary>
+        </member>
+    </members>
+</doc>

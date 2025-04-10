@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.StructuredStorages</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Data.SQLite.SQLiteDaoContextFactory">
+            <summary>
+            Позволяет реализовать фабрику объектов, связанных с конкретным экземпляром базы данных SQLite.
+            Тип является thread safe, когда его состояние заморожено.
+            </summary>
+        </member>
+        <member name="M:Intermech.Data.SQLite.SQLiteDaoContextFactory.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Data.SQLite.SQLiteDaoContextFactory.DbFilePath">
+            <summary>
+            Возвращает или задает путь к файлу базы данных. Значение свойства может быть не задано.
+            Если значение свойства ConnectionString не задано, то это свойство используется для автоматического
+            заполнения ConnectionString.
+            </summary>
+        </member>
+        <member name="P:Intermech.Data.SQLite.SQLiteDaoContextFactory.CacheSizeInKBytes">
+            <summary>
+            Возвращает или задает кэш базы данных в памяти. Значение свойства может быть не задано.
+            Если значение свойства ConnectionString не задано, то это свойство используется для автоматического
+            заполнения ConnectionString.
+            </summary>
+        </member>
+        <member name="P:Intermech.Data.SQLite.SQLiteDaoContextFactory.AsyncWritesMode">
+            <summary>
+            Возвращает или задает режим асинхронной записи данных на диск. При включении позволяет значительно поднять скорость работы базы данных за счет надежности. Значение свойства может быть не задано.
+            Если значение свойства ConnectionString не задано, то это свойство используется для автоматического
+            заполнения ConnectionString.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1995 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Scripting</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Scripting.Common.ArgContract">
+            <summary>
+            Предоставляет удобные методы для проверки аргументов методов исполнителя сценариев.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ArgContract.CheckScriptName(System.String)">
+            <summary>
+            Проверяет корректность имени сценария.
+            </summary>
+            <param name="scriptName">Имя сценария, в качестве которого можно использовать имя файла сценария</param>
+            <exception cref="T:System.ArgumentException">Имя сценария не задано</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ArgContract.CheckScriptFileName(System.String)">
+            <summary>
+            Проверяет корректность имени файла сценария.
+            </summary>
+            <param name="scriptFileName">Имя файла сценария</param>
+            <exception cref="T:System.ArgumentException">Имя файла сценария не задано</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ArgContract.CheckScriptFullPath(System.String)">
+            <summary>
+            Проверяет корректность абсолютного пути к файлу сценария.
+            </summary>
+            <param name="scriptFullPath">Абсолютный путь к файлу сценария</param>
+            <exception cref="T:System.ArgumentException">Абсолютный путь к файлу сценария не задано или не корректен</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ArgContract.CheckScriptPath(System.String)">
+            <summary>
+            Проверяет корректность пути к файлу сценария.
+            </summary>
+            <param name="scriptPath">Путь к файлу сценария. Может быть как абсолютным, так и относительным</param>
+            <exception cref="T:System.ArgumentException">Путь к файлу сценария не задан или не корректен</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ArgContract.CheckScriptCode(System.String)">
+            <summary>
+            Проверяет корректность кода сценария.
+            </summary>
+            <param name="scriptCode">Код сценария</param>
+            <exception cref="T:System.ArgumentException">Код сценария не задан</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ArgContract.CheckFunctionName(System.String)">
+            <summary>
+            Проверяет корректность имени функции.
+            </summary>
+            <param name="functionName">Имя функции</param>
+            <exception cref="T:System.ArgumentException">Имя функции некорректно</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ArgContract.CheckTypeName(System.String)">
+            <summary>
+            Проверяет корректность имени типа создаваемого объекта.
+            </summary>
+            <param name="typeName">Имя типа типа создаваемого объекта</param>
+            <exception cref="T:System.ArgumentException">Имя типа некорректно</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.CodeModelErrorController">
+            <summary>
+            Реализует подсчет количества ошибок подряд в работе какой-либо возможности <see cref="T:Intermech.Scripting.Common.DesignTime.ICodeModel"/>.
+            После превышения допустимого порога ошибок предлагается отключение этой возможности.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Intermech.Scripting.Common.CodeModelErrorController.#ctor(System.Int32)" -->
+        <member name="P:Intermech.Scripting.Common.CodeModelErrorController.ErrorLimit">
+            <summary>
+            Возвращает максимальное количество ошибок подряд, при превышении которого 
+            предлагается отключение соответствующей возможности <see cref="T:Intermech.Scripting.Common.DesignTime.ICodeModel"/>.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.CodeModelErrorController.ErrorCount">
+            <summary>
+            Текущее количество ошибок подряд.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.CodeModelErrorController.IsCapabilityAllowed">
+            <summary>
+            Возвращает признак, что соответствующая возможность <see cref="T:Intermech.Scripting.Common.DesignTime.ICodeModel"/> может использоваться.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.CodeModelErrorController.IsCapabilityBanned">
+            <summary>
+            Возвращает признак, что соответствующая возможность <see cref="T:Intermech.Scripting.Common.DesignTime.ICodeModel"/> больше не должна использоваться.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.CodeModelErrorController.RegisterError">
+            <summary>
+            Увеличивает счетчик ошибок
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.CodeModelErrorController.Reset">
+            <summary>
+            Сбрасывае счетчик ошибок.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.CurrentProcessHelper.ProcessId">
+            <summary>
+            Возвращает идентификатор текущего процесса.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.CurrentProcessHelper.LocationKey">
+            <summary>
+            Возвращает уникальный ключ расположения текущего процесса на диске.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.CurrentProcessService">
+            <summary>
+            Сервис для получения информации о текущем процессе операционной системы.
+            </summary>
+            <remarks>
+            Реализация класса является thread safe.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Scripting.Common.CurrentProcessService.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.CurrentProcessService.ProcessId">
+            <summary>
+            Возвращает идентификатор текущего процесса.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.CurrentProcessService.LocationKey">
+            <summary>
+            Возвращает уникальный ключ расположения текущего процесса на диске.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.CurrentProcessTempDirectoryService">
+            <summary>
+            Сервис для генерации случайной временной папки для текущего процесса с возможностью
+            удаления файлов, оставшихся от предыдущих запусков этого процесса.
+            </summary>
+            <remarks>
+            Реализация класса является thread safe, а также может вызываться из изолированных AppDomain.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Scripting.Common.CurrentProcessTempDirectoryService.#ctor(System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="basePath">Путь к базовой папке, внути которой будет создана временная папка для текущего процесса</param>
+        </member>
+        <member name="P:Intermech.Scripting.Common.CurrentProcessTempDirectoryService.BasePath">
+            <summary>
+            Возвращает путь к базовой папке, внутри которой будет создана временная папка для текущего процесса
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.CurrentProcessTempDirectoryService.DirectoryPath">
+            <summary>
+            Возвращает путь к временной папке для текущего процесса.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.CurrentProcessTempDirectoryService.CreateDirectory">
+            <summary>
+            Создает временную папку для текущего процесса, а также удаляет файлы, оставшиеся от предыдущих запусков процесса.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.CurrentProcessTempDirectoryService.GetPreviousDirectories">
+            <summary>
+            Возвращает пути к временным папкам текущего процесса, оставшиеся от предыдущих запусков процесса.
+            </summary>
+            <returns>Список путей</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.CodeModelSynchronizationStatus">
+            <summary>
+            Статус синхронизации кодовой модели и редактора исходного кода.
+            </summary>
+        </member>
+        <member name="F:Intermech.Scripting.Common.DesignTime.CodeModelSynchronizationStatus.NonSynchronized">
+            <summary>
+            Нет синхронизации, так как кодовой модели не был передан исходный код.
+            </summary>
+        </member>
+        <member name="F:Intermech.Scripting.Common.DesignTime.CodeModelSynchronizationStatus.Synchronized">
+            <summary>
+            Полная синхронизация: обновление кодовой модели и языковые запросы будут работать
+            </summary>
+        </member>
+        <member name="F:Intermech.Scripting.Common.DesignTime.CodeModelSynchronizationStatus.SynchronizationLost">
+            <summary>
+            Потеря синхронизации: для использования кодовой модели требуется заново передать ей полный исходный код.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.FoldingRegionItem">
+            <summary>
+            Класс-описатель содержащий информацию для свёртки регионов кода
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.FoldingRegionItem.StartOffset">
+            <summary>
+            Начало расположения директивы региона в тексте сценария
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.FoldingRegionItem.RegionName">
+            <summary>
+            Имя региона которое будет отображаться после его сворачивания
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.FoldingRegionItem.EndOffset">
+            <summary>
+            Конец расположения директивы региона в тексте сценария
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.HoverInfo">
+            <summary>
+            Всплывающая подсказка для текста под курсором ввода.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.HoverInfo.#ctor(System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.List{Intermech.Scripting.Common.DesignTime.TaggedTextItem}})">
+            <summary>
+            Создает объект
+            </summary>
+            <param name="taggedTextItems">Список с тэггироваными подсказками (может быть пустым)</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="taggedTextItems"/> содержит null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.HoverInfo.#ctor(System.String)">
+            <summary>
+            Создает объект
+            </summary>
+            <param name="text">Текст подсказки (может быть пустым)</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="text"/> содержит null</exception>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.HoverInfo.Text">
+            <summary>
+            Возвращает текст подсказки.
+            Значение свойства может быть пустым.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.HoverInfo.TaggedTextItems">
+            <summary>
+            Возвращает список с подсказками.
+            Значение свойства может быть пустым.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ICodeCompletionProvider">
+            <summary>
+            Интерфейс провайдера для автодополнения кода сценариев.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ICodeModel">
+            <summary>
+            Интерфейс расширяемой кодовой модели для исходного кода сценариев.
+            Кодовая модель предоставляет языковые сервисы для редактора исходного кода: навигация, автодополнение и пр.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ICodeModel.Log">
+            <summary>
+            Возвращает или задает журнал для протоколирования работы текущего объекта.
+            Значение свойства может быть не задано и равно null.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ICodeModel.ParseOptions">
+            <summary>
+            Возвращает или задает параметры разбора исходного текста сценария.
+            Значение может быть не задано и равно null.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ICodeModel.CheckSynchronizationStatus">
+            <summary>
+            Проверяет статус синхронизации внутреннего состояния кодовой модели и редактора исходного кода сценария.
+            Редактор обязан вызывать этот метод каждый раз перед обновлением кодовой модели и получением языковых данных.
+            В свою очередь, методы обновления кодовой модели и получения языковых данных работают только в состоянии полной синхронизации.
+            </summary>
+            <returns>Статус синхронизации кодовой модели и редактора исходного кода сценария</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ICodeModel.OpenText(System.String)">
+            <summary>
+            Открывает исходный код сценария для дальнейшей работы.
+            После успешного выполнения метода кодовая модель переходит в синхронизированное состояние.
+            Предварительный вызов метода <see cref="M:Intermech.Scripting.Common.DesignTime.ICodeModel.CheckSynchronizationStatus"/> не требуется.
+            </summary>
+            <param name="text">Исходный код сценария</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="text"/> содержит null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ICodeModel.CloseText(System.Boolean)">
+            <summary>
+            Закрывает исходный код сценария и освобождает все связанные с ним ресурсы.
+            После выполнения метода модель переходит в началаное несинхронизированное состояние.
+            Предварительно вызывать метод <see cref="M:Intermech.Scripting.Common.DesignTime.ICodeModel.CheckSynchronizationStatus"/> не требуется.
+            </summary>
+            <param name="throwIfError">Признак, требуется ли пробрасывать дальше необработанные исключения</param>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ICodeModel.ChangeText(System.Collections.Generic.List{Intermech.Scripting.Common.ScriptTextChange})">
+            <summary>
+            Обновляет кодовую модель, передавая ей изменения в исходно коде сценария, которые произошли с момента открытия кода сценария.
+            Предварительно требуется вызвать метод <see cref="M:Intermech.Scripting.Common.DesignTime.ICodeModel.CheckSynchronizationStatus"/> и убедиться в наличии полной синхронизации с редактором.
+            </summary>
+            <param name="changes">Список изменений</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="changes"/> содержит null</exception>
+            <exception cref="T:System.InvalidOperationException">Метод проверки синхронизации не был вызван</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ICodeNavigationService">
+            <summary>
+            Сервис кодовой модели для получения списка типов и их дочерних элементов, содержащихся в тексте сценария.
+            Полученная информация размещается в выпадающих списках и используется для навигации по сценарию.
+            Реализация не должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ICodeNavigationService.GetNavigationItems">
+            <summary>
+            Возвращает список описателей типов с полным именем, расположением и
+            списком дочерних элементов, содержащихся в сценарии.
+            </summary>
+            <returns>Список описателей типов</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IEditableTextDocument">
+            <summary>
+            Абстракция для редактируемого текстового документа, позволяющая работать с ним без преобразования всего документа в одну строку.
+            Реализации этого интерфейса используются для интеграции языковых сервисов и документов IDE.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IEditableTextLine">
+            <summary>
+            Абстракция для строки редактируемого текстового документа.
+            Реализации этого интерфейса используются для интеграции языковых сервисов и документов IDE.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IHoverInfoService">
+            <summary>
+            Сервис кодовой модели для получения всплывающих подсказок для текста под курсором.
+            Как правило, используется для отображения xml-документации при наведении курсора
+            на имена классов, методов, свойств и т.д.
+            Реализация не должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IHoverInfoService.GetHoverInfo(System.Int32)">
+            <summary>
+            Возвращает всплывающую подсказку для текста под курсором.
+            Предварительно требуется вызвать метод <see cref="M:Intermech.Scripting.Common.DesignTime.ICodeModel.CheckSynchronizationStatus"/> и убедиться в наличии полной синхронизации с редактором.
+            </summary>
+            <param name="offset">Смещение курсора в символах от начала текста сценария</param>
+            <returns>Текст всплывающей подсказки (может быть пустой)</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">параметр <paramref name="offset"/> содержит отрицательное значение</exception>
+            <exception cref="T:System.InvalidOperationException">Метод проверки синхронизации не был вызван</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ILanguageExtension">
+            <summary>
+            Интерфейс расширения для скриптовой IDE, которое добавляет поддержку нового языка сценариев.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ILanguageExtension.LanguageInfo">
+            <summary>
+            Предоставляет базовую информацию о языке.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageExtension.CreateLanguageSessionService">
+            <summary>
+            Создает сервис языковых сессий.
+            </summary>
+            <returns>Объект сервиса</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageExtension.CreateAdministrativeScriptTemplate">
+            <summary>
+            Создает шаблон для административного сценария.
+            </summary>
+            <returns>Шаблон административного сценария</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ILanguageSession">
+            <summary>
+            Интерфейс сессии для взаимодействия с языковой средой.
+            Через такую сессию IDE взаимодействует с исполнителем сценариев.
+            Реализация не должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageSession.LoadScriptCode(System.Byte[])">
+            <summary>
+            Читает текст сценария из указанного массива байт.
+            </summary>
+            <param name="content">Массив байт с кодом сценария</param>
+            <returns>Текст сценария и его кодировка</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="content"/> не должен быть равен null</exception>
+            <exception cref="T:Intermech.Scripting.ScriptExecutorException">Не удалось найти указанный файл</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageSession.GetRuntimeOptions(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Возвращает опции среды, необходимые для выполнения сценария.
+            </summary>
+            <param name="scriptProjectOptions">Опции сценария</param>
+            <returns>Опции среды выполнения</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageSession.Execute(System.String,Intermech.Scripting.Common.DesignTime.ScriptDebugInvocationParameters)">
+            <summary>
+            Выполняет код сценария.
+            </summary>
+            <param name="scriptCode">Код сценария</param>
+            <param name="invocationParameters">Параметры вызова сценария</param>
+            <returns>Результат выполнения</returns>
+            <exception cref="T:System.ArgumentException">Не задан код сценария</exception>
+            <exception cref="T:Intermech.Scripting.ScriptStructureException">Сценарий не имеет точки входа</exception>
+            <exception cref="T:Intermech.Scripting.ScriptCompilationException">Синтаксическая ошибка в коде сценария</exception>
+            <exception cref="T:Intermech.Scripting.ScriptExecutorException">Другие ошибки загрузки или компиляции сценария</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ILanguageSessionParameters">
+            <summary>
+            Интерфейс объекта с параметрами создания языковой сессии.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ILanguageSessionParameters.Stdout">
+            <summary>
+            Позволяет задать объект для перехвата потока stdout у исполнителя сценариев.
+            Свойство може быть не задано, если перехват не требуется. Свойство не является обязательным, и
+            конкретные реализации исполнителей сценариев могут его игнорировать.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ILanguageSessionService">
+            <summary>
+            Интерфейс сервиса языковых сессий. Он отвечает за создание новых языковых сессий.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageSessionService.CreateSessionParameters">
+            <summary>
+            Возвращает параметры по умолчанию для создания языковых сессий.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageSessionService.LoadSessionParameters(Intermech.Scripting.Common.DesignTime.ISettingsContainer)">
+            <summary>
+            Загружает параметры создания языковой сессии из контейнера настроек.
+            </summary>
+            <param name="container">Контейнер настроек</param>
+            <returns>Параметры создания языковой сессии</returns>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="container"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageSessionService.SaveSessionParameters(Intermech.Scripting.Common.DesignTime.ISettingsContainer,Intermech.Scripting.Common.DesignTime.ILanguageSessionParameters)">
+            <summary>
+            Загружает параметры создания языковой сессии из контейнера настроек.
+            </summary>
+            <param name="container">Контейнер настроек</param>
+            <param name="parameters">Параметры создания языковой сессии</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="container"/> не должен быть равен null; параметр <paramref name="parameters"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageSessionService.EditSessionParameters(Intermech.Scripting.Common.DesignTime.ILanguageSessionParameters)">
+            <summary>
+            Позволяет изменить параметры по умолчанию для создания языковых сессий.
+            </summary>
+            <param name="parameters">Параметры сессии</param>
+            <returns>Признак, что параметры были изменены, и языковая сессия должна быть пересоздана</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="parameters"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ILanguageSessionService.CreateSession(Intermech.Scripting.Common.DesignTime.ILanguageSessionParameters)">
+            <summary>
+            Создает новую языковую сессию.
+            </summary>
+            <param name="parameters">Параметры сессии</param>
+            <returns>Объект сессии</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="parameters"/> не должен быть равен null</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.InMemoryScriptProjectFile">
+            <summary>
+            Реализация файла сценария в оперативной памяти.
+            Реализация не является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.InMemoryScriptProjectFile.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.InMemoryScriptProjectFile.GetContent">
+            <summary>
+            Возвращает содержимое файла в виде массива байт.
+            </summary>
+            <returns>Содержимое файла</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.InMemoryScriptProjectFile.GetContentAsText(System.Text.Encoding)">
+            <summary>
+            Возвращает содержимое файла в текста.
+            </summary>
+            <param name="encoding">Кодировка файла</param>
+            <returns>Содержимое файла</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.InMemoryScriptProjectFile.SetContent(System.Byte[])">
+            <summary>
+            Задает содержимое файла в виде массива байт.
+            </summary>
+            <param name="content">Содержимое файла</param>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.InMemoryScriptProjectFile.SetContentAsText(System.String,System.Text.Encoding)">
+            <summary>
+            Задает содержимое файла в текста в указанной кодировке.
+            </summary>
+            <param name="text">Содержимое файла</param>
+            <param name="encoding">Кодировка файла</param>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.InMemoryScriptProjectFile.IsEmpty">
+            <summary>
+            Возвращает признак пустого файла.
+            </summary>
+            <returns>Признак пустого файла</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IOverloadInsightHandler">
+            <summary>
+            Интерфейс интерактивного обработчика пользовательского кода для 
+            окна подсказок с сигнатурами методов.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IReadOnlyTextDocument">
+            <summary>
+            Абстракция для текстового документа, доступного только для чтения,
+            позволяющая работать с ним без преобразования всего документа в одну строку.
+            Реализации этого интерфейса используются для интеграции языковых сервисов и документов IDE.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IScriptDebugBehavior">
+            <summary>
+            Интерфейс поведения сценариев во время отладки в IDE.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptDebugBehavior.EditArguments">
+            <summary>
+            Позволяет изменить аргументы сценария, передаваемые ему во время выполнения.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptDebugBehavior.Execute(Intermech.Scripting.Common.DesignTime.ILanguageSession,System.String)">
+            <summary>
+            Выполняет сценарий.
+            </summary>
+            <param name="languageSession">Языковая сессия исполнителя</param>
+            <param name="scriptCode">Код сценария</param>
+            <returns>Результат выполнения сценария</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="languageSession"/> не должен быть равен null; параметр <paramref name="scriptCode"/> не должен быть равен null</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IScriptDisplayBehavior">
+            <summary>
+            Интерфейс поведения сценариев во время отображения в IDE.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptDisplayBehavior.GetDisplayName">
+            <summary>
+            Возвращает имя сценария для отображения в окнах IDE.
+            </summary>
+            <returns>Имя сценария для отображения в окнах IDE</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IScriptProjectFactory">
+            <summary>
+            Интерфейс сервиса создания новых сценариев.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptProjectFactory.CreateEmptyProject(Intermech.Scripting.Common.DesignTime.LanguageInfo)">
+            <summary>
+            Создает новый пустой сценарий на указанном языке.
+            </summary>
+            <param name="languageInfo">Язык сценария</param>
+            <returns>Объект сценария</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="languageInfo"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptProjectFactory.CreateEmptyProject(System.String)">
+            <summary>
+            Создает новый пустой сценарий на указанном языке.
+            </summary>
+            <param name="fileExtension">Расширение файла сценария</param>
+            <returns>Объект сценария</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="fileExtension"/> не должен быть равен null</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IScriptProjectOptionsBehavior">
+            <summary>
+            Интерфейс поведения сценариев во время разбора исходного текста, компиляции, выполнения и отладки.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptProjectOptionsBehavior.GetProjectOptions">
+            <summary>
+            Возвращает опции сценария, которые могут включать опции языка и опции среды выполнения
+            </summary>
+            <returns>Опции сценария</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IScriptProjectRepository">
+            <summary>
+            Интерфейс хранилища сценариев, где единицей хранения является проект, а не отдельный файл.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptProjectRepository.Get(System.Object)">
+            <summary>
+            Возвращает сценарий из хранилища.
+            </summary>
+            <param name="key">Идентификатор сценария</param>
+            <returns>Объект сценария</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="key"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptProjectRepository.Add(Intermech.Scripting.Common.DesignTime.ScriptProject,Intermech.Scripting.Common.DesignTime.ScriptSaveAsParameters)">
+            <summary>
+            Добавляет новый сценарий в хранилище.
+            </summary>
+            <param name="scriptProject">Объект сценария</param>
+            <param name="parameters">Параметры добавления сценария</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="scriptProject"/> не должен быть равен null; параметр <paramref name="parameters"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptProjectRepository.Update(Intermech.Scripting.Common.DesignTime.ScriptProject)">
+            <summary>
+            Обновляет сценарий в хранилище.
+            </summary>
+            <param name="scriptProject">Объект сценария</param>
+            <returns>Объект сценария</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="scriptProject"/> не должен быть равен null</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IScriptReplacementBehavior">
+            <summary>
+            Интерфейс поведения сценариев во время выполнения команды "Заменить" другим сценарием.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptReplacementBehavior.TryGetAnotherScriptProject">
+            <summary>
+            Выбирает из хранилища другой сценарий для замены текущего сценария в IDE.
+            </summary>
+            <returns>Сценарный проект или null</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptReplacementBehavior.AfterReplace(Intermech.Scripting.Common.DesignTime.ScriptProject)">
+            <summary>
+            Обработчик события, вызывающийся после успешной замены текущего сценария в IDE.
+            </summary>
+            <param name="anotherScriptProject">Сценарный проект, на который была выполнена замена</param>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="anotherScriptProject"/> не должен быть равен null</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IScriptSaveChangesBehavior">
+            <summary>
+            Интерфейс поведения сценариев во время загрузки/сохранения в IDE.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptSaveChangesBehavior.TrySaveAs">
+            <summary>
+            Обработчик сохранения новых сценариев, а также существующих сценариев с новым именем.
+            Метод должен запросить у пользователя необходимые параметры и вернуть их в виде контейнера.
+            Пользователь может отказаться от сохранения сценария, в этом случае метод должен вернуть null.
+            </summary>
+            <returns>Параметры сохранения сценария или null</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptSaveChangesBehavior.BeforeSave(Intermech.Scripting.Common.DesignTime.ScriptBeforeSaveEventArgs)">
+            <summary>
+            Обработчик события, вызывающегося перед сохранением изменений.
+            Метод вызывается и для новых, и для измененных существующих сценариев.
+            </summary>
+            <param name="e">Аргументы события</param>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptSaveChangesBehavior.AfterSave(Intermech.Scripting.Common.DesignTime.ScriptAfterSaveEventArgs)">
+            <summary>
+            Обработчик события, вызывающегося после успешного сохранения изменений.
+            Метод вызывается и для новых, и для измененных существующих сценариев.
+            </summary>
+            <param name="e">Аргументы события</param>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IScriptSystemService">
+            <summary>
+            Интерфейс сервиса, позволяющего IDE самостоятельно создавать, загружать и сохранять сценарии.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptSystemService.CreateEmptyProject(Intermech.Scripting.Common.DesignTime.LanguageInfo)">
+            <summary>
+            Создает новый пустой сценарий на указанном языке.
+            </summary>
+            <param name="languageInfo">Язык сценария</param>
+            <returns>Сценарный проект</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="languageInfo"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptSystemService.TryOpenScript(System.Collections.Generic.ICollection{Intermech.Scripting.Common.DesignTime.LanguageInfo})">
+            <summary>
+            Открывает сценарий из хранилища, предлагая пользователю выбрать сценарий с помощью диалога.
+            </summary>
+            <returns>Сценарный проект или null</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.IScriptTextEditorBehavior">
+            <summary>
+            Интерфейс поведения сценариев во время редактирования в IDE.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptTextEditorBehavior.TryCreateCodeModelOptions(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Создает опции для <see cref="T:Intermech.Scripting.Common.DesignTime.ICodeModel"/>
+            </summary>
+            <param name="scriptProjectOptions">Опции сценария</param>
+            <param name="runtimeOptions">Опции среды выполнения</param>
+            <returns>Опции для <see cref="T:Intermech.Scripting.Common.DesignTime.ICodeModel"/></returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.IScriptTextEditorBehavior.TryGetCodeCompletionProvider(System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Возвращает провайдер автодополнения кода сценария.
+            </summary>
+            <param name="xmlDocPathList">Коллекция путей к папкам с xml-документацией</param>
+            <returns>Провайдер автодополнения или null</returns>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="xmlDocPathList"/> не должен быть равен null</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ITextDocument">
+            <summary>
+            Абстракция для текстового документа, позволяющая работать с ним без преобразования всего документа в одну строку.
+            Реализации этого интерфейса используются для интеграции языковых сервисов и документов IDE.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ITextEditorAction">
+            <summary>
+            Базовый интерфейс для команд обработки кода сценария в IDE.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ITextEditorLanguageService">
+            <summary>
+            Интерфейс сервиса расширений для редактора кода сценариев.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.LanguageDescriptor">
+            <summary>
+            Базовый класс для описателей языков сценариев для IDE.
+            Реализация не является thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.LanguageInfo">
+            <summary>
+            Предоставляет информацию об имени языка сценариев, расширении его файлов и др.
+            Реализация является thread-safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.LanguageInfo.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="name">Имя языка</param>
+            <param name="sourceExtension">Расширение для файлов сценариев на этом языке. Должно начинаться с точки</param>
+            <param name="isDynamic">Признак динамически типизированного языка</param>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.LanguageInfo.Name">
+            <summary>
+            Возвращает имя языка программирования.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.LanguageInfo.SourceExtension">
+            <summary>
+            Возвращает расширение для файлов сценариев. Должно начинаться с точки.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.LanguageInfo.IsDynamic">
+            <summary>
+            Возвращает признак динамически типизированного языка.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.LanguageInfo.ToString">
+            <summary>
+            Возвращает текстовое представление объекта.
+            </summary>
+            <returns>Строка и именем языка и расширением его файлов</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.LanguageRegistry">
+            <summary>
+            Реализует сервис регистрации доступных для использования сценарных языков.
+            Реализация не является thread-safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.LanguageRegistry.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.LanguageSession.LoadScriptCode(System.Byte[])">
+            <summary>
+            Читает текст сценария из указанного массива байт.
+            </summary>
+            <param name="content">Массив байт с кодом сценария</param>
+            <returns>Текст сценария и его кодировка</returns>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="content"/> не должен быть равен null</exception>
+            <exception cref="T:Intermech.Scripting.ScriptExecutorException">Не удалось найти указанный файл</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.LanguageSession.DoLoadScriptCode(System.Byte[])">
+            <summary>
+            Читает текст сценария из указанного массива байт.
+            </summary>
+            <param name="content">Массив байт с кодом сценария</param>
+            <returns>Текст сценария и его кодировка</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.LanguageSession.GetRuntimeOptions(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Возвращает опции среды, необходимые для выполнения сценария.
+            </summary>
+            <param name="scriptProjectOptions">Опции сценария</param>
+            <returns>Опции среды выполнения</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.LanguageSession.DoGetRuntimeOptions(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Возвращает опции среды, необходимые для выполнения сценария.
+            </summary>
+            <param name="scriptProjectOptions">Опции сценария</param>
+            <returns>Опции среды выполнения</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.LanguageSession.Execute(System.String,Intermech.Scripting.Common.DesignTime.ScriptDebugInvocationParameters)">
+            <summary>
+            Выполняет код сценария в режиме выполнения анонимного модуля.
+            </summary>
+            <param name="scriptCode">Код сценария</param>
+            <param name="invocationParameters">Параметры вызова сценария</param>
+            <returns>Результат выполнения</returns>
+            <exception cref="T:System.ArgumentException">Не задан код сценария</exception>
+            <exception cref="T:Intermech.Scripting.ScriptStructureException">Сценарий не имеет точки входа</exception>
+            <exception cref="T:Intermech.Scripting.ScriptCompilationException">Синтаксическая ошибка в коде сценария</exception>
+            <exception cref="T:Intermech.Scripting.ScriptExecutorException">Другие ошибки загрузки или компиляции сценария</exception>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.NavigationItem">
+            <summary>
+            Класс-описатель типов и элементов, которые могут встретиться в сценариях
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.NavigationItem.Range">
+            <summary>
+            Диапазон, содержащий полное определение описываемого символа
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.NavigationItem.SelectionRange">
+            <summary>
+            Диапазон, указывающий расположение имени символа
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.NavigationItem.Children">
+            <summary>
+            Список элементов, относящихся к данному типу. Для элементов список пуст
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.NavigationPosition">
+            <summary>
+            Позиция в документе: номер линии и отступ от начала линии. Не zero-based
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.NavigationRange">
+            <summary>
+            Диапазон в документе. Содержит позиции начала и конца диапазона
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ScriptDebugInvocationParameters.ProjectOptions">
+            <summary>
+            Возвращает опции сценария, которые могут включать опции языка и опции среды выполнения.
+            Свойство используется для передачи деталей выполнения сценария в <see cref="T:Intermech.Scripting.Common.DesignTime.ILanguageSession"/>.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ScriptDesignTimeException.#ctor(System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="message">Сообщение исключения</param>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ScriptDesignTimeException.#ctor(System.String,System.Exception)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="message">Сообщение исключения</param>
+            <pparam name="innerException">Вложенное исключение</pparam>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ScriptDesignTimeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="info">Сериализованное представление объекта</param>
+            <param name="context">Контекст сериализации</param>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ScriptProject">
+            <summary>
+            Базовый класс для сценарных проектов в IDE.
+            Реализация не является thread safe.
+            </summary>
+            <remarks>
+            Сценарные проекты являются аналогом .csproj-файлов в Visual Studio.
+            Каждый проект хранит код и свойства одного сценария, задающие способ выполнения и отладки этого сценария.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ScriptProject.#ctor(Intermech.Scripting.Common.DesignTime.LanguageInfo)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="languageInfo">Язык сценария</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="languageInfo"/> не должен быть равен null</exception>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ScriptProject.LanguageInfo">
+            <summary>
+            Возвращает задает язык сценария.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ScriptProject.Name">
+            <summary>
+            Возвращает или задает имя сценария.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ScriptProject.RepositoryKey">
+            <summary>
+            Возвращает или задает идентификатор сценария в хранилище сценариев.
+            Значение свойства может быть не задано, если сценарий еще не был добавлен в хранилище.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ScriptProject.IsNew">
+            <summary>
+            Возвращает признак нового сценария, еще не добавленного в хранилище сценариев.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ScriptProject.File">
+            <summary>
+            Возвращает контейнер для кода сценария.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.DesignTime.ScriptProject.Behaviors">
+            <summary>
+            Возвращает "поведения" сценария для интеграции с IDE.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ScriptProjectFile">
+            <summary>
+            Абстракция для файла сценария, открытого в IDE.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ScriptProjectFile.GetContent">
+            <summary>
+            Возвращает содержимое файла в виде массива байт.
+            </summary>
+            <returns>Содержимое файла</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ScriptProjectFile.GetContentAsText(System.Text.Encoding)">
+            <summary>
+            Возвращает содержимое файла в текста.
+            </summary>
+            <param name="encoding">Кодировка файла</param>
+            <returns>Содержимое файла</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ScriptProjectFile.SetContent(System.Byte[])">
+            <summary>
+            Задает содержимое файла в виде массива байт.
+            </summary>
+            <param name="content">Содержимое файла</param>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ScriptProjectFile.SetContentAsText(System.String,System.Text.Encoding)">
+            <summary>
+            Задает содержимое файла в текста в указанной кодировке.
+            </summary>
+            <param name="text">Содержимое файла</param>
+            <param name="encoding">Кодировка файла</param>
+        </member>
+        <member name="M:Intermech.Scripting.Common.DesignTime.ScriptProjectFile.IsEmpty">
+            <summary>
+            Возвращает признак пустого файла.
+            </summary>
+            <returns>Признак пустого файла</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.DesignTime.ScriptSaveAsParameters">
+            <summary>
+            Параметры сохранения сценария под новым именем. Используется при сохрании и новых сценариев, и
+            существующих сценариев под новым именем.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.EmptyScriptDependencyInjectionService">
+            <summary>
+            Пустой сервис для внедрения зависимостей в объекты сценариев.
+            Реализация класса является thread safe и доступной через remoting.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.EmptyScriptDependencyInjectionService.DoResolveProperties(Intermech.Scripting.Common.ScriptCodeKey,Intermech.Scripting.Common.ScriptInvocationData,System.String[])">
+            <summary>
+            Возвращает значения для свойств сценария.
+            </summary>
+            <param name="scriptCodeKey">Уникальный идентификатор сценария</param>
+            <param name="invocationData">Объект, описывающий обращение к сценарию</param>
+            <param name="propertyTypes">Типы свойств сценария</param>
+            <returns>Массив значений для свойств сценария. Длина массива значений должна совпадать с длиной <paramref name="propertyTypes"/></returns>
+        </member>
+        <member name="E:Intermech.Scripting.Common.IScriptExecutorEvents.ScriptInvocationCompleted">
+            <summary>
+            Событие успешного выполнения сценария.
+            </summary>
+        </member>
+        <member name="E:Intermech.Scripting.Common.IScriptExecutorEvents.ScriptInvocationFailed">
+            <summary>
+            Событие неудачного выполнения сценария.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.IScriptOutputStream">
+            <summary>
+            Интерфейс объекта для перехвата потоков вывода сценария.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.IScriptOutputStream.WriteLine(System.String)">
+            <summary>
+            Выводит строку текста и выполняет переход на следующую строку.
+            </summary>
+            <param name="line">Строка текста для вывода</param>
+        </member>
+        <member name="P:Intermech.Scripting.Common.LRUTextHasher.BaseAlgorithm">
+            <summary>
+            Возвращает базовый алгоритм вычисления хэша.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.LRUTextHasher.MaxTotalLength">
+            <summary>
+            Возвращает ограничение на максимальную общую длину текстов в кэше.
+            При превышении этого ограничения текущий объект начинает удалять самые старые элементы из кэша.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.LRUTextHasher.CacheItemCount">
+            <summary>
+            Возвращает количество элементов в кэше.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.ScriptCodeHashService">
+            <summary>
+            Сервис для хэширования текстов сценариев.
+            Реализация класса является thread safe и может вызываться из изолированных AppDomain.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptCodeHashService.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.ScriptCompiledCodeCache`1">
+            <summary>
+            Сервис для кэширования результатов компиляции сценариев.
+            Реализация класса является thread safe и может вызываться из изолированных AppDomain.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptCompiledCodeCache`1.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.ScriptDependencyInjectionService">
+            <summary>
+            Базовый класс для сервиса внедрения зависимостей в объекты сценариев.
+            Реализация класса должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptDependencyInjectionService.ResolveProperties(Intermech.Scripting.Common.ScriptCodeKey,Intermech.Scripting.Common.ScriptInvocationData,System.String[])">
+            <summary>
+            Возвращает значения для свойств сценария.
+            </summary>
+            <param name="scriptCodeKey">Уникальный идентификатор сценария</param>
+            <param name="invocationData">Объект, описывающий обращение к сценарию</param>
+            <param name="propertyTypes">Типы свойств сценария</param>
+            <returns>Массив значений для свойств сценария. Длина массива значений должна совпадать с длиной <paramref name="propertyTypes"/></returns>
+            <exception cref="T:System.ArgumentNullException">Парамерт <paramref name="scriptCodeKey"/> не должен быть равен null; параметр <paramref name="invocationData"/> не должен быть равен null; параметр <paramref name="propertyTypes"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptDependencyInjectionService.DoResolveProperties(Intermech.Scripting.Common.ScriptCodeKey,Intermech.Scripting.Common.ScriptInvocationData,System.String[])">
+            <summary>
+            Возвращает значения для свойств сценария.
+            </summary>
+            <param name="scriptCodeKey">Уникальный идентификатор сценария</param>
+            <param name="invocationData">Объект, описывающий обращение к сценарию</param>
+            <param name="propertyTypes">Типы свойств сценария</param>
+            <returns>Массив значений для свойств сценария. Длина массива значений должна совпадать с длиной <paramref name="propertyTypes"/></returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.ScriptExecutorServiceBase">
+            <summary>
+            Базовый класс для сервисных объектов ScriptExecutor, работающих в изолированном AppDomain.
+            Реализация класса должна быть thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.ScriptFileNameGenerator">
+            <summary>
+            Сервис для генерации случайных имен файлов сценариев, который гарантирует уникальность имени,
+            даже при вызове из разных AppDomain.
+            </summary>
+            <remarks>
+            Реализация класса является thread safe, а также может вызываться из изолированных AppDomain.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptFileNameGenerator.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="baseDirectory">Путь к папке для временных файлов исполнителя сценариев</param>
+            <param name="baseFileName">Префикс имен файлов для временных файлов исполнителя сценариев</param>
+            <param name="extension">Расширение для временных файлов исполнителя сценариев</param>
+        </member>
+        <member name="P:Intermech.Scripting.Common.ScriptFileNameGenerator.BaseDirectory">
+            <summary>
+            Возвращает путь к папке для временных файлов исполнителя сценариев.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptFileNameGenerator.GetFileNameMask">
+            <summary>
+            Возвращает маску имен файлов для временных файлов исполнителя сценариев.
+            </summary>
+            <returns>Маска имен файлов</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptFileNameGenerator.CreateFileNameWithoutExtension">
+            <summary>
+            Создает и возвращает случайное имя файла без расширения и пути.
+            </summary>
+            <returns>Имя файла без расширения и пути</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptFileNameGenerator.CreateFileName">
+            <summary>
+            Создает и возвращает случайное имя файла с расширением, но без пути.
+            </summary>
+            <returns>Имя файла с расширением, но без пути</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptFileNameGenerator.CreateFilePath">
+            <summary>
+            Создает и возвращает случайное имя файла с расширением и путем.
+            </summary>
+            <returns>Имя файла с расширением и путем</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.ScriptInvocationData">
+            <summary>
+            Базовый класс для контейнера параметров, которые описывают обращение к сценарию.
+            Сам контейнер и его данные размещаются в основном AppDomain приложения.
+            Реализация не обязана быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptInvocationData.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.ScriptInvocationData.Cache">
+            <summary>
+            Возвращает кэш объектов, используемых инфраструктурой выполнения сценариев.
+            Кэш существует только во время выполнения сценария, а после этого очищается.
+            Если объекты в кэше поддерживают IDisposable, то у них будет вызван Dispose().
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.Common.ScriptTextChange">
+            <summary>
+            Содержит информацию об изменении в сценарии
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChange.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Значения  параметров <paramref name="offset"/> и/или <paramref name="removedLength"/> имеют отрицательное значение</exception>
+            <exception cref="T:System.ArgumentNullException">Значение параметра <paramref name="insertedText"/> равно null</exception>
+        </member>
+        <member name="P:Intermech.Scripting.Common.ScriptTextChange.Offset">
+            <summary>
+            Отступ первого символа изменения от начала документа
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.ScriptTextChange.RemovedLength">
+            <summary>
+            Длина удаленного изменением текста
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.ScriptTextChange.InsertedText">
+            <summary>
+            Вставленный данным изменением текст
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChange.Equals(Intermech.Scripting.Common.ScriptTextChange)">
+            <summary>
+            Проверяет эквивалентность текущего и указанного объектов.
+            </summary>
+            <param name="other">Другой объект</param>
+            <returns>true, если объекты эквивалентны, а иначе - false</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChange.Equals(System.Object)">
+            <summary>
+            Проверяет эквивалентность текущего и указанного объектов.
+            </summary>
+            <param name="other">Другой объект</param>
+            <returns>true, если объекты эквивалентны, а иначе - false</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChange.GetHashCode">
+            <summary>
+            Возвращает хеш-код текущего объекта.
+            </summary>
+            <returns>хеш-код текущего объекта</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.ScriptTextChangesBuilder">
+            <summary>
+            Класс служит для хранения и обработки изменений в тексте сценария
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChangesBuilder.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.ScriptTextChangesBuilder.IsEmpty">
+            <summary>
+            Возвращает признак, пуст или заполнен список изменений.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.Common.ScriptTextChangesBuilder.OptimizedBuild">
+            <summary>
+            Задает, требуется ли оптимизировать список изменений (склеивать последовательные).
+            По умолчанию равен 'true'
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChangesBuilder.Clear">
+            <summary>
+            Удаляет все содержащиеся в объекте изменения
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChangesBuilder.Add(Intermech.Scripting.Common.ScriptTextChange)">
+            <summary>
+            Добавляет изменение <paramref name="textChange"/> к коллекции изменений
+            </summary>
+            <param name="textChange">Новое изменение для добавления</param>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChangesBuilder.Build">
+            <summary>
+            Формирует окончательный список изменений. В случае, если соответствующим свойством
+            задано оптимизированное формирование списка, метод склеивает связанные изменения:
+            последовательные добавления и удаления символов
+            </summary>
+            <returns>Окончательный список изменений</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChangesBuilder.BuildOptimizedChangesList">
+            <summary>
+            Оптимизирует список накопленных изменений: склеивает последовательные добавления и удаления символов
+            </summary>
+            <returns>Оптимизированный список изменений</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChangesBuilder.CheckConnectedTextInsertion(Intermech.Scripting.Common.ScriptTextChange,Intermech.Scripting.Common.ScriptTextChange)">
+            <summary>
+            Проверяет, был ли в изменении <paramref name="connectedChange"/> вставлен текст сразу за текстом из изменения <paramref name="change"/>
+            </summary>
+            <param name="change">Текущее изменение в тексте</param>
+            <param name="connectedChange">Изменение, которое может быть связано с текущим</param>
+            <returns>true, если изменения последовательны, false иначе</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChangesBuilder.CheckConnectedTextDeletion(Intermech.Scripting.Common.ScriptTextChange,Intermech.Scripting.Common.ScriptTextChange)">
+            <summary>
+            Проверяет, удалилась ли часть текста из изменений в <paramref name="change"/> изменениями в <paramref name="connectedChange"/>
+            </summary>
+            <param name="change">Текущее изменение в тексте</param>
+            <param name="connectedChange">Изменение, которое может быть связано с текущим</param>
+            <returns>true, если изменения последовательны, false иначе</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.ScriptTextChangesBuilder.FulfillChange(Intermech.Scripting.Common.ScriptTextChange,Intermech.Scripting.Common.ScriptTextChange)">
+            <summary>
+            Проверяет, следует ли изменение <paramref name="connectedChange"/> сразу за <paramref name="change"/>.
+            Если следует, то склеивает данные изменения в одно и возвращает его,
+            в противном случае возвращает неизмененное <paramref name="change"/>
+            </summary>
+            <param name="change">Текущее изменение в тексте</param>
+            <param name="connectedChange">Изменение, которое может быть связано с текущим</param>
+            <returns>Склеенное изменение и true, если изменения связаны, исходное изменение и false в противном случае</returns>
+        </member>
+        <member name="T:Intermech.Scripting.Common.SimpleOutputStream">
+            <summary>
+            Простой объект для перехвата потоков вывода сценария.
+            Реализация не является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.SimpleOutputStream.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.SimpleOutputStream.CopyTo(Intermech.Scripting.Common.IScriptOutputStream)">
+            <summary>
+            Копирует весь вывод сценария в указанный поток.
+            </summary>
+            <param name="destinationStream">Поток, куда должен быть скопирован вывод сценария</param>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="destinationStream"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.Common.SimpleOutputStream.ToArray">
+            <summary>
+            Возвращает весь вывод сценария в виде массива строк.
+            </summary>
+            <returns>Вывод сценария в виде массива строк</returns>
+        </member>
+        <member name="M:Intermech.Scripting.Common.SimpleOutputStream.WriteLine(System.String)">
+            <summary>
+            Выводит строку текста и выполняет переход на следующую строку.
+            </summary>
+            <param name="line">Строка текста для вывода</param>
+        </member>
+        <member name="T:Intermech.Scripting.Common.UniqueIdGenerator">
+            <summary>
+            Сервис для генерации случайных идентификаторов, который гарантирует уникальность
+            даже при вызове из разных AppDomain.
+            </summary>
+            <remarks>
+            Реализация класса является thread safe, а также может вызываться из изолированных AppDomain.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Scripting.Common.UniqueIdGenerator.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.Common.UniqueIdGenerator.CreateId">
+            <summary>
+            Создает и возвращает случайный уникальный идентификатор.
+            </summary>
+            <returns>Случайный уникальный идентификатор</returns>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.CompiledCodeCache">
+            <summary>
+            Сервис для кэширования результатов компиляции C#-сценариев.
+            Реализация класса является thread safe и доступна для обращений из изолированных AppDomain.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.CompileParams">
+            <summary>
+            Класс контейнера параметров, которые описывают параметры компиляции C#-сценария.
+            Объекты этого класса используются для передачи всех необходимых параметров из 
+            основного AppDomain приложения в изолированный AppDomain, где C#-сценарий и будет компилироваться.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.CreateScriptObjectParams">
+            <summary>
+            Класс контейнера параметров, который содержит все необходимое для
+            создания свободного объекта C#-сценария.
+            </summary>
+            <remarks>
+            Реализация является immutable.
+            </remarks>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.CSharpLanguageConsts">
+            <summary>
+            Константы для языка C#.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.EmptySearchPathListProvider">
+            <summary>
+            Пустой провайдер путей поиска сборок, необходимых для компиляции сценария.
+            Реализация класса является thread safe и доступной через remoting.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.EmptySearchPathListProvider.GetSearchPathList">
+            <summary>
+            Возвращает пустую коллекцию путей поиска сборок для компиляции сценария.
+            </summary>
+            <returns>Пустая коллекция путей к каталогам</returns>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ExecuteAgentParams">
+            <summary>
+            Базовый класс контейнера параметров для методов объекта IScriptExecutorAgent.
+            </summary>
+            <remarks>
+            Реализация является immutable.
+            </remarks>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ExecuteParams">
+            <summary>
+            Класс контейнера параметров, который содержит все необходимое для
+            выполнения метода Execute в C#-сценарии.
+            </summary>
+            <remarks>
+            Реализация является immutable.
+            </remarks>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.Hosting.AppDomainSearchPathListProvider">
+            <summary>
+            Провайдер для путей поиска сборок для компиляции сценария, который создает список путей по информации о сборках текущего <see cref="T:System.AppDomain"/>.
+            Реализация должна быть thread safe и доступной через remoting.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.Hosting.AppDomainSearchPathListProvider.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.Hosting.AppDomainSearchPathListProvider.#ctor(System.Boolean)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="useLoadedAssembliesLocations">Признак, что помимо <see cref="P:System.AppDomain.BaseDirectory"/> можно использовать и пути уже загруженных сборок</param>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.Hosting.AppDomainSearchPathListProvider.GetSearchPathList">
+            <summary>
+            Возвращает коллекцию путей поиска сборок для компиляции C#-сценария.
+            </summary>
+            <returns>Коллекция путей к каталогам</returns>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.Hosting.ScriptExecutorOptionsProvider">
+            <summary>
+            Базовый класс для поставщиков опций выполнения C#-сценариев.
+            Реализация класса является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.Hosting.ScriptExecutorOptionsProvider.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.IScriptInvocationOptions">
+            <summary>
+            Опции выполнения C#-сценария.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.IScriptInvocationOptions.EnableDebugInfo">
+            <summary>
+            Включает и выключает добавление отладочной информации в выполняемые сценарии.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.IScriptInvocationOptions.DebugStream">
+            <summary>
+            Возвращает объект для перехвата отладочного вывода выполняемых сценариев.
+            Значение свойства может быть не задано.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.IScriptObjectKeeper">
+            <summary>
+            Интерфейс объекта-хранителя, содержащего проинициализированный и готовый к использованию объект сценария C#.
+            Такие объекты-хранители применяются в тех случаях, когда обращение к сценарию C# не может быть
+            сведено к единственному вызову метода Execute.
+            </summary>
+            <remarks>
+            Реализация не является thread safe. Объекты-хранители и содержащиеся в них объекты сценариев
+            привязаны к потоку выполнения (thread), в котором они были созданы, и могут использоваться 
+            только из этого потока.
+            </remarks>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.IScriptObjectKeeper.ScriptObject">
+            <summary>
+            Возвращает объект сценария C#.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Обращения из других потоков управления запрещены</exception>
+            <exception cref="T:System.ObjectDisposedException">Ресурсы объекта-хранителя и сценария уже были освобождены</exception>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.MainDomainScriptExecutorAgent">
+            <summary>
+            Агент выполнения C#-сценариев в основном AppDomain приложения.
+            Реализация класса не является thread safe.
+            </summary>
+            <remarks>
+            <para>
+            Агент работает в основном AppDomain приложения, в его задачи входит выполнение
+            экземплярных C#-сценариев без статических полей данных.
+            Взаимодействие с родительским объектом выполняется через
+            свойство <see cref="P:Intermech.Scripting.CSharp.ScriptAgentBase.ExecutorServices"/>.</para>
+            <para>
+            Экземпляры агентов этого типа собраны в пул, а в каждый момент времени
+            выполняется только одно обращение к каждому из агентов. Поэтому от них
+            не требуется быть thread safe.</para>
+            <para>
+            Для отладки сценариев в Visual Studio требуется в настройках отладчика Visual Studio
+            отключить опцию "Enable Just My Code" и включить опцию "Use Managed Compatibility Mode".
+            </para>
+            </remarks>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.MainDomainScriptInstanceKeeper">
+            <summary>
+            Объект-хранитель, содержащий проинициализированный и готовый к использованию объект сценария C#.
+            </summary>
+            <remarks>
+            Реализация не является thread safe. Объекты-хранители и содержащиеся в них объекты сценариев
+            привязаны к потоку выполнения (thread), в котором они были созданы, и могут использоваться 
+            только из этого потока.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.MainDomainScriptInstanceKeeper.DoDispose(System.Object)">
+            <summary>
+            Освобождает ресурсы сценария C# и очищает объект сценария.
+            </summary>
+            <param name="scriptObject">Объект сценария</param>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.MainDomainScriptRuntimeHelper">
+            <summary>
+            Реализация является thread safe и immutable.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.RoslynCompilerAgent">
+            <summary>
+            Базовый класс для агентов компиляции C#-сценариев на основе Roslyn.
+            Реализация класса не является thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ScriptArgumentsConverter">
+            <summary>
+            Базовый класс для валидации и преобразования аргументов вызовов C#-сценариев.
+            Реализация класса должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ScriptArgumentsConverter.Convert(System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Проверяет и, при необходимости, выполняет преобразование аргументов вызова сценария.
+            Метод вызывается перед каждым выполнением сценария.
+            </summary>
+            <param name="arguments">Аргументы вызова сценария</param>
+            <exception cref="T:System.ArgumentNullException">Параметр <paramref name="arguments"/> не должен быть равен null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ScriptArgumentsConverter.DoConvert(System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Проверяет и, при необходимости, выполняет преобразование аргументов вызова сценария.
+            Метод вызывается перед каждым выполнением сценария.
+            </summary>
+            <param name="arguments">Аргументы вызова сценария</param>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ScriptCustomErrors">
+            <summary>
+            Ошибки компиляции в C#-сценариях, специфических для IPS.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ScriptDebugTraceListener">
+            <summary>
+            Используется для перехвата отладочного вывода из C#-сценариев.
+            Реализация не является thread safe.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptDebugTraceListener.ThreadId">
+            <summary>
+            Возвращает или задает идентификатор thread,
+            для которого выполняется перехват отладочного вывода.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ScriptExecutor`1.#ctor(`0)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="scriptContext">Контекст выполнения сценариев</param>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptExecutor`1.ScriptContext">
+            <summary>
+            Возвращает контекст выполнения сценариев.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptExecutor`1.ArgumentsConverter">
+            <summary>
+            Возвращает или задает объект для предварительной валидации и преобразования аргументов вызова сценария.
+            Значение свойства может быть не задано и равно null.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptExecutor`1.SearchPathListProvider">
+            <summary>
+            Возвращает или задает провайдер для путей поиска сборок, на которые имеются ссылки из сценариев.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Значение свойства не должно быть равно null</exception>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptExecutor`1.AutoReferencedAssemblies">
+            <summary>
+            Возвращает или задает коллекцию имен файлов сборок, которые всегда передаются компилятору сценариев, даже если они не указаны в самом сценарии.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Значение свойства не должно быть равно null</exception>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptExecutor`1.DependencyInjectionService">
+            <summary>
+            Возвращает или задает сервис для внедрения зависимостей в объекты сценариев.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Значение свойства не должно быть равно null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ScriptExecutor`1.Shutdown">
+            <summary>
+            Освобождает все ресурсы и удаляет все временные файлы, связанные с выполнением сценариев.
+            </summary>
+        </member>
+        <member name="E:Intermech.Scripting.CSharp.ScriptExecutor`1.ScriptInvocationCompleted">
+            <summary>
+            Событие успешного выполнения сценария.
+            </summary>
+        </member>
+        <member name="E:Intermech.Scripting.CSharp.ScriptExecutor`1.ScriptInvocationFailed">
+            <summary>
+            Событие неудачного выполнения сценария.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ScriptExecutorServices">
+            <summary>
+            Реализация класса является thread safe.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptExecutorServices.SearchPathListProvider">
+            <summary>
+            Возвращает или задает провайдер для путей поиска сборок, на которые имеются ссылки из сценариев.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Значение свойства не должно быть равно null</exception>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptExecutorServices.AutoReferencedAssemblies">
+            <summary>
+            Возвращает или задает коллекцию имен файлов сборок, которые всегда передаются компилятору сценариев, даже если они не указаны в самом сценарии.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Значение свойства не должно быть равно null</exception>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptExecutorServices.DependencyInjectionService">
+            <summary>
+            Возвращает сервис для внедрения зависимостей в объекты сценариев.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Значение свойства не должно быть равно null</exception>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ScriptInvocationOptions">
+            <summary>
+            Базовый класс для опций выполнения C#-сценариев.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ScriptInvocationOptions.#ctor(System.Boolean,Intermech.Scripting.Common.IScriptOutputStream)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="enableDebugInfo">Включает и выключает добавление отладочной информации в выполняемые сценарии</param>
+            <param name="debugStream">Объект для перехвата отладочного вывода выполняемых сценариев. Параметр может быть не задан</param>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptInvocationOptions.EnableDebugInfo">
+            <summary>
+            Включает и выключает добавление отладочной информации в выполняемые сценарии.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptInvocationOptions.DebugStream">
+            <summary>
+            Возвращает объект для перехвата отладочного вывода выполняемых сценариев.
+            Значение свойства может быть не задано и равно null.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ScriptObjectKeeper">
+            <summary>
+            Базовый класс объекта-хранителя, содержащего проинициализированный и готовый к использованию объект сценария C#.
+            Такие объекты-хранители применяются в тех случаях, когда обращение к сценарию C# не может быть
+            сведено к единственному вызову метода Execute.
+            </summary>
+            <remarks>
+            Реализация не является thread safe. Объекты-хранители и содержащиеся в них объекты сценариев
+            привязаны к потоку выполнения (thread), в котором они были созданы, и могут использоваться 
+            только из этого потока.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ScriptObjectKeeper.#ctor(System.Int32,System.Object)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="initialThreadId">Идентификатор потока, в котором был создан объект сценария</param>
+            <param name="scriptObject">Объект сценария</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="scriptObject"/> содержит null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ScriptObjectKeeper.Dispose">
+            <summary>
+            Освобождает ресурсы сценария C# и очищает объект сценария.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ScriptObjectKeeper.DoDispose(System.Object)">
+            <summary>
+            Освобождает ресурсы сценария C# и очищает объект сценария.
+            </summary>
+            <param name="scriptObject">Объект сценария</param>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ScriptObjectKeeper.ScriptObject">
+            <summary>
+            Возвращает объект сценария C#.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Обращения из других потоков управления запрещены</exception>
+            <exception cref="T:System.ObjectDisposedException">Ресурсы объекта-хранителя и сценария уже были освобождены</exception>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ScriptObjectKeeper.CheckState">
+            <summary>
+            Проверяет корректность состояния текущего объекта.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.SearchPathListProvider">
+            <summary>
+            Базовый класс для провайдера путей поиска сборок, необходимых для компиляции сценария.
+            Реализация должна быть thread safe и доступной через remoting.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.SearchPathListProvider.GetSearchPathList">
+            <summary>
+            Возвращает коллекцию путей поиска сборок для компиляции сценария.
+            </summary>
+            <returns>Коллекция путей к каталогам</returns>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.CompilerClient">
+            <summary>
+            Клиент для доступа к компилятору C#-сценариев, работающему в изолированном процессе.
+            Реализация является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.CompilerClient.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.CompilerClient.IsConnected">
+            <summary>
+            Возвращает признак, что подключение установлено.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.CompilerClient.GetScriptCompiler">
+            <summary>
+            Возвращает объект компилятора C#-сценариев.
+            </summary>
+            <returns>Объект сервиса</returns>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.ICompilerRoot">
+            <summary>
+            Интерфейс головного объекта компилятора C#-сценариев, работающего в изолированном процессе.
+            Реализация должна быть thread safe
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.ILanguageServerRoot">
+            <summary>
+            Интерфейс головного объекта языковых сервисов C#-сценариев, работающих в изолированном процессе.
+            Реализация должна быть thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.IScriptCompiler">
+            <summary>
+            Базовый интерфейс компилятора C#-сценариев.
+            Реализация должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.IScriptCompiler.GetReferences(System.String,Intermech.Scripting.CSharp.ServiceProcess.ScriptCompilerOptions)">
+            <summary>
+            Возвращает список путей к сборкам, требуемым для компиляции и выполнения сценария.
+            </summary>
+            <param name="scriptCode">Код сценария</param>
+            <param name="options">Опции компиляции сценария</param>
+            <returns>Список путей к сборкам</returns>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="scriptCode"/> содержит null; параметр <paramref name="options"/> содержит null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.IScriptCompiler.CompileToFile(System.String,Intermech.Scripting.CSharp.ServiceProcess.ScriptCompilerOptions)">
+            <summary>
+            Компилирует сценарий в файл.
+            </summary>
+            <param name="scriptFilePath">Путь к файлу с исходным кодом сценария.</param>
+            <param name="options">Опции компиляции сценария</param>
+            <returns>Путь к файлу с кодом сценария</returns>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="scriptFilePath"/> содержит null; параметр <paramref name="options"/> содержит null</exception>
+            <exception cref="T:Intermech.Scripting.ScriptCompilationException">Код сценария содержит ошибки</exception>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.IScriptLanguageServer">
+            <summary>
+            Базовый интерфейс языковых сервисов C#-сценариев.
+            Реализация должна быть thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.IScriptParser">
+            <summary>
+            Интерфейс парсера C#-сценариев.
+            Реализация должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.IScriptParser.GetNavigationItems(System.Uri)">
+            <summary>
+            Возвращает список описателей типов с полным именем, расположением и списком дочерних элементов, содержащихся в сценарии с данным <paramref name="documentUri"/>.
+            </summary>
+            <param name="documentUri">Uri документа</param>
+            <returns>Список описателей типов сценария</returns>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.IScriptParser.GetFoldingRegions(System.Uri)">
+            <summary>
+            Возвращает список регионов содержащихся в сценарии
+            </summary>
+            <param name="documentUri">Uri документа</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.IScriptParser.GetDocumentation(System.Uri,System.Int32)">
+            <summary>
+            Возвращает документацию на указанный элемент в коде сценария
+            </summary>
+            <param name="documentUri">Uri документа</param>
+            <param name="offset">Смещение в символах от начала документа</param>
+            <returns>Документация на элемент в коде сценария</returns>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.LanguageServerClient">
+            <summary>
+            Клиент для доступа к языковым сервисам для C#-сценариев, работающим в изолированном процессе
+            Реализация является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.LanguageServerClient.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.LanguageServerClient.IsConnected">
+            <summary>
+            Возвращает признак, что подключение установлено.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.LanguageServerClient.GetScriptLanguageServer">
+            <summary>
+            Возвращает языковые сервисы C#-сценариев.
+            </summary>
+            <returns>Объект сервиса</returns>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.LanguageServerClient.GetParserService">
+            <summary>
+            Возвращает сервис парсера C#-сценариев.
+            </summary>
+            <returns>Объект сервиса</returns>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.LocalServiceConnector`1">
+            <summary>
+            Вспомогательный объект, который позволяет установить подключение к сервису в текущем процессе,
+            изначально спроектированному для работы в отдельном процессе.
+            </summary>
+            <typeparam name="T">Интерфейс головного объекта приложения</typeparam>
+            <remarks>
+            Реализация не является thread safe.
+            </remarks>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.ScriptCompilerOptions">
+            <summary>
+            Опции компиляции C#-сценария.
+            Реализация не является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.ScriptCompilerOptions.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.ScriptCompilerOptions.AutoReferencedAssemblies">
+            <summary>
+            Возвращает коллекцию имен файлов сборок, которые всегда передаются компилятору сценариев,
+            даже если они не указаны в самом сценарии.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.ScriptCompilerOptions.SearchPathList">
+            <summary>
+            Возвращает список путей для поиска сборок, на которые имеются ссылки из сценариев.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.ScriptCompilerOptions.EnableDebugInfo">
+            <summary>
+            Включает и выключает добавление отладочной информации в код сценария.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.ScriptParseOptions">
+            <summary>
+            Хранит настройки, необходимые для разбора исходного текста сценария на C#
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.ScriptParseOptions.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.ScriptParseOptions.AutoReferencedAssemblies">
+            <summary>
+            Возвращает коллекцию имен файлов сборок, которые всегда передаются компилятору сценариев,
+            даже если они не указаны в самом сценарии.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.ScriptParseOptions.SearchPathList">
+            <summary>
+            Возвращает список путей для поиска сборок, на которые имеются ссылки из сценариев.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.ScriptParseOptions.ToDictionary(Intermech.Scripting.CSharp.ServiceProcess.ScriptParseOptions)">
+            <summary>
+            Преобразует параметры разбора типа <see cref="T:Intermech.Scripting.CSharp.ServiceProcess.ScriptParseOptions"/> к типу <see cref="T:System.Collections.Generic.Dictionary`2"/>
+            </summary>
+            <returns>Полученные параметры разбора в виде словаря либо null, если исходные параметры были равны null</returns>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.ScriptParseOptions.FromDictionary(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Преобразует параметры разбора типа <see cref="T:System.Collections.Generic.Dictionary`2"/> к типу <see cref="T:Intermech.Scripting.CSharp.ServiceProcess.ScriptParseOptions"/>
+            </summary>
+            <returns>Полученные параметры разбора либо null, если исходные словарь был равен null</returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">в словаре <paramref name="parseOptions"/> не найден ключ с именем <see cref="!:LanguageVersionOption"/></exception>
+        </member>
+        <member name="T:Intermech.Scripting.CSharp.ServiceProcess.ServiceProcessConnectionParameters">
+            <summary>
+            Контейнер для параметров подключения к сервисам компиляции C#-сценариев на основе Roslyn.
+            Реализация поддерживает thread safe через заморозку состояния (<see cref="T:Intermech.FreezableObject"/>).
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.CSharp.ServiceProcess.ServiceProcessConnectionParameters.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.ServiceProcessConnectionParameters.SeparateProcessMode">
+            <summary>
+            Включает или выключает режим использования отдельного процесса для
+            размещения сервисов компиляции C#-сценариев. По умолчанию режим включен.
+            Если режим выключен то сервисы компиляции C#-сценариев будут размещены в
+            текущем AppDomain.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.ServiceProcessConnectionParameters.ExecutablePath">
+            <summary>
+            Возвращает или задает путь к основной сборке компилятора C#-сценариев (RoslynScriptCompiler.exe)
+            </summary>
+            <exception cref="T:System.ArgumentException">Значение не должно быть пусто или равно null</exception>
+        </member>
+        <member name="P:Intermech.Scripting.CSharp.ServiceProcess.ServiceProcessConnectionParameters.Global">
+            <summary>
+            Возвращает или задает глобальный экземпляр параметров подключения.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Значение не должно быть null</exception>
+        </member>
+        <member name="T:Intermech.Scripting.PowerShell.Hosting.ScriptExecutorOptionsProvider">
+            <summary>
+            Базовый класс для поставщиков опций выполнения PowerShell-сценариев.
+            Реализация класса является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.PowerShell.Hosting.ScriptExecutorOptionsProvider.#ctor">
+            <summary>
+            Создает объект.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.PowerShell.PowerShellLanguageConsts">
+            <summary>
+            Константы для языка PowerShell.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.PowerShell.ScriptExecutor`1">
+            <summary>
+            Реализация является thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.PowerShell.ScriptExecutor`1.#ctor(`0,System.Int32)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="scriptContext">Контекст выполнения сценариев</param>
+            <param name="runspaceUseCountLimit">Ограничение переиспользования изолированных сред, используемых для выполнения сценариев</param>
+        </member>
+        <member name="P:Intermech.Scripting.PowerShell.ScriptExecutor`1.ScriptContext">
+            <summary>
+            Возвращает контекст выполнения сценариев.
+            </summary>
+        </member>
+        <member name="P:Intermech.Scripting.PowerShell.ScriptExecutor`1.DependencyInjectionService">
+            <summary>
+            Возвращает или задает сервис для внедрения зависимостей в объекты сценариев.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Значение свойства не должно быть равно null</exception>
+        </member>
+        <member name="M:Intermech.Scripting.PowerShell.ScriptExecutor`1.Shutdown">
+            <summary>
+            Освобождает все ресурсы и удаляет все временные файлы, связанные с выполнением сценариев.
+            </summary>
+        </member>
+        <member name="E:Intermech.Scripting.PowerShell.ScriptExecutor`1.ScriptInvocationCompleted">
+            <summary>
+            Событие успешного выполнения сценария.
+            </summary>
+        </member>
+        <member name="E:Intermech.Scripting.PowerShell.ScriptExecutor`1.ScriptInvocationFailed">
+            <summary>
+            Событие неудачного выполнения сценария.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.PowerShell.ScriptInstanceBucket">
+            <summary>
+            Элемент кэша Powershell-сценариев. Он содержит все объекты, относящиеся к одному сценарию.
+            Реализация класса является thread safe.
+            </summary>
+        </member>
+        <member name="T:Intermech.Scripting.ScriptExecutorException">
+            <summary>
+            Базовый класс для собственных исключений исполнителя сценариев.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.ScriptExecutorException.#ctor(System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="message">Сообщение исключения</param>
+        </member>
+        <member name="M:Intermech.Scripting.ScriptExecutorException.#ctor(System.String,System.Exception)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="message">Сообщение исключения</param>
+            <pparam name="innerException">Вложенное исключение</pparam>
+        </member>
+        <member name="M:Intermech.Scripting.ScriptExecutorException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="info">Сериализованное представление объекта</param>
+            <param name="context">Контекст сериализации</param>
+        </member>
+        <member name="T:Intermech.Scripting.ScriptingException">
+            <summary>
+            Базовый класс для всех исключений, связанных с выполнением сценариев.
+            </summary>
+        </member>
+        <member name="M:Intermech.Scripting.ScriptingException.#ctor(System.String)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="message">Сообщение исключения</param>
+        </member>
+        <member name="M:Intermech.Scripting.ScriptingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="message">Сообщение исключения</param>
+            <pparam name="innerException">Вложенное исключение</pparam>
+        </member>
+        <member name="M:Intermech.Scripting.ScriptingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Создает объект.
+            </summary>
+            <param name="info">Сериализованное представление объекта</param>
+            <param name="context">Контекст сериализации</param>
+        </member>
+    </members>
+</doc>

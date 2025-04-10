@@ -1,0 +1,862 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Calendars</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Calendars.CalendarFilterLoader">
+            <summary>
+            Фабрика и загрузчик фильтров для календарей
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarFilterLoader.GetFillingFilter``1">
+            <summary>
+            Создать фильтр для календарей и заполнить его ранее сохраненной инфой
+            Информация храниться для каждого класса наследника ICalendarViewFilter отдельно
+            </summary>
+            <typeparam name="T">Класс наследник ICalendarViewFilter</typeparam>
+            <returns>Фильтр для календарей</returns>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarFilterLoader.SaveFilterSettings``1(``0)">
+            <summary>
+            Сохранение настроек фильтра
+            Настройки хранятся для каждого наследника ICalendarViewFilter отдельно
+            </summary>
+            <typeparam name="T">Тип наследник ICalendarViewFilter</typeparam>
+            <param name="calendarViewFilter">Объект фильтра календарей, настройки которого нужно сохранить</param>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarFilterLoader.LoadSettingsToFilter``1(``0)">
+            <summary>
+            Заполнить фильтр ранее сохраненными настройками.
+            Настройки хранятся для каждого наследника ICalendarViewFilter отдельно
+            </summary>
+            <typeparam name="T">Тип наследник ICalendarViewFilter</typeparam>
+            <param name="calendarViewFilter">Объект фильтра календарей, который нужно заполнить ранее сохраненными настройками</param>
+            <returns></returns>
+        </member>
+        <member name="T:Intermech.Calendars.CalendarLoader">
+            <summary>Фабрика календарей</summary>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarLoader.GetStandardCalendar">
+            <summary>
+            Получить стандартный календарь
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarLoader.GetStandardCalendar(Intermech.Interfaces.IUserSession)">
+            <summary>
+            Получить стандартный календарь
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarLoader.GetOrganizationUnitCalendar(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>
+            Получить календарь подразделения(организации) для объекта
+            </summary>
+            <param name="userSession">Сессия</param>
+            <param name="unitID"></param>
+            <param name="throwIfNotFound"></param>
+            <returns></returns>
+            <exception cref="T:Intermech.ObjectNotFoundException"></exception>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarLoader.FindOrganizationCalendarForUser(Intermech.Interfaces.IUserSession,System.Int64)">
+            <summary>
+            Поиск календаря подразделения для пользователя
+            </summary>
+            <param name="userSession">Сессия</param>
+            <param name="userId">ID пользователя, для которого нужно найти календарь организации</param>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarLoader.GetTempOrganizationUnitCalendar(Intermech.Interfaces.IUserSession,System.Int64,System.Int64,System.Boolean)">
+            <summary>
+            Получить объект календаря организации, без текущей привязки его к пользователю
+            </summary>
+            <param name="userSession">Сессия</param>
+            <param name="unitID"></param>
+            <param name="calendarID"></param>
+            <param name="throwIfNotFound"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Calendars.Library.Init(System.IServiceProvider,Intermech.Interfaces.IUserSession)">
+            <summary>Инициализация сервисов, кэшей и т.п. библиотеки Intermech.Project.Controls</summary>
+        </member>
+        <member name="T:Intermech.Calendars.MetadataLoader">
+            <summary>Загрузчик метаданных IPS.Calendars</summary>
+        </member>
+        <member name="T:Intermech.Calendars.CalendarsService">
+            <summary>Сервис календарей</summary>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarsService.GetCalendar(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>Получить интерфейс календаря по его идентификатору</summary>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarsService.GetCalendar(System.Int64,Intermech.Interfaces.IUserSession)">
+            <summary>Получить интерфейс календаря по его идентификатору</summary>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarsService.GetUserCalendar(Intermech.Interfaces.IUserSession,System.Int64,System.Boolean)">
+            <summary>Получить интерфейс персонального календаря по идентификатору пользователя</summary>
+        </member>
+        <member name="M:Intermech.Calendars.CalendarsService.DayOfWeekToWeekDay(System.DayOfWeek)">
+            <summary>
+            Преобразование стандартного .NET типа DayOfWeek (0-воскресенье ... 6 - суббота)
+            во внутренний тип WeekDay (1-понедельник ... 7 - воскресенье)
+            </summary>
+        </member>
+        <member name="T:Intermech.Calendars.CalendarIDs">
+            <summary>Кэш идентификаторов типов и прочей мета-информации</summary>
+        </member>
+        <member name="P:Intermech.Calendars.CalendarIDs.CalendarsTypeID">
+            <summary>Идентификатор типа объекта "календари"</summary>
+        </member>
+        <member name="T:Intermech.Calendars.Components.Calendar">
+            <summary>Класс хранящийся в объекте типа "Календарь"</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.Calendar.CalendarID">
+            <summary>Идентификатор календаря</summary>
+        </member>
+        <member name="T:Intermech.Calendars.Components.CalendarBase">
+            <summary>Прототип календаря, который используется для наполнения параметрами перед сохранением в БД</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.#ctor">
+            <summary>Конструктор по-умолчанию</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.Name">
+            <summary>Наименование календаря</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.Caption">
+            <summary>Наименование календаря</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.SpecialCalendarDays">
+            <summary>Список всех специальных периодов календарных дней</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.WeekStartDay">
+            <summary>День начала рабочей недели</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.YearStartMonth">
+            <summary>Месяц начала финансового года</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.DefaultStartHour">
+            <summary>Часы начала рабочего времени</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.DefaultStartMinute">
+            <summary>Минуты начала рабочего времени</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.DefaultFinishHour">
+            <summary>Часы окончания рабочего времени</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.DefaultFinishMinute">
+            <summary>Минуты начала рабочего времени</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.HoursInDay">
+            <summary>Рабочих часов в дне</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.HoursInWeek">
+            <summary>Рабочих часов в неделе</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.DaysInMonth">
+            <summary>Рабочих дней в месяце</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.StandardWeek">
+            <summary>
+            Стандартная неделя
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.StandardWorkPeriods">
+            <summary>
+            Рабочие периоды стандартного рабочего дня
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.AdditionalCalendar">
+            <summary>
+            Дополнительный календарь (календарь основа)
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.WhereIsFromAdditionalCalendar">
+            <summary>
+            Откуда взят дополнительный календарь (календарь основа)
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.WriteToXml(System.String,System.Xml.XmlWriter,System.Runtime.Serialization.ObjectIDGenerator)">
+            <summary>Записать поля в XML</summary>
+            <param name="elementName">Имя элемента XML, под которым нужно сохранить данные</param>
+            <param name="xw">XmlWriter</param>
+            <param name="objectRefId">Генератор идентификаторов</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.ReadFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Загрузить из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.ReadFieldFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Прочитать одно поле из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+            <returns>Возвращает true, если поле прочитано</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.SaveToXmlDocument(System.String)">
+            <summary>Сохранение в XML</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.SaveToXmlDocument(System.IO.Stream)">
+            <summary>Сохранение в XML</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.WeekDayToDayOfWeek(Intermech.Interfaces.Calendars.WeekDay)">
+            <summary>
+            Преобразование внутреннего тип WeekDay (1-понедельник ... 7 - воскресенье)
+            в стандартный .NET тип DayOfWeek (0-воскресенье ... 6 - суббота)
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.GetDayByDate(System.DateTime,System.Boolean)">
+            <summary>
+            Получить описание настроек дня по календарной дате
+            </summary>
+            <param name="day">Дата, по которой требуется информация</param>
+            <param name="useAdditionalCalendars">Использовать ли календарь основание</param>
+            <returns>Информация о запрашиваемой дате</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.GetSpecialDaysInPeriod(System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Получить описание настроек дня пересекающихся с календарным периодом
+            </summary>
+            <param name="periodStart">Начало проверяемого периода</param>
+            <param name="periodFinish">Окончание проверяемого периода</param>
+            <param name="useAdditionalCalendars">Использовать информацию из календарей оснований</param>
+            <returns>Коллекция спецпериодов, которые изменяют хотя бы один день из проверяемого периода</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.GetDaysInPeriod(System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Получить описание настроек ВСЕХ дней пересекающихся с календарным периодом
+            </summary>
+            <param name="periodStart">Начало проверяемого периода</param>
+            <param name="periodFinish">Окончание проверяемого периода</param>
+            <param name="useAdditionalCalendars">Использовать информацию из календарей оснований</param>
+            <returns>Коллекция ВСЕХ дней с информацией от и до</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.AddSpecialDay(Intermech.Calendars.Components.SpecialDay)">
+            <summary>Добавить в календарь новый специальный день</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.RecalcHoursInDay">
+            <summary>Обновление данных _hoursInDay и _hoursInWeek. Внутренняя служебная функция</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.Intermech#Interfaces#Calendars#ICalendarBase#StandardWeek">
+            <summary>Стандартная неделя данного календаря</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.Intermech#Interfaces#Calendars#ICalendarBase#SpecialCalendarDays">
+            <summary>Список всех специальных периодов календарных дней</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.Intermech#Interfaces#Calendars#ICalendarBase#WeekStartDay">
+            <summary>День начала рабочей недели</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarBase.Intermech#Interfaces#Calendars#ICalendarBase#StandardWorkPeriods">
+            <summary>Рабочие периоды стандартного рабочего дня (интерфейсов IWorkPeriod)</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.Intermech#Interfaces#Calendars#ICalendarBase#GetDayByDate(System.DateTime,System.Boolean)">
+            <summary>Получить интерфейс описания настроек дня по календарной дате</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.Intermech#Interfaces#Calendars#ICalendarBase#GetSpecialDaysInPeriod(System.DateTime,System.DateTime,System.Boolean)">
+            <summary>Получить описание настроек дня пересекающихся с календарным периодом</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.Intermech#Interfaces#Calendars#ICalendarBase#GetDaysInPeriod(System.DateTime,System.DateTime,System.Boolean)">
+            <summary>Получить описание настроек ВСЕХ дней пересекающихся с календарным периодом</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarBase.SaveParams(Intermech.Interfaces.IBlobWriter)">
+            <summary>Сохранение параметров в атрибут = OwnerGuid</summary>
+        </member>
+        <member name="T:Intermech.Calendars.Components.CalendarInDB">
+            <summary>Класс-описатель календаря в БД</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarInDB.Owner">
+            <summary>Тип контейнера, содержащего календарь</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarInDB.SaveParams(Intermech.Interfaces.IUserSession,System.Boolean)">
+            <summary>Сохранение параметров в объект с guid-ом = OwnerGuid</summary>
+        </member>
+        <member name="T:Intermech.Calendars.Components.CalendarWeekDay">
+            <summary>Класс, Описывающий день недели</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarWeekDay.WeekBase">
+            <summary>Ссылка на стандартную неделю</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarWeekDay.WeekDay">
+            <summary>Номер дня недели</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.CalendarWeekDay.DayOfWeek">
+            <summary>Номер дня недели</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarWeekDay.#ctor(Intermech.Calendars.Components.StandardWeek,Intermech.Interfaces.Calendars.WeekDay,Intermech.Interfaces.Calendars.DayType)">
+            <summary>Базовый конструктор</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarWeekDay.WriteDataToXml(System.Xml.XmlWriter,System.Runtime.Serialization.ObjectIDGenerator)">
+            <summary>Записать поля в XML</summary>
+            <param name="xw">XmlWriter</param>
+            <param name="objectRefId">Генератор идентификаторов</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.CalendarWeekDay.ReadFieldFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Прочитать одно поле из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+            <returns>Возвращает true, если поле прочитано</returns>
+        </member>
+        <member name="T:Intermech.Calendars.Components.DayBase">
+            <summary>Класс, описывающий календарный день</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.DayBase.Calendar">
+            <summary>Ссылка на календарь, которому принадлежит данный день</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.DayBase.DayType">
+            <summary>Тип дня (стандартный рабочий, выходной, нестандартный рабочий)</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.DayBase.WorkTimePeriods">
+            <summary>Список рабочих периодов</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.DayBase.Intermech#Interfaces#Calendars#ICalendarDay#WorkTimePeriods">
+            <summary>Список рабочих периодов</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.#ctor(Intermech.Calendars.Components.CalendarBase)">
+            <summary>Создание стандартного рабочего дня</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.CreateStandardWorkPeriods">
+            <summary>Создать стандартные рабочие периоды</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.CopyWorkTimePeriodsFrom(System.Collections.Generic.IEnumerable{Intermech.Calendars.Components.WorkTime})">
+            <summary>Скопировать рабочие периоды из другого источника</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.CopyParamsFrom(Intermech.Calendars.Components.DayBase)">
+            <summary>Скопировать параметры из другого объекта</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.ChangeDayType">
+            <summary>
+            Автоматически вызывается после смены типа дня
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.WriteToXml(System.String,System.Xml.XmlWriter,System.Runtime.Serialization.ObjectIDGenerator)">
+            <summary>Записать поля в XML</summary>
+            <param name="elementName">Имя элемента XML, под которым нужно сохранить данные</param>
+            <param name="xw">XmlWriter</param>
+            <param name="objectRefId">Генератор идентификаторов</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.WriteDataToXml(System.Xml.XmlWriter,System.Runtime.Serialization.ObjectIDGenerator)">
+            <summary>Записать поля в XML</summary>
+            <param name="xw">XmlWriter</param>
+            <param name="objectRefId">Генератор идентификаторов</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.ReadFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Загрузить из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.ReadFieldFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Прочитать одно поле из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+            <returns>Возвращает true, если поле прочитано</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.DayBase.ReadFromXml(System.Xml.XmlReader)">
+            <summary>Загрузить из XML</summary>
+        </member>
+        <member name="T:Intermech.Calendars.Components.OrganizationUnitCalendar">
+            <summary>Класс хранящийся в объекте типа "Организационная единица"</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.OrganizationUnitCalendar.UnitID">
+            <summary>Идентификатор организационной единицы</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.OrganizationUnitCalendar.SetStandardAdditionalCalendar">
+            <summary>
+            Установить стандартный календарь в качестве подложки
+            </summary>
+        </member>
+        <member name="T:Intermech.Calendars.Components.SpecialDay">
+            <summary>Класс, описывающий специальный период календарных дней</summary>
+        </member>
+        <member name="F:Intermech.Calendars.Components.SpecialDay.MatchingCollectionTypeDay">
+            <summary>
+            Коллекция возможных причин изменения рабочего графика для типов спецпериодов
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.PeriodStartDate">
+            <summary>
+            Дата начала специального периода календарных дней
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.PeriodFinishDate">
+            <summary>
+            Дата окончания специального периода календарных дней
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.DateRepeatRate">
+            <summary>
+            Периодичность повторения специального дня
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.VersionData">
+            <summary>
+            Версия формата хранения данных о спецпериоде
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.ReasonChange">
+            <summary>
+            Причина изменения графика
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.PeriodDescription">
+            <summary>
+            Текстовое описание спец периода
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.TypeSettings">
+            <summary>
+            Тип настройки периода
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.RepeatEveryDay">
+            <summary>
+            Повторять каждый N день
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.RepeatEveryWeek">
+            <summary>
+            Повторять каждую N неделю
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.RepeatEveryMonth">
+            <summary>
+            Повторять каждый N месяц
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.NumberDayOfTheMonth">
+            <summary>
+            Номер дня месяца
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.WeekRepeatNumber">
+            <summary>
+            Неделя для повторения
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.YearMonth">
+            <summary>
+            description
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.WeekDay">
+            <summary>
+            Определенный день недели
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.WeekDays">
+            <summary>
+            Определенные дни недели
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.PeriodSize">
+            <summary>
+            Продолжительность спецпериода в днях от старта до финиша
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.SpecialDay.RepeatCount">
+            <summary>
+            Количество повторов от стрта до финиша спецпериода
+            При установке будет автоматически подсчитан и изменен финиш
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.#ctor(Intermech.Calendars.Components.CalendarBase)">
+            <summary>Конструктор</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.#ctor(Intermech.Calendars.Components.CalendarBase,System.Xml.XmlReader)">
+            <summary>Конструктор</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.CreateCopy(Intermech.Calendars.Components.SpecialDay)">
+            <summary>Создать копию</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.CreateCopy(Intermech.Calendars.Components.SpecialDay,Intermech.Calendars.Components.CalendarBase)">
+            <summary>Создать копию</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.SetStartFinishDates(System.DateTime,System.DateTime)">
+            <summary>Даты начала и окончания специального периода календарных дней</summary>
+            <param name="periodStartDate">Дата начала специального периода календарных дней</param>
+            <param name="periodFinishDate">Дата окончания специального периода календарных дней</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.CheckContinuationCondition(System.Int32,System.Int32,System.DateTime)">
+            <summary>
+            Местный метод проверки условия необходимости продолжения перебора дат
+            при построении коллекции дат которые изменяет спецпериод
+            </summary>
+            <param name="countRepeat">
+                Меньше ноля - если нужно ориентироваться на PeriodFinishDate
+                Или необходимое количество повторов
+            </param>
+            <param name="noteCount">Количество найденных дат</param>
+            <param name="newDate">Очередная дата</param>
+            <returns>Продолжать с новой датой или она уже вышла за пределы настройки</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.GetAllWeekDaysInMonth(System.Int32,System.Int32,System.DayOfWeek)">
+            <summary>
+            Получить все даты с определенным днем недели в месяце
+            </summary>
+            <param name="year">Год</param>
+            <param name="month">Месяц</param>
+            <param name="dayOfWeek">День недели</param>
+            <returns>Коллекция дат в месяце с определенным днем недели</returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.GetNumberWeekDayInMonth(System.Int32,System.Int32,System.DayOfWeek,Intermech.Interfaces.Calendars.WeekRepeatNumber)">
+            <summary>
+            Получить дату с определенным днем недели который встретился в месяце определенное кол-во раз
+            </summary>
+            <param name="year">Год</param>
+            <param name="month">Месяц</param>
+            <param name="dayOfWeek">День недели</param>
+            <param name="weekRepeatNumber">Какой-по счету раз должен встретиться день недели</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.GetAllOnce(System.Int32,System.Nullable{System.DateTime})">
+            <summary>
+            Внутренний метод класса, для поиска дат которые меняет спецпериод при настройке "Каждый день"
+            </summary>
+            <param name="countRepeat">
+                Меньше ноля - если нужно ориентироваться на PeriodFinishDate
+                Или необходимое количество повторов
+            </param>
+            <param name="findConcreteDate">
+                Поиск определенной даты.
+                Если спецпериод изменяет эту дату, то вернется коллекция с одним элементом (искомой датой)
+                Если спецпериод не изменяет эту дату, то вернется пустая коллекция
+            </param>
+            <returns>Коллекция дат, которые изменяет спецпериод при настройке "Каждый день"</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.GetAllEveryWeek(System.Int32,System.Nullable{System.DateTime})">
+            <summary>
+            Внутренний метод класса, для поиска дат которые меняет спецпериод при настройке "Каждую неделю"
+            </summary>
+            <param name="countRepeat">
+                Меньше ноля - если нужно ориентироваться на PeriodFinishDate
+                Или необходимое количество повторов
+            </param>
+            <param name="findConcreteDate">
+                Поиск определенной даты.
+                Если спецпериод изменяет эту дату, то вернется коллекция с одним элементом (искомой датой)
+                Если спецпериод не изменяет эту дату, то вернется пустая коллекция
+            </param>
+            <returns>Коллекция дат, которые изменяет спецпериод при настройке "Каждую неделю"</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.GetAllEveryMonth(System.Int32,System.Nullable{System.DateTime})">
+            <summary>
+            Внутренний метод класса, для поиска дат которые меняет спецпериод при настройке "Каждый месяц"
+            </summary>
+            <param name = "countRepeat" >
+                Меньше ноля - если нужно ориентироваться на PeriodFinishDate
+                Или необходимое количество повторов
+            </param>
+            <param name="findConcreteDate">
+                Поиск определенной даты.
+                Если спецпериод изменяет эту дату, то вернется коллекция с одним элементом (искомой датой)
+                Если спецпериод не изменяет эту дату, то вернется пустая коллекция
+            </param>
+            <returns>Коллекция дат, которые изменяет спецпериод при настройке "Каждый месяц"</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.GetAllEveryYear(System.Int32,System.Nullable{System.DateTime})">
+            <summary>
+            Внутренний метод класса, для поиска дат которые меняет спецпериод при настройке "Каждый год"
+            </summary>
+            <param name = "countRepeat" >
+                Меньше ноля - если нужно ориентироваться на PeriodFinishDate
+                Или необходимое количество повторов
+            </param>
+            <param name="findConcreteDate">
+                Поиск определенной даты.
+                Если спецпериод изменяет эту дату, то вернется коллекция с одним элементом (искомой датой)
+                Если спецпериод не изменяет эту дату, то вернется пустая коллекция
+            </param>
+            <returns>Коллекция дат, которые изменяет спецпериод при настройке "Каждый год"</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.GetAllDatesThatSpecialPeriodChanges(System.Int32,System.Nullable{System.DateTime})">
+            <summary>
+            Получить список всех дат, которые изменяет этот спец период.
+            При необходимости подсчитать и записать PeriodFinishDate
+            </summary>
+            <param name="countRepeat">
+                Количество необходимых повторений (PeriodFinishDate высчитывается автоматом)
+                Или -1 если PeriodFinishDate задан и необходимо выполнить от PeriodStartDate до PeriodFinishDate</param>
+            <param name="findConcreteDate">
+                Поиск определенной даты.
+                Если спецпериод изменяет эту дату, то вернется коллекция с одним элементом (искомой датой)
+                Если спецпериод не изменяет эту дату, то вернется пустая коллекция
+            </param>
+            <returns>Список изменяемых периодом дат</returns>
+            <exception cref="T:Intermech.NotSupportedEnumException"></exception>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.GetChangedDatesBeth(System.DateTime,System.DateTime)">
+            <summary>
+            Получить все даты которые изменяет этот спецпериод в помежутке между датами
+            </summary>
+            <param name="startBeth">Дата начала проверяемого периода</param>
+            <param name="finishBeth">Дата окончания проверяемого периода</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.DoesItChangeTheDate(System.DateTime)">
+            <summary>
+            Проверить изменяет ли данный спецпериод конкретную дату
+            </summary>
+            <param name="checkDate">Проверяемая дата</param>
+            <returns>
+                True - если спецпериод изменяет проверяемую дату
+                Else - если спецпериод НЕ изменяет проверяемую дату
+            </returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.AfterChange">
+            <summary>Автоматически вызывается после изменения данных</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.LockCorrection">
+            <summary>Заблокировать устранения конфликтов в периоде</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.UnlockCorrection">
+            <summary>Разблокировать устранения конфликтов в периоде</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.CorrectPeriods">
+            <summary>Функция устранения конфликтов в периоде</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.ChangeDayType">
+            <summary>
+            Автоматически вызывается после смены типа дня
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.IsItPossibleSet(Intermech.Interfaces.Calendars.SpecialDaysPeriodType)">
+            <summary>
+            Проверка допустимости установки причины изменения рабочего графика в текущий спецпериод
+            </summary>
+            <param name="checkSpecialDaysPeriodType">Проверяемое значение</param>
+            <returns>Допустимость установки</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.CopyParamsFrom(Intermech.Calendars.Components.SpecialDay)">
+            <summary>Скопировать параметры из другого объекта</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.WriteDataToXml(System.Xml.XmlWriter,System.Runtime.Serialization.ObjectIDGenerator)">
+            <summary>Записать поля в XML</summary>
+            <param name="xw">XmlWriter</param>
+            <param name="objectRefId">Генератор идентификаторов</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.ReadFieldFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Прочитать одно поле из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+            <returns>Возвращает true, если поле прочитано</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.SpecialDay.ReadFromXml(System.Xml.XmlReader)">
+            <summary>Загрузить из XML</summary>
+        </member>
+        <member name="T:Intermech.Calendars.Components.StandardWeek">
+            <summary>Класс "Стандартная рабочая неделя"</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Calendar">
+            <summary>Ссылка на календарь, которому принадлежит неделя</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.WeekDays">
+            <summary>Список дней недели</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.StandardWeek.GetDayOfWeek(System.DayOfWeek)">
+            <summary>Список дней недели</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Item(Intermech.Interfaces.Calendars.WeekDay)">
+            <summary>Получить день недели</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.StandardWeek.Intermech#Interfaces#Calendars#IWeekBase#GetDayOfWeek(System.DayOfWeek)">
+            <summary>Получить день недели по стандартному системному типу DayOfWeek</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Intermech#Interfaces#Calendars#IWeekBase#Item(Intermech.Interfaces.Calendars.WeekDay)">
+            <summary>Получить день недели</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Intermech#Interfaces#Calendars#IWeekBase#Monday">
+            <summary>Понедельник</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Intermech#Interfaces#Calendars#IWeekBase#Tuesday">
+            <summary>Вторник</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Intermech#Interfaces#Calendars#IWeekBase#Wednesday">
+            <summary>Среда</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Intermech#Interfaces#Calendars#IWeekBase#Thursday">
+            <summary>Четверг</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Intermech#Interfaces#Calendars#IWeekBase#Friday">
+            <summary>Пятница</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Intermech#Interfaces#Calendars#IWeekBase#Saturday">
+            <summary>Суббота</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.StandardWeek.Intermech#Interfaces#Calendars#IWeekBase#Sunday">
+            <summary>Воскресенье</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.StandardWeek.#ctor(Intermech.Calendars.Components.CalendarBase)">
+            <summary>Базовый конструктор</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.StandardWeek.WriteToXml(System.String,System.Xml.XmlWriter,System.Runtime.Serialization.ObjectIDGenerator)">
+            <summary>Записать поля в XML</summary>
+            <param name="elementName">Имя элемента XML, под которым нужно сохранить данные</param>
+            <param name="xw">XmlWriter</param>
+            <param name="objectRefId">Генератор идентификаторов</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.StandardWeek.ReadFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Загрузить из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.StandardWeek.ReadFieldFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Прочитать одно поле из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+            <returns>Возвращает true, если поле прочитано</returns>
+        </member>
+        <member name="T:Intermech.Calendars.Components.UserCalendar">
+            <summary>Класс хранящийся в объекте типа "Пользователь"</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.UserCalendar.UserID">
+            <summary>Идентификатор пользователя</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.UserCalendar.HireDate">
+            <summary>Дата принятия на работу</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.UserCalendar.FireDate">
+            <summary>Дата Увольнения</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.UserCalendar.SetStandardAdditionalCalendar">
+            <summary>
+            Установить стандартный календарь в качестве подложки
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.UserCalendar.GetAdditionalCalendar">
+            <summary>
+            Календарь основание
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkPeriodsList.Equals(System.Object)">
+            <summary>Determines whether the specified <see cref="T:System.Object" /> is equal to the current <see cref="T:System.Object" />.</summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>true if the specified object  is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkPeriodsList.Equals(System.Collections.Generic.ICollection{Intermech.Calendars.Components.WorkTime})">
+            <summary>Tests if this WorkTimePeriodList is considered equal to another</summary>
+            <param name="otherCollection">The work time period list to compare to this object</param>
+            <returns>true if the objects are considered equal, false if they are not</returns>
+        </member>
+        <member name="T:Intermech.Calendars.Components.WorkTime">
+            <summary>Период рабочего времени</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.WorkTime.StartHours">
+            <summary>Часы начала периода</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.WorkTime.StartMinutes">
+            <summary>Минуты начала периода</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.WorkTime.FinishHours">
+            <summary>Часы окончания периода</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.WorkTime.FinishMinutes">
+            <summary>Минуты окончания периода</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.WorkTime.Duration">
+            <summary>Продолжительности периода</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Components.WorkTime.IsCorrect">
+            <summary>
+            Проверка корректности периода
+             (прежде всего что время начала меньше времени окончания)
+            </summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.LockCorrection">
+            <summary>Заблокировать устранения конфликтов в периоде</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.UnlockCorrection">
+            <summary>Разблокировать устранения конфликтов в периоде</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.AfterChange">
+            <summary>Автоматически вызывается после изменения данных</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.CorrectPeriods">
+            <summary>Функция устранения конфликтов в периоде</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.SetStartTime(System.Int32,System.Int32)">
+            <summary>Установить время начала периода</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.SetFinishTime(System.Int32,System.Int32)">
+            <summary>Установить время начала периода</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.SetStartFinishTime(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Установить время начала периода</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.SetStartFinishTime(System.Int32,System.Int32)">
+            <summary>Установить время начала периода</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.CopyParamsFrom(Intermech.Calendars.Components.WorkTime)">
+            <summary>Скопировать параметры из другого объекта</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.#ctor">
+            <summary>Конструктор по-умолчанию</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Конструктор</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.#ctor(System.Int32,System.Int32)">
+            <summary>Конструктор</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.CreateCopy(Intermech.Calendars.Components.WorkTime)">
+            <summary>Создать копию рабочего дня</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.WriteToXml(System.String,System.Xml.XmlWriter,System.Runtime.Serialization.ObjectIDGenerator)">
+            <summary>Записать поля в XML</summary>
+            <param name="elementName">Имя элемента XML, под которым нужно сохранить данные</param>
+            <param name="xw">XmlWriter</param>
+            <param name="objectRefId">Генератор идентификаторов</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.ReadFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Загрузить из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.ReadFieldFromXml(Intermech.Interfaces.XmlReadArgsIPS)">
+            <summary>Прочитать одно поле из XML</summary>
+            <param name="readArgs">Аргументы чтения из XML</param>
+            <returns>Возвращает true, если поле прочитано</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.ReadFromXml(System.Xml.XmlReader)">
+            <summary>Загрузить из XML</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.WriteToXml(System.Xml.XmlWriter,System.String)">
+            <summary>Сохранение состояния в XML</summary>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.Equals(System.Object)">
+            <summary>Determines whether the specified <see cref="T:System.Object" /> is equal to the current <see cref="T:System.Object" />.</summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>true if the specified object  is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.GetHashCode">
+            <summary>Serves as a hash function for a particular type.</summary>
+            <returns>A hash code for the current <see cref="T:System.Object" />.</returns>
+        </member>
+        <member name="M:Intermech.Calendars.Components.WorkTime.Equals(Intermech.Calendars.Components.WorkTime)">
+            <summary>Tests if this WorkTimePeriod is considered equal to another</summary>
+            <param name="other">The work time period to compare to this object</param>
+            <returns>true if the objects are considered equal, false if they are not</returns>
+        </member>
+        <member name="T:Intermech.Calendars.Filters.ICalendarViewFilter">
+            <summary>
+            Интерфейс для фильтров календарей
+            </summary>
+        </member>
+        <member name="T:Intermech.Calendars.Attributes">
+            <summary>Системные типы атрибутов IPS.Calendars</summary>
+        </member>
+        <member name="T:Intermech.Calendars.Attributes.Consts">
+            <summary>Guid-ы и идентификаторы системных атрибутов IPS.Calendars (строковое представление Guid-ов)</summary>
+        </member>
+        <member name="P:Intermech.Calendars.Services.CalendarsService">
+            <summary><see cref="P:Intermech.Calendars.Services.CalendarsService"/></summary>
+        </member>
+        <member name="T:Intermech.Calendars.CalendarFactory">
+            <summary>Класс-конструктор календарей с его помощью можно получить доступ к календарю по идентификатору.
+                     Автоматически пользует кэш</summary>
+            <exception cref="T:Intermech.Interfaces.Calendars.CalendarNotFoundException">Если календарь с указанным идентификатором не найден и <see cref="!:throwIfNotFound"/>==true</exception>
+        </member>
+        <member name="T:Intermech.Calendars.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Intermech.Calendars.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

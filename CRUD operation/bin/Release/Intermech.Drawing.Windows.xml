@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Drawing.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.Drawing.Windows.UniMatrixW">
+            <summary>
+            Обёртка над Matrix для реализации IUniMatrix
+            </summary>
+        </member>
+    </members>
+</doc>

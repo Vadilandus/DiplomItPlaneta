@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.PdfPrintCenter.Connector</name>
+    </assembly>
+    <members>
+        <member name="T:Intermech.PdfPrintCenter.Connector.IPrintCenterSystem">
+            <summary>
+            Интерфейс головного объекта центра печати, который используется другими приложениями для
+            взаимодействия с центром печати. Реализация должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPrintCenterSystem.ClosePrintCenter">
+            <summary>
+            Закрывает центр печати PDF
+            </summary>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPrintCenterSystem.SetPDMSystem(Intermech.RemotingLite.Ipc.IpcConnectionInfo)">
+            <summary>
+            Передает центру печати параметры подключения к PDM-системе, работающей в связке с центром печати.
+            Метод вызывается PDM-системой после установления подключения к центру печати.
+            </summary>
+            <param name="connectionInfo">Параметры подключения к PDM-системе</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="connectionInfo"/> содержит null</exception>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPrintCenterSystem.AddDocuments(System.Collections.Generic.List{Intermech.PdfPrintCenter.Connector.PDMDocumentInfo})">
+            <summary>
+            Добавляет несколько документов в рабочую область центра печати.
+            </summary>
+            <param name="documents">Массив добавляемых документов PDM-системы</param>
+            <exception cref="T:System.ArgumentNullException">параметр <paramref name="documents"/> содержит null</exception>
+        </member>
+        <member name="T:Intermech.PdfPrintCenter.Connector.IPDMSystem">
+            <summary>
+            Интерфейс головного объекта PDM-системы, который используется центром печати для 
+            взаимодействия с PDM-системой. Реализация должна быть thread safe.
+            </summary>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.ChooseLayout">
+            <summary>
+            Позволяет выбрать макет из списка сохраненных в базе данных
+            </summary>
+            <returns>id выбранного макета (Int64) либо null, если элемент не был выбран</returns>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.GetLayoutsId">
+            <summary>
+            Возвращает список id всех макетов в базе данных
+            </summary>
+            <returns>Список id макетов</returns>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.LoadLayout(System.Object)">
+            <summary>
+            Загружает информацию о макете из базы данных по его id
+            </summary>
+            <param name="layoutId">id макета</param>
+            <returns>Имя макета и информация о нем в xml-формате либо null, если объект не найден</returns>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.SaveLayout(Intermech.PdfPrintCenter.Connector.PDMLayoutInfo,System.Object)">
+            <summary>
+            Сохраняет в базу данных информацию о макете <paramref name="layoutInfo"/>
+            </summary>
+            <param name="layoutInfo">Структура, содержащая имя макета и информацию о нем в формате</param>
+            <param name="layoutId">id макета либо null, если требуется создать новый макет</param>
+            <returns>id сохраненного макета</returns>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.GetPrintersSettings">
+            <summary>
+            Получает из базы данных настройки принтеров в виде xml-документа
+            </summary>
+            <returns>Настройки принтеров в виде xml-документа</returns>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.PutPrintersSettings(System.String)">
+            <summary>
+            Заносит в базу данных настройки принтеров в виде xml-документа 
+            </summary>
+            <param name="xmlPrintersSettings">Настройки принтеров в виде xml-документа </param>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.GetWatermakSettings">
+            <summary>
+            Получает из базы данных настройки водяного знака в виде xml-документа
+            </summary>
+            <returns>Настройки водяного знака в виде xml-документа</returns>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.PutWatermarkSettings(System.String)">
+            <summary>
+            Заносит в базу данных настройки водяного знака в виде xml-документа 
+            </summary>
+            <param name="xmlWatermarkSettings">Настройки водяного знака в виде xml-документа </param>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.GetCurrentUserName">
+            <summary>
+            Возвращает имя пользователя, выводящего на печать документ
+            </summary>
+            <returns>Имя пользователя, выводящего на печать документ</returns>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.GetWindowSettings">
+            <summary>
+            Получает из базы данных настройки основного окна в виде xml-документа
+            </summary>
+            <returns>Настройки основного окна в виде xml-документа</returns>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IPDMSystem.PutWindowSettings(System.String)">
+            <summary>
+            Заносит в базу данных настройки основного окна в виде xml-документа 
+            </summary>
+            <param name="xmlWindowSettings">Настройки основного окна в виде xml-документа </param>
+        </member>
+        <member name="T:Intermech.PdfPrintCenter.Connector.PDMDocumentInfo">
+            <summary>
+            Описатель документа PDM-системы.
+            </summary>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.PDMDocumentInfo.#ctor(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Добавляет новый документ в список документов, доступных для печати.
+            </summary>
+            <param name="objectName">Заголовок документа в PDM-системе</param>
+            <param name="filePaths">Путь к файлу документа на локальном диске</param>
+            <exception cref="T:System.ArgumentException">параметр <paramref name="objectName"/> не задан или равен null; параметр <paramref name="filePaths"/> не задан или равен null;</exception>
+        </member>
+        <member name="P:Intermech.PdfPrintCenter.Connector.PDMDocumentInfo.ObjectName">
+            <summary>
+            Возвращает заголовок документа в PDM-системе.
+            </summary>
+        </member>
+        <member name="P:Intermech.PdfPrintCenter.Connector.PDMDocumentInfo.FilePaths">
+            <summary>
+            Возвращает путь к файлу документа на локальном диске.
+            </summary>
+        </member>
+        <member name="T:Intermech.PdfPrintCenter.Connector.PDMLayoutInfo">
+            <summary>
+            Описатель макета центра печати
+            </summary>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.PDMLayoutInfo.#ctor(System.String,System.String)">
+            <summary>
+            Создаёт экземпляр структуры, хранящей информацию о макете
+            </summary>
+            <param name="layoutName">Заголовок макета</param>
+            <param name="content">Информация о макете в xml-формате</param>
+            <exception cref="T:System.ArgumentException">параметр <paramref name="layoutName"/> не задан или равен null; параметр <paramref name="content"/> не задан или равен null;</exception>
+        </member>
+        <member name="P:Intermech.PdfPrintCenter.Connector.PDMLayoutInfo.Name">
+            <summary>
+            Возвращает имя макета
+            </summary>
+        </member>
+        <member name="P:Intermech.PdfPrintCenter.Connector.PDMLayoutInfo.Content">
+            <summary>
+            Возвращает информацию о макете в xml-формате
+            </summary>
+        </member>
+        <member name="T:Intermech.PdfPrintCenter.Connector.IpcFaultException">
+            <summary>
+            Класс исключений для безопасной передачи по ipc-каналу необработанных исключений из
+            текущего приложения в другое приложение.
+            </summary>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IpcFaultException.#ctor(System.String,System.String)">
+            <summary>
+            Создает объект исключения.
+            </summary>
+            <param name="originalMessage">Исходное сообщение об ошибке</param>
+            <param name="originalStackTrace">Исходный stack trace</param>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IpcFaultException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Создает объект исключения.
+            </summary>
+            <param name="info">Сериализованное представление объекта</param>
+            <param name="context">Контекст сериализации</param>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IpcFaultException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Создает сериализованное представление текущего объекта.
+            </summary>
+            <param name="info">Сериализованное представление объекта</param>
+            <param name="context">Контекст сериализации</param>
+        </member>
+        <member name="M:Intermech.PdfPrintCenter.Connector.IpcFaultException.FromOriginalException(System.Exception)">
+            <summary>
+            Создает исключение типа <see cref="T:Intermech.PdfPrintCenter.Connector.IpcFaultException"/> из исходного исключения
+            текущего приложения для передачи в другое приложение.
+            </summary>
+            <param name="exception">Исходное исключение текущего приложения</param>
+            <returns>Созданное исключение</returns>
+        </member>
+        <member name="P:Intermech.PdfPrintCenter.Connector.IpcFaultException.OriginalStackTrace">
+            <summary>
+            Возвращает исходный stack trace.
+            </summary>
+        </member>
+        <member name="P:Intermech.PdfPrintCenter.Connector.IpcFaultException.StackTrace">
+            <summary>
+            Возвращает комбинированный stack trace исключения, включающий собственный stack trace и
+            исходный stack trace в другом приложении, где произошло исходное исключение.
+            </summary>
+        </member>
+    </members>
+</doc>

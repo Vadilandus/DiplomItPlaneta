@@ -1,0 +1,761 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intermech.Hashes</name>
+    </assembly>
+    <members>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Checksum.CreateCRC16_BUYPASS">
+            <summary>
+            BUYPASS, polynomial = 0x8005
+            </summary>
+            <returns>IHash</returns>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Checksum.CreateCRC32_CASTAGNOLI">
+            <summary>
+            Castagnoli, polynomial = 0x1EDC6F41
+            </summary>
+            <returns>IHash</returns>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Checksum.CreateCRC32_PKZIP">
+            <summary>
+            PKZIP, polynomial = 0x04C11DB7
+            </summary>
+            <returns>IHash</returns>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Checksum.CreateCRC64_ECMA_182">
+            <summary>
+            ECMA-182, polynomial = 0x42F0E1EBA9EA3693
+            </summary>
+            <returns>IHash</returns>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateGost">
+            <summary>
+            Gost Hash Family
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateHaval(Intermech.Hashes.Base.HashRounds,Intermech.Hashes.Base.HashSizeEnum)">
+             <summary>
+            
+             </summary>
+             <param name="a_rounds">3, 4, 5</param>
+             <param name="a_hash_size">128, 160, 192, 224, 256</param>
+             <returns></returns>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateRadioGatun32">
+            <summary>
+            RadioGatun Hash Family
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateGrindahl256">
+            <summary>
+            Grindahl Hash Family
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateRIPEMD">
+            <summary>
+            RIPEMD Hash Family
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateSnefru(System.Int32,Intermech.Hashes.Base.HashSizeEnum)">
+             <summary>
+            
+             </summary>
+             <param name="a_security_level">any Integer value greater than 0. Standard is 8. </param>
+             <param name="a_hash_size">128bit, 256bit</param>
+             <returns></returns>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateMD2">
+            <summary>
+            MD Hash Family
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateSHA0">
+            <summary>
+            SHA Hash Family
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateBlake2B(Intermech.Interfaces.Hashes.IBlake2BConfigurations.IBlake2BConfig,Intermech.Interfaces.Hashes.IBlake2BConfigurations.IBlake2BTreeConfig)">
+            
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateTiger(System.Int32,Intermech.Hashes.Base.HashRounds)">
+            <summary>
+            Tiger Hash
+            </summary>
+            <param name="a_hash_size">16, 20 or 24 bytes. </param>
+            <param name="a_rounds">no of rounds (standard rounds are 3, 4 and 5)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.Crypto.CreateTiger2(System.Int32,Intermech.Hashes.Base.HashRounds)">
+            <summary>
+            Tiger2 Hash
+            </summary>
+            <param name="a_hash_size">16, 20 or 24 bytes. </param>
+            <param name="a_rounds">no of rounds (standard rounds are 3, 4 and 5)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HashFactory.KDF.PBKDF2_HMAC.CreatePBKDF2_HMAC(Intermech.Interfaces.Hashes.IHash,System.Byte[],System.Byte[],System.UInt32)">
+            <summary>
+            Initializes a new interface instance of the TPBKDF2_HMAC class using a password, a salt, a number of iterations and an Instance of an "IHash" to be used as an "IHMAC" hashing implementation to derive the key.
+            </summary>
+            <param name="a_hash">The name of the "IHash" implementation to be transformed to an "IHMAC" Instance so it can be used to derive the key.</param>
+            <param name="a_password">The password to derive the key for.</param>
+            <param name="a_salt">The salt to use to derive the key.</param>
+            <param name="a_iterations">The number of iterations to use to derive the key.</param>
+            <exception cref="T:Intermech.Hashes.Utils.ArgumentNullHashLibException">The password, salt or algorithm is Nil.</exception>
+            <exception cref="T:Intermech.Hashes.Utils.ArgumentHashLibException">The iteration is less than 1.</exception>
+        </member>
+        <member name="M:Intermech.Hashes.Base.HMACNotBuildInAdapter.TransformKey">
+            <summary>
+            Computes the actual key used for hashing. This will not be the same as the
+            original key passed to TransformKey() if the original key exceeds the <br />
+            hash algorithm's block size. (See RFC 2104, section 2)
+            </summary>
+        </member>
+        <member name="T:Intermech.Hashes.Checksum.CRCStandard">
+            <summary>
+            Enum of all defined and implemented CRC standards.
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC3_GSM">
+            <summary>
+            CRC standard named "CRC3_GSM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC3_ROHC">
+            <summary>
+            CRC standard named "CRC3_ROHC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC4_INTERLAKEN">
+            <summary>
+            CRC standard named "CRC4_INTERLAKEN".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC4_ITU">
+            <summary>
+            CRC standard named "CRC4_ITU".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC5_EPC">
+            <summary>
+            CRC standard named "CRC5_EPC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC5_ITU">
+            <summary>
+            CRC standard named "CRC5_ITU".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC5_USB">
+            <summary>
+            CRC standard named "CRC5_USB".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC6_CDMA2000A">
+            <summary>
+            CRC standard named "CRC6_CDMA2000A".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC6_CDMA2000B">
+            <summary>
+            CRC standard named "CRC6_CDMA2000B".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC6_DARC">
+            <summary>
+            CRC standard named "CRC6_DARC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC6_GSM">
+            <summary>
+            CRC standard named "CRC6_GSM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC6_ITU">
+            <summary>
+            CRC standard named "CRC6_ITU".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC7">
+            <summary>
+            CRC standard named "CRC7".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC7_ROHC">
+            <summary>
+            CRC standard named "CRC7_ROHC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC7_UMTS">
+            <summary>
+            CRC standard named "CRC7_UMTS".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8">
+            <summary>
+            CRC standard named "CRC8".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_AUTOSAR">
+            <summary>
+            CRC standard named "CRC8_AUTOSAR".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_BLUETOOTH">
+            <summary>
+            CRC standard named "CRC8_BLUETOOTH".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_CDMA2000">
+            <summary>
+            CRC standard named "CRC8_CDMA2000".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_DARC">
+            <summary>
+            CRC standard named "CRC8_DARC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_DVBS2">
+            <summary>
+            CRC standard named "CRC8_DVBS2".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_EBU">
+            <summary>
+            CRC standard named "CRC8_EBU".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_GSMA">
+            <summary>
+            CRC standard named "CRC8_GSMA".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_GSMB">
+            <summary>
+            CRC standard named "CRC8_GSMB".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_ICODE">
+            <summary>
+            CRC standard named "CRC8_ICODE".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_ITU">
+            <summary>
+            CRC standard named "CRC8_ITU".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_LTE">
+            <summary>
+            CRC standard named "CRC8_LTE".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_MAXIM">
+            <summary>
+            CRC standard named "CRC8_MAXIM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_OPENSAFETY">
+            <summary>
+            CRC standard named "CRC8_OPENSAFETY".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_ROHC">
+            <summary>
+            CRC standard named "CRC8_ROHC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_SAEJ1850">
+            <summary>
+            CRC standard named "CRC8_SAEJ1850".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC8_WCDMA">
+            <summary>
+            CRC standard named "CRC8_WCDMA".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC10">
+            <summary>
+            CRC standard named "CRC10".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC10_CDMA2000">
+            <summary>
+            CRC standard named "CRC10_CDMA2000".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC10_GSM">
+            <summary>
+            CRC standard named "CRC10_GSM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC11">
+            <summary>
+            CRC standard named "CRC11".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC11_UMTS">
+            <summary>
+            CRC standard named "CRC11_UMTS".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC12_CDMA2000">
+            <summary>
+            CRC standard named "CRC12_CDMA2000".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC12_DECT">
+            <summary>
+            CRC standard named "CRC12_DECT".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC12_GSM">
+            <summary>
+            CRC standard named "CRC12_GSM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC12_UMTS">
+            <summary>
+            CRC standard named "CRC12_UMTS".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC13_BBC">
+            <summary>
+            CRC standard named "CRC13_BBC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC14_DARC">
+            <summary>
+            CRC standard named "CRC14_DARC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC14_GSM">
+            <summary>
+            CRC standard named "CRC14_GSM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC15">
+            <summary>
+            CRC standard named "CRC15".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC15_MPT1327">
+            <summary>
+            CRC standard named "CRC15_MPT1327".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.ARC">
+            <summary>
+            CRC standard named "ARC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_AUGCCITT">
+            <summary>
+            CRC standard named "CRC16_AUGCCITT".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_BUYPASS">
+            <summary>
+            CRC standard named "CRC16_BUYPASS".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_CCITTFALSE">
+            <summary>
+            CRC standard named "CRC16_CCITTFALSE".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_CDMA2000">
+            <summary>
+            CRC standard named "CRC16_CDMA2000".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_CMS">
+            <summary>
+            CRC standard named "CRC16_CMS".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_DDS110">
+            <summary>
+            CRC standard named "CRC16_DDS110".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_DECTR">
+            <summary>
+            CRC standard named "CRC16_DECTR".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_DECTX">
+            <summary>
+            CRC standard named "CRC16_DECTX".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_DNP">
+            <summary>
+            CRC standard named "CRC16_DNP".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_EN13757">
+            <summary>
+            CRC standard named "CRC16_EN13757".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_GENIBUS">
+            <summary>
+            CRC standard named "CRC16_GENIBUS".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_GSM">
+            <summary>
+            CRC standard named "CRC16_GSM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_LJ1200">
+            <summary>
+            CRC standard named "CRC16_LJ1200".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_MAXIM">
+            <summary>
+            CRC standard named "CRC16_MAXIM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_MCRF4XX">
+            <summary>
+            CRC standard named "CRC16_MCRF4XX".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_OPENSAFETYA">
+            <summary>
+            CRC standard named "CRC16_OPENSAFETYA".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_OPENSAFETYB">
+            <summary>
+            CRC standard named "CRC16_OPENSAFETYB".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_PROFIBUS">
+            <summary>
+            CRC standard named "CRC16_PROFIBUS".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_RIELLO">
+            <summary>
+            CRC standard named "CRC16_RIELLO".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_T10DIF">
+            <summary>
+            CRC standard named "CRC16_T10DIF".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_TELEDISK">
+            <summary>
+            CRC standard named "CRC16_TELEDISK".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_TMS37157">
+            <summary>
+            CRC standard named "CRC16_TMS37157".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC16_USB">
+            <summary>
+            CRC standard named "CRC16_USB".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRCA">
+            <summary>
+            CRC standard named "CRCA".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.KERMIT">
+            <summary>
+            CRC standard named "KERMIT".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.MODBUS">
+            <summary>
+            CRC standard named "MODBUS".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.X25">
+            <summary>
+            CRC standard named "X25".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.XMODEM">
+            <summary>
+            CRC standard named "XMODEM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC17_CANFD">
+            <summary>
+            CRC standard named "CRC17_CANFD".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC21_CANFD">
+            <summary>
+            CRC standard named "CRC21_CANFD".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC24">
+            <summary>
+            CRC standard named "CRC24".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC24_BLE">
+            <summary>
+            CRC standard named "CRC24_BLE".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC24_FLEXRAYA">
+            <summary>
+            CRC standard named "CRC24_FLEXRAYA".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC24_FLEXRAYB">
+            <summary>
+            CRC standard named "CRC24_FLEXRAYB".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC24_INTERLAKEN">
+            <summary>
+            CRC standard named "CRC24_INTERLAKEN".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC24_LTEA">
+            <summary>
+            CRC standard named "CRC24_LTEA".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC24_LTEB">
+            <summary>
+            CRC standard named "CRC24_LTEB".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC30_CDMA">
+            <summary>
+            CRC standard named "CRC30_CDMA".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC31_PHILIPS">
+            <summary>
+            CRC standard named "CRC31_PHILIPS".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC32">
+            <summary>
+            CRC standard named "CRC32".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC32_AUTOSAR">
+            <summary>
+            CRC standard named "CRC32_AUTOSAR".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC32_BZIP2">
+            <summary>
+            CRC standard named "CRC32_BZIP2".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC32C">
+            <summary>
+            CRC standard named "CRC32C".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC32D">
+            <summary>
+            CRC standard named "CRC32D".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC32_MPEG2">
+            <summary>
+            CRC standard named "CRC32_MPEG2".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC32_POSIX">
+            <summary>
+            CRC standard named "CRC32_POSIX".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC32Q">
+            <summary>
+            CRC standard named "CRC32Q".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.JAMCRC">
+            <summary>
+            CRC standard named "JAMCRC".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.XFER">
+            <summary>
+            CRC standard named "XFER".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC40_GSM">
+            <summary>
+            CRC standard named "CRC40_GSM".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC64">
+            <summary>
+            CRC standard named "CRC64".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC64_GOISO">
+            <summary>
+            CRC standard named "CRC64_GOISO".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC64_WE">
+            <summary>
+            CRC standard named "CRC64_WE".
+            </summary>
+        </member>
+        <member name="F:Intermech.Hashes.Checksum.CRCStandard.CRC64_XZ">
+            <summary>
+            CRC standard named "CRC64_XZ".
+            </summary>
+        </member>
+        <member name="T:Intermech.Hashes.Crypto.Blake2BConfigurations.Blake2XBConfig">
+            <summary>
+            <b>Blake2XBConfig</b> is used to configure hash function parameters and
+            keying.
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Crypto.Blake2BP.Blake2BPCreateLeafParam(Intermech.Interfaces.Hashes.IBlake2BConfigurations.IBlake2BConfig,Intermech.Interfaces.Hashes.IBlake2BConfigurations.IBlake2BTreeConfig)">
+            <summary>
+            <br />Blake2B defaults to setting the expected output length <br />
+            from the <c>HashSize</c> in the <c>Blake2BConfig</c> class. <br />In
+            some cases, however, we do not want this, as the output length <br />
+            of these instances is given by <c>Blake2BTreeConfig.InnerSize</c>
+            instead. <br />
+            </summary>
+        </member>
+        <member name="T:Intermech.Hashes.Crypto.Blake2SConfigurations.Blake2XSConfig">
+            <summary>
+            <b>Blake2XSConfig</b> is used to configure hash function parameters and
+            keying.
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Crypto.Blake2SP.Blake2SPCreateLeafParam(Intermech.Interfaces.Hashes.IBlake2SConfigurations.IBlake2SConfig,Intermech.Interfaces.Hashes.IBlake2SConfigurations.IBlake2STreeConfig)">
+            <summary>
+            <br />Blake2S defaults to setting the expected output length <br />
+            from the <c>HashSize</c> in the <c>Blake2SConfig</c> class. <br />In
+            some cases, however, we do not want this, as the output length <br />
+            of these instances is given by <c>Blake2STreeConfig.InnerSize</c>
+            instead. <br />
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Crypto.CShake.#ctor(System.Int32,System.Byte[],System.Byte[])">
+            <param name="a_hash_size">
+            the HashSize of the underlying Shake function
+            </param>
+            <param name="N">
+            the function name string, note this is reserved for use by NIST.
+            Avoid using if not required
+            </param>
+            <param name="S">
+            the customization string - available for local use
+            </param>
+        </member>
+        <member name="M:Intermech.Hashes.Crypto.Snefru.#ctor(System.Int32,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="a_security_level">Any Integer value greater than 0. Standard is 8. </param>
+             <param name="a_hash_size">128bit, 256bit</param>
+             <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Intermech.Hashes.Hash64.SipHash2_4" -->
+        <member name="M:Intermech.Hashes.KDF.KDFNotBuiltIn.GetBytes(System.Int32)">
+            <summary>
+            Returns the pseudo-random bytes for this object.
+            </summary>
+            <param name="bc">The number of pseudo-random key bytes to generate.</param>
+            <returns>A byte array filled with pseudo-random key bytes.</returns>
+            <exception cref="T:Intermech.Hashes.Utils.ArgumentOutOfRangeHashLibException">bc must be greater than zero.</exception>
+            <exception cref="T:Intermech.Hashes.Utils.ArgumentHashLibException">invalid start index or end index of internal buffer.</exception>
+        </member>
+        <member name="M:Intermech.Hashes.KDF.PBKDF2_HMACNotBuildInAdapter.GetBigEndianBytes(System.UInt32)">
+            <summary>
+            Encodes an integer into a 4-byte array, in big endian.
+            </summary>
+            <param name="i">The integer to encode.</param>
+            <returns>array of bytes, in big endian.</returns>
+        </member>
+        <member name="T:Intermech.Hashes.KDF.PBKDF_Argon2NotBuildInAdapter">
+            <summary>
+            Argon2 PBKDF - Based on the results of https://password-hashing.net/
+            and https://www.ietf.org/archive/id/draft-irtf-cfrg-argon2-03.txt
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.KDF.PBKDF_Argon2NotBuildInAdapter.#ctor(System.Byte[],Intermech.Interfaces.Hashes.IArgon2Parameters)">
+            <summary>
+            Initialise the <see cref="T:Intermech.Hashes.KDF.PBKDF_Argon2NotBuildInAdapter" />
+            from the password and parameters.
+            </summary>
+            <param name="a_Password">
+            the password to use.
+            </param>
+            <param name="a_Parameters">
+            Argon2 configuration.
+            </param>
+        </member>
+        <member name="T:Intermech.Hashes.KDF.PBKDF_ScryptNotBuildInAdapter">
+            <summary>Implementation of the scrypt a password-based key derivation function.</summary>
+            <remarks>
+            Scrypt was created by Colin Percival and is specified in
+            <a href="http://tools.ietf.org/html/draft-josefsson-scrypt-kdf-01">draft-josefsson-scrypt-kd</a>.
+            </remarks>
+        </member>
+        <member name="M:Intermech.Hashes.KDF.PBKDF_ScryptNotBuildInAdapter.GetBytes(System.Int32)">
+            <summary>
+            Returns the pseudo-random bytes for this object.
+            </summary>
+            <param name="ByteCount">The number of pseudo-random key bytes to generate.</param>
+            <returns>A byte array filled with pseudo-random key bytes.</returns>
+            /// <exception cref="T:Intermech.Hashes.Utils.ArgumentOutOfRangeHashLibException">AByteCount must be greater than zero.</exception>
+        </member>
+        <member name="M:Intermech.Hashes.KDF.PBKDF_ScryptNotBuildInAdapter.Rotl(System.UInt32,System.Int32)">
+            <summary>
+            Rotate left
+            </summary>
+            <param name="a_Value">
+            value to rotate
+            </param>
+            <param name="a_Distance">
+            distance to rotate AValue
+            </param>
+            <returns>
+            rotated AValue
+            </returns>
+        </member>
+        <member name="M:Intermech.Hashes.KDF.PBKDF_ScryptNotBuildInAdapter.SalsaCore(System.Int32,System.UInt32[],System.UInt32[]@)">
+            <summary>
+            lifted from <c>ClpSalsa20Engine.pas</c> in CryptoLib4Pascal with
+            minor modifications.
+            </summary>
+        </member>
+        <member name="M:Intermech.Hashes.Utils.LangBuilder.Reducer(System.String)">
+            <summary>
+            Return IHash instance of the requested hash string
+            </summary>
+            <param name="hash_string"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Intermech.Interfaces.Hashes.IKDF.GetBytes(System.Int32)">
+            <summary>
+            Returns the pseudo-random bytes for this object.
+            </summary>
+            <param name="bc">The number of pseudo-random key bytes to generate.</param>
+            <returns>A byte array filled with pseudo-random key bytes.</returns>
+            <exception cref="T:Intermech.Hashes.Utils.ArgumentOutOfRangeHashLibException">bc must be greater than zero.</exception>
+            <exception cref="T:Intermech.Hashes.Utils.ArgumentHashLibException">invalid start index or end index of internal buffer.</exception>
+        </member>
+    </members>
+</doc>
